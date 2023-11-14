@@ -21,11 +21,11 @@
       $stateProvider
         .state('home', {
           url: '/',
-          templateUrl: './html/page1.html'
+          templateUrl: './html/landing.html'
         })
-        .state('page1', {
-          url: '/page1',
-          templateUrl: './html/page2.html'
+        .state('about_us', {
+          url: '/about_us',
+          templateUrl: './html/about_us.html'
         })
         .state('page2', {
           url: '/page2',
@@ -161,7 +161,7 @@
     ($state, $rootScope, $timeout, trans, lang, user) => {
 
       // Transaction events
-			trans.events('home,page1,page2,page3,');
+			trans.events('home,about_us,page2,page3,');
 
       // Initialize language 
       lang.init();
