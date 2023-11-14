@@ -23,14 +23,15 @@
           url: '/',
           templateUrl: './html/landing.html'
         })
-        .state('about_us', {
-          url: '/about_us',
-          templateUrl: './html/about_us.html'
+        .state('page1', {
+          url: '/about',
+          templateUrl: './html/about.html',
+          controller: 'aboutController',
+
         })
         .state('page2', {
-          url: '/page2',
-          templateUrl: './html/page3.html',
-          controller: 'page2Controller'
+          url: '/shop',
+          templateUrl: './html/shop.html',
         })
         .state('page3', {
           url: '/page3',
@@ -161,7 +162,7 @@
     ($state, $rootScope, $timeout, trans, lang, user) => {
 
       // Transaction events
-			trans.events('home,about_us,page2,page3,');
+			trans.events('home,about,page2,page3,');
 
       // Initialize language 
       lang.init();
@@ -836,8 +837,8 @@
     }
   ])
 
-  // Page 2 Controller 
-  .controller('page2Controller', [
+  // about Controller 
+  .controller('aboutController', [
     '$scope',
     '$state',
     '$log', // Inject $log service
