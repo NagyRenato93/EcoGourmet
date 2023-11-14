@@ -5,7 +5,6 @@ require_once('../../../common/php/environment.php');
 // Connect to database
 try {
     $db = new Database(); // Assuming this class handles database connections
-
     // Set query
     $query = "SELECT id,
                     name, 
