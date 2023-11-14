@@ -1,0 +1,439 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  /* Create three columns of equal width */
+  .columns {
+    float: left;
+    width: 33.3%;
+    padding: 8px;
+  }
+  
+  /* Style the list */
+  .price {
+    list-style-type: none;
+    border: 1px solid #eee;
+    margin: 0;
+    padding: 0;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+  }
+  
+  /* Add shadows on hover */
+  .price:hover {
+    box-shadow: 0 8px 12px 0 rgba(0,0,0,0.2)
+  }
+  
+  /* Pricing header */
+  .price .header {
+    background-color: #111;
+    color: white;
+    font-size: 25px;
+  }
+  
+  /* List items */
+  .price li {
+    border-bottom: 1px solid #eee;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  /* Grey list item */
+  .price .grey {
+    background-color: #eee;
+    font-size: 20px;
+  }
+  
+  /* The "Sign Up" button */
+  .button {
+    background-color: #04AA6D;
+    border: none;
+    color: white;
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px;
+  }
+  
+  /* Change the width of the three columns to 100%
+  (to stack horizontally on small screens) */
+  @media only screen and (max-width: 600px) {
+    .columns {
+      width: 100%;
+    }
+  }
+  .hero {
+    background-color: rgba(255, 255, 255, 1);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .hero .div {
+    background-color: rgba(255, 255, 255, 1);
+    background: radial-gradient(50% 50% at 50% 50%, rgb(251, 188, 5) 0%, rgb(255, 143.46, 62.69) 100%);
+    background-image: url(./img/noodle-png77-2.png);
+    background-size: cover;
+    background-position: 50% 50%;
+    width: 1440px;
+    height: 900px;
+    position: relative;
+  }
+  
+  .hero .overlap {
+    position: absolute;
+    width: 987px;
+    height: 774px;
+    top: 76px;
+    left: 100px;
+  }
+  
+  .hero .overlap-group {
+    position: absolute;
+    width: 987px;
+    height: 774px;
+    top: 0;
+    left: 0;
+  }
+  
+  .hero .group {
+    position: absolute;
+    width: 736px;
+    height: 736px;
+    top: 0;
+    left: 252px;
+  }
+  
+  .hero .overlap-group-2 {
+    position: relative;
+    height: 736px;
+  }
+  
+  .hero .ellipse {
+    position: absolute;
+    width: 601px;
+    height: 601px;
+    top: 68px;
+    left: 68px;
+    background-color: #ffffff;
+    border-radius: 300.4px;
+    transform: rotate(-15deg);
+    mix-blend-mode: soft-light;
+    opacity: 0.5;
+  }
+  
+  .hero .frame-rotate-wrapper {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    top: 74px;
+    left: 68px;
+  }
+  
+  .hero .frame-rotate {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    top: 43px;
+    left: 51px;
+    background-image: url(./img/noodle-png77-1.png);
+    background-size: cover;
+    background-position: 50% 50%;
+  }
+  
+  .hero .enjoy-delicious {
+    position: absolute;
+    width: 330px;
+    top: 217px;
+    left: 0;
+    font-family: "Inter-Black", Helvetica;
+    font-weight: 900;
+    color: #ffffff;
+    font-size: 64px;
+    letter-spacing: 0.96px;
+    line-height: normal;
+  }
+  
+  .hero .frame {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    position: absolute;
+    top: 697px;
+    left: 496px;
+  }
+  
+  .hero .text-wrapper {
+    position: relative;
+    width: fit-content;
+    margin-top: -1px;
+    font-family: "Inter-ExtraBold", Helvetica;
+    font-weight: 800;
+    color: #ffffff;
+    font-size: 24px;
+    text-align: center;
+    letter-spacing: 0.36px;
+    line-height: normal;
+  }
+  
+  .hero .p {
+    width: 247.39px;
+    font-family: "Lato-Regular", Helvetica;
+    font-weight: 400;
+    font-size: 16px;
+    text-align: center;
+    letter-spacing: 0.24px;
+    line-height: normal;
+    position: relative;
+    color: #ffffff;
+  }
+  
+  .hero .frame-2 {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    position: absolute;
+    top: 726px;
+    left: 0;
+  }
+  
+  .hero .price {
+    width: fit-content;
+    margin-top: -1px;
+    font-family: "Lato-Bold", Helvetica;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 4px;
+    line-height: 14px;
+    white-space: nowrap;
+    position: relative;
+    color: #ffffff;
+  }
+  
+  .hero .text-wrapper-2 {
+    position: relative;
+    width: fit-content;
+    font-family: "Lato-ExtraBold", Helvetica;
+    font-weight: 800;
+    color: #ffffff;
+    font-size: 24px;
+    letter-spacing: 0;
+    line-height: 24px;
+    white-space: nowrap;
+  }
+  
+  .hero .text-wrapper-3 {
+    position: absolute;
+    width: 165px;
+    top: 464px;
+    left: 0;
+    font-family: "Lato-Regular", Helvetica;
+    font-weight: 400;
+    color: #ffffff;
+    font-size: 16px;
+    letter-spacing: 0.24px;
+    line-height: normal;
+  }
+  
+  .hero .scroll {
+    position: absolute;
+    width: 31px;
+    height: 343px;
+    top: 278px;
+    left: 1109px;
+  }
+  
+  .hero .icon {
+    position: absolute;
+    width: 21px;
+    height: 46px;
+    top: 297px;
+    left: 8px;
+    background-image: url(./img/union.svg);
+    background-size: 100% 100%;
+  }
+  
+  .hero .arrow {
+    position: absolute;
+    width: 7px;
+    height: 28px;
+    top: 10px;
+    left: 7px;
+    object-fit: cover;
+  }
+  
+  .hero .scroll-to-see-more {
+    position: absolute;
+    width: 272px;
+    top: 122px;
+    left: -122px;
+    transform: rotate(90deg);
+    font-family: "Lato-ExtraBold", Helvetica;
+    font-weight: 800;
+    color: var(--colorswhite);
+    font-size: 12.6px;
+    letter-spacing: 6px;
+    line-height: 26.2px;
+    white-space: nowrap;
+  }
+  
+  .hero .frame-3 {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 2px;
+    position: absolute;
+    top: 802px;
+    left: 1212px;
+  }
+  
+  .hero .preparation {
+    position: relative;
+    width: fit-content;
+    margin-top: -1px;
+    font-family: "Lato-Bold", Helvetica;
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 14px;
+    letter-spacing: 2px;
+    line-height: 14px;
+    white-space: nowrap;
+  }
+  
+  .hero .frame-4 {
+    display: flex;
+    width: 1240px;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 20px;
+    left: 100px;
+  }
+  
+  .hero .cooksnmore-logo {
+    position: relative;
+    width: 73.46px;
+    height: 36.8px;
+  }
+  
+  .hero .navbar {
+    display: flex;
+    height: 22px;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    position: relative;
+    flex: 1;
+    flex-grow: 1;
+  }
+  
+  .hero .text-wrapper-4 {
+    position: relative;
+    width: fit-content;
+    font-family: "Lato-Regular", Helvetica;
+    font-weight: 400;
+    color: #ffffff;
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: normal;
+    white-space: nowrap;
+  }
+  
+  .hero .signup-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 8px 26px;
+    position: relative;
+    flex: 0 0 auto;
+    border-radius: 31px;
+    border: 2px solid;
+    border-color: #ffffff;
+    all: unset;
+    box-sizing: border-box;
+  }
+  
+  .hero .text-wrapper-5 {
+    position: relative;
+    width: fit-content;
+    margin-top: -2px;
+    font-family: "Inter-Regular", Helvetica;
+    font-weight: 400;
+    color: #ffffff;
+    font-size: 14px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: 22.1px;
+    white-space: nowrap;
+  }
+  
+  .hero .frame-wrapper {
+    position: absolute;
+    width: 164px;
+    height: 508px;
+    top: 196px;
+    left: 1176px;
+    background-color: #ffffff;
+    border-radius: 97px;
+    overflow: hidden;
+    box-shadow: 18px 39px 69px 4px #00000040;
+  }
+  
+  .hero .frame-5 {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 48px;
+    position: relative;
+    top: 40px;
+    left: 8px;
+  }
+  
+  .hero .goat-meat {
+    position: relative;
+    width: 92px;
+    height: 92px;
+  }
+  
+  .hero .noodle {
+    width: 164px;
+    height: 198px;
+    margin-left: -8px;
+    margin-right: -8px;
+    position: relative;
+    object-fit: cover;
+  }
+  
+  .hero .img {
+    margin-bottom: -341px;
+    position: relative;
+    width: 92px;
+    height: 92px;
+    margin-right: -1890px;
+  }
+  
+  .hero .noodle-png {
+    width: 92px;
+    height: 92px;
+    margin-bottom: -481px;
+    margin-right: -1982px;
+    position: relative;
+    object-fit: cover;
+  }
+  
+  .hero .goat-meat-2 {
+    margin-bottom: -621px;
+    position: relative;
+    width: 92px;
+    height: 92px;
+    margin-right: -1890px;
+  }
+  :root {
+    --colorswhite: rgba(252, 252, 252, 1);
+  }
+  
