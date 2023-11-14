@@ -23,8 +23,8 @@
           url: '/',
           templateUrl: './html/landing.html'
         })
-        .state('about_us', {
-          url: '/about_us',
+        .state('page1', {
+          url: '/about',
           templateUrl: './html/about_us.html'
         })
         .state('page2', {
