@@ -6,7 +6,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    animation: slider-one 12s linear infinite;
+    animation: slider-one 20s linear infinite;
     overflow: hidden;
   }
   
@@ -18,7 +18,7 @@
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    animation: zoom-out 3s linear infinite;
+    animation: zoom-out 15s linear infinite;
   }
   
   /* A következő szabályok formázzák a slider szövegeket, beleértve a címet és a szöveget. */
@@ -29,9 +29,9 @@
     color: #fff;
     width: 600px;
     text-transform: capitalize;
-    animation: text-up 12s linear infinite;
+    animation: text-up 15s linear infinite;
     transform: translateY(100px);
-    animation-delay: 0s;
+    animation-delay: 20s;
   }
   
   /* A következő szabályok formázzák a címeket a slider szövegekben. */
@@ -48,7 +48,7 @@
   
   /* A következő szabályok a második slider elemre vonatkoznak, és beállítják az annak hátterét és animációját. */
   .slider-two {
-    animation: slider-two 12s linear infinite;
+    animation: slider-two 20s linear infinite;
   }
   
   .slider-two .slider-two-image {
@@ -56,12 +56,12 @@
   }
   
   .slider-two .slider-two-image .slider-text {
-    animation-delay: 3s;
+    animation-delay: 20s;
   }
   
   /* A következő szabályok a harmadik slider elemre vonatkoznak, és beállítják az annak hátterét és animációját. */
   .slider-three {
-    animation: slider-three 12s linear infinite;
+    animation: slider-three 20s linear infinite;
   }
   
   .slider-three .slider-three-image {
@@ -74,7 +74,7 @@
   
   /* A következő szabályok a negyedik slider elemre vonatkoznak, és beállítják az annak hátterét és animációját. */
   .slider-four {
-    animation: slider-four 12s linear infinite;
+    animation: slider-four 20s linear infinite;
   }
   
   .slider-four .slider-four-image {
@@ -82,7 +82,7 @@
   }
   
   .slider-four .slider-four-image .slider-text {
-    animation-delay: 9s;
+    animation-delay: 20s;
   }
   
   /* Az alábbi animációs kulcsszavak definiálják az animációkat a szöveg és a hátterek mozgatásához. */
