@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2023. Nov 14. 15:47
+-- Létrehozás ideje: 2023. Nov 15. 17:20
 -- Kiszolgáló verziója: 10.4.27-MariaDB
 -- PHP verzió: 8.2.0
 
@@ -220,6 +220,80 @@ INSERT INTO `subscription_plans` (`id`, `name`, `description`, `duration`, `pric
 -- --------------------------------------------------------
 
 --
+-- Tábla szerkezet ehhez a táblához `termek`
+--
+
+CREATE TABLE `termek` (
+  `termek_id` int(11) NOT NULL,
+  `nev` varchar(255) NOT NULL,
+  `kategoria` varchar(50) NOT NULL,
+  `szavatossagi_ido` int(11) DEFAULT NULL,
+  `raktaron` tinyint(1) NOT NULL,
+  `forgalmazo` varchar(255) DEFAULT NULL,
+  `gyarto` varchar(255) DEFAULT NULL,
+  `ar_forint` decimal(10,2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- A tábla adatainak kiíratása `termek`
+--
+
+INSERT INTO `termek` (`termek_id`, `nev`, `kategoria`, `szavatossagi_ido`, `raktaron`, `forgalmazo`, `gyarto`, `ar_forint`) VALUES
+(1, 'Bio zabpehely', 'Egeszseges elelmiszer', 365, 1, 'BioFood Kft.', 'Organic Foods Inc.', '1490.99'),
+(2, 'Vanilia feherje por', 'Protein', NULL, 1, 'ProteinWorld', 'NutriCorp', '5990.50'),
+(3, 'Laktózmentes mandulatej', 'Egeszseges elelmiszer', 30, 1, 'DairyFree Ltd.', 'Healthy Drinks Co.', '899.95'),
+(4, 'Gluténmentes quinoa', 'Egeszseges elelmiszer', NULL, 0, 'GrainGoodness', 'SuperGrains Inc.', '3290.00'),
+(5, 'Vegetáriánus szendvics', 'Szendvics', 7, 1, 'HealthyBites', 'SandwichMaster', '1290.25'),
+(6, 'Organikus chia mag', 'Egeszseges elelmiszer', 180, 1, 'BioSeeds Ltd.', 'NatureHarvest', '3490.75'),
+(7, 'Csokoládés feherje szelet', 'Protein', 90, 1, 'FitTreats', 'ProteinDelights Inc.', '1990.00'),
+(8, 'Mandula vajas energia szelet', 'Egeszseges elelmiszer', 120, 1, 'NutriSnacks', 'EnergyBites Co.', '1590.50'),
+(9, 'Gluténmentes rizs tészta', 'Egeszseges elelmiszer', 365, 1, 'FreeFromFoods', 'GrainCrafters', '1290.25'),
+(10, 'Vegán quinoa saláta', 'Szendvics', 5, 1, 'GreenEats', 'VeggieDelight', '2490.00'),
+(11, 'Zöld tea kivonat kapszula', 'Egeszseges elelmiszer', NULL, 1, 'HerbalLife', 'NaturalCapsules', '4990.99'),
+(12, 'Bio sárgarépalé', 'Ital', 30, 1, 'OrganicDrinks', 'JuiceMasters', '1290.25'),
+(13, 'Chia magos müzli', 'Egeszseges elelmiszer', 120, 1, 'SuperCereals', 'HealthyGrains', '1890.50'),
+(14, 'Vanília ízű növényi tejszín', 'Egeszseges elelmiszer', 14, 1, 'VeggieDairy', 'PlantCreamery', '899.95'),
+(15, 'Szójatej fehérje ital', 'Ital', 60, 1, 'SoyGood', 'ProteinSip', '1290.25'),
+(16, 'Gluténmentes rizsliszt', 'Egeszseges elelmiszer', 365, 1, 'FreeFlour', 'GrainMills', '1290.25'),
+(17, 'Bab fehérje konzerv', 'Konnyen elokeszitheto', 365, 1, 'ProteinCans', 'LegumeFarms', '1890.50'),
+(18, 'Zöld smoothie mix', 'Ital', NULL, 1, 'GreenBlends', 'SmoothieMagic', '2290.00'),
+(19, 'Bio zabkenyér', 'Szendvics', 7, 1, 'OrganicBakery', 'HealthyBread Co.', '1290.25'),
+(20, 'Mandula granola', 'Egeszseges elelmiszer', 180, 1, 'NutriCrunch', 'GranolaMasters', '1690.75'),
+(21, 'Protein rizs golyók', 'Protein', 90, 1, 'RiceProtein', 'SnackCraft', '2190.00'),
+(22, 'Cukormentes eperdzsem', 'Egeszseges elelmiszer', 180, 1, 'BerryDelights', 'JamMakers', '1290.25'),
+(23, 'Zöld saláta mix', 'Szendvics', 5, 1, 'FreshGreens', 'SaladHarvest', '1590.50'),
+(24, 'Omega-3 tojás', 'Egeszseges elelmiszer', 30, 1, 'HealthyEggs', 'EggFarms', '499.95'),
+(25, 'Vegetáriánus quinoa burger', 'Szendvics', 30, 1, 'VeggieBurgers', 'QuinoaFoods', '2290.00'),
+(26, 'Cukormentes diókrém', 'Egeszseges elelmiszer', 180, 1, 'NutButters', 'SpreadJoy Inc.', '1390.25'),
+(27, 'Matcha tea por', 'Ital', NULL, 1, 'MatchaMagic', 'TeaCrafters', '3290.00'),
+(28, 'Bio paradicsom konzerv', 'Konnyen elokeszitheto', 365, 1, 'OrganicCans', 'TomatoHarvest', '1490.99'),
+(29, 'Citromos chia ital', 'Ital', 30, 1, 'LemonChia', 'DrinkFusion', '1890.50'),
+(30, 'Laktózmentes mandulajoghurt', 'Ital', 14, 1, 'DairyFreeYogurt', 'AlmondDairy', '1290.25'),
+(31, 'Protein granola szelet', 'Protein', 90, 1, 'ProteinBars', 'GranolaBites Co.', '2490.00'),
+(32, 'Vegetáriánus tofuburger', 'Szendvics', 30, 1, 'TofuBurgers', 'VeggieDelight', '1890.50'),
+(33, 'Cukormentes szederdzsem', 'Egeszseges elelmiszer', 180, 1, 'BlackberryJoy', 'JamMakers', '1290.25'),
+(34, 'Alacsony kalóriájú paradicsomleves', 'Konnyen elokeszitheto', 90, 1, 'LightSoups', 'SoupMasters', '1590.50'),
+(35, 'Gyömbéres kurkuma tea', 'Ital', NULL, 1, 'SpiceTeas', 'HerbalInfusions', '899.95'),
+(36, 'Quinoa sült rizs snack', 'Snack', 120, 1, 'QuinoaSnacks', 'HealthyCrunch', '1290.25'),
+(37, 'Protein smoothie mix', 'Ital', 30, 1, 'ProteinShakes', 'SmoothieFusion', '2590.00'),
+(38, 'Laktózmentes koktélparadicsom', 'Konnyen elokeszitheto', 365, 1, 'DairyFreeTomatoes', 'TomatoHarvest', '1190.99'),
+(39, 'Avokádós szendvicskrém', 'Szendvics', 14, 1, 'AvocadoSpreads', 'SpreadJoy Inc.', '1390.25'),
+(40, 'Omega-3 lazac filé', 'Egeszseges elelmiszer', 30, 1, 'SalmonDelights', 'FishHarvest', '4990.95'),
+(41, 'Gluténmentes kókuszliszt', 'Egeszseges elelmiszer', 365, 1, 'FreeCoconut', 'FlourCrafters', '1290.25'),
+(42, 'Chia puding', 'Egeszseges elelmiszer', 60, 1, 'ChiaPuds', 'HealthyTreats', '1890.50'),
+(43, 'Vegetáriánus padlizsánburger', 'Szendvics', 30, 1, 'EggplantBurgers', 'VeggieDelight', '1990.00'),
+(44, 'Cukormentes málnadzsem', 'Egeszseges elelmiszer', 180, 1, 'RaspberryJoy', 'JamMakers', '1290.25'),
+(45, 'Bio paradicsomlé', 'Ital', 30, 1, 'OrganicJuices', 'TomatoHarvest', '1790.50'),
+(46, 'Mandula-cashew keverék', 'Egeszseges elelmiszer', 120, 1, 'NutMix', 'HealthyBlends', '1490.75'),
+(47, 'Protein rizs sütemény', 'Protein', 90, 1, 'RiceCakes', 'ProteinTreats Co.', '2390.00'),
+(48, 'Laktózmentes mandula tejpor', 'Ital', NULL, 1, 'DairyFreePowder', 'AlmondDairy', '1890.50'),
+(49, 'Gluténmentes quinoa tészta', 'Egeszseges elelmiszer', 365, 1, 'FreePasta', 'GrainCrafters', '1690.25'),
+(50, 'Vegán tofuszendvics', 'Szendvics', 7, 1, 'VeganSandwiches', 'TofuTreats', '1490.50'),
+(51, 'Édesítőszerrel készült fagylalt', 'Fagylalt', 90, 1, 'SugarFreeScoops', 'IceCreamDelights', '1190.00');
+
+-- --------------------------------------------------------
+
+--
 -- Tábla szerkezet ehhez a táblához `type`
 --
 
@@ -280,7 +354,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `type`, `prefix_name`, `first_name`, `middle_name`, `last_name`, `suffix_name`, `nick_name`, `born`, `gender`, `country`, `country_code`, `city`, `postcode`, `address`, `email`, `password`, `created`, `verification_code`, `verified`, `modified`, `last_login`, `wrong_attempts`, `valid`) VALUES
 (1, 'A', NULL, 'Attila', NULL, 'Ódry', NULL, NULL, '1964-03-08', 'M', 'hungary', '36', 'Szeged', '6725', 'Futrinka utca 66.', 'odry.attila@keri.mako.hu', '$2y$10$2qBCNjBIDp1kw/agy7fV0.sW3sAJz/YKU.oLUL1.2SfcxroBIQLde', '2023-08-29 09:27:01', NULL, '2023-08-29 12:19:00', '2023-08-29 12:19:15', '2023-10-30 13:08:11', 0, 1),
-(2, 'A', NULL, 'Nagy', NULL, 'Renátó', NULL, NULL, '1993-11-01', 'M', 'hungary', '36', 'Tótkomlós', '5940', 'nagy.renato@keri.mako.hu', 'nagy.renato@keri.mako.hu', '$2y$10$ZbYuaGwd4bMwhgD.C2/RT./lcthTxBQQreACH6uAFHSk2GVmI6BJa', '2023-10-30 13:14:48', '66c0b1af9bad395c8531e3550c7927bd', NULL, '2023-10-30 13:17:16', '2023-11-02 21:40:21', 0, 1);
+(2, 'A', NULL, 'Nagy', NULL, 'Renátó', NULL, NULL, '1993-11-01', 'M', 'hungary', '36', 'Tótkomlós', '5940', 'nagy.renato@keri.mako.hu', 'nagy.renato@keri.mako.hu', '$2y$10$ZbYuaGwd4bMwhgD.C2/RT./lcthTxBQQreACH6uAFHSk2GVmI6BJa', '2023-10-30 13:14:48', '66c0b1af9bad395c8531e3550c7927bd', NULL, '2023-10-30 13:17:16', '2023-11-14 15:58:26', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -324,6 +398,12 @@ ALTER TABLE `lunch_recipes`
 --
 ALTER TABLE `subscription_plans`
   ADD PRIMARY KEY (`id`);
+
+--
+-- A tábla indexei `termek`
+--
+ALTER TABLE `termek`
+  ADD PRIMARY KEY (`termek_id`);
 
 --
 -- A tábla indexei `type`
@@ -372,6 +452,12 @@ ALTER TABLE `lunch_recipes`
 --
 ALTER TABLE `subscription_plans`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT a táblához `termek`
+--
+ALTER TABLE `termek`
+  MODIFY `termek_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT a táblához `user`
