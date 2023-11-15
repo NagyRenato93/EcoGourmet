@@ -24,12 +24,14 @@
           templateUrl: './html/landing.html'
         })
         .state('page1', {
-          url: '/about',
-          templateUrl: './html/about_us.html'
+          url: '/page1',
+          templateUrl: './html/about.html',
+          controller: 'aboutController'
         })
         .state('page2', {
-          url: '/shop',
-          templateUrl: './html/shop.html',
+          url: '/page2',
+          templateUrl: './html/products.html',
+          controller: 'productsController'
         })
         .state('page3', {
           url: '/page3',
@@ -160,7 +162,7 @@
     ($state, $rootScope, $timeout, trans, lang, user) => {
 
       // Transaction events
-			trans.events('home,about,page2,page3,');
+			trans.events('home,about,shop,page3,');
 
       // Initialize language 
       lang.init();
@@ -889,7 +891,27 @@
         } 
       });
     }
-  ]);
-  
+  ])
+// products Controller
+.controller('productsController', [
+  '$scope',
+  '$http', // Inject $http service for AJAX requests
+  function($scope, $http) {
+    // A termékek tömb inicializálása
+    $scope.products = [];
+
+    // AJAX kérés a termékek lekérdezésére
+    $http.get('./php/products.php')
+      .then(function(response) {
+        // Ellenőrizze, hogy a válasz állapotkódja sikeres-e
+        if (response.status === 200 && Array.isArray(response.data)) {
+          // Töltse be a termékek tömbjét a válaszadatokból
+          $scope.products = response.data;
+        }
+      });
+  }
+]);
+
+    
 
 })(window, angular);
