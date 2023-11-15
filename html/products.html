@@ -21,31 +21,42 @@
           <!-- ng-repeat direktíva a termékek bejárásához -->
           <div class="container px-4 px-lg-5 mt-5">
             <div class="row gx-4 gx-lg-5">
-              <!-- Termék kártyák -->
-              <div class="col-6 col-md-4 col-lg-3 col-xl-2 mb-5" ng-repeat="product in products">
-                <div class="card h-100">
-                  <!-- Product image-->
-                  <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                  <!-- Product details-->
-                  <div class="card-body p-4">
-                    <div class="text-center">
-                      <!-- Product name-->
-                      <h5 class="fw-bolder">{{product.nev}}</h5>
-                      <!-- Product gyártó forgalmazo-->
-                      {{product.kategoria}}
-                      {{product.forgalmazo}}
-                      <!-- Product price--> {{product.ar_forint}}
-                    </div>
-                  </div>
-                  <!-- Product actions-->
-                  <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                    <div class="text-center">
-                      <a class="btn btn-outline-dark mt-auto" href="#">Vásárlás</a>
-                    </div>
-                  </div>
-                </div>
+              <!-- Kategória szűrő gombok -->
+              <div class="mb-3">
+                <button class="btn btn-primary" ng-click="setCategoryFilter('Fehérje Por')">Fehérjék</button>
+                <button class="btn btn-primary" ng-click="setCategoryFilter('Smoothie Por')">Smoothiek</button>
+                <button class="btn btn-primary" ng-click="setCategoryFilter('Protein')">Protein Szelet</button>
+                <!-- További kategóriákhoz gombok hozzáadhatók -->
+                <!-- Szűrés törlése -->
+                <button class="btn btn-warning" ng-click="clearFilters()">Szűrés törlése</button>
               </div>
-              <!-- Termék kártyák vége -->
+              <hr>
+<!-- Termék kártyák -->
+<div class="col-6 col-md-4 col-lg-3 col-xl-2 mb-5" ng-repeat="product in filteredProducts = (products | filter: { kategoria: categoryFilter })">
+  <div class="card h-100">
+    <!-- Termék képe -->
+    <img class="card-img-top" ng-src="{{product.kep_eleresi_ut}}" alt="Termék képe" />
+    <!-- Termék részletei -->
+    <div class="card-body p-4">
+      <div class="text-center">
+        <!-- Termék neve -->
+        <h5 class="fw-bolder">{{product.nev}}</h5>
+        <!-- Termék kategóriája -->
+        {{product.kategoria}}
+        <!-- Termék ára -->
+        {{product.ar_forint}}
+      </div>
+    </div>
+    <!-- Termék akciók -->
+    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+      <div class="text-center">
+        <a class="btn btn-outline-dark mt-auto" href="#">Vásárlás</a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Termék kártyák vége -->
+
             </div>
           </div>
         </section>

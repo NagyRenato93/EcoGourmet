@@ -909,6 +909,18 @@
           $scope.products = response.data;
         }
       });
+      $scope.setCategoryFilter = function (category) {
+        $scope.categoryFilter = category;
+      };
+    
+      $scope.clearCategoryFilter = function () {
+        $scope.categoryFilter = '';
+      };
+      $scope.clearFilters = function () {
+        $scope.categoryFilter = '';
+        $scope.subcategoryFilter = '';
+      };
+      
   }
 ]);
 
