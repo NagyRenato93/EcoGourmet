@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2023. Nov 15. 17:20
+-- Létrehozás ideje: 2023. Nov 16. 02:19
 -- Kiszolgáló verziója: 10.4.27-MariaDB
 -- PHP verzió: 8.2.0
 
@@ -211,11 +211,9 @@ CREATE TABLE `subscription_plans` (
 --
 
 INSERT INTO `subscription_plans` (`id`, `name`, `description`, `duration`, `price`) VALUES
-(1, 'Basic', 'Egyszerű terv, amely lehetővé teszi az egy választható reggeli, ebéd vagy vacsora rendelését 1 hónapig. Ideális a kezdeti kóstoláshoz.', 1, '3500.00'),
-(2, 'Basic A+', 'Az A+ szintű terv 2 hónapra szól, és lehetővé teszi a választható reggeli, ebéd vagy vacsora rendelését. Ideális rövidebb idejű, kifinomultabb élményekhez.', 2, '5000.00'),
-(3, 'Simple', 'Az egyszerű terv 3 hónapig tart, és két választható étkezést kínál reggeli, ebéd vagy vacsora formájában. A hosszabb időtartam miatt ideális az élelmiszer előfizetés kedvelőinek.', 3, '9000.00'),
-(4, 'Legend', 'A Legend terv a luxus és változatosság jegyében született. Fél évig tart, és minden nap három étkezés kínál, reggeli, ebéd és vacsora formájában.', 6, '18000.00'),
-(5, 'Legend Star', 'A Legend Star terv a csúcsot képviseli. Egy évig tart, és három étkezés választható, reggeli, ebéd vagy vacsora, valamint heti egy desszert is jár mellé.', 12, '30000.00');
+(1, 'Simple', 'A Simple szintű terv lehetővé teszi a választható reggeli, ebéd vagy vacsora rendelését. Ideális rövidebb idejű, kifinomultabb élményekhez.', 2, '5000.00'),
+(2, 'Pro', 'A Pro terv két választható étkezést kínál reggeli, ebéd vagy vacsora formájában. A hosszabb időtartam miatt ideális az élelmiszer előfizetés kedvelőinek.', 3, '9000.00'),
+(3, 'Enterprise', 'A Enterprise terv a luxus és változatosság jegyében született. Minden nap három étkezés kínál, reggeli, ebéd és vacsora formájában.', 6, '18000.00');
 
 -- --------------------------------------------------------
 
@@ -231,65 +229,117 @@ CREATE TABLE `termek` (
   `raktaron` tinyint(1) NOT NULL,
   `forgalmazo` varchar(255) DEFAULT NULL,
   `gyarto` varchar(255) DEFAULT NULL,
-  `ar_forint` decimal(10,2) NOT NULL
+  `ar_forint` decimal(10,2) NOT NULL,
+  `kep_eleresi_ut` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- A tábla adatainak kiíratása `termek`
 --
 
-INSERT INTO `termek` (`termek_id`, `nev`, `kategoria`, `szavatossagi_ido`, `raktaron`, `forgalmazo`, `gyarto`, `ar_forint`) VALUES
-(1, 'Bio zabpehely', 'Egeszseges elelmiszer', 365, 1, 'BioFood Kft.', 'Organic Foods Inc.', '1490.99'),
-(2, 'Vanilia feherje por', 'Protein', NULL, 1, 'ProteinWorld', 'NutriCorp', '5990.50'),
-(3, 'Laktózmentes mandulatej', 'Egeszseges elelmiszer', 30, 1, 'DairyFree Ltd.', 'Healthy Drinks Co.', '899.95'),
-(4, 'Gluténmentes quinoa', 'Egeszseges elelmiszer', NULL, 0, 'GrainGoodness', 'SuperGrains Inc.', '3290.00'),
-(5, 'Vegetáriánus szendvics', 'Szendvics', 7, 1, 'HealthyBites', 'SandwichMaster', '1290.25'),
-(6, 'Organikus chia mag', 'Egeszseges elelmiszer', 180, 1, 'BioSeeds Ltd.', 'NatureHarvest', '3490.75'),
-(7, 'Csokoládés feherje szelet', 'Protein', 90, 1, 'FitTreats', 'ProteinDelights Inc.', '1990.00'),
-(8, 'Mandula vajas energia szelet', 'Egeszseges elelmiszer', 120, 1, 'NutriSnacks', 'EnergyBites Co.', '1590.50'),
-(9, 'Gluténmentes rizs tészta', 'Egeszseges elelmiszer', 365, 1, 'FreeFromFoods', 'GrainCrafters', '1290.25'),
-(10, 'Vegán quinoa saláta', 'Szendvics', 5, 1, 'GreenEats', 'VeggieDelight', '2490.00'),
-(11, 'Zöld tea kivonat kapszula', 'Egeszseges elelmiszer', NULL, 1, 'HerbalLife', 'NaturalCapsules', '4990.99'),
-(12, 'Bio sárgarépalé', 'Ital', 30, 1, 'OrganicDrinks', 'JuiceMasters', '1290.25'),
-(13, 'Chia magos müzli', 'Egeszseges elelmiszer', 120, 1, 'SuperCereals', 'HealthyGrains', '1890.50'),
-(14, 'Vanília ízű növényi tejszín', 'Egeszseges elelmiszer', 14, 1, 'VeggieDairy', 'PlantCreamery', '899.95'),
-(15, 'Szójatej fehérje ital', 'Ital', 60, 1, 'SoyGood', 'ProteinSip', '1290.25'),
-(16, 'Gluténmentes rizsliszt', 'Egeszseges elelmiszer', 365, 1, 'FreeFlour', 'GrainMills', '1290.25'),
-(17, 'Bab fehérje konzerv', 'Konnyen elokeszitheto', 365, 1, 'ProteinCans', 'LegumeFarms', '1890.50'),
-(18, 'Zöld smoothie mix', 'Ital', NULL, 1, 'GreenBlends', 'SmoothieMagic', '2290.00'),
-(19, 'Bio zabkenyér', 'Szendvics', 7, 1, 'OrganicBakery', 'HealthyBread Co.', '1290.25'),
-(20, 'Mandula granola', 'Egeszseges elelmiszer', 180, 1, 'NutriCrunch', 'GranolaMasters', '1690.75'),
-(21, 'Protein rizs golyók', 'Protein', 90, 1, 'RiceProtein', 'SnackCraft', '2190.00'),
-(22, 'Cukormentes eperdzsem', 'Egeszseges elelmiszer', 180, 1, 'BerryDelights', 'JamMakers', '1290.25'),
-(23, 'Zöld saláta mix', 'Szendvics', 5, 1, 'FreshGreens', 'SaladHarvest', '1590.50'),
-(24, 'Omega-3 tojás', 'Egeszseges elelmiszer', 30, 1, 'HealthyEggs', 'EggFarms', '499.95'),
-(25, 'Vegetáriánus quinoa burger', 'Szendvics', 30, 1, 'VeggieBurgers', 'QuinoaFoods', '2290.00'),
-(26, 'Cukormentes diókrém', 'Egeszseges elelmiszer', 180, 1, 'NutButters', 'SpreadJoy Inc.', '1390.25'),
-(27, 'Matcha tea por', 'Ital', NULL, 1, 'MatchaMagic', 'TeaCrafters', '3290.00'),
-(28, 'Bio paradicsom konzerv', 'Konnyen elokeszitheto', 365, 1, 'OrganicCans', 'TomatoHarvest', '1490.99'),
-(29, 'Citromos chia ital', 'Ital', 30, 1, 'LemonChia', 'DrinkFusion', '1890.50'),
-(30, 'Laktózmentes mandulajoghurt', 'Ital', 14, 1, 'DairyFreeYogurt', 'AlmondDairy', '1290.25'),
-(31, 'Protein granola szelet', 'Protein', 90, 1, 'ProteinBars', 'GranolaBites Co.', '2490.00'),
-(32, 'Vegetáriánus tofuburger', 'Szendvics', 30, 1, 'TofuBurgers', 'VeggieDelight', '1890.50'),
-(33, 'Cukormentes szederdzsem', 'Egeszseges elelmiszer', 180, 1, 'BlackberryJoy', 'JamMakers', '1290.25'),
-(34, 'Alacsony kalóriájú paradicsomleves', 'Konnyen elokeszitheto', 90, 1, 'LightSoups', 'SoupMasters', '1590.50'),
-(35, 'Gyömbéres kurkuma tea', 'Ital', NULL, 1, 'SpiceTeas', 'HerbalInfusions', '899.95'),
-(36, 'Quinoa sült rizs snack', 'Snack', 120, 1, 'QuinoaSnacks', 'HealthyCrunch', '1290.25'),
-(37, 'Protein smoothie mix', 'Ital', 30, 1, 'ProteinShakes', 'SmoothieFusion', '2590.00'),
-(38, 'Laktózmentes koktélparadicsom', 'Konnyen elokeszitheto', 365, 1, 'DairyFreeTomatoes', 'TomatoHarvest', '1190.99'),
-(39, 'Avokádós szendvicskrém', 'Szendvics', 14, 1, 'AvocadoSpreads', 'SpreadJoy Inc.', '1390.25'),
-(40, 'Omega-3 lazac filé', 'Egeszseges elelmiszer', 30, 1, 'SalmonDelights', 'FishHarvest', '4990.95'),
-(41, 'Gluténmentes kókuszliszt', 'Egeszseges elelmiszer', 365, 1, 'FreeCoconut', 'FlourCrafters', '1290.25'),
-(42, 'Chia puding', 'Egeszseges elelmiszer', 60, 1, 'ChiaPuds', 'HealthyTreats', '1890.50'),
-(43, 'Vegetáriánus padlizsánburger', 'Szendvics', 30, 1, 'EggplantBurgers', 'VeggieDelight', '1990.00'),
-(44, 'Cukormentes málnadzsem', 'Egeszseges elelmiszer', 180, 1, 'RaspberryJoy', 'JamMakers', '1290.25'),
-(45, 'Bio paradicsomlé', 'Ital', 30, 1, 'OrganicJuices', 'TomatoHarvest', '1790.50'),
-(46, 'Mandula-cashew keverék', 'Egeszseges elelmiszer', 120, 1, 'NutMix', 'HealthyBlends', '1490.75'),
-(47, 'Protein rizs sütemény', 'Protein', 90, 1, 'RiceCakes', 'ProteinTreats Co.', '2390.00'),
-(48, 'Laktózmentes mandula tejpor', 'Ital', NULL, 1, 'DairyFreePowder', 'AlmondDairy', '1890.50'),
-(49, 'Gluténmentes quinoa tészta', 'Egeszseges elelmiszer', 365, 1, 'FreePasta', 'GrainCrafters', '1690.25'),
-(50, 'Vegán tofuszendvics', 'Szendvics', 7, 1, 'VeganSandwiches', 'TofuTreats', '1490.50'),
-(51, 'Édesítőszerrel készült fagylalt', 'Fagylalt', 90, 1, 'SugarFreeScoops', 'IceCreamDelights', '1190.00');
+INSERT INTO `termek` (`termek_id`, `nev`, `kategoria`, `szavatossagi_ido`, `raktaron`, `forgalmazo`, `gyarto`, `ar_forint`, `kep_eleresi_ut`) VALUES
+(1, 'Protein Szelet Csokoládé ízű', 'Protein', 2026, 50, 'FitPro Distributor', 'HealthyBites Inc.', '2000.00', 'http://localhost/projects/EcoGourmet/media/image/food42.jpg'),
+(2, 'Protein Szelet Vanília ízű', 'Protein', 2026, 30, 'NutriSupply', 'ProteinPlus Ltd.', '1800.00', NULL),
+(3, 'Protein Szelet Eper ízű', 'Protein', 2023, 40, 'BioFuel Nutrition', 'OrganicProtein Co.', '2200.00', NULL),
+(4, 'Protein Szelet Mogyoró ízű', 'Protein', 2024, 35, 'FitLife Retail', 'BodyFuel Enterprises', '2100.00', NULL),
+(5, 'Protein Szelet Banán ízű', 'Protein', 2024, 48, 'SportNutri', 'ActiveProtein Ltd.', '1900.00', NULL),
+(6, 'Protein Szelet Vanília-Cseresznye ízű', 'Protein', 2023, 25, 'VitalChoice', 'NutriBlend Corporation', '2150.00', NULL),
+(7, 'Protein Szelet Kókusz ízű', 'Protein', 2025, 42, 'NutriMax', 'NaturePro Foods', '2300.00', NULL),
+(8, 'Protein Szelet Meggy ízű', 'Protein', 2023, 38, 'SuperNutrition', 'GreenFit Labs', '1950.00', NULL),
+(9, 'Protein Szelet Fehér Csokoládé-Málna ízű', 'Protein', 2024, 31, 'HealthWise', 'FitFoods Inc.', '2400.00', NULL),
+(10, 'Protein Szelet Karamell ízű', 'Protein', 2024, 33, 'ProteinElite', 'NutriCore', '2050.00', NULL),
+(11, 'Protein Szelet Almás Fűszer ízű', 'Protein', 2023, 28, 'VitaFuel', 'NaturalProtein Co.', '2150.00', NULL),
+(12, 'Protein Szelet Eper-Mentol ízű', 'Protein', 2024, 45, 'BioGains', 'PureFit Foods', '2100.00', NULL),
+(13, 'Protein Szelet Dió ízű', 'Protein', 2025, 36, 'WellnessFuel', 'EliteProtein Ltd.', '2250.00', NULL),
+(14, 'Protein Szelet Őszibarack ízű', 'Protein', 2024, 39, 'ProVitality', 'PowerBites Inc.', '1950.00', NULL),
+(15, 'Protein Szelet Kókusz-Kávé ízű', 'Protein', 2024, 32, 'NaturalBoost', 'PureEnergy Foods', '2200.00', NULL),
+(16, 'Protein Szelet Fekete Szeder ízű', 'Protein', 2023, 27, 'ProteinWorld', 'FitFuel Co.', '2350.00', NULL),
+(17, 'Protein Szelet Narancs-Chia ízű', 'Protein', 2023, 41, 'VivaProtein', 'NaturalHarmony', '2000.00', NULL),
+(18, 'Protein Szelet Matcha ízű', 'Protein', 2024, 34, 'BioFit Nutrition', 'PurePower Foods', '2300.00', NULL),
+(19, 'Protein Szelet Szamóca ízű', 'Protein', 2025, 29, 'SuperPro', 'GymFuel Inc.', '2050.00', NULL),
+(20, 'Protein Szelet Tiramisu ízű', 'Protein', 2025, 37, 'UltimateNutri', 'BodyTech Labs', '2400.00', NULL),
+(21, 'Protein Szelet Mangó ízű', 'Protein', 2024, 44, 'FreshNutri', 'TropicalBites Ltd.', '2150.00', NULL),
+(22, 'Protein Szelet Málna-Citrom ízű', 'Protein', 2026, 36, 'SuperGains', 'CitrusProtein Co.', '2000.00', NULL),
+(23, 'Protein Szelet Keksz-Krém ízű', 'Protein', 2025, 30, 'FitSnack', 'IndulgeFoods', '2250.00', NULL),
+(24, 'Protein Szelet Körte ízű', 'Protein', 2025, 48, 'EcoFuel', 'GreenHarvest Ltd.', '1900.00', NULL),
+(25, 'Protein Szelet Tejföl-Vanília ízű', 'Protein', 2026, 33, 'VivaLife', 'DairyProtein Inc.', '2100.00', NULL),
+(26, 'Protein Szelet Gyömbér-Méz ízű', 'Protein', 2026, 39, 'BioBalance', 'GoldenTaste Foods', '2200.00', NULL),
+(28, 'Protein Szelet Citrom-Menta ízű', 'Protein', 2025, 35, 'ZestyPro', 'FreshMint Foods', '2350.00', NULL),
+(30, 'Protein Szelet Tropikus Gyümölcs ízű', 'Protein', 2023, 31, 'ExoNutri', 'IslandBites Ltd.', '2400.00', NULL),
+(33, 'Protein Szelet Fekete Cseresznye-Banán ízű', 'Protein', 2023, 36, 'CherryBliss', 'BananaFuel Inc.', '2250.00', NULL),
+(34, 'Protein Szelet Sós Karamell-Mogyoró ízű', 'Protein', 2025, 29, 'SaltedCrunch', 'NuttyTreats Ltd.', '2100.00', NULL),
+(36, 'Protein Szelet Cukrozott Fehér Csokoládé-Kávé ízű', 'Protein', 2023, 41, 'SweetBean', 'CaffeineDelight Ltd.', '1950.00', NULL),
+(38, 'Protein Szelet Mandula-Kókusz ízű', 'Protein', 2024, 32, 'NuttyCoconut', 'AlmondJoy Foods', '2300.00', NULL),
+(41, 'Smoothie Por Eper-Banán ízű', 'Smoothie Por', 2024, 50, 'FreshBlend Distributor', 'FruitFusion Inc.', '1800.00', NULL),
+(42, 'Smoothie Por Mangó-Ananás ízű', 'Smoothie Por', 2025, 40, 'TropicalMix', 'ExoticDrinks Ltd.', '2000.00', NULL),
+(43, 'Smoothie Por Zöld Alma-Spenót ízű', 'Smoothie Por', 2023, 35, 'GreenRevive', 'HealthyGreens Co.', '2200.00', NULL),
+(44, 'Smoothie Por Kivi-Mentha ízű', 'Smoothie Por', 2023, 45, 'CoolFruit', 'MintyFresh Beverages', '1900.00', NULL),
+(45, 'Smoothie Por Málna-Vanília ízű', 'Smoothie Por', 2024, 48, 'BerryJoy', 'VanillaFusion Ltd.', '2100.00', NULL),
+(46, 'Smoothie Por Ananász-Kókusz ízű', 'Smoothie Por', 2023, 30, 'TropicalDelight', 'CoconutTreats Inc.', '2400.00', NULL),
+(47, 'Smoothie Por Banán-Kakaó ízű', 'Smoothie Por', 2025, 42, 'ChocoBanana', 'CocoaBlend Foods', '1950.00', NULL),
+(48, 'Smoothie Por Sárgabarack-Mandula ízű', 'Smoothie Por', 2023, 38, 'ApricotJoy', 'AlmondHarmony Ltd.', '2150.00', NULL),
+(49, 'Smoothie Por Avokádó-Málna ízű', 'Smoothie Por', 2023, 33, 'AvocadoMix', 'BerryBlend Inc.', '2300.00', NULL),
+(50, 'Smoothie Por Cseresznye-Alma ízű', 'Smoothie Por', 2023, 36, 'CherryApple', 'FruitHarvest Ltd.', '2050.00', NULL),
+(51, 'Smoothie Por Citrom-Gyömbér ízű', 'Smoothie Por', 2024, 29, 'ZestyGinger', 'CitrusSpice Co.', '2150.00', NULL),
+(52, 'Smoothie Por Eper-Gránátalma ízű', 'Smoothie Por', 2024, 48, 'PomegranateBlend', 'RedFruit Delights', '2250.00', NULL),
+(53, 'Smoothie Por Mogyoró-Banán ízű', 'Smoothie Por', 2023, 41, 'NuttyBanana', 'BananaNut Foods', '2100.00', NULL),
+(54, 'Smoothie Por Spenót-Ananás ízű', 'Smoothie Por', 2024, 27, 'GreenPine', 'PineappleVeg Ltd.', '2350.00', NULL),
+(55, 'Smoothie Por Fekete Szeder-Menta ízű', 'Smoothie Por', 2023, 32, 'BerryMint', 'FreshBreeze Beverages', '2300.00', NULL),
+(56, 'Smoothie Por Banán-Cseresznye ízű', 'Smoothie Por', 2025, 45, 'BananaCherry', 'CherryBanana Ltd.', '2400.00', NULL),
+(57, 'Smoothie Por Datolya-Mandula ízű', 'Smoothie Por', 2023, 38, 'DateNutBlend', 'AlmondDate Foods', '2050.00', NULL),
+(58, 'Smoothie Por Alma-Pókhasz ízű', 'Smoothie Por', 2024, 34, 'SpiderApple', 'WebFruit Ltd.', '2300.00', NULL),
+(59, 'Smoothie Por Fehér Szőlő-Körte ízű', 'Smoothie Por', 2025, 29, 'WhiteGrapeBlend', 'PearFusion Inc.', '2050.00', NULL),
+(60, 'Smoothie Por Mogyoró-Karamell ízű', 'Smoothie Por', 2026, 37, 'CaramelNut', 'NuttyCaramel Foods', '2400.00', NULL),
+(61, 'Fehérje Por Csokoládé ízű', 'Fehérje Por', 2026, 50, 'ChocoProtein Distributor', 'FitChoco Inc.', '2500.00', NULL),
+(62, 'Fehérje Por Vanília ízű', 'Fehérje Por', 2024, 40, 'VanillaSupplies', 'PureVanilla Ltd.', '2200.00', NULL),
+(63, 'Fehérje Por Eper ízű', 'Fehérje Por', 2024, 35, 'BerryPro', 'OrganicProtein Co.', '2700.00', NULL),
+(64, 'Fehérje Por Banán ízű', 'Fehérje Por', 2025, 45, 'BananaFuel', 'PowerFoods Inc.', '2400.00', NULL),
+(65, 'Fehérje Por Mogyoróvaj ízű', 'Fehérje Por', 2025, 48, 'NuttyBlend', 'ProteinNuts Ltd.', '2600.00', NULL),
+(66, 'Fehérje Por Kókusz ízű', 'Fehérje Por', 2023, 30, 'CoconutFuel', 'TropicalProteins Inc.', '2800.00', NULL),
+(67, 'Fehérje Por Meggy ízű', 'Fehérje Por', 2023, 42, 'CherryPro', 'RedFruit Nutrition', '2300.00', NULL),
+(68, 'Fehérje Por Dió ízű', 'Fehérje Por', 2023, 38, 'WalnutProtein', 'NuttyLife Foods', '2500.00', NULL),
+(69, 'Fehérje Por Szamóca ízű', 'Fehérje Por', 2026, 33, 'StrawberryFuel', 'BerryBoost Inc.', '2600.00', NULL),
+(70, 'Fehérje Por Karamell ízű', 'Fehérje Por', 2025, 36, 'CaramelPro', 'SweetFusion Ltd.', '2700.00', NULL),
+(71, 'Kollagén Por Csokoládé ízű', 'Kollagén Por', 2023, 50, 'ChocoCollagen Distributor', 'HealthyChoco Inc.', '3000.00', NULL),
+(72, 'Kollagén Por Vanília ízű', 'Kollagén Por', 2024, 40, 'VanillaCollagen', 'PureVanilla Ltd.', '2800.00', NULL),
+(73, 'Kollagén Por Eper ízű', 'Kollagén Por', 2025, 35, 'BerryCollagen', 'OrganicCollagen Co.', '3200.00', NULL),
+(74, 'Kollagén Por Banán ízű', 'Kollagén Por', 2026, 45, 'BananaCollagen', 'PowerCollagen Inc.', '2900.00', NULL),
+(75, 'Kollagén Por Mogyoróvaj ízű', 'Kollagén Por', 2023, 48, 'NuttyCollagen', 'CollagenNuts Ltd.', '3100.00', NULL),
+(76, 'Kollagén Por Kókusz ízű', 'Kollagén Por', 2023, 30, 'CoconutCollagen', 'TropicalCollagen Inc.', '3300.00', NULL),
+(77, 'Kollagén Por Meggy ízű', 'Kollagén Por', 2025, 42, 'CherryCollagen', 'RedFruit Collagen', '2700.00', NULL),
+(78, 'Kollagén Por Dió ízű', 'Kollagén Por', 2023, 38, 'WalnutCollagen', 'CollagenLife Foods', '3000.00', NULL),
+(79, 'Kollagén Por Szamóca ízű', 'Kollagén Por', 2023, 33, 'StrawberryCollagen', 'BerryCollagen Inc.', '3100.00', NULL),
+(80, 'Kollagén Por Karamell ízű', 'Kollagén Por', 2023, 36, 'CaramelCollagen', 'SweetCollagen Ltd.', '3200.00', NULL),
+(91, 'Préselt Gyümölcs-Zöldség Ital Szőlő-Kiwi ízű', 'Préselt Ital', 2024, 38, 'GrapeKiwi', 'FreshSqueeze Inc.', '3300.00', NULL),
+(92, 'Préselt Gyümölcs-Zöldség Ital Banán-Mangó ízű', 'Préselt Ital', 2026, 41, 'BananaMango', 'TropicalBlend Co.', '3400.00', NULL),
+(93, 'Préselt Gyümölcs-Zöldség Ital Cseresznye-Spenót ízű', 'Préselt Ital', 2025, 27, 'CherrySpinach', 'RedLeaf Nutrition', '3500.00', NULL),
+(94, 'Préselt Gyümölcs-Zöldség Ital Mangó-Papaya ízű', 'Préselt Ital', 2024, 32, 'MangoPapaya', 'TropicalHarvest Ltd.', '3600.00', NULL),
+(95, 'Préselt Gyümölcs-Zöldség Ital Kivi-Brokkoli ízű', 'Préselt Ital', 2025, 45, 'KiwiBroccoli', 'GreenBlend Foods', '3700.00', NULL),
+(96, 'Préselt Gyümölcs-Zöldség Ital Citrom-Mángold ízű', 'Préselt Ital', 2024, 29, 'LemonChard', 'CitrusHarvest Inc.', '3800.00', NULL),
+(97, 'Préselt Gyümölcs-Zöldség Ital Banán-Spenót ízű', 'Préselt Ital', 2024, 37, 'BananaSpinach', 'PowerGreens Co.', '3200.00', NULL),
+(98, 'Préselt Gyümölcs-Zöldség Ital Áfonya-Sárgadinnye ízű', 'Préselt Ital', 2024, 33, 'BlueMelon', 'FreshBerry Ltd.', '3300.00', NULL),
+(99, 'Préselt Gyümölcs-Zöldség Ital Eper-Mentha ízű', 'Préselt Ital', 2025, 36, 'BerryMint', 'MintyFruit Inc.', '3400.00', NULL),
+(100, 'Préselt Gyümölcs-Zöldség Ital Sárga Szilva-Brokkoli ízű', 'Préselt Ital', 2026, 42, 'YellowPlumBroccoli', 'FreshHarvest Foods', '3500.00', NULL),
+(101, 'Immunerősítő Tea C-vitaminnal', 'Tea', 2025, 50, 'HealthTea Distributor', 'NaturalBoost Inc.', '1800.00', NULL),
+(102, 'Zsírégető Tea Zöld Teával', 'Tea', 2026, 40, 'SlimTea', 'GreenFit Ltd.', '2000.00', NULL),
+(103, 'Nyugtató Kamilla Tea', 'Tea', 2024, 35, 'CalmBrew', 'HerbalHarmony Co.', '2200.00', NULL),
+(104, 'Emésztést Segítő Gyömbér Tea', 'Tea', 2024, 45, 'GingerSip', 'DigestiveWellness Inc.', '1900.00', NULL),
+(105, 'Édesgyökér Gyökér Tea', 'Tea', 2024, 48, 'SweetRoot', 'HerbBlend Ltd.', '2100.00', NULL),
+(106, 'Vitamin Bomba Teakeverék', 'Tea', 2026, 30, 'VitaTea', 'NutriBlend Co.', '1950.00', NULL),
+(107, 'Méregtelenítő Zöld Tea Spirulinával', 'Tea', 2026, 42, 'DetoxGreen', 'PureCleanse Foods', '2350.00', NULL),
+(108, 'Energizáló Ginseng Tea', 'Tea', 2026, 32, 'GinsengBoost', 'EnergyHerb Inc.', '2300.00', NULL),
+(109, 'Fokhagyma-Tea Antibakteriális Hatással', 'Tea', 2026, 45, 'GarlicGuard', 'HerbalHealth Ltd.', '2400.00', NULL),
+(110, 'Vidámító Citromfű Tea', 'Tea', 2024, 28, 'LemonJoy', 'HerbalZest Inc.', '2050.00', NULL),
+(121, 'Liofilizált Eper Szeletek', 'Liofilizált Gyümölcs', 2025, 50, 'FruitFreeze Distributor', 'BerryDelights Inc.', '2500.00', NULL),
+(122, 'Liofilizált Szeder', 'Liofilizált Gyümölcs', 2024, 40, 'BlackberryFreeze', 'NatureBerries Ltd.', '2200.00', NULL),
+(123, 'Liofilizált Mangókockák', 'Liofilizált Gyümölcs', 2026, 35, 'MangoCubes', 'TropicalFruits Co.', '2700.00', NULL),
+(124, 'Liofilizált Banánszeletek', 'Liofilizált Gyümölcs', 2023, 45, 'BananaChips', 'FruitfulBites Inc.', '2400.00', NULL),
+(125, 'Liofilizált Ananászgyöngyök', 'Liofilizált Gyümölcs', 2025, 48, 'PineapplePearls', 'TropicalBurst Ltd.', '2600.00', NULL),
+(126, 'Liofilizált Málna', 'Liofilizált Gyümölcs', 2024, 30, 'RaspberryFreeze', 'BerryBlast Inc.', '2800.00', NULL),
+(127, 'Liofilizált Kivi Szeletek', 'Liofilizált Gyümölcs', 2026, 42, 'KiwiSlices', 'TropicalKiwi Foods', '3100.00', NULL),
+(128, 'Liofilizált Cseresznye', 'Liofilizált Gyümölcs', 2025, 38, 'CherryBites', 'RedBerry Co.', '3000.00', NULL),
+(129, 'Liofilizált Alma Szeletek', 'Liofilizált Gyümölcs', 2023, 33, 'AppleSlices', 'FruitHarvest Ltd.', '2900.00', NULL),
+(130, 'Liofilizált Narancs Csuporok', 'Liofilizált Gyümölcs', 2026, 36, 'OrangeCrystals', 'CitrusBurst Inc.', '3200.00', NULL);
 
 -- --------------------------------------------------------
 
@@ -457,7 +507,7 @@ ALTER TABLE `subscription_plans`
 -- AUTO_INCREMENT a táblához `termek`
 --
 ALTER TABLE `termek`
-  MODIFY `termek_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `termek_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=131;
 
 --
 -- AUTO_INCREMENT a táblához `user`

@@ -4,15 +4,13 @@
 body{
 
     padding: 0%;
-    margin: 0;
+    margin: 40;
     font-family: 'Barlow', sans-serif;
     font-family: 'Inter', sans-serif;
     font-family: 'Montserrat', sans-serif;
-    background-color: #8f8f8f;
   }
 
 section {
-
     place-items: center;
     align-content: center;
     min-height: 40vh;
@@ -45,127 +43,101 @@ section {
 		background-position: 0% 50%;
 	}
 }
-/* Testimonials carousel */
-body{
-  background-color:#eee;
+/* menu section*/
+.menu .nav-tabs {
+  border: 0;
 }
 
-.card{
-  
-  border:none;
+.menu .nav-link {
+  margin: 0 10px;
+  padding: 10px 5px;
+  transition: 0.3s;
+  color: var(--color-secondary);
+  border-radius: 0;
+  cursor: pointer;
+  height: 100%;
+  border: 0;
+  border-bottom: 2px solid #b6b6bf;
 }
 
-.user-content p{
-  margin-top:20px;
-  font-size:20px;
+@media (max-width: 575px) {
+  .menu .nav-link {
+    margin: 0 10px;
+    padding: 10px 0;
+  }
 }
 
-
-.ratings i{
-  color:blue;
-}
-.carousel-inner{
-  width:100%;
-  max-height: 300px !important;
+.menu .nav-link i {
+  padding-right: 15px;
+  font-size: 48px;
 }
 
-/* css waves*/
-h1 {
-  font-family: 'Lato', sans-serif;
-  font-weight:300;
-  letter-spacing: 2px;
-  font-size:48px;
-}
-p {
-  font-family: 'Lato', sans-serif;
-  letter-spacing: 1px;
-  font-size:14px;
-  color: #333333;
-}
-
-.header {
-  position:relative;
-  text-align:center;
-  background: linear-gradient(60deg, rgba(84,58,183,1) 0%, rgba(0,172,193,1) 100%);
-  color:white;
-}
-.logo {
-  width:50px;
-  fill:white;
-  padding-right:15px;
-  display:inline-block;
-  vertical-align: middle;
-}
-
-.inner-header {
-  height:50vh;
-  width:100%;
+.menu .nav-link h4 {
+  font-size: 18px;
+  font-weight: 400;
   margin: 0;
-  padding: 0;
+  font-family: var(--font-secondary);
 }
 
-.flex { /*Flexbox for containers*/
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+@media (max-width: 575px) {
+  .menu .nav-link h4 {
+    font-size: 16px;
+  }
 }
 
-.waves {
-  position:relative;
-  width: 100%;
-  height:15vh;
-  margin-bottom:-7px; /*Fix for safari gap*/
-  min-height:100px;
-  max-height:150px;
+.menu .nav-link:hover {
+  color: var(--color-primary);
 }
 
-.content {
-  position:relative;
-  height:10vh;
-  text-align:center;
-  background-color: grey;
+.menu .nav-link.active {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
 }
 
-/* Animation */
+.menu .tab-content .tab-header {
+  padding: 30px 0;
+}
 
-.parallax > use {
-  animation: move-forever 25s cubic-bezier(.55,.5,.45,.5)     infinite;
+.menu .tab-content .tab-header p {
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #676775;
+  margin-bottom: 0;
 }
-.parallax > use:nth-child(1) {
-  animation-delay: -2s;
-  animation-duration: 7s;
+
+.menu .tab-content .tab-header h3 {
+  font-size: 36px;
+  font-weight: 600;
+  color: var(--color-primary);
 }
-.parallax > use:nth-child(2) {
-  animation-delay: -3s;
-  animation-duration: 10s;
+
+.menu .tab-content .menu-item {
+  -moz-text-align-last: center;
+  text-align-last: center;
 }
-.parallax > use:nth-child(3) {
-  animation-delay: -4s;
-  animation-duration: 13s;
+
+.menu .tab-content .menu-item .menu-img {
+  padding: 0 60px;
+  margin-bottom: 15px;
 }
-.parallax > use:nth-child(4) {
-  animation-delay: -5s;
-  animation-duration: 20s;
+
+.menu .tab-content .menu-item h4 {
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--color-secondary);
+  font-family: var(--font-secondary);
+  font-weight: 30px;
+  margin-bottom: 5px;
 }
-@keyframes move-forever {
-  0% {
-   transform: translate3d(-90px,0,0);
-  }
-  100% { 
-    transform: translate3d(85px,0,0);
-  }
+
+.menu .tab-content .menu-item .ingredients {
+  font-family: var(--font-secondary);
+  color: #8d8d9b;
+  margin-bottom: 5px;
 }
-/*Shrinking for mobile*/
-@media (max-width: 768px) {
-  .waves {
-    height:40px;
-    min-height:40px;
-  }
-  .content {
-    height:30vh;
-  }
-  h1 {
-    font-size:24px;
-  }
+
+.menu .tab-content .menu-item .price {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--color-primary);
 }

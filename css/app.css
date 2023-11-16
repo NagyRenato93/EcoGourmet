@@ -1,4 +1,5 @@
-@import url(https://fonts.googleapis.com/css?family=Raleway:400,500);
+@import url('https://fonts.googleapis.com/css2?family=Barlow&family=Inter:wght@200&family=Montserrat:ital,wght@0,300;1,100&display=swap');
+
 
 .slider-one, .slider-two, .slider-three, .slider-four {
     width: 100%;
@@ -354,4 +355,173 @@
         display: none;
     }
 }
+*, ::before, ::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
+body{
+
+  padding: 0%;
+  margin: 0;
+  font-family: 'Barlow', sans-serif;
+  font-family: 'Inter', sans-serif;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.home {
+  height: 100vh;
+  position: relative;
+}
+
+.video-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.video-container video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(4px); /* Itt állíthatod be a kívánt blur értéket (px-ben) */
+}
+
+.home-content {
+  position: relative;
+  padding-top: 400px;
+  color: #fff;
+  text-align: center;
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(45px, 7vw, 130px);
+  line-height: 1.1;
+}
+
+.home p {
+  font-size: clamp(25px, 4vw, 40px);
+  margin-top: 10px;
+}
+
+.home-content button {
+  display: block;
+  font-size: clamp(14px, 1.5vw, 18px);
+  border: 1px solid #f1f1f1;
+  border-radius: 5px;
+  background: transparent;
+  color: #fff;
+  margin: 50px auto 0;
+  padding: 12px 20px;
+  cursor: pointer;
+  overflow: hidden;
+}
+&::-webkit-scrollbar {
+  display: none;
+}
+.abut {
+  text-align: center;
+
+}
+
+/* menu section - page1*/
+.menu .nav-tabs {
+  border: 0;
+}
+
+.menu .nav-link {
+  margin: 0 10px;
+  padding: 10px 5px;
+  transition: 0.3s;
+  color: var(--color-secondary);
+  border-radius: 0;
+  cursor: pointer;
+  height: 100%;
+  border: 0;
+  border-bottom: 2px solid #b6b6bf;
+}
+
+@media (max-width: 575px) {
+  .menu .nav-link {
+    margin: 0 10px;
+    padding: 10px 0;
+  }
+}
+
+.menu .nav-link i {
+  padding-right: 15px;
+  font-size: 48px;
+}
+
+.menu .nav-link h4 {
+  font-size: 18px;
+  font-weight: 400;
+  margin: 0;
+  font-family: var(--font-secondary);
+}
+
+@media (max-width: 575px) {
+  .menu .nav-link h4 {
+    font-size: 16px;
+  }
+}
+
+.menu .nav-link:hover {
+  color: var(--color-primary);
+}
+
+.menu .nav-link.active {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.menu .tab-content .tab-header {
+  padding: 30px 0;
+}
+
+.menu .tab-content .tab-header p {
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #676775;
+  margin-bottom: 0;
+}
+
+.menu .tab-content .tab-header h3 {
+  font-size: 36px;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.menu .tab-content .menu-item {
+  -moz-text-align-last: center;
+  text-align-last: center;
+}
+
+.menu .tab-content .menu-item .menu-img {
+  padding: 0 60px;
+  margin-bottom: 15px;
+}
+
+.menu .tab-content .menu-item h4 {
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--color-secondary);
+  font-family: var(--font-secondary);
+  font-weight: 30px;
+  margin-bottom: 5px;
+}
+
+.menu .tab-content .menu-item .ingredients {
+  font-family: var(--font-secondary);
+  color: #8d8d9b;
+  margin-bottom: 5px;
+}
+
+.menu .tab-content .menu-item .price {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--color-primary);
+}

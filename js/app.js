@@ -837,12 +837,24 @@
     }
   ])
 
-  // about Controller 
-  .controller('aboutController', [
-    '$scope',
-    '$state',
-    '$log', // Inject $log service
-    function($scope, $state, $log) {
+  // aboutController
+.controller('aboutController', [
+  '$scope',
+  '$http', // Inject $http service for AJAX requests
+      function($scope, $http) {
+    // Fetch subscription plans from PHP endpoint
+    $http.get('./php/subscription_plans.php')
+    .then(function(response) {
+      // Ellenőrizze, hogy a válasz állapotkódja sikeres-e
+      if (response.status === 200 && Array.isArray(response.data)) {
+        // Töltse be a subscription_plans tömbjét a válaszadatokból
+        $scope.subscription_plans = response.data;
+      }
+    })
+    .catch(function(error) {
+      // Kezeld a hibát, és logold ki az error objektumot
+      console.error('Error fetching subscription plans:', error);
+    });
       // Intersection Observer függvény inicializálása
       function initializeIntersectionObserver() {
         var observer = new IntersectionObserver(function(entries) {
@@ -862,33 +874,46 @@
   
       // Intersection Observer függvény hívása
       initializeIntersectionObserver();
-  
-      fetch('./php/minta_reggeli.php')
-      .then(function (response) {
-        if (!response.ok) {
-          throw new Error('Hiba a válaszban: ' + response.statusText);
-        }
-        return response.json();
+      // Lekérdezés a reggeli receptek adatbázisból
+      $http.get('./php/minta_reggeli.php')
+      .then(function(response) {
+          // Ellenőrizze, hogy a válasz állapotkódja sikeres-e
+          if (response.status === 200 && Array.isArray(response.data)) {
+              // Töltse be a reggeli recepteket a válaszadatokból
+              $scope.breakfastRecipes = response.data;
+          }
       })
-      .then(function (data) {
-        // Ellenőrizzük, hogy a data egy tömb-e
-        if (Array.isArray(data)) {
-          var tbody = document.getElementById('table-body');
-    
-          data.forEach(function (recipe, index) {
-            var row = document.createElement('tr');
-    
-            // Reggeli adatainak hozzáadása a táblázathoz
-            var recipeData = [recipe.name, recipe.ingredients, recipe.instructions, recipe.cooking_time];
-            recipeData.forEach(function (value) {
-              var cell = document.createElement('td');
-              cell.textContent = value;
-              row.appendChild(cell);
-            });
-    
-            tbody.appendChild(row);
-          });
-        } 
+      .catch(function(error) {
+          // Kezeld a hibát, és logold ki az error objektumot
+          console.error('Error fetching breakfast recipes:', error);
+      });
+
+      // Lekérdezés az ebéd receptek adatbázisból
+      $http.get('./php/minta_ebed.php')
+      .then(function(response) {
+          // Ellenőrizze, hogy a válasz állapotkódja sikeres-e
+          if (response.status === 200 && Array.isArray(response.data)) {
+              // Töltse be az ebéd recepteket a válaszadatokból
+              $scope.lunchRecipes = response.data;
+          }
+      })
+      .catch(function(error) {
+          // Kezeld a hibát, és logold ki az error objektumot
+          console.error('Error fetching lunch recipes:', error);
+      });
+
+      // Lekérdezés a vacsora receptek adatbázisból
+      $http.get('./php/minta_vacsora.php')
+      .then(function(response) {
+          // Ellenőrizze, hogy a válasz állapotkódja sikeres-e
+          if (response.status === 200 && Array.isArray(response.data)) {
+              // Töltse be a vacsora recepteket a válaszadatokból
+              $scope.dinnerRecipes = response.data;
+          }
+      })
+      .catch(function(error) {
+          // Kezeld a hibát, és logold ki az error objektumot
+          console.error('Error fetching dinner recipes:', error);
       });
     }
   ])
@@ -912,7 +937,7 @@
       $scope.setCategoryFilter = function (category) {
         $scope.categoryFilter = category;
       };
-    
+
       $scope.clearCategoryFilter = function () {
         $scope.categoryFilter = '';
       };
@@ -921,9 +946,9 @@
         $scope.subcategoryFilter = '';
       };
       
+
   }
 ]);
 
-    
 
 })(window, angular);

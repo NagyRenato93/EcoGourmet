@@ -1,206 +1,237 @@
-
+<!-- Page container -->
+<div class="page-container d-conditional vh-100">
   <!-- Navigate -->
   <header class="sticky-top" ng-include src="'./html/navigate.html'"></header>
-<link rel="stylesheet" href="./css/about.css">
-<!-- Page controller -->
-<div ng-app="page2">
-  <div ng-controller="page2Controller">
-<div class="header">
-  <!--Content before waves-->
-  <div class="inner-header flex">
-    <h1>Üdvözöljük az EcoGourmetnél!
-    </h1>
-  </div>
-  <!--Waves Container-->
-  <div>
-    <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
-      <defs>
-        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
-      </defs>
-      <g class="parallax">
-        <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7" />
-        <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
-        <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
-        <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff" />
-      </g>
-    </svg>
-  </div>
-  <!--Waves end-->
-</div>
-<!--Section: About us title-->
-<div id="about_us" class="tab-pane fade show active p-3 text-center" role="panel">
-  <h3 class="fs-3 badge bg-primary text-wrap mb-5 mt-5" style="width: 14rem;">Cégünkről: </h3>
-</div>
-<!--Section: about us text part-->
-<section class="hidden" id="A1">
-  <figure class="figure" style="float: left; margin-left: 20px;">
-    <img src="./media/image/ffood1.jpg" class="figure-img img-fluid rounded" style="height: 300px;" alt="A generic square placeholder image with rounded corners in a figure.">
-  </figure>
-  <figure class="figure" style="float: right; margin-right: 20px;">
-    <img src="./media/image/ffood2.jpg" class="figure-img img-fluid rounded" style="height: 300px;" alt="A generic square placeholder image with rounded corners in a figure.">
-  </figure>
-  <p class="fs-5 text-center align-middle w-50 mx-auto p-2 shadow-lg p-3 mb-5 bg-body-tertiary rounded"> Az EcoGourmet nevű táplálkozási tanácsadással foglalkozó cég egy kivételes vállalkozás, amely elkötelezett az egészséges életmód és a környezetvédelem iránt. Cégfilozófiájuk az ökológia és a gasztronómia harmonikus egyesítése, hogy ügyfeleiknek az optimális testsúlyhoz vezető útmutatást nyújtsák, miközben fenntartható módon gondoskodnak a környezetről. </p>
-</section>
-<section class="hidden" id="B1">
-  <figure class="figure" style="float: left; margin-left: 20px;">
-    <img src="./media/image/tree1.jpg" class="figure-img img-fluid rounded" style="height: 300px;" alt="A generic square placeholder image with rounded corners in a figure.">
-  </figure>
-  <figure class="figure" style="float: right; margin-right: 20px;">
-    <img src="./media/image/tree2.jpg" class="figure-img img-fluid rounded" style="height: 300px;" alt="A generic square placeholder image with rounded corners in a figure.">
-  </figure>
-  <p class="fs-5 text-center align-middle w-50 mx-auto p-2 shadow-lg p-3 mb-5 bg-body-tertiary rounded"> Minden vásárlásuk után a cég egy fát ültet, hozzájárulva a környezetvédelemhez és a globális klímaváltozás elleni küzdelemhez.A táplálkozási tanácsadás terén az EcoGourmet az egyéni igényeket és célokat szem előtt tartja, és minden étrendet a testsúly ideális szintjéhez optimalizál. A cég munkatársai magas szintű szakértelemmel és elkötelezettséggel dolgoznak az ügyfelekkel, hogy segítsenek nekik az egészséges étkezéshez vezető úton. </p>
-</section>
-<section class="hidden" id="C1">
-  <figure class="figure" style="float: left; margin-left: 20px;">
-    <img src="./media/image/enjoy1.jpg" class="figure-img img-fluid rounded" style="height: 300px;" alt="A generic square placeholder image with rounded corners in a figure.">
-  </figure>
-  <figure class="figure" style="float: right; margin-right: 20px;">
-    <img src="./media/image/enjoy2.jpg" class="figure-img img-fluid rounded" style="height: 300px;" alt="A generic square placeholder image with rounded corners in a figure.">
-  </figure>
-  <p class="fs-5 text-center align-middle w-50 mx-auto p-2 shadow-lg p-3 mb-5 bg-body-tertiary rounded"> Az étrendek nemcsak az egészséget, hanem az ízletes ételek élvezetét is hangsúlyozzák, így az ügyfelek élvezhetik az egészséges táplálkozás előnyeit.Az EcoGourmet hisz abban, hogy az egészséges életmód és a fenntarthatóság kompatibilis célok, amelyeket minden ügyfél számára elérhetővé tesz. Tevékenységük összehangolja a személyes jólétet és a környezeti felelősséget, így hozzájárulnak a fenntartható jövő kialakításához. Az EcoGourmet az eszményi példája a táplálkozási tanácsadásnak, amely egyszerre ötvözi a közösségi és környezeti felelősségvállalást. </p>
-</section>
-</div>
-</div>
-<hr>
-<!--Section: Testimonials-->
-<div id="about_us" class="tab-pane fade show active p-3 text-center" role="panel">
-  <h3 class="fs-3 badge bg-primary text-wrap mb-5 mt-5" style="width: 14rem;">Vélemények:</h3>
-</div>
-<section class="hidden">
-  <div class="container mt-5 mb-5">
-    <div class="row g-2">
-      <div class="col-md-4">
-        <div class="card p-3 text-center px-4">
-          <div class="user-image">
-            <img src="https://i.imgur.com/PKHvlRS.jpg" class="rounded-circle" width="80">
-          </div>
-          <div class="user-content">
-            <h5 class="mb-0">Zsófia véleménye</h5>
-            <span>Bolti Dolgozo</span>
-            <p>"Az EcoGourmet segítségével sikerült megtalálnom az egészséges életmód és a finom étkezés tökéletes egyensúlyát. Az általuk kínált személyre szabott tanácsok és étrendek segítettek javítani az étkezési szokásaimon, és most jobban érzem magam."</p>
-          </div>
-          <div class="ratings">
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
+  <link rel="stylesheet" href="./css/about.css">
+  <!-- Page controller -->
+  <div ng-app="page2">
+    <div ng-controller="aboutController">
+      <div class="header">
+        <!-- Video Container -->
+        <div class="video-container">
+          <video autoplay muted loop class="blurred-video">
+            <source src="./media/video/robin.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="home">
+          <div class="home-content">
+            <h1 id="abut">EcoGourmet</h1>
           </div>
         </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card p-3 text-center px-4">
-          <div class="user-image">
-            <img src="https://i.imgur.com/w2CKRB9.jpg" class="rounded-circle" width="80">
-          </div>
-          <div class="user-content">
-            <h5 class="mb-0">Péter véleménye</h5>
-            <span>Ács</span>
-            <p>"Nagyon hálás vagyok az EcoGourmet szolgáltatásainak. Kiváló minőségű, étrendeket kaptam tőlük, amelyek a környezetbarát szemléletüket is tükrözik. Számomra ez a cég a tudatos és egészséges táplálkozás szinonimája."</p>
-          </div>
-          <div class="ratings">
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-          </div>
+        <!--Content after video-->
+        <div class="inner-header flex">
+          <!-- Additional content if needed -->
         </div>
+        <!-- Section: about us text part -->
+        <section class="hidden" id="scroll">
+          <div class="container px-5">
+            <div class="row gx-5 align-items-center">
+              <div class="col-lg-6 order-lg-2">
+                <div class="p-5">
+                  <img class="img-fluid rounded-circle" src="./media/image/ffood1.jpg" alt="..." />
+                </div>
+              </div>
+              <div class="col-lg-6 order-lg-1">
+                <div class="p-5">
+                  <h2 class="display-4">Zöld étrendek...</h2>
+                  <p> Az étrendek nemcsak az egészséget, hanem az ízletes ételek élvezetét is hangsúlyozzák, így az ügyfelek élvezhetik az egészséges táplálkozás előnyeit.Az EcoGourmet hisz abban, hogy az egészséges életmód és a fenntarthatóság kompatibilis célok, amelyeket minden ügyfél számára elérhetővé tesz. Tevékenységük összehangolja a személyes jólétet és a környezeti felelősséget, így hozzájárulnak a fenntartható jövő kialakításához. Az EcoGourmet az eszményi példája a táplálkozási tanácsadásnak, amely egyszerre ötvözi a közösségi és környezeti felelősségvállalást. </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- Content section 2-->
+        <section class="hidden" id="scroll">
+          <div class="container px-5">
+            <div class="row gx-5 align-items-center">
+              <div class="col-lg-6">
+                <div class="p-5">
+                  <img class="img-fluid rounded-circle" src="./media/image/tree1.jpg" alt="..." />
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="p-5">
+                  <h2 class="display-4">Miért Eco?</h2>
+                  <p> Mivel minden vásárlásuk után a cég egy fát ültet, hozzájárulva a környezetvédelemhez és a globális klímaváltozás elleni küzdelemhez.A táplálkozási tanácsadás terén az EcoGourmet az egyéni igényeket és célokat szem előtt tartja, és minden étrendet a testsúly ideális szintjéhez optimalizál. A cég munkatársai magas szintű szakértelemmel és elkötelezettséggel dolgoznak az ügyfelekkel, hogy segítsenek nekik az egészséges étkezéshez vezető úton. </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- Content section 3-->
+        <section class="hidden">
+          <div class="container px-5">
+            <div class="row gx-5 align-items-center">
+              <div class="col-lg-6 order-lg-2">
+                <div class="p-5">
+                  <img class="img-fluid rounded-circle" src="./media/image/enjoy1.jpg" alt="..." />
+                </div>
+              </div>
+              <div class="col-lg-6 order-lg-1">
+                <div class="p-5">
+                  <h2 class="display-4">Együtt elérjük!</h2>
+                  <p> Az EcoGourmet egy kivételes vállalkozás, amely elkötelezett az egészséges életmód és a környezetvédelem iránt. Cégfilozófiájuk az ökológia és a gasztronómia harmonikus egyesítése, hogy ügyfeleiknek az optimális testsúlyhoz vezető útmutatást nyújtsák, miközben fenntartható módon gondoskodnak a környezetről. </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        
+        <!-- ======= Menu Section ======= -->
+        <section id="menu" class="menu hidden">
+          <div class="container" data-aos="fade-up">
+            <div class="section-header">
+              <h2>Menü ötletek nektek!</h2>
+              <p>Nagyon Finom! <span> Nagyon jó!</span>
+              </p>
+            </div>
+            <ul class="nav nav-tabs d-flex justify-content-center" data-aos="fade-up" data-aos-delay="200">
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-breakfast">
+                  <h4>Reggeli</h4>
+                </a>
+                <!-- End tab nav item -->
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-lunch">
+                  <h4>Ebéd</h4>
+                </a>
+              </li>
+              <!-- End tab nav item -->
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-dinner">
+                  <h4>Vacsora</h4>
+                </a>
+              </li>
+              <!-- End tab nav item -->
+            </ul>
+            <div class="tab-content" data-aos="fade-up" data-aos-delay="300">
+              <!-- Breakfast Menu Content -->
+              <div class="tab-pane fade active show" id="menu-breakfast">
+                <div class="tab-header text-center">
+                  <p>Menu</p>
+                  <h3>Reggeli</h3>
+                </div>
+                <div class="row gy-5">
+                  <div class="col-lg-4 menu-item" ng-repeat="recipe in breakfastRecipes">
+                    <!-- Display breakfast recipe details here -->
+                    <h4>{{ recipe.name }}</h4>
+                    <p class="ingredients">{{ recipe.ingredients }}</p>
+                    <p class="price">{{ recipe.cooking_time }} perc </p>
+                  </div>
+                </div>
+              </div>
+              <!-- End Breakfast Menu Content -->
+              <!-- Lunch Menu Content -->
+              <div class="tab-pane fade" id="menu-lunch">
+                <div class="tab-header text-center">
+                  <p>Menu</p>
+                  <h3>Ebéd</h3>
+                </div>
+                <div class="row gy-5">
+                  <div class="col-lg-4 menu-item" ng-repeat="recipe in lunchRecipes">
+                    <!-- Display lunch recipe details here -->
+                    <h4>{{ recipe.name }}</h4>
+                    <p class="ingredients">{{ recipe.ingredients }}</p>
+                    <p class="price">{{ recipe.cooking_time }} perc </p>
+                  </div>
+                </div>
+              </div>
+              <!-- End Lunch Menu Content -->
+              <!-- Dinner Menu Content -->
+              <div class="tab-pane fade" id="menu-dinner">
+                <div class="tab-header text-center">
+                  <p>Menu</p>
+                  <h3>Vacsora</h3>
+                </div>
+                <div class="row gy-5">
+                  <div class="col-lg-4 menu-item" ng-repeat="recipe in dinnerRecipes">
+                    <!-- Display dinner recipe details here -->
+                    <h4>{{ recipe.name }}</h4>
+                    <p class="ingredients">{{ recipe.ingredients }}</p>
+                    <p class="price">{{ recipe.cooking_time }} perc </p>
+                  </div>
+                </div>
+              </div>
+              <!-- End Dinner Menu Content -->
+            </div>
+          </div>
+        </section>
+        <!-- End Menu Section -->
+        <!-- pricing tabs -->
+        <section class="hidden bg-light py-5 ">
+          <div class="container px-5 my-5">
+            <div class="text-center mb-5">
+              <h2 class="fw-bolder">Velünk minden lehetséges!</h2>
+              <p class="lead mb-0">Az árainkat is rátok szabtuk.</p>
+            </div>
+            <div class="row gx-5 justify-content-center">
+              <div class="col-lg-4 mb-5" ng-repeat="plan in subscription_plans">
+                <div class="card h-100">
+                  <div class="card-body p-5">
+                    <div class="small text-uppercase fw-bold text-muted">{{plan.name}}</div>
+                    <div class="mb-3">
+                      <span class="display-4 fw-bold">{{plan.price}}Ft</span>
+                      <span class="text-muted">/feliratkozás.</span>
+                    </div>
+                    <ul class="list-unstyled mb-4">
+                      <li class="mb-2">
+                        <i class="bi bi-check text-primary"></i>
+                        <strong>Előfizetése {{plan.duration}} hónapig tart.</strong>
+                      </li>
+                      <li class="mb-2">
+                        <i class="bi bi-check text-primary"></i>
+                        {{plan.description}}
+                      </li>
+                      <!-- További részletek a tervekhez -->
+                    </ul>
+                  </div>
+                  <div class="card-footer d-flex justify-content-center">
+                    <div class="d-grid">
+                      <a class="btn btn-outline-primary" href="#!">Ezt választom!</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- end pricing tabs -->
+        <!-- Testimonials-->
+        <section class="testimonials text-center bg-light hidden">
+          <div class="container">
+            <h2 class="mb-5">Mit mondanak rólunk...</h2>
+            <div class="row">
+              <div class="col-lg-4">
+                <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                  <div class="rounded-circle overflow-hidden mx-auto" style="width: 150px; height: 150px;">
+                    <img class="img-fluid rounded-circle mb-3" src="./media/image/zsofia.jpg" alt="..." />
+                  </div>
+                  <h5 class="mt-4">Zsófia véleménye</h5>
+                  <p class="font-weight-light mb-0">"Az EcoGourmet segítségével sikerült megtalálnom az egészséges életmód és a finom étkezés tökéletes egyensúlyát. Az általuk kínált személyre szabott tanácsok és étrendek segítettek javítani az étkezési szokásaimon, és most jobban érzem magam."</p>
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                  <div class="rounded-circle overflow-hidden mx-auto" style="width: 150px; height: 150px;">
+                    <img class="img-fluid rounded-circle mb-3" src="./media/image/péter.jpg" alt="..." />
+                  </div>
+                  <h5 class="mt-4">Péter véleménye</h5>
+                  <p class="font-weight-light mb-0">"Nagyon hálás vagyok az EcoGourmet szolgáltatásainak. Kiváló minőségű, étrendeket kaptam tőlük, amelyek a környezetbarát szemléletüket is tükrözik. Számomra ez a cég a tudatos és egészséges táplálkozás szinonimája."</p>
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                  <div class="rounded-circle overflow-hidden mx-auto" style="width: 150px; height: 150px;">
+                    <img class="img-fluid rounded-circle mb-3" src="./media/image/anna.jpg" alt="..." />
+                  </div>
+                  <h5 class="mt-4">Anna véleménye</h5>
+                  <p class="font-weight-light mb-0">"Az étrendjük és a környezettudatos szemléletmódjuk valóban különleges. Rendkívül elégedett vagyok a velük töltött idővel, és mindenkinek ajánlom, aki jobban szeretné megérteni az egészséges étkezést."</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
-      <div class="col-md-4">
-        <div class="card p-3 text-center px-4">
-          <div class="user-image">
-            <img src="https://i.imgur.com/ACeArwY.jpg" class="rounded-circle" width="80">
-          </div>
-          <div class="user-content">
-            <h5 class="mb-0">Anna véleménye</h5>
-            <span>Üzletvezető</span>
-            <p>"Az étrendjük és a környezettudatos szemléletmódjuk valóban különleges. Rendkívül elégedett vagyok a velük töltött idővel, és mindenkinek ajánlom, aki jobban szeretné megérteni az egészséges étkezést."</p>
-          </div>
-          <div class="ratings">
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-          </div>
-        </div>
-      </div>
+      <footer ng-include src="'./html/footer.html'"></footer>
     </div>
   </div>
-</section>
-<hr>
-<!--Section: FAQ-->
-<section class="mx-auto p-2 shadow p-3 mb-5 bg-body-tertiary rounded text-center hidden">
-  <h3 class="fs-3 badge bg-primary text-wrap mb-5 mt-5" style="width: 14rem;">GYIK </h3>
-  </div>
-  <div class="row">
-    <div class="col-md-6 col-lg-4 mb-4">
-      <h6 class="mb-3 text-primary">
-        <i class="far fa-paper-plane text-primary pe-2"></i> Milyen étrend ajánlott a mindennapi egészséges életmódhoz?
-      </h6>
-      <p> Az egészséges életmódhoz ajánlott étrend általában magában foglalja a sok zöldség, gyümölcs, sovány fehérje, teljes kiőrlésű gabonafélék és egészséges zsírok fogyasztását. Fontos az étkezési adagok mértékletes tartása és az édességek, <strong>
-          <u>feldolgozott élelmiszerek korlátozása.</u>
-        </strong>
-      </p>
-    </div>
-    <div class="col-md-6 col-lg-4 mb-4">
-      <h6 class="mb-3 text-primary">
-        <i class="fas fa-pen-alt text-primary pe-2"></i>Hogyan lehet csökkenteni a napi kalóriabevitelt egészségesebb táplálkozással?
-      </h6>
-      <p>
-        <strong>
-          <u> A napi kalóriabevitel csökkentése érdekében </u>
-        </strong> érdemes az élelmiszerek választásánál olyan lehetőségekre koncentrálni, amelyek alacsonyabb kalóriatartalommal rendelkeznek. Például a sovány fehérjék, a zöldségek és a teljes kiőrlésű gabonafélék segíthetnek csökkenteni a kalóriabevitelt.
-      </p>
-    </div>
-    <div class="col-md-6 col-lg-4 mb-4">
-      <h6 class="mb-3 text-primary">
-        <i class="fas fa-user text-primary pe-2"></i> Mit tehetek, ha a fogyás a célom?
-      </h6>
-      <p> Ha a fogyás a cél, fontos olyan étrendet követni, amely kalóriadeficitet teremt, vagyis több kalóriát éget el, mint amennyit fogyaszt. Ezt azzal érheti el, hogy mértékletesen eszik, rendszeresen mozog, és egészséges ételeket választ. </p>
-    </div>
-    <div class="col-md-6 col-lg-4 mb-4">
-      <h6 class="mb-3 text-primary">
-        <i class="fas fa-home text-primary pe-2"></i> Mi az optimális napi vízbevitel mennyisége?
-      </h6>
-      <p> Az egészséges étrend és életmód számos előnnyel jár, mint például a jobb egészség, az energia növelése, a súlykontroll, az anyagcsere javítása és <strong>
-          <u> a krónikus betegségek kockázatának csökkentése.</u>. </strong>
-      </p>
-    </div>
-    <div class="col-md-6 col-lg-4 mb-4">
-      <h6 class="mb-3 text-primary">
-        <i class="fas fa-book-open text-primary pe-2"></i> Hogyan történik a fizetés az EcoGourmet szolgáltatásaiért?
-      </h6>
-      <p> A fizetés az EcoGourmet szolgáltatásaiért általában online történik, és elfogadnak különböző fizetési módokat, például bankkártyát vagy PayPal-t. Az egyes szolgáltatásokért vagy csomagokért meghatározott árat kell kifizetni, és a fizetési részletekkel kapcsolatban bővebb információt a cég weboldalán vagy ügyfélszolgálatán találhat. </p>
-    </div>
-    <div class="col-md-6 col-lg-4 mb-4">
-      <h6 class="mb-3 text-primary">
-        <i class="fas fa-rocket text-primary pe-2"></i> Hogyan mondhatom fel a fizetést az EcoGourmet szolgáltatásaiért?
-      </h6>
-      <p> A fizetés felmondása az EcoGourmet szolgáltatásaiért általában az ügyfél fiókjában vagy az ügyfélszolgálaton keresztül történik. Az ügyfélszolgálat segíteni fog a felmondási folyamatban, és a megszüntetéshez szükséges lépéseket ismertetik. Fontos figyelni a felmondási határidőket és feltételeket, amelyeket a cég meghatározott. </p>
-    </div>
-  </div>
-</section>
-<hr>
-<section class="text-center hidden">
-  <h3 class="fs-3 badge bg-primary text-wrap mb-5 mt-5" style="width: 14rem;">Minta Receptek </h3>
-  <!-- Container -->
-  <div class="container">
-    <table class="table table-striped-columns mb-5 mt-5">
-      <thead class="table-dark">
-        <tr>
-          <th>Név</th>
-          <th>Összetevők</th>
-          <th>Utasítások</th>
-          <th>Főzési Idő</th>
-        </tr>
-      </thead>
-      <tbody id="table-body">
-        <!-- Itt jöhetnek a reggeli recept rekordok -->
-      </tbody>
-    </table>
-    <button class="fs-3 badge bg-primary mb-5 mt-5" type="button" class="btn btn-dark" ui-sref="page2"> Vásárlás </button>
-</section>
-</div>
-<footer ng-include src="'./html/footer.html'"></footer>
-</div>
-</div>

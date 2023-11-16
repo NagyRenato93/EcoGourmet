@@ -21,20 +21,30 @@
           <!-- ng-repeat direktíva a termékek bejárásához -->
           <div class="container px-4 px-lg-5 mt-5">
             <div class="row gx-4 gx-lg-5">
-              <!-- Termék kártyák -->
-              <div class="col-6 col-md-4 col-lg-3 col-xl-2 mb-5" ng-repeat="product in products">
+              <!-- Kategória szűrő gombok -->
+              <div class="mb-3">
+                <button class="btn btn-primary" ng-click="setCategoryFilter('Fehérje Por')">Fehérjék</button>
+                <button class="btn btn-primary" ng-click="setCategoryFilter('Smoothie Por')">Smoothiek</button>
+                <button class="btn btn-primary" ng-click="setCategoryFilter('Protein')">Protein Szelet</button>
+                <!-- További kategóriákhoz gombok hozzáadhatók -->
+                <!-- Szűrés törlése -->
+                <button class="btn btn-warning" ng-click="clearFilters()">Szűrés törlése</button>
+              </div>
+              <!-- Termék kártyák + ng rep szürés -->
+              <div class="col-6 col-md-4 col-lg-3 col-xl-2 mb-5" ng-repeat="product in filteredProducts = (products | filter: { kategoria: categoryFilter })">
                 <div class="card h-100">
-                  <!-- Product image-->
-                  <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                  <!-- Product details-->
+                  <!-- Termék képe -->
+                  <img class="card-img-top" ng-src="{{product.kep_eleresi_ut}}" alt="Termék képe" />
+                  <!-- Termék részletei -->
                   <div class="card-body p-4">
                     <div class="text-center">
                       <!-- Product name-->
                       <h5 class="fw-bolder">{{product.nev}}</h5>
                       <!-- Product gyártó forgalmazo-->
-                      {{product.kategoria}}
-                      {{product.forgalmazo}}
-                      <!-- Product price--> {{product.ar_forint}}
+                      <span ng-if="product.forgalmazo">Forgalmazó: {{product.forgalmazo}}</span>
+                      <hr class="my-0">
+                      <!-- Product price-->
+                      <span ng-if="product.ar_forint">Ár: {{product.ar_forint}} Ft</span>
                     </div>
                   </div>
                   <!-- Product actions-->

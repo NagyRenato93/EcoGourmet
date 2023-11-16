@@ -12,7 +12,7 @@ try {
                     instructions, 
                     cooking_time 
                 FROM breakfast_recipes  
-                LIMIT 5";
+                LIMIT 6";
 
     // Execute query
     $result = $db->execute($query);
