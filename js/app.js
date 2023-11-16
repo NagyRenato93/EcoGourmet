@@ -4,12 +4,10 @@
 
   // Application module
   angular.module('app', [
-    'ui.router',
-    'ui.bootstrap', 
+    'ui.router', 
     'app.common',
     'app.language', 
     'app.form'
-    
   ])
 
   // Application config
@@ -23,13 +21,13 @@
           url: '/',
           templateUrl: './html/landing.html'
         })
-        .state('page1', {
-          url: '/page1',
+        .state('about', {
+          url: '/about',
           templateUrl: './html/about.html',
           controller: 'aboutController'
         })
-        .state('page2', {
-          url: '/page2',
+        .state('products', {
+          url: '/products',
           templateUrl: './html/products.html',
           controller: 'productsController'
         })
@@ -917,23 +915,22 @@
       });
     }
   ])
-// products Controller
-.controller('productsController', [
-  '$scope',
-  '$http', // Inject $http service for AJAX requests
-  function($scope, $http) {
-    // A termékek tömb inicializálása
-    $scope.products = [];
 
-    // AJAX kérés a termékek lekérdezésére
-    $http.get('./php/products.php')
-      .then(function(response) {
-        // Ellenőrizze, hogy a válasz állapotkódja sikeres-e
-        if (response.status === 200 && Array.isArray(response.data)) {
-          // Töltse be a termékek tömbjét a válaszadatokból
-          $scope.products = response.data;
-        }
+  // products Controller
+  .controller('productsController', [
+    '$scope',
+    'http', // Inject $http service for AJAX requests
+    function($scope, http) {
+
+      // A termékek tömb inicializálása
+      //$scope.products = [];
+
+      // Http kérés a termékek lekérdezésére
+      http.request('./php/products.php')
+      .then(response => {
+        $scope.products = response.products;
       });
+
       $scope.setCategoryFilter = function (category) {
         $scope.categoryFilter = category;
       };
@@ -945,10 +942,31 @@
         $scope.categoryFilter = '';
         $scope.subcategoryFilter = '';
       };
-      
 
-  }
-]);
+      /*
+      $http.get('./php/products.php')
+        .then(function(response) {
+          // Ellenőrizze, hogy a válasz állapotkódja sikeres-e
+          if (response.status === 200 && Array.isArray(response.data)) {
+            // Töltse be a termékek tömbjét a válaszadatokból
+            $scope.products = response.data;
+          }
+        });
+        $scope.setCategoryFilter = function (category) {
+          $scope.categoryFilter = category;
+        };
+
+        $scope.clearCategoryFilter = function () {
+          $scope.categoryFilter = '';
+        };
+        $scope.clearFilters = function () {
+          $scope.categoryFilter = '';
+          $scope.subcategoryFilter = '';
+        };
+      */  
+
+    }
+  ]);
 
 
 })(window, angular);

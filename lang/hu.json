@@ -48,5 +48,6 @@
   "forgot_password": "elfelejtette a jelszavát",
   "change_email": "email cím megváltoztatása",
   "change_password": "jelszó módosítása",
-  "under_construction": "fejlesztés alatt"
+  "under_construction": "fejlesztés alatt",
+  "about": "rólunk"
 }

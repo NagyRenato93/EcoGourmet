@@ -33,6 +33,28 @@
           <ul class="navbar-nav">
 
             <!-- Pages -->
+            <li class="nav-item">
+              <a class="nav-link" 
+                 ui-sref="about">
+                <i class="fa-solid fa-male fa-lg me-1"></i>
+                <span class="text-capitalize text-small-caps">
+                  {{'about' | translate:lang.data}}
+                </span>
+              </a>
+            </li>
+
+            <!-- Pages -->
+            <li class="nav-item">
+              <a class="nav-link" 
+                 ui-sref="products">
+                <i class="fa-solid fa-male fa-lg me-1"></i>
+                <span class="text-capitalize text-small-caps">
+                  {{'products' | translate:lang.data}}
+                </span>
+              </a>
+            </li>
+
+            <!-- Pages -->
             <li class="nav-item" ng-repeat="x in [].constructor(3) track by $index">
               <a class="nav-link" 
                  ng-class="{'active cursor-default ': state.id === 'page{{$index+1}}', 
