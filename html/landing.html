@@ -2,42 +2,28 @@
 <div class="page-container d-conditional vh-100">
 
   <!-- Navigate -->
-  <header class="sticky-top" ng-include src="'./html/navigate.html'"></header>
-   
-   <div class="slider-one">
-    <div class="slider-one-image">
-      <div class="slider-text">
-        <h1>Tudtad, hogy az EcoGourmet segíthet a bolygónk megóvásában?</h1>
-        <p>Az EcoGourmet olyan ételélményeket kínál, amelyek segítenek csökkenteni az ökológiai lábnyomodat. 
-          Ízletes és fenntartható ételek, amelyek segítenek megóvni a környezetet.
+  <header class="sticky-top" 
+          ng-include="'./html/navigate.html'">
+  </header>
+  
+  <!-- Slider -->
+  <div class="slider slider-{{$index+1}} vh-100 vw-100 
+              position-absolute overflow-hidden top-0 start-0"
+       ng-repeat="x in [].constructor(4) track by $index">
+
+    <!-- Slider image -->
+    <div class="slider-image slider-image-{{$index+1}} vh-100 bg-img bg-img-cover"
+         style="background-image:url('./media/image/food{{$index+1}}.jpg');">
+
+      <!-- Slider content -->
+      <div class="slider-text position-absolute text-white p-3">
+        <h1 class="slider-title">
+          {{('slide_title_' + ($index+1)) | translate:lang.data}}
+        </h1>
+        <p class="slider-content">
+          {{('slide_content_' + ($index+1)) | translate:lang.data}}
         </p>
       </div>
     </div>
   </div>
-  <div class="slider-two">
-    <div class="slider-two-image">
-      <div class="slider-text">
-        <h1>Fedezd fel az EcoGourmet világát: Ízletes, Fenntartható, Egészséges!</h1>
-        <p>Az EcoGourmet egy olyan cég, amely az ízletes ételek mellett a fenntarthatóságot és az egészséget helyezi előtérbe. 
-          Ismerd meg az ételeinket, amelyek egyesítik az élvezetet és az egészséget!
-        </p>
-      </div>
-    </div>
-  </div>
-  <div class="slider-three">
-    <div class="slider-three-image">
-      <div class="slider-text">
-        <h1>Az EcoGourmet: Az étkezés, ami jó a testednek és a Földnek is!</h1>
-        <p>Az EcoGourmet olyan éttermi élményeket kínál, ahol az ételek nemcsak finomak, hanem fenntarthatóak is. 
-          Támogasd egészségedet és a környezetvédelmet az EcoGourmet segítségével.</p>
-      </div>
-    </div>
-  </div>
-  <div class="slider-four">
-    <div class="slider-four-image">
-      <div class="slider-text">
-        <h1>Nem kell tovább a konyhában gondolkodnia!</h1>
-        <p> Az EcoGourmet egészséges menükkel rukkol elő, hogy segítsen megkönnyíteni az étkezési döntéseit. Egyszerűen válasszon akár napi 3 mnenü közül!"</p>
-      </div>
-    </div>
-  </div>
+</div>

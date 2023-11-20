@@ -1,11 +1,11 @@
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark shadow-5-strong">
-  <a class="navbar-styles" href="#">
-    Ecogrourmet
-  </a>
   
   <!-- Container -->
   <div class="container-fluid">
+
+    <!--  Home (landing) -->
+    <a class="navbar-brand" ui-sref="home">Ecogrourmet</a>
 
     <!-- Hamburger icon -->
     <button class="navbar-toggler" 
@@ -19,7 +19,7 @@
     </button>
 
     <!-- Navbar container -->
-    <div class="collapse navbar-collapse mt-2 mt-md-0">
+    <div class="collapse navbar-collapse mt-2 mt-md-0" id="navbarNav">
 
       <!-- Left align -->
       <div class="navbar-left me-auto">
@@ -31,6 +31,28 @@
       <div class="navbar-center mx-auto">
           <!-- Navigate -->
           <ul class="navbar-nav">
+
+            <!-- Pages -->
+            <li class="nav-item">
+              <a class="nav-link" 
+                 ui-sref="about">
+                <i class="fa-solid fa-male fa-lg me-1"></i>
+                <span class="text-capitalize text-small-caps">
+                  {{'about' | translate:lang.data}}
+                </span>
+              </a>
+            </li>
+
+            <!-- Pages -->
+            <li class="nav-item">
+              <a class="nav-link" 
+                 ui-sref="products">
+                <i class="fa-solid fa-male fa-lg me-1"></i>
+                <span class="text-capitalize text-small-caps">
+                  {{'products' | translate:lang.data}}
+                </span>
+              </a>
+            </li>
 
             <!-- Pages -->
             <li class="nav-item" ng-repeat="x in [].constructor(3) track by $index">
