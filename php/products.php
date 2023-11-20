@@ -1,35 +1,41 @@
 <?php
+
 // Set environment
 require_once('../../../common/php/environment.php');
 
 // Connect to database
-try {
-    $db = new Database(); // Assuming this class handles database connections
+$db = new Database(); // Assuming this class handles database connections
 
-    // Set query
-    $query = "SELECT termek_id, 
-                     nev, 
-                     kategoria, 
-                     szavatossagi_ido, 
-                     raktaron, 
-                     forgalmazo, 
-                     gyarto, 
-                     ar_forint
-                FROM termek
-                ORDER BY termek_id";
+// Set query
+$query = "SELECT termek_id, 
+                 nev, 
+                 kategoria, 
+                 szavatossagi_ido, 
+                 raktaron, 
+                 forgalmazo, 
+                 gyarto, 
+                 ar_forint,
+                 kep_eleresi_ut
+            FROM termek
+            ORDER BY termek_id";
 
-    // Execute query
-    $result = $db->execute($query);
+// Execute query
+$result['products'] = $db->execute($query);
 
-    // Close connection
-    $db->close();
+$query = "SELECT id,
+                    name, 
+                    ingredients, 
+                    instructions, 
+                    cooking_time 
+                FROM dinner_recipes
+                LIMIT 6";
 
-    // Output the result as JSON
-    echo json_encode($result);
+$result['dinner'] = $db->execute($query);
 
-} catch (Exception $e) {
-    // Handle exceptions and log errors
-    error_log('Error: ' . $e->getMessage());
-    echo json_encode(["status" => "error", "message" => $e->getMessage()]);
-}
+
+// Close connection
+$db = null;
+
+// Set response
+Util::setResponse($result);
 ?>
