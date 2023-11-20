@@ -7,6 +7,44 @@
     /* Háttérszín az oldalsó menühöz és a slider szövegeihez */
     background-color: rgba(0, 0, 0, 0.3) !important;    
 }
+.slider {
+	animation-duration: 20s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+}
+.slider-1 {
+  animation-name: slider-1;
+}
+.slider-2 {
+	animation-name: slider-2;
+}
+.slider-3 {
+	animation-name: slider-3;
+}
+.slider-4 {
+	animation-name: slider-4;
+}
+.slider-image {
+	width: 110%;
+  animation: zoom-out 10s linear infinite;
+}
+.slider-text {
+	border-radius: 10px;
+  top: 40%;
+  left: 5%;
+  width: 600px;
+  animation: text-up 5s ease-out infinite;
+	transform: translateY(200px);
+}
+.slider-title {
+	font-family: 'Playfair Display', serif;
+	font-size: 2.5rem;
+  margin-bottom: 16px;
+}
+.slider-content {
+	font-size: 18px;
+  line-height: 28px;
+}
 
 /* Slider animációk */
 @keyframes text-up {
