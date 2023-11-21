@@ -1,28 +1,27 @@
 <?php
-// subscription_plans.php
 
 // Set environment
 require_once('../../../common/php/environment.php');
 
+
 // Connect to database
-try {
-    $db = new Database(); // Assuming this class handles database connections
+$db = new Database(); // Assuming this class handles database connections
 
-    // Set query
-    $query = "SELECT id, name, description, duration, price FROM subscription_plans";
+// Set query
+$query = "SELECT id, 
+                 name,
+                 description, 
+                 duration, 
+                 price 
+            FROM subscription_plans"; 
 
-    // Execute query
-    $result = $db->execute($query);
+// Execute query
+$result['subscription_plans'] = $db->execute($query);
 
-    // Close connection
-    $db->close();
+// Close connection
+$db = null;
 
-    // Output the result as JSON
-    echo json_encode($result);
+// Set response
+Util::setResponse($result);
 
-} catch (Exception $e) {
-    // Handle exceptions and log errors
-    error_log('Error: ' . $e->getMessage());
-    echo json_encode(["status" => "error", "message" => $e->getMessage()]);
-}
 ?>

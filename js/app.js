@@ -838,22 +838,15 @@
   // aboutController
 .controller('aboutController', [
   '$scope',
-  '$http', // Inject $http service for AJAX requests
-      function($scope, $http) {
-    // Fetch subscription plans from PHP endpoint
-    $http.get('./php/subscription_plans.php')
-    .then(function(response) {
-      // Ellenőrizze, hogy a válasz állapotkódja sikeres-e
-      if (response.status === 200 && Array.isArray(response.data)) {
-        // Töltse be a subscription_plans tömbjét a válaszadatokból
-        $scope.subscription_plans = response.data;
-      }
-    })
-    .catch(function(error) {
-      // Kezeld a hibát, és logold ki az error objektumot
-      console.error('Error fetching subscription plans:', error);
+  'http', 
+      function($scope, http) {
+    http.request('./php/subscription_plans.php')
+    .then(response => {
+      $scope.subscription_plans = response.subscription_plans;
     });
+
       // Intersection Observer függvény inicializálása
+      // Smooth animacion on scrolling on About Us Page
       function initializeIntersectionObserver() {
         var observer = new IntersectionObserver(function(entries) {
           entries.forEach(function(entry) {
@@ -869,49 +862,14 @@
           observer.observe(element);
         });
       }
-  
       // Intersection Observer függvény hívása
       initializeIntersectionObserver();
-      // Lekérdezés a reggeli receptek adatbázisból
-      $http.get('./php/minta_reggeli.php')
-      .then(function(response) {
-          // Ellenőrizze, hogy a válasz állapotkódja sikeres-e
-          if (response.status === 200 && Array.isArray(response.data)) {
-              // Töltse be a reggeli recepteket a válaszadatokból
-              $scope.breakfastRecipes = response.data;
-          }
-      })
-      .catch(function(error) {
-          // Kezeld a hibát, és logold ki az error objektumot
-          console.error('Error fetching breakfast recipes:', error);
-      });
-
-      // Lekérdezés az ebéd receptek adatbázisból
-      $http.get('./php/minta_ebed.php')
-      .then(function(response) {
-          // Ellenőrizze, hogy a válasz állapotkódja sikeres-e
-          if (response.status === 200 && Array.isArray(response.data)) {
-              // Töltse be az ebéd recepteket a válaszadatokból
-              $scope.lunchRecipes = response.data;
-          }
-      })
-      .catch(function(error) {
-          // Kezeld a hibát, és logold ki az error objektumot
-          console.error('Error fetching lunch recipes:', error);
-      });
-
-      // Lekérdezés a vacsora receptek adatbázisból
-      $http.get('./php/minta_vacsora.php')
-      .then(function(response) {
-          // Ellenőrizze, hogy a válasz állapotkódja sikeres-e
-          if (response.status === 200 && Array.isArray(response.data)) {
-              // Töltse be a vacsora recepteket a válaszadatokból
-              $scope.dinnerRecipes = response.data;
-          }
-      })
-      .catch(function(error) {
-          // Kezeld a hibát, és logold ki az error objektumot
-          console.error('Error fetching dinner recipes:', error);
+      // Http kérés a receptek lekérdezésére
+    http.request('./php/recipes.php')
+      .then(response => {
+        $scope.breakfastRecipes = response.breakfastRecipes;
+        $scope.lunchRecipes     = response.lunchRecipes;
+        $scope.dinnerRecipes    = response.dinnerRecipes;
       });
     }
   ])
@@ -919,12 +877,8 @@
   // products Controller
   .controller('productsController', [
     '$scope',
-    'http', // Inject $http service for AJAX requests
+    'http',
     function($scope, http) {
-
-      // A termékek tömb inicializálása
-      //$scope.products = [];
-
       // Http kérés a termékek lekérdezésére
       http.request('./php/products.php')
       .then(response => {
@@ -942,29 +896,6 @@
         $scope.categoryFilter = '';
         $scope.subcategoryFilter = '';
       };
-
-      /*
-      $http.get('./php/products.php')
-        .then(function(response) {
-          // Ellenőrizze, hogy a válasz állapotkódja sikeres-e
-          if (response.status === 200 && Array.isArray(response.data)) {
-            // Töltse be a termékek tömbjét a válaszadatokból
-            $scope.products = response.data;
-          }
-        });
-        $scope.setCategoryFilter = function (category) {
-          $scope.categoryFilter = category;
-        };
-
-        $scope.clearCategoryFilter = function () {
-          $scope.categoryFilter = '';
-        };
-        $scope.clearFilters = function () {
-          $scope.categoryFilter = '';
-          $scope.subcategoryFilter = '';
-        };
-      */  
-
     }
   ]);
 

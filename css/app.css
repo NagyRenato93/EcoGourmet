@@ -190,25 +190,6 @@ h1 {
     margin-top: 10px;
 }
 
-.home-content button {
-    /* Gomb stílusa */
-    display: block;
-    font-size: clamp(14px, 1.5vw, 18px);
-    border: 1px solid #f1f1f1;
-    border-radius: 5px;
-    background: transparent;
-    color: #fff;
-    margin: 50px auto 0;
-    padding: 12px 20px;
-    cursor: pointer;
-    overflow: hidden;
-}
-
-&::-webkit-scrollbar {
-    /* A görgetősáv elrejtése */
-    display: none;
-}
-
 .abut {
     /* Aloldal stílusa */
     text-align: center;

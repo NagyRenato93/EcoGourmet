@@ -1,7 +1,7 @@
 <!-- Navigate -->
 <header class="sticky-top" ng-include src="'./html/navigate.html'"></header>
 <!-- Controller -->
-<div ng-app="page2">
+<div ng-app="products">
   <div ng-controller="productsController">
     <!-- Container -->
     <div class="container-fluid pt-5">
@@ -27,9 +27,11 @@
                 <button class="btn btn-primary" ng-click="setCategoryFilter('Smoothie Por')">Smoothiek</button>
                 <button class="btn btn-primary" ng-click="setCategoryFilter('Protein')">Protein Szelet</button>
                 <!-- További kategóriákhoz gombok hozzáadhatók -->
+
                 <!-- Szűrés törlése -->
                 <button class="btn btn-warning" ng-click="clearFilters()">Szűrés törlése</button>
               </div>
+              
               <!-- Termék kártyák + ng rep szürés -->
               <div class="col-6 col-md-4 col-lg-3 col-xl-2 mb-5" ng-repeat="product in filteredProducts = (products | filter: { kategoria: categoryFilter })">
                 <div class="card h-100">

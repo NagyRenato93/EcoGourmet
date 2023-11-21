@@ -1,5 +1,5 @@
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark shadow-5-strong">
+<nav class="navbar navbar-expand-md navbar-light bg-light">
   
   <!-- Container -->
   <div class="container-fluid">
@@ -19,7 +19,7 @@
     </button>
 
     <!-- Navbar container -->
-    <div class="collapse navbar-collapse mt-2 mt-md-0" id="navbarNav">
+    <div class="collapse navbar-collapse mt-2 mt-md-0">
 
       <!-- Left align -->
       <div class="navbar-left me-auto">
@@ -51,21 +51,6 @@
                 <span class="text-capitalize text-small-caps">
                   {{'products' | translate:lang.data}}
                 </span>
-              </a>
-            </li>
-
-            <!-- Pages -->
-            <li class="nav-item" ng-repeat="x in [].constructor(3) track by $index">
-              <a class="nav-link" 
-                 ng-class="{'active cursor-default ': state.id === 'page{{$index+1}}', 
-                            'disabled': state.id === 'user' && userEvent === 'profile' && helper.isEdit}"
-                 ng-attr-aria-disabled="{{state.id === 'user' && userEvent === 'profile' && helper.isEdit}}"
-                 ui-sref="page{{$index+1}}">
-                <i class="fa-solid fa-male fa-lg me-1"></i>
-                <span class="text-capitalize text-small-caps">
-                  {{'page' | translate:lang.data}}
-                </span>
-                <span>{{$index+1}}</span>
               </a>
             </li>
           </ul>
