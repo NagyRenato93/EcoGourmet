@@ -743,29 +743,52 @@
               });
       }
     ])
-    // products Controller
-    .controller('productsController', [
-      '$scope',
-      'http',
-      function ($scope, http) {
-          // Http request to retrieve products
-          http.request('./php/products.php')
-              .then(response => {
-                  $scope.products = response.products;
-              });
+// products Controller
+.controller('productsController', [
+   '$scope',
+   'http',
+   function ($scope, http) {
+       // Http request to retrieve products
+       http.request('./php/products.php')
+           .then(response => {
+               if (response && response.products) {
+                   $scope.products = response.products;
 
-          $scope.setCategoryFilter = function (category) {
-              $scope.categoryFilter = category;
-          };
+                   // Carousel inicializáció
+                   var myCarousel = new bootstrap.Carousel(document.getElementById('ProductCarousel'), {
+                     interval: 5000, // 3 másodperc
+                     //pause: 'hover', // az automatikus lejátszást szünetelteti, ha az egér a Carousel felett van
+                   });
+               }
+           });
+ 
+       $scope.setCategoryFilter = function (category) {
+           $scope.categoryFilter = category;
+       };
+ 
+       $scope.clearCategoryFilter = function () {
+           $scope.categoryFilter = '';
+       };
+ 
+       $scope.clearFilters = function () {
+           $scope.categoryFilter = '';
+           $scope.subcategoryFilter = '';
+       };
+ 
+       $scope.getCategoryList = function () {
+           var categories = [];
+           if ($scope.products) {
+               for (var i = 0; i < $scope.products.length; i++) {
+                   var product = $scope.products[i];
+                   if (product.kategoria && categories.indexOf(product.kategoria) === -1) {
+                       categories.push(product.kategoria);
+                   }
+               }
+           }
+           return categories;
+       };
+   }
+]);
 
-          $scope.clearCategoryFilter = function () {
-              $scope.categoryFilter = '';
-          };
-
-          $scope.clearFilters = function () {
-              $scope.categoryFilter = '';
-              $scope.subcategoryFilter = '';
-          };
-      }
-    ]);
+ 
 })(window, angular);

@@ -1,69 +1,66 @@
 <!-- Navigate -->
 <header class="sticky-top" ng-include src="'./html/navigate.html'"></header>
+<!-- Top Carousel slide autoplaying  -->
+<div id="ProductCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-wrap="true" style="height: 800px;">
+   <div class="carousel-inner">
+      <div class="carousel-item active">
+         <img src="./media/image/food22.jpg" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+         <img src="./media/image/food23.jpg" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+         <img src="./media/image/food25.jpg" class="d-block w-100" alt="...">
+      </div>
+   </div>
+</div>
 <!-- Controller -->
 <div ng-app="products">
-  <div ng-controller="productsController">
-    <!-- Container -->
-    <div class="container-fluid pt-5">
-      <!-- Row -->
-      <div class="row">
-        <!-- Header-->
-        <header class="bg-dark py-5">
-          <div class="container-fluid px-4 px-lg-5 my-5">
-            <div class="text-center text-white">
-              <h1 class="display-4 fw-bolder">Shop in style</h1>
-              <p class="lead fw-normal text-white-50 mb-0">With this shop homepage template</p>
+   <div ng-controller="productsController">
+      <h2 class="text-center">Termékek Carousel</h2>
+      <hr>
+      <!-- Container -->
+      <div class="container-fluid pt-5">
+         <!-- Row -->
+         <div class="row">
+            <!-- Kategória szűrő gombok -->
+            <div class="col-md-1 mb-2">
+               <div class="list-group">
+                  <button class="list-group-item list-group-item-action btn btn-sm" ng-repeat="category in getCategoryList()" ng-click="setCategoryFilter(category)" style="max-width:100%;">{{category}}</button>
+                  <!-- Szűrés törlése -->
+                  <button class="list-group-item list-group-item-action btn btn-warning btn-sm mt-3" ng-click="clearFilters()" style="max-width: 100%;">Szűrés törlése</button>
+               </div>
             </div>
-          </div>
-        </header>
-        <!-- Section-->
-        <section class="py-5">
-          <!-- ng-repeat direktíva a termékek bejárásához -->
-          <div class="container px-4 px-lg-5 mt-5">
-            <div class="row gx-4 gx-lg-5">
-              <!-- Kategória szűrő gombok -->
-              <div class="mb-3">
-                <button class="btn btn-primary" ng-click="setCategoryFilter('Fehérje Por')">Fehérjék</button>
-                <button class="btn btn-primary" ng-click="setCategoryFilter('Smoothie Por')">Smoothiek</button>
-                <button class="btn btn-primary" ng-click="setCategoryFilter('Protein')">Protein Szelet</button>
-                <!-- További kategóriákhoz gombok hozzáadhatók -->
-
-                <!-- Szűrés törlése -->
-                <button class="btn btn-warning" ng-click="clearFilters()">Szűrés törlése</button>
-              </div>
-              
-              <!-- Termék kártyák + ng rep szürés -->
-              <div class="col-6 col-md-4 col-lg-3 col-xl-2 mb-5" ng-repeat="product in filteredProducts = (products | filter: { kategoria: categoryFilter })">
-                <div class="card h-100">
-                  <!-- Termék képe -->
-                  <img class="card-img-top" ng-src="{{product.kep_eleresi_ut}}" alt="Termék képe" />
-                  <!-- Termék részletei -->
-                  <div class="card-body p-4">
-                    <div class="text-center">
-                      <!-- Product name-->
-                      <h5 class="fw-bolder">{{product.nev}}</h5>
-                      <!-- Product gyártó forgalmazo-->
-                      <span ng-if="product.forgalmazo">Forgalmazó: {{product.forgalmazo}}</span>
-                      <hr class="my-0">
-                      <!-- Product price-->
-                      <span ng-if="product.ar_forint">Ár: {{product.ar_forint}} Ft</span>
-                    </div>
+            <!-- Termék kártyák + ng rep szűrés (korlátozva 8 termékre) -->
+            <div class="col-md-9 mx-auto">
+               <div class="card-container text-center">
+                  <div class="card mb-4" ng-repeat="product in filteredProducts = (products | filter: { kategoria: categoryFilter } | limitTo: 8)">
+                     <!-- Termék képe -->
+                     <div class="card-img" ng-style="{ 'background-image': 'url(' + product.kep_eleresi_ut + ')' }"></div>
+                     <!-- Termék részletei -->
+                     <div class="card-body">
+                        <div>
+                           <!-- Product name-->
+                           <h5 class="card-title fw-bolder">{{product.nev}}</h5>
+                           <!-- Product gyártó forgalmazo-->
+                           <p class="card-text" ng-if="product.forgalmazo">Forgalmazó: {{product.forgalmazo}}</p>
+                           <hr class="my-0">
+                           <!-- Product price-->
+                           <p class="card-text" ng-if="product.ar_forint">Ár: {{product.ar_forint}} Ft</p>
+                        </div>
+                     </div>
+                     <!-- Product actions-->
+                     <div class="card-footer bg-transparent">
+                        <div>
+                           <a class="btn btn-outline-dark mt-auto" href="#">Vásárlás</a>
+                        </div>
+                     </div>
                   </div>
-                  <!-- Product actions-->
-                  <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                    <div class="text-center">
-                      <a class="btn btn-outline-dark mt-auto" href="#">Vásárlás</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- Termék kártyák vége -->
+               </div>
             </div>
-          </div>
-        </section>
+            <!-- Termék kártyák vége -->
+         </div>
       </div>
-    </div>
-    <!-- Footer -->
-    <footer ng-include src="'./html/footer.html'"></footer>
-  </div>
+   </div>
 </div>
+<footer ng-include src="'./html/footer.html'"></footer>

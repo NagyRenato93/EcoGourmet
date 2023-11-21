@@ -4,233 +4,233 @@
   <header class="sticky-top" ng-include src="'./html/navigate.html'"></header>
   <!-- Page controller -->
   <div ng-app="page2">
-    <div ng-controller="aboutController">
-      <div class="header">
-        <!-- Video Container -->
-        <div class="video-container">
-          <video autoplay muted loop class="blurred-video">
-            <source src="./media/video/robin.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="home">
-          <div class="home-content">
-            <h1 id="abut">EcoGourmet</h1>
-          </div>
-        </div>
-        <!--Content after video-->
-        <div class="inner-header flex">
-          <!-- Additional content if needed -->
-        </div>
-        <!-- Section: about us text part -->
-        <section class="hidden" id="scroll">
-          <div class="container px-5">
-            <div class="row gx-5 align-items-center">
-              <div class="col-lg-6 order-lg-2">
-                <div class="p-5">
-                  <img class="img-fluid rounded-circle" src="./media/image/ffood1.jpg" alt="..." />
-                </div>
+     <div ng-controller="aboutController">
+        <div class="header">
+           <!-- Video Container -->
+           <div class="video-container">
+              <video autoplay muted loop class="blurred-video">
+                 <source src="./media/video/robin.mp4" type="video/mp4">
+              </video>
+           </div>
+           <div class="home">
+              <div class="home-content">
+                 <h1 id="abut">EcoGourmet</h1>
               </div>
-              <div class="col-lg-6 order-lg-1">
-                <div class="p-5">
-                  <h2 class="display-4">Zöld étrendek...</h2>
-                  <p> Az étrendek nemcsak az egészséget, hanem az ízletes ételek élvezetét is hangsúlyozzák, így az ügyfelek élvezhetik az egészséges táplálkozás előnyeit.Az EcoGourmet hisz abban, hogy az egészséges életmód és a fenntarthatóság kompatibilis célok, amelyeket minden ügyfél számára elérhetővé tesz. Tevékenységük összehangolja a személyes jólétet és a környezeti felelősséget, így hozzájárulnak a fenntartható jövő kialakításához. Az EcoGourmet az eszményi példája a táplálkozási tanácsadásnak, amely egyszerre ötvözi a közösségi és környezeti felelősségvállalást. </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        <!-- Content section 2-->
-        <section class="hidden" id="scroll">
-          <div class="container px-5">
-            <div class="row gx-5 align-items-center">
-              <div class="col-lg-6">
-                <div class="p-5">
-                  <img class="img-fluid rounded-circle" src="./media/image/tree1.jpg" alt="..." />
-                </div>
-              </div>
-              <div class="col-lg-6">
-                <div class="p-5">
-                  <h2 class="display-4">Miért Eco?</h2>
-                  <p> Mivel minden vásárlásuk után a cég egy fát ültet, hozzájárulva a környezetvédelemhez és a globális klímaváltozás elleni küzdelemhez.A táplálkozási tanácsadás terén az EcoGourmet az egyéni igényeket és célokat szem előtt tartja, és minden étrendet a testsúly ideális szintjéhez optimalizál. A cég munkatársai magas szintű szakértelemmel és elkötelezettséggel dolgoznak az ügyfelekkel, hogy segítsenek nekik az egészséges étkezéshez vezető úton. </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        <!-- Content section 3-->
-        <section class="hidden">
-          <div class="container px-5">
-            <div class="row gx-5 align-items-center">
-              <div class="col-lg-6 order-lg-2">
-                <div class="p-5">
-                  <img class="img-fluid rounded-circle" src="./media/image/enjoy1.jpg" alt="..." />
-                </div>
-              </div>
-              <div class="col-lg-6 order-lg-1">
-                <div class="p-5">
-                  <h2 class="display-4">Együtt elérjük!</h2>
-                  <p> Az EcoGourmet egy kivételes vállalkozás, amely elkötelezett az egészséges életmód és a környezetvédelem iránt. Cégfilozófiájuk az ökológia és a gasztronómia harmonikus egyesítése, hogy ügyfeleiknek az optimális testsúlyhoz vezető útmutatást nyújtsák, miközben fenntartható módon gondoskodnak a környezetről. </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        
-        <!-- ======= Menu Section ======= -->
-        <section id="menu" class="menu hidden">
-          <div class="container" data-aos="fade-up">
-            <div class="section-header">
-              <h2>Menü ötletek nektek!</h2>
-              <p>Nagyon Finom! <span> Nagyon jó!</span>
-              </p>
-            </div>
-            <ul class="nav nav-tabs d-flex justify-content-center" data-aos="fade-up" data-aos-delay="200">
-              <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-breakfast">
-                  <h4>Reggeli</h4>
-                </a>
-                <!-- End tab nav item -->
-              <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-lunch">
-                  <h4>Ebéd</h4>
-                </a>
-              </li>
-              <!-- End tab nav item -->
-              <li class="nav-item">
-                <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-dinner">
-                  <h4>Vacsora</h4>
-                </a>
-              </li>
-              <!-- End tab nav item -->
-            </ul>
-            <div class="tab-content" data-aos="fade-up" data-aos-delay="300">
-              <!-- Breakfast Menu Content -->
-              <div class="tab-pane fade active show" id="menu-breakfast">
-                <div class="tab-header text-center">
-                  <p>Menu</p>
-                  <h3>Reggeli</h3>
-                </div>
-                <div class="row gy-5">
-                  <div class="col-lg-4 menu-item" ng-repeat="recipe in breakfastRecipes">
-                    <!-- Display breakfast recipe details here -->
-                    <h4>{{ recipe.name }}</h4>
-                    <p class="ingredients">{{ recipe.ingredients }}</p>
-                    <p class="time">{{ recipe.cooking_time }} perc </p>
-                  </div>
-                </div>
-              </div>
-              <!-- End Breakfast Menu Content -->
-              <!-- Lunch Menu Content -->
-              <div class="tab-pane fade" id="menu-lunch">
-                <div class="tab-header text-center">
-                  <p>Menu</p>
-                  <h3>Ebéd</h3>
-                </div>
-                <div class="row gy-5">
-                  <div class="col-lg-4 menu-item" ng-repeat="recipe in lunchRecipes">
-                    <!-- Display lunch recipe details here -->
-                    <h4>{{ recipe.name }}</h4>
-                    <p class="ingredients">{{ recipe.ingredients }}</p>
-                    <p class="time">{{ recipe.cooking_time }} perc </p>
-                  </div>
-                </div>
-              </div>
-              <!-- End Lunch Menu Content -->
-              <!-- Dinner Menu Content -->
-              <div class="tab-pane fade" id="menu-dinner">
-                <div class="tab-header text-center">
-                  <p>Menu</p>
-                  <h3>Vacsora</h3>
-                </div>
-                <div class="row gy-5">
-                  <div class="col-lg-4 menu-item" ng-repeat="recipe in dinnerRecipes">
-                    <!-- Display dinner recipe details here -->
-                    <h4>{{ recipe.name }}</h4>
-                    <p class="ingredients">{{ recipe.ingredients }}</p>
-                    <p class="time">{{ recipe.cooking_time }} perc </p>
-                  </div>
-                </div>
-              </div>
-              <!-- End Dinner Menu Content -->
-            </div>
-          </div>
-        </section>
-        <!-- End Menu Section -->
-        <!-- pricing tabs -->
-        <section class="hidden bg-light py-5 ">
-          <div class="container px-5 my-5">
-            <div class="text-center mb-5">
-              <h2 class="fw-bolder">Velünk minden lehetséges!</h2>
-              <p class="lead mb-0">Az árainkat is rátok szabtuk.</p>
-            </div>
-            <div class="row gx-5 justify-content-center">
-              <div class="col-lg-4 mb-5" ng-repeat="plan in subscription_plans">
-                <div class="card h-100">
-                  <div class="card-body p-5">
-                    <div class="small text-uppercase fw-bold text-muted">{{plan.name}}</div>
-                    <div class="mb-3">
-                      <span class="display-4 fw-bold">{{plan.price}}Ft</span>
-                      <span class="text-muted">/feliratkozás.</span>
+           </div>
+           <!--Content after video-->
+           <div class="inner-header flex">
+              <!-- Additional content if needed -->
+           </div>
+           <!-- Section: about us text part -->
+           <section class="hidden" id="scroll">
+              <div class="container px-5">
+                 <div class="row gx-5 align-items-center">
+                    <div class="col-lg-6 order-lg-2">
+                       <div class="p-5">
+                          <img class="img-fluid rounded-circle" src="./media/image/ffood1.jpg" alt="..." />
+                       </div>
                     </div>
-                    <ul class="list-unstyled mb-4">
-                      <li class="mb-2">
-                        <i class="bi bi-check text-primary"></i>
-                        <strong>Előfizetése {{plan.duration}} hónapig tart.</strong>
-                      </li>
-                      <li class="mb-2">
-                        <i class="bi bi-check text-primary"></i>
-                        {{plan.description}}
-                      </li>
-                      <!-- További részletek a tervekhez -->
-                    </ul>
-                  </div>
-                  <div class="card-footer d-flex justify-content-center">
-                    <div class="d-grid">
-                      <a class="btn btn-outline-primary" href="#!">Ezt választom!</a>
+                    <div class="col-lg-6 order-lg-1">
+                       <div class="p-5">
+                          <h2 class="display-4">Zöld étrendek...</h2>
+                          <p> Az étrendek nemcsak az egészséget, hanem az ízletes ételek élvezetét is hangsúlyozzák, így az ügyfelek élvezhetik az egészséges táplálkozás előnyeit.Az EcoGourmet hisz abban, hogy az egészséges életmód és a fenntarthatóság kompatibilis célok, amelyeket minden ügyfél számára elérhetővé tesz. Tevékenységük összehangolja a személyes jólétet és a környezeti felelősséget, így hozzájárulnak a fenntartható jövő kialakításához. Az EcoGourmet az eszményi példája a táplálkozási tanácsadásnak, amely egyszerre ötvözi a közösségi és környezeti felelősségvállalást. </p>
+                       </div>
                     </div>
-                  </div>
-                </div>
+                 </div>
               </div>
-            </div>
-          </div>
-        </section>
-        <!-- end pricing tabs -->
-        <!-- Testimonials-->
-        <section class="testimonials text-center bg-light hidden">
-          <div class="container">
-            <h2 class="mb-5">Mit mondanak rólunk...</h2>
-            <div class="row">
-              <div class="col-lg-4">
-                <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-                  <div class="rounded-circle overflow-hidden mx-auto" style="width: 150px; height: 150px;">
-                    <img class="img-fluid rounded-circle mb-3" src="./media/image/zsofia.jpg" alt="..." />
-                  </div>
-                  <h5 class="mt-4">Zsófia véleménye</h5>
-                  <p class="font-weight-light mb-0">"Az EcoGourmet segítségével sikerült megtalálnom az egészséges életmód és a finom étkezés tökéletes egyensúlyát. Az általuk kínált személyre szabott tanácsok és étrendek segítettek javítani az étkezési szokásaimon, és most jobban érzem magam."</p>
-                </div>
+           </section>
+           <!-- Content section 2-->
+           <section class="hidden" id="scroll">
+              <div class="container px-5">
+                 <div class="row gx-5 align-items-center">
+                    <div class="col-lg-6">
+                       <div class="p-5">
+                          <img class="img-fluid rounded-circle" src="./media/image/tree1.jpg" alt="..." />
+                       </div>
+                    </div>
+                    <div class="col-lg-6">
+                       <div class="p-5">
+                          <h2 class="display-4">Miért Eco?</h2>
+                          <p> Mivel minden vásárlásuk után a cég egy fát ültet, hozzájárulva a környezetvédelemhez és a globális klímaváltozás elleni küzdelemhez.A táplálkozási tanácsadás terén az EcoGourmet az egyéni igényeket és célokat szem előtt tartja, és minden étrendet a testsúly ideális szintjéhez optimalizál. A cég munkatársai magas szintű szakértelemmel és elkötelezettséggel dolgoznak az ügyfelekkel, hogy segítsenek nekik az egészséges étkezéshez vezető úton. </p>
+                       </div>
+                    </div>
+                 </div>
               </div>
-              <div class="col-lg-4">
-                <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-                  <div class="rounded-circle overflow-hidden mx-auto" style="width: 150px; height: 150px;">
-                    <img class="img-fluid rounded-circle mb-3" src="./media/image/péter.jpg" alt="..." />
-                  </div>
-                  <h5 class="mt-4">Péter véleménye</h5>
-                  <p class="font-weight-light mb-0">"Nagyon hálás vagyok az EcoGourmet szolgáltatásainak. Kiváló minőségű, étrendeket kaptam tőlük, amelyek a környezetbarát szemléletüket is tükrözik. Számomra ez a cég a tudatos és egészséges táplálkozás szinonimája."</p>
-                </div>
+           </section>
+           <!-- Content section 3-->
+           <section class="hidden">
+              <div class="container px-5">
+                 <div class="row gx-5 align-items-center">
+                    <div class="col-lg-6 order-lg-2">
+                       <div class="p-5">
+                          <img class="img-fluid rounded-circle" src="./media/image/enjoy1.jpg" alt="..." />
+                       </div>
+                    </div>
+                    <div class="col-lg-6 order-lg-1">
+                       <div class="p-5">
+                          <h2 class="display-4">Együtt elérjük!</h2>
+                          <p> Az EcoGourmet egy kivételes vállalkozás, amely elkötelezett az egészséges életmód és a környezetvédelem iránt. Cégfilozófiájuk az ökológia és a gasztronómia harmonikus egyesítése, hogy ügyfeleiknek az optimális testsúlyhoz vezető útmutatást nyújtsák, miközben fenntartható módon gondoskodnak a környezetről. </p>
+                       </div>
+                    </div>
+                 </div>
               </div>
-              <div class="col-lg-4">
-                <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-                  <div class="rounded-circle overflow-hidden mx-auto" style="width: 150px; height: 150px;">
-                    <img class="img-fluid rounded-circle mb-3" src="./media/image/anna.jpg" alt="..." />
-                  </div>
-                  <h5 class="mt-4">Anna véleménye</h5>
-                  <p class="font-weight-light mb-0">"Az étrendjük és a környezettudatos szemléletmódjuk valóban különleges. Rendkívül elégedett vagyok a velük töltött idővel, és mindenkinek ajánlom, aki jobban szeretné megérteni az egészséges étkezést."</p>
-                </div>
+           </section>
+           <!-- Menu Section  -->
+           <section id="menu" class="menu hidden">
+              <div class="container" data-aos="fade-up">
+                 <div class="section-header">
+                    <h2>Menü ötletek nektek!</h2>
+                    <p>Nagyon Finom! <span> Nagyon jó!</span>
+                    </p>
+                 </div>
+                 <ul class="nav nav-tabs d-flex justify-content-center" data-aos="fade-up" data-aos-delay="200">
+                    <li class="nav-item">
+                       <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-breakfast">
+                          <h4>Reggeli</h4>
+                       </a>
+                       <!-- End tab nav item -->
+                    <li class="nav-item">
+                       <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-lunch">
+                          <h4>Ebéd</h4>
+                       </a>
+                    </li>
+                    <!-- End tab nav item -->
+                    <li class="nav-item">
+                       <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-dinner">
+                          <h4>Vacsora</h4>
+                       </a>
+                    </li>
+                    <!-- End tab nav item -->
+                 </ul>
+                 <div class="tab-content" data-aos="fade-up" data-aos-delay="300">
+                    <!-- Breakfast Menu Content -->
+                    <div class="tab-pane fade active show" id="menu-breakfast">
+                       <div class="tab-header text-center">
+                          <p>Menu</p>
+                          <h3>Reggeli</h3>
+                       </div>
+                       <div class="row gy-5">
+                          <div class="col-lg-4 menu-item" ng-repeat="recipe in breakfastRecipes">
+                             <!-- Display breakfast recipe details here -->
+                             <h4>{{ recipe.name }}</h4>
+                             <p class="ingredients">{{ recipe.ingredients }}</p>
+                             <p class="time">{{ recipe.cooking_time }} perc </p>
+                          </div>
+                       </div>
+                    </div>
+                    <!-- End Breakfast Menu Content -->
+                    <!-- Lunch Menu Content -->
+                    <div class="tab-pane fade" id="menu-lunch">
+                       <div class="tab-header text-center">
+                          <p>Menu</p>
+                          <h3>Ebéd</h3>
+                       </div>
+                       <div class="row gy-5">
+                          <div class="col-lg-4 menu-item" ng-repeat="recipe in lunchRecipes">
+                             <!-- Display lunch recipe details here -->
+                             <h4>{{ recipe.name }}</h4>
+                             <p class="ingredients">{{ recipe.ingredients }}</p>
+                             <p class="time">{{ recipe.cooking_time }} perc </p>
+                          </div>
+                       </div>
+                    </div>
+                    <!-- End Lunch Menu Content -->
+                    <!-- Dinner Menu Content -->
+                    <div class="tab-pane fade" id="menu-dinner">
+                       <div class="tab-header text-center">
+                          <p>Menu</p>
+                          <h3>Vacsora</h3>
+                       </div>
+                       <div class="row gy-5">
+                          <div class="col-lg-4 menu-item" ng-repeat="recipe in dinnerRecipes">
+                             <!-- Display dinner recipe details here -->
+                             <h4>{{ recipe.name }}</h4>
+                             <p class="ingredients">{{ recipe.ingredients }}</p>
+                             <p class="time">{{ recipe.cooking_time }} perc </p>
+                          </div>
+                       </div>
+                    </div>
+                    <!-- End Dinner Menu Content -->
+                 </div>
               </div>
-            </div>
-          </div>
-        </section>
-      </div>
-      <footer ng-include src="'./html/footer.html'"></footer>
-    </div>
+           </section>
+           <!-- End Menu Section -->
+           <!-- pricing tabs -->
+           <section class="hidden bg-light py-5 ">
+              <div class="container px-5 my-5">
+                 <div class="text-center mb-5">
+                    <h2 class="fw-bolder">Velünk minden lehetséges!</h2>
+                    <p class="lead mb-0">Az árainkat is rátok szabtuk.</p>
+                 </div>
+                 <div class="row gx-5 justify-content-center">
+                    <div class="col-lg-4 mb-5" ng-repeat="plan in subscription_plans">
+                       <div class=" h-100">
+                          <div class="p-5">
+                             <div class="small text-uppercase fw-bold text-muted">{{plan.name}}</div>
+                             <div class="mb-3">
+                                <span class="display-4 fw-bold">{{plan.price}}Ft</span>
+                                <span class="text-muted">/feliratkozás.</span>
+                             </div>
+                             <ul class="list-unstyled mb-4">
+                                <li class="mb-2">
+                                   <i class="bi bi-check text-primary"></i>
+                                   <strong>Előfizetése {{plan.duration}} hónapig tart.</strong>
+                                </li>
+                                <li class="mb-2">
+                                   <i class="bi bi-check text-primary"></i>
+                                   {{plan.description}}
+                                </li>
+                                <!-- További részletek a tervekhez -->
+                             </ul>
+                          </div>
+                          <div class=" d-flex justify-content-center">
+                             <div class="d-grid">
+                                <a class="btn btn-outline-primary" href="#!">Ezt választom!</a>
+                             </div>
+                          </div>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+           </section>
+           <!-- end pricing tabs -->
+           <!-- Testimonials-->
+           <section class="testimonials text-center bg-light hidden">
+              <div class="container">
+                 <h2 class="mb-5">Mit mondanak rólunk...</h2>
+                 <div class="row">
+                    <div class="col-lg-4">
+                       <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                          <div class="rounded-circle overflow-hidden mx-auto" style="width: 150px; height: 150px;">
+                             <img class="img-fluid rounded-circle mb-3" src="./media/image/zsofia.jpg" alt="..." />
+                          </div>
+                          <h5 class="mt-4">Zsófia véleménye</h5>
+                          <p class="font-weight-light mb-0">"Az EcoGourmet segítségével sikerült megtalálnom az egészséges életmód és a finom étkezés tökéletes egyensúlyát. Az általuk kínált személyre szabott tanácsok és étrendek segítettek javítani az étkezési szokásaimon, és most jobban érzem magam."</p>
+                       </div>
+                    </div>
+                    <div class="col-lg-4">
+                       <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                          <div class="rounded-circle overflow-hidden mx-auto" style="width: 150px; height: 150px;">
+                             <img class="img-fluid rounded-circle mb-3" src="./media/image/péter.jpg" alt="..." />
+                          </div>
+                          <h5 class="mt-4">Péter véleménye</h5>
+                          <p class="font-weight-light mb-0">"Nagyon hálás vagyok az EcoGourmet szolgáltatásainak. Kiváló minőségű, étrendeket kaptam tőlük, amelyek a környezetbarát szemléletüket is tükrözik. Számomra ez a cég a tudatos és egészséges táplálkozás szinonimája."</p>
+                       </div>
+                    </div>
+                    <div class="col-lg-4">
+                       <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+                          <div class="rounded-circle overflow-hidden mx-auto" style="width: 150px; height: 150px;">
+                             <img class="img-fluid rounded-circle mb-3" src="./media/image/anna.jpg" alt="..." />
+                          </div>
+                          <h5 class="mt-4">Anna véleménye</h5>
+                          <p class="font-weight-light mb-0">"Az étrendjük és a környezettudatos szemléletmódjuk valóban különleges. Rendkívül elégedett vagyok a velük töltött idővel, és mindenkinek ajánlom, aki jobban szeretné megérteni az egészséges étkezést."</p>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+           </section>
+           <!-- Testimonials end here-->
+        </div>
+        <footer ng-include src="'./html/footer.html'"></footer>
+     </div>
   </div>
