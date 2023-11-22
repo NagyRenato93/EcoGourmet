@@ -5,92 +5,168 @@
 .page-container.home header,
 .slider-text {
     /* Háttérszín az oldalsó menühöz és a slider szövegeihez */
-    background-color: rgba(0, 0, 0, 0.3) !important;    
+    background-color: rgba(0, 0, 0, 0.3) !important;
 }
+
 .slider {
-	animation-duration: 20s;
-	animation-timing-function: linear;
-	animation-iteration-count: infinite;
+    animation-duration: 20s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
 }
+
 .slider-1 {
-  animation-name: slider-1;
+    animation-name: slider-1;
 }
+
 .slider-2 {
-	animation-name: slider-2;
+    animation-name: slider-2;
 }
+
 .slider-3 {
-	animation-name: slider-3;
+    animation-name: slider-3;
 }
+
 .slider-4 {
-	animation-name: slider-4;
+    animation-name: slider-4;
 }
+
 .slider-image {
-	width: 110%;
-  animation: zoom-out 10s linear infinite;
+    width: 110%;
+    animation: zoom-out 10s linear infinite;
 }
+
 .slider-text {
-	border-radius: 10px;
-  top: 40%;
-  left: 5%;
-  width: 600px;
-  animation: text-up 5s ease-out infinite;
-	transform: translateY(200px);
+    border-radius: 10px;
+    top: 40%;
+    left: 5%;
+    width: 600px;
+    animation: text-up 5s ease-out infinite;
+    transform: translateY(200px);
 }
+
 .slider-title {
-	font-family: 'Playfair Display', serif;
-	font-size: 2.5rem;
-  margin-bottom: 16px;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    margin-bottom: 16px;
 }
+
 .slider-content {
-	font-size: 18px;
-  line-height: 28px;
+    font-size: 18px;
+    line-height: 28px;
 }
 
 /* Slider animációk */
 @keyframes text-up {
+
     /* Szöveg animáció: felfelé mozgás */
-    10% { transform: translateY(0px); }
-    100% { transform: translateY(0px); }
+    10% {
+        transform: translateY(0px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
 }
 
 @keyframes zoom-out {
+
     /* Kép animáció: kifelé nagyobbítás */
-    100% { width: 100%; }
+    100% {
+        width: 100%;
+    }
 }
 
 @keyframes slider-1 {
+
     /* Slider animáció: 1. elem megjelenítése */
-    0% { visibility: visible; }
-    25% { visibility: hidden; }
-    50% { visibility: hidden; }
-    75% { visibility: hidden; }
-    100% { visibility: visible; }
+    0% {
+        visibility: visible;
+    }
+
+    25% {
+        visibility: hidden;
+    }
+
+    50% {
+        visibility: hidden;
+    }
+
+    75% {
+        visibility: hidden;
+    }
+
+    100% {
+        visibility: visible;
+    }
 }
 
 @keyframes slider-2 {
+
     /* Slider animáció: 2. elem megjelenítése */
-    0% { visibility: hidden; }
-    25% { visibility: hidden; }
-    50% { visibility: visible; }
-    75% { visibility: hidden; }
-    100% { visibility: hidden; }
+    0% {
+        visibility: hidden;
+    }
+
+    25% {
+        visibility: hidden;
+    }
+
+    50% {
+        visibility: visible;
+    }
+
+    75% {
+        visibility: hidden;
+    }
+
+    100% {
+        visibility: hidden;
+    }
 }
 
 @keyframes slider-3 {
+
     /* Slider animáció: 3. elem megjelenítése */
-    0% { visibility: hidden; }
-    25% { visibility: hidden; }
-    50% { visibility: hidden; }
-    75% { visibility: visible; }
-    100% { visibility: hidden; }
+    0% {
+        visibility: hidden;
+    }
+
+    25% {
+        visibility: hidden;
+    }
+
+    50% {
+        visibility: hidden;
+    }
+
+    75% {
+        visibility: visible;
+    }
+
+    100% {
+        visibility: hidden;
+    }
 }
 
 @keyframes slider-4 {
+
     /* Slider animáció: 4. elem megjelenítése */
-    0% { visibility: hidden; }
-    25% { visibility: hidden; }
-    50% { visibility: hidden; }
-    75% { visibility: hidden; }
+    0% {
+        visibility: hidden;
+    }
+
+    25% {
+        visibility: hidden;
+    }
+
+    50% {
+        visibility: hidden;
+    }
+
+    75% {
+        visibility: hidden;
+    }
+
     100% {}
 }
 
@@ -121,6 +197,7 @@ section {
 }
 
 @media (prefers-reduced-motion) {
+
     /* Csökkentett mozgás preferenciája esetén */
     .hidden {
         transition: none;
@@ -135,13 +212,16 @@ section {
 }
 
 @keyframes gradient {
+
     /* Háttérszín gradient animáció görgetéskor */
     0% {
         background-position: 0% 50%;
     }
+
     50% {
         background-position: 100% 50%;
     }
+
     100% {
         background-position: 0% 50%;
     }
@@ -167,9 +247,11 @@ section {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: blur(4px); /* Itt állíthatod be a kívánt blur értéket (px-ben) */
+    filter: blur(4px);
+    /* Itt állíthatod be a kívánt blur értéket (px-ben) */
 }
-    /* A "home" tartalom rész stílusa */
+
+/* A "home" tartalom rész stílusa */
 .home-content {
     position: relative;
     padding-top: 400px;
@@ -177,6 +259,7 @@ section {
     text-align: center;
     font-family: 'Playfair Display', serif;
 }
+
 h1 {
     /* Címsor stílusa */
     font-family: 'Playfair Display', serif;
@@ -215,6 +298,7 @@ h1 {
 }
 
 @media (max-width: 575px) {
+
     /* Kisebb képernyőméretek esetén */
     .menu .nav-link {
         margin: 0 10px;
@@ -228,15 +312,17 @@ h1 {
     font-size: 48px;
 }
 
-    /* Menü link címsor stílusa */
+/* Menü link címsor stílusa */
 .menu .nav-link h4 {
     font-size: 18px;
     font-weight: 400;
     margin: 0;
-    font-family: 'Inter', sans-serif; /* Például az Inter font itt érvényesül */
+    font-family: 'Inter', sans-serif;
+    /* Például az Inter font itt érvényesül */
 }
 
 @media (max-width: 575px) {
+
     /* Kisebb képernyőméretek esetén */
     .menu .nav-link h4 {
         font-size: 16px;
@@ -311,51 +397,60 @@ h1 {
 }
 
 /* -------- product card ---------*/
-  .card-container {
+.card-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between; /* Add space between cards */
+    justify-content: space-between;
+    /* Add space between cards */
 
-  }
+}
 
-  .card {
+.card {
     width: 18rem;
-    margin-bottom: 10rem; /* Add some margin between cards */
-  }
+    margin-bottom: 10rem;
+    /* Add some margin between cards */
+}
 
-  .card-body {
+.card-body {
     flex-grow: 1;
-    overflow: hidden; /* Prevent text overflow */
-  }
+    overflow: hidden;
+    /* Prevent text overflow */
+}
 
-  .card-img {
+.card-img {
     width: 100%;
     height: 200px;
-    padding-top: 56.25%; /* 16:9 aspect ratio */
+    padding-top: 56.25%;
+    /* 16:9 aspect ratio */
     background-size: cover;
-  }
+}
+
 /* -------- Page 3 --------*/
 .parallax {
-	background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-	background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
+
 .parallax-inner {
-	color: white;
-  display: flex;
-  height: 100%;
-  align-items: center;
-	justify-content: center;
+    color: white;
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
 }
 
 /* -------- ProductCarousel ---------*/
 #ProductCarousel {
-    background: rgba(255, 255, 255, 0.5); /* Átlátszó fehér háttér példa */
-    margin: auto; /* Középre igazítás */
-  }
-  #ProductCarousel .carousel-inner img {
+    background: rgba(255, 255, 255, 0.5);
+    /* Átlátszó fehér háttér példa */
+    margin: auto;
+    /* Középre igazítás */
+}
+
+#ProductCarousel .carousel-inner img {
     object-fit: cover;
     height: 600px;
     width: 100%;
-  }
+}
