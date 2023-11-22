@@ -774,7 +774,7 @@
            $scope.categoryFilter = '';
            $scope.subcategoryFilter = '';
        };
- 
+       //list for items - not ready yet.
        $scope.getCategoryList = function () {
            var categories = [];
            if ($scope.products) {
