@@ -22,17 +22,6 @@ $query = "SELECT termek_id,
 // Execute query
 $result['products'] = $db->execute($query);
 
-$query = "SELECT id,
-                    name, 
-                    ingredients, 
-                    instructions, 
-                    cooking_time 
-                FROM dinner_recipes
-                LIMIT 6";
-
-$result['dinner'] = $db->execute($query);
-
-
 // Close connection
 $db = null;
 

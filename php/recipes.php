@@ -13,6 +13,7 @@ $query = "SELECT id,
                 instructions, 
                 cooking_time 
             FROM breakfast_recipes  
+            ORDER BY RAND()
             LIMIT 6";
 
 // Execute query
@@ -25,7 +26,8 @@ $query = "SELECT id,
                 ingredients, 
                 instructions, 
                 cooking_time 
-            FROM dinner_recipes
+            FROM lunch_recipes
+            ORDER BY RAND()
             LIMIT 6";
 
 // Execute query
@@ -39,6 +41,7 @@ $query = "SELECT id,
                     instructions, 
                     cooking_time 
                 FROM dinner_recipes
+                ORDER BY RAND()
                 LIMIT 6";
 
 // Execute query
