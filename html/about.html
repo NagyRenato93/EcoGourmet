@@ -1,27 +1,45 @@
 <!-- Page container -->
 <div class="page-container d-conditional vh-100">
+
    <!-- Navigate -->
    <header class="sticky-top" ng-include src="'./html/navigate.html'"></header>
-   <!-- Page controller -->
-   <div ng-app="page2">
-      <div ng-controller="aboutController">
+
+   <!--  -->
+   <div>
+      <div>
          <div class="header">
+
             <!-- Video Container -->
             <div class="video-container">
                <video autoplay muted loop class="blurred-video">
                   <source src="./media/video/robin.mp4" type="video/mp4">
                </video>
             </div>
+
             <!-- Home title -->
             <div class="home">
                <div class="home-content">
                   <h1 id="abut">EcoGourmet</h1>
                </div>
             </div>
+
             <!--Content after video-->
             <div class="inner-header flex">
                <!-- Additional content if needed -->
             </div>
+
+            
+            <!-- Section: about us text part -->
+            <section ng-repeat="x in renato">
+              <div class="container">
+                <h1>{{x.name}}</h1>
+                <p>{{x.description | translate:lang.data}}</p>
+                <img width="200" ng-src="{{x.img}}">
+              </div>
+           </section>
+
+
+
             <!-- Section: about us text part -->
             <section class="hidden" id="scroll">
                <div class="container px-5">
@@ -46,6 +64,7 @@
                   </div>
                </div>
             </section>
+
             <!-- Content section 2-->
             <section class="hidden" id="scroll">
                <div class="container px-5">
@@ -69,6 +88,7 @@
                   </div>
                </div>
             </section>
+
             <!-- Content section 3-->
             <section class="hidden">
                <div class="container px-5">
@@ -90,6 +110,7 @@
                   </div>
                </div>
             </section>
+
             <!-- Menu Section  -->
             <section id="menu" class="menu hidden" ng-init="activeTab = 'menu-breakfast'">
                <div class="container" data-aos="fade-up">
@@ -169,6 +190,7 @@
                   </div>
                </div>
             </section>
+
             <!-- End Menu Section -->
             <!-- pricing tabs -->
             <section class="hidden bg-light py-5 ">
@@ -208,6 +230,7 @@
                   </div>
                </div>
             </section>
+
             <!-- end pricing tabs -->
             <!-- Testimonials-->
             <section class="testimonials text-center bg-light hidden">

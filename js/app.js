@@ -710,6 +710,25 @@
          'http',
          'util',
          function ($scope, http, util) {
+
+            $scope.renato = [
+              {
+                name: "name1", 
+                img: "./media/image/enjoy1.jpg", 
+                description: "slide_title_2"
+              },
+              {
+                name: "name2", 
+                img: "./media/image/tree1.jpg", 
+                description: "slide_title_1"
+              },
+              {
+                name: "name3", 
+                img: "./media/image/ffood1.jpg", 
+                description: "slide_title_3"
+              }
+            ];
+
             //let recipes = util.deferredObj();
             //let plans   = util.deferredObj();
             http.request('./php/subscription_plans.php')
