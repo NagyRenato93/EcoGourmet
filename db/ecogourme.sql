@@ -238,7 +238,7 @@ CREATE TABLE `termek` (
 --
 
 INSERT INTO `termek` (`termek_id`, `nev`, `kategoria`, `szavatossagi_ido`, `raktaron`, `forgalmazo`, `gyarto`, `ar_forint`, `kep_eleresi_ut`) VALUES
-(1, 'Protein Szelet Csokoládé ízű', 'Protein', 2026, 50, 'FitPro Distributor', 'HealthyBites Inc.', '2000.00', 'http://localhost/projects/EcoGourmet/media/image/food42.jpg'),
+(1, 'Protein Szelet Csokoládé ízű', 'Protein', 2026, 50, 'FitPro Distributor', 'HealthyBites Inc.', '2000.00', './media/image/food42.jpg'),
 (2, 'Protein Szelet Vanília ízű', 'Protein', 2026, 30, 'NutriSupply', 'ProteinPlus Ltd.', '1800.00', NULL),
 (3, 'Protein Szelet Eper ízű', 'Protein', 2023, 40, 'BioFuel Nutrition', 'OrganicProtein Co.', '2200.00', NULL),
 (4, 'Protein Szelet Mogyoró ízű', 'Protein', 2024, 35, 'FitLife Retail', 'BodyFuel Enterprises', '2100.00', NULL),

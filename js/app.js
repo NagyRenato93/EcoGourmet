@@ -758,8 +758,6 @@
                if (response && response.products) {
                    $scope.products = response.products;
                    $scope.$applyAsync();
-
-
                    // Carousel inicializáció
                    var myCarousel = new bootstrap.Carousel(document.getElementById('ProductCarousel'), {
                      interval: 5000, // 3 másodperc
