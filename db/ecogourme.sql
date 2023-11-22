@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2023. Nov 16. 02:19
+-- Létrehozás ideje: 2023. Nov 22. 18:47
 -- Kiszolgáló verziója: 10.4.27-MariaDB
 -- PHP verzió: 8.2.0
 
@@ -211,9 +211,11 @@ CREATE TABLE `subscription_plans` (
 --
 
 INSERT INTO `subscription_plans` (`id`, `name`, `description`, `duration`, `price`) VALUES
-(1, 'Simple', 'A Simple szintű terv lehetővé teszi a választható reggeli, ebéd vagy vacsora rendelését. Ideális rövidebb idejű, kifinomultabb élményekhez.', 2, '5000.00'),
-(2, 'Pro', 'A Pro terv két választható étkezést kínál reggeli, ebéd vagy vacsora formájában. A hosszabb időtartam miatt ideális az élelmiszer előfizetés kedvelőinek.', 3, '9000.00'),
-(3, 'Enterprise', 'A Enterprise terv a luxus és változatosság jegyében született. Minden nap három étkezés kínál, reggeli, ebéd és vacsora formájában.', 6, '18000.00');
+(1, 'Basic', 'Egyszerű terv, amely lehetővé teszi az egy választható reggeli, ebéd vagy vacsora rendelését 1 hónapig. Ideális a kezdeti kóstoláshoz.', 1, '3500.00'),
+(2, 'Basic A+', 'Az A+ szintű terv 2 hónapra szól, és lehetővé teszi a választható reggeli, ebéd vagy vacsora rendelését. Ideális rövidebb idejű, kifinomultabb élményekhez.', 2, '5000.00'),
+(3, 'Simple', 'Az egyszerű terv 3 hónapig tart, és két választható étkezést kínál reggeli, ebéd vagy vacsora formájában. A hosszabb időtartam miatt ideális az élelmiszer előfizetés kedvelőinek.', 3, '9000.00'),
+(4, 'Legend', 'A Legend terv a luxus és változatosság jegyében született. Fél évig tart, és minden nap három étkezés kínál, reggeli, ebéd és vacsora formájában.', 6, '18000.00'),
+(5, 'Legend Star', 'A Legend Star terv a csúcsot képviseli. Egy évig tart, és három étkezés választható, reggeli, ebéd vagy vacsora, valamint heti egy desszert is jár mellé.', 12, '30000.00');
 
 -- --------------------------------------------------------
 
@@ -238,7 +240,7 @@ CREATE TABLE `termek` (
 --
 
 INSERT INTO `termek` (`termek_id`, `nev`, `kategoria`, `szavatossagi_ido`, `raktaron`, `forgalmazo`, `gyarto`, `ar_forint`, `kep_eleresi_ut`) VALUES
-(1, 'Protein Szelet Csokoládé ízű', 'Protein', 2026, 50, 'FitPro Distributor', 'HealthyBites Inc.', '2000.00', './media/image/food42.jpg'),
+(1, 'Protein Szelet Csokoládé ízű', 'Protein', 2026, 50, 'FitPro Distributor', 'HealthyBites Inc.', '2000.00', ),
 (2, 'Protein Szelet Vanília ízű', 'Protein', 2026, 30, 'NutriSupply', 'ProteinPlus Ltd.', '1800.00', NULL),
 (3, 'Protein Szelet Eper ízű', 'Protein', 2023, 40, 'BioFuel Nutrition', 'OrganicProtein Co.', '2200.00', NULL),
 (4, 'Protein Szelet Mogyoró ízű', 'Protein', 2024, 35, 'FitLife Retail', 'BodyFuel Enterprises', '2100.00', NULL),
@@ -255,21 +257,6 @@ INSERT INTO `termek` (`termek_id`, `nev`, `kategoria`, `szavatossagi_ido`, `rakt
 (15, 'Protein Szelet Kókusz-Kávé ízű', 'Protein', 2024, 32, 'NaturalBoost', 'PureEnergy Foods', '2200.00', NULL),
 (16, 'Protein Szelet Fekete Szeder ízű', 'Protein', 2023, 27, 'ProteinWorld', 'FitFuel Co.', '2350.00', NULL),
 (17, 'Protein Szelet Narancs-Chia ízű', 'Protein', 2023, 41, 'VivaProtein', 'NaturalHarmony', '2000.00', NULL),
-(18, 'Protein Szelet Matcha ízű', 'Protein', 2024, 34, 'BioFit Nutrition', 'PurePower Foods', '2300.00', NULL),
-(19, 'Protein Szelet Szamóca ízű', 'Protein', 2025, 29, 'SuperPro', 'GymFuel Inc.', '2050.00', NULL),
-(20, 'Protein Szelet Tiramisu ízű', 'Protein', 2025, 37, 'UltimateNutri', 'BodyTech Labs', '2400.00', NULL),
-(21, 'Protein Szelet Mangó ízű', 'Protein', 2024, 44, 'FreshNutri', 'TropicalBites Ltd.', '2150.00', NULL),
-(22, 'Protein Szelet Málna-Citrom ízű', 'Protein', 2026, 36, 'SuperGains', 'CitrusProtein Co.', '2000.00', NULL),
-(23, 'Protein Szelet Keksz-Krém ízű', 'Protein', 2025, 30, 'FitSnack', 'IndulgeFoods', '2250.00', NULL),
-(24, 'Protein Szelet Körte ízű', 'Protein', 2025, 48, 'EcoFuel', 'GreenHarvest Ltd.', '1900.00', NULL),
-(25, 'Protein Szelet Tejföl-Vanília ízű', 'Protein', 2026, 33, 'VivaLife', 'DairyProtein Inc.', '2100.00', NULL),
-(26, 'Protein Szelet Gyömbér-Méz ízű', 'Protein', 2026, 39, 'BioBalance', 'GoldenTaste Foods', '2200.00', NULL),
-(28, 'Protein Szelet Citrom-Menta ízű', 'Protein', 2025, 35, 'ZestyPro', 'FreshMint Foods', '2350.00', NULL),
-(30, 'Protein Szelet Tropikus Gyümölcs ízű', 'Protein', 2023, 31, 'ExoNutri', 'IslandBites Ltd.', '2400.00', NULL),
-(33, 'Protein Szelet Fekete Cseresznye-Banán ízű', 'Protein', 2023, 36, 'CherryBliss', 'BananaFuel Inc.', '2250.00', NULL),
-(34, 'Protein Szelet Sós Karamell-Mogyoró ízű', 'Protein', 2025, 29, 'SaltedCrunch', 'NuttyTreats Ltd.', '2100.00', NULL),
-(36, 'Protein Szelet Cukrozott Fehér Csokoládé-Kávé ízű', 'Protein', 2023, 41, 'SweetBean', 'CaffeineDelight Ltd.', '1950.00', NULL),
-(38, 'Protein Szelet Mandula-Kókusz ízű', 'Protein', 2024, 32, 'NuttyCoconut', 'AlmondJoy Foods', '2300.00', NULL),
 (41, 'Smoothie Por Eper-Banán ízű', 'Smoothie Por', 2024, 50, 'FreshBlend Distributor', 'FruitFusion Inc.', '1800.00', NULL),
 (42, 'Smoothie Por Mangó-Ananás ízű', 'Smoothie Por', 2025, 40, 'TropicalMix', 'ExoticDrinks Ltd.', '2000.00', NULL),
 (43, 'Smoothie Por Zöld Alma-Spenót ízű', 'Smoothie Por', 2023, 35, 'GreenRevive', 'HealthyGreens Co.', '2200.00', NULL),
@@ -403,8 +390,9 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `type`, `prefix_name`, `first_name`, `middle_name`, `last_name`, `suffix_name`, `nick_name`, `born`, `gender`, `country`, `country_code`, `city`, `postcode`, `address`, `email`, `password`, `created`, `verification_code`, `verified`, `modified`, `last_login`, `wrong_attempts`, `valid`) VALUES
-(1, 'A', NULL, 'Attila', NULL, 'Ódry', NULL, NULL, '1964-03-08', 'M', 'hungary', '36', 'Szeged', '6725', 'Futrinka utca 66.', 'odry.attila@keri.mako.hu', '$2y$10$2qBCNjBIDp1kw/agy7fV0.sW3sAJz/YKU.oLUL1.2SfcxroBIQLde', '2023-08-29 09:27:01', NULL, '2023-08-29 12:19:00', '2023-08-29 12:19:15', '2023-10-30 13:08:11', 0, 1),
-(2, 'A', NULL, 'Nagy', NULL, 'Renátó', NULL, NULL, '1993-11-01', 'M', 'hungary', '36', 'Tótkomlós', '5940', 'nagy.renato@keri.mako.hu', 'nagy.renato@keri.mako.hu', '$2y$10$ZbYuaGwd4bMwhgD.C2/RT./lcthTxBQQreACH6uAFHSk2GVmI6BJa', '2023-10-30 13:14:48', '66c0b1af9bad395c8531e3550c7927bd', NULL, '2023-10-30 13:17:16', '2023-11-14 15:58:26', 0, 1);
+(1, 'A', NULL, 'Attila', NULL, 'Ódry', NULL, NULL, '1964-03-08', 'M', 'hungary', '36', 'Szeged', '6725', 'Futrinka utca 66.', 'odry.attila@keri.mako.hu', '$2y$10$2qBCNjBIDp1kw/agy7fV0.sW3sAJz/YKU.oLUL1.2SfcxroBIQLde', '2023-08-29 09:27:01', NULL, '2023-08-29 12:19:00', '2023-08-29 12:19:15', '2023-11-14 18:55:47', 0, 1),
+(2, 'A', NULL, 'Nagy', NULL, 'Renátó', NULL, NULL, '1993-11-01', 'M', 'hungary', '36', 'Tótkomlós', '5940', 'nagy.renato@keri.mako.hu', 'nagy.renato@keri.mako.hu', '$2y$10$ZbYuaGwd4bMwhgD.C2/RT./lcthTxBQQreACH6uAFHSk2GVmI6BJa', '2023-10-30 13:14:48', '66c0b1af9bad395c8531e3550c7927bd', NULL, '2023-10-30 13:17:16', '2023-11-02 21:40:21', 0, 1),
+(3, 'N', 'a', 'asasdasd', 'aasdasdas', 'aasdsadasd', 'a', 'a', '2001-01-14', 'M', 'albania', '355', 'tótkomlós', '5940', 'asd u.1', 'aodry.attila@keri.mako.hu', '$2y$10$TDLJSIPfKlfLL1sOzoHSf.jfK1Cw.wAUSjx1eBMll5jS/cWbG4Yt6', '2023-11-14 18:58:43', '2f48f6260901e1b810b73997639cc45c', NULL, NULL, NULL, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -513,7 +501,7 @@ ALTER TABLE `termek`
 -- AUTO_INCREMENT a táblához `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT a táblához `user_subscription`
