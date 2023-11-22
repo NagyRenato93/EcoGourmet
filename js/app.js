@@ -708,12 +708,25 @@
     .controller('aboutController', [
       '$scope',
       'http',
-      function ($scope, http) {
+      'util',
+      function ($scope, http, util) {
+         //let recipes = util.deferredObj();
+         //let plans   = util.deferredObj();
           http.request('./php/subscription_plans.php')
               .then(response => {
                   $scope.subscription_plans = response.subscription_plans;
+                  $scope.$applyAsync();
+                  //plans.promise.resolve();
               });
-
+          // Http request to retrieve recipes
+          http.request('./php/recipes.php')
+              .then(response => {
+                  $scope.breakfastRecipes = response.breakfastRecipes;
+                  $scope.lunchRecipes = response.lunchRecipes;
+                  $scope.dinnerRecipes = response.dinnerRecipes;
+                  $scope.$applyAsync();
+                  //recipes.promise.resolve();
+              });
           // Intersection Observer function initialization
           // Smooth animation on scrolling on About Us Page
           function initializeIntersectionObserver() {
@@ -730,17 +743,8 @@
                   observer.observe(element);
               });
           }
-
           // Intersection Observer function call
           initializeIntersectionObserver();
-
-          // Http request to retrieve recipes
-          http.request('./php/recipes.php')
-              .then(response => {
-                  $scope.breakfastRecipes = response.breakfastRecipes;
-                  $scope.lunchRecipes = response.lunchRecipes;
-                  $scope.dinnerRecipes = response.dinnerRecipes;
-              });
       }
     ])
 // products Controller
@@ -753,6 +757,8 @@
            .then(response => {
                if (response && response.products) {
                    $scope.products = response.products;
+                   $scope.$applyAsync();
+
 
                    // Carousel inicializáció
                    var myCarousel = new bootstrap.Carousel(document.getElementById('ProductCarousel'), {
