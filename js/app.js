@@ -29,9 +29,11 @@
                   templateUrl: './html/products.html',
                   controller: 'productsController'
                })
-               .state('page3', {
-                  url: '/page3',
-                  templateUrl: './html/page.html'
+               .state('services', {
+                  url: '/services',
+                  templateUrl: './html/services.html',
+                  controller: 'servicesController'
+
                })
                .state('user', {
                   url: '/user',
@@ -744,32 +746,38 @@
             }
             // Intersection Observer function call
             initializeIntersectionObserver();
-            //scroll to the top of the page
-            //Get the button
-            let mybutton = document.getElementById("btn-back-to-top");
-
-            // When the user scrolls down from the top of the document, show the button
-            window.onscroll = function () {
-            scrollFunction();
+            // Sima görgetés a tetejére funkció
+            $scope.scrollToTop = function () {
+               document.body.scrollTop = 0;
+               document.documentElement.scrollTop = 0;
             };
 
-            function scrollFunction() {
-            if (
-               document.body.scrollTop > 20 ||
-               document.documentElement.scrollTop > 20
-            ) {
-               mybutton.style.display = "block";
-            } else {
-               mybutton.style.display = "none";
-            }
-            }
-            // When the user clicks on the button, scroll to the top of the document
-            mybutton.addEventListener("click", backToTop);
 
-            function backToTop() {
-            document.body.scrollTop = 0;
-            document.documentElement.scrollTop = 0;
-            }  
+            // // Sima görgetés a tetejére animáció
+            // $scope.smoothScrollToTop = function () {
+            //    const scrollDuration = 5; // Itt változtathatsz az időtartam értékén (ezredmásodpercben)
+            //    const scrollStep = -window.scrollY / (scrollDuration / 2000);
+
+            //    const scrollInterval = setInterval(function () {
+            //       if (window.scrollY !== 0) {
+            //          window.scrollBy(0, scrollStep);
+            //       } else {
+            //          clearInterval(scrollInterval);
+            //       }
+            //    }, 15);
+            // };
+
+
+            // Sima görgetés a tetejére animáció
+            $scope.smoothScrollToTop = function () {
+               document.body.style.transition = 'scroll-behavior 0.5s'; // CSS Scroll Behavior alkalmazása a görgetési animációhoz
+               document.body.scrollTop = 0; // Az oldal tetejére görgetés
+               document.documentElement.scrollTop = 0; // Az oldal tetejére görgetés (alternatívaként, ha a fenti nem működik minden böngészőben)
+
+               setTimeout(function () {
+                  document.body.style.transition = ''; // A transition visszaállítása az eredeti értékre
+               }, 500); // Időzítés, amely egyezik a transition időtartamával
+            };
          }
       ])
 
@@ -818,7 +826,22 @@
                return categories;
             };
          }
-      ]);
+      ])
+      // services Controller
+      .controller('servicesController', [
+         '$scope',
+         'http',
+         function ($scope, http) {
+            // Http request to retrieve products
+            http.request('./php/services.php')
+               .then(response => {
+                  if (response && response.services) {
+                     $scope.services = response.services;
+                     $scope.$applyAsync();
 
+                  }
+               });
+         }
+      ]);
 
 })(window, angular);

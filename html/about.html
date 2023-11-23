@@ -174,13 +174,18 @@
                      </div>
                   </div>
                </div>
-               <button
-               type="button"
-               class="btn btn-secondary btn-floating btn-lg"
-               id="btn-back-to-top">
-               <i class="fas fa-arrow-up"></i>
-               </button>
+
+<!-- scroll to top button -->
+<div class="scroll-to-top" ng-click="smoothScrollToTop()">
+   <!-- You can customize the arrow icon or use text like "Top" -->
+   <span class="arrow-up">&#8593;
+   </span>
+</div>
+
+
+     
             </section>
-         <footer ng-include src="'./html/footer.html'"></footer>
+         <footer ng-include src="'./html/footer.html'">
+         </footer>
       </div>
    </div>

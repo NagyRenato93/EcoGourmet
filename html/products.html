@@ -1,5 +1,6 @@
 <!-- Navigate -->
 <header class="sticky-top" ng-include src="'./html/navigate.html'"></header>
+
 <!-- Top Carousel slide autoplaying  -->
 <div id="ProductCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-wrap="true" style="height: 800px;">
    <div class="carousel-inner">
@@ -14,46 +15,114 @@
       </div>
    </div>
 </div>
-<!-- Controller -->
-<div ng-app="products">
-   <div ng-controller="productsController">
+
+<!-- title -->
       <h2 class="text-center">Termékek</h2>
       <hr>
+
       <!-- Container -->
       <div class="container-fluid pt-5">
+
          <!-- Row -->
          <div class="row">
+
+            <!-- Product section -->
+               <section class="py-5">
+                  <div class="container px-4 px-lg-5 my-5" ng-repeat="product in filteredProducts | limitTo: 1">
+                  <div class="row gx-4 gx-lg-5 align-items-center">
+                     <div class="col-md-6">
+                        <div class="card-img" ng-style="{ 'background-image': 'url(' + product.kep_eleresi_ut + ')' }">       </div>
+                     <div class="col-md-6">
+                        <div class="small mb-1">nev: {{ product.nev }}</div>
+                        <h1 class="display-5 fw-bolder">{{ product.nev }}</h1>
+                        <div class="fs-5 mb-5">
+                        <span class="text-decoration-line-through">{{ product.oldPrice }}</span>
+                        <span>{{ product.ar_forint }}</span>
+                        </div>
+                        <p class="lead">{{ product.forgalmazo }}</p>
+                        <div class="d-flex">
+                        <input class="form-control text-center me-3" id="inputQuantity" type="number" value="1" style="max-width: 3rem" />
+                        <button class="btn btn-outline-dark flex-shrink-0" type="button">
+                           <i class="bi-cart-fill me-1"></i>
+                           Add to cart
+                        </button>
+                        </div>
+                     </div>
+                  </div>
+                  </div>
+               </section>
+ 
+         <!-- Features section-->
+         <section class="py-5" id="features">
+            <div class="container px-5 my-5">
+                <div class="row gx-5">
+                    <div class="col-lg-4 mb-5 mb-lg-0"><h2 class="fw-bolder mb-0">A better way to start building.</h2></div>
+                    <div class="col-lg-8">
+                        <div class="row gx-5 row-cols-1 row-cols-md-2">
+                            <div class="col mb-5 h-100">
+                              <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-envelope"></i></div>
+                              <h2 class="h5">Featured title</h2>
+                                <p class="mb-0">Paragraph of text beneath the heading to explain the heading. Here is just a bit more text.</p>
+                            </div>
+                            <div class="col mb-5 h-100">
+                                <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-building"></i></div>
+                                <h2 class="h5">Featured title</h2>
+                                <p class="mb-0">Paragraph of text beneath the heading to explain the heading. Here is just a bit more text.</p>
+                            </div>
+                            <div class="col mb-5 mb-md-0 h-100">
+                                <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-toggles2"></i></div>
+                                <h2 class="h5">Featured title</h2>
+                                <p class="mb-0">Paragraph of text beneath the heading to explain the heading. Here is just a bit more text.</p>
+                            </div>
+                            <div class="col h-100">
+                                <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-toggles2"></i></div>
+                                <h2 class="h5">Featured title</h2>
+                                <p class="mb-0">Paragraph of text beneath the heading to explain the heading. Here is just a bit more text.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
             <!-- Kategória szűrő gombok -->
             <div class="col-md-1 mb-2">
                <div class="list-group">
                   <button class="list-group-item list-group-item-action btn btn-sm"
                      ng-repeat="category in getCategoryList()" ng-click="setCategoryFilter(category)"
                      style="max-width:100%;">{{category}}</button>
+
                   <!-- Szűrés törlése -->
                   <button class="list-group-item list-group-item-action btn btn-warning btn-sm mt-3"
                      ng-click="clearFilters()" style="max-width: 100%;">Szűrés törlése</button>
                </div>
             </div>
+
             <!-- Termék kártyák + ng rep szűrés (korlátozva 8 termékre) -->
             <div class="col-md-9 mx-auto">
                <div class="card-container text-center">
                   <div class="card mb-4"
                      ng-repeat="product in filteredProducts = (products | filter: { kategoria: categoryFilter } | limitTo: 8)">
+
                      <!-- Termék képe -->
                      <div class="card-img" ng-style="{ 'background-image': 'url(' + product.kep_eleresi_ut + ')' }">
                      </div>
+
                      <!-- Termék részletei -->
                      <div class="card-body">
                         <div>
+
                            <!-- Product name-->
                            <h5 class="card-title fw-bolder">{{product.nev}}</h5>
+
                            <!-- Product gyártó forgalmazo-->
                            <p class="card-text" ng-if="product.forgalmazo">Forgalmazó: {{product.forgalmazo}}</p>
                            <hr class="my-0">
+
                            <!-- Product price-->
                            <p class="card-text" ng-if="product.ar_forint">Ár: {{product.ar_forint}} Ft</p>
                         </div>
                      </div>
+
                      <!-- Product actions-->
                      <div class="card-footer bg-transparent">
                         <div>
@@ -63,7 +132,6 @@
                   </div>
                </div>
             </div>
-            <!-- Termék kártyák vége -->
          </div>
       </div>
    </div>

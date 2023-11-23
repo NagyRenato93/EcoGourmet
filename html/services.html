@@ -1,0 +1,29 @@
+<!-- Page container -->
+<div class="page-container d-conditional vh-100">
+
+    <!-- Navigate -->
+    <header class="sticky-top" ng-include src="'./html/navigate.html'"></header>
+  
+             <!-- Testimonials angularositot-->
+             <section class="text-center bg-light">
+               <div class="container-fluid">
+                   <div ng-repeat="service in services">
+                       <div class="parallax vh-100" ng-style="{'background-image':'url(./media/image/food' + ($index+1) + '.jpg)'}">
+                           <div class="parallax-inner">
+                               <h2 class="mb-5">{{ service.title }} </h2>
+                               <div class="row">
+                                   <div class="col-lg-4">
+                                       <div class="mx-auto mb-5 mb-lg-0">
+                                           <!-- Több tartalom is beilleszthető ide -->
+                                           <h5 class="mt-4"></h5>
+                                           <p class="font-weight-light mb-0 row">{{ service.description }}</p>
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+           </section>
+           
+           
