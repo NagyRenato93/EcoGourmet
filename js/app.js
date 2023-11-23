@@ -704,6 +704,7 @@
             $scope.methods.init();
          }
       ])
+
       // aboutController
       .controller('aboutController', [
          '$scope',
@@ -712,22 +713,20 @@
          function ($scope, http, util) {
             //let recipes = util.deferredObj();
             //let plans   = util.deferredObj();
-            http.request('./php/subscription_plans.php')
-               .then(response => {
-                  $scope.subscription_plans = response.subscription_plans;
-                  $scope.$applyAsync();
-                  //plans.promise.resolve();
-               });
             // Http request to retrieve recipes
-            http.request('./php/recipes.php')
+            http.request('./php/about_us.php')
                .then(response => {
                   $scope.breakfastRecipes = response.breakfastRecipes;
                   $scope.lunchRecipes = response.lunchRecipes;
                   $scope.dinnerRecipes = response.dinnerRecipes;
+                  $scope.testimonials = response.testimonials;
+                  $scope.subscription_plans = response.subscription_plans;
+                  $scope.aboutUsTexts = response.aboutUsTexts;
+
+
                   $scope.$applyAsync();
                   //recipes.promise.resolve();
                });
-            // Intersection Observer function initialization
             // Smooth animation on scrolling on About Us Page
             function initializeIntersectionObserver() {
                var observer = new IntersectionObserver(function (entries) {
@@ -745,8 +744,35 @@
             }
             // Intersection Observer function call
             initializeIntersectionObserver();
+            //scroll to the top of the page
+            //Get the button
+            let mybutton = document.getElementById("btn-back-to-top");
+
+            // When the user scrolls down from the top of the document, show the button
+            window.onscroll = function () {
+            scrollFunction();
+            };
+
+            function scrollFunction() {
+            if (
+               document.body.scrollTop > 20 ||
+               document.documentElement.scrollTop > 20
+            ) {
+               mybutton.style.display = "block";
+            } else {
+               mybutton.style.display = "none";
+            }
+            }
+            // When the user clicks on the button, scroll to the top of the document
+            mybutton.addEventListener("click", backToTop);
+
+            function backToTop() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+            }  
          }
       ])
+
       // products Controller
       .controller('productsController', [
          '$scope',
