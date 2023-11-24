@@ -782,51 +782,65 @@
       ])
 
       // products Controller
-      .controller('productsController', [
-         '$scope',
-         'http',
-         function ($scope, http) {
-            // Http request to retrieve products
-            http.request('./php/products.php')
-               .then(response => {
-                  if (response && response.products) {
-                     $scope.products = response.products;
-                     $scope.$applyAsync();
-                     // Carousel inicializáció
-                     var myCarousel = new bootstrap.Carousel(document.getElementById('ProductCarousel'), {
-                        interval: 5000, // 3 másodperc
-                        //pause: 'hover', // az automatikus lejátszást szünetelteti, ha az egér a Carousel felett van
-                     });
-                  }
-               });
+      .controller('productsController', ['$scope', 'http', '$filter', function ($scope, http, $filter) {
+         // Http request to retrieve products
+         http.request('./php/products.php').then(response => {
+            if (response && response.products) {
+               $scope.products = response.products;
+               $scope.$applyAsync();
+            }
+         });
 
-            $scope.setCategoryFilter = function (category) {
-               $scope.categoryFilter = category;
-            };
+         // Functions for feature descriptions
+         $scope.getDescription = function (feature) {
+            return 'shop_card_' + (feature.index + 1);
+         };
 
-            $scope.clearCategoryFilter = function () {
-               $scope.categoryFilter = '';
-            };
+         $scope.getQualityDescription = function (feature) {
+            return 'shop_card_' + (feature.index + 1);
+         };
 
-            $scope.clearFilters = function () {
-               $scope.categoryFilter = '';
-               $scope.subcategoryFilter = '';
-            };
-            //list for items - not ready yet.
-            $scope.getCategoryList = function () {
-               var categories = [];
-               if ($scope.products) {
-                  for (var i = 0; i < $scope.products.length; i++) {
-                     var product = $scope.products[i];
-                     if (product.kategoria && categories.indexOf(product.kategoria) === -1) {
-                        categories.push(product.kategoria);
-                     }
+         // Array of ecogourmetFeatures
+         $scope.ecogourmetFeatures = [
+            { icon: 'fas fa-recycle fa-fade', title: 'shop_card_title_1', index: 0, descriptionKey: 'shop_card_1' },
+            { icon: 'fas fa-truck fa-fade', title: 'shop_card_title_2', index: 1, descriptionKey: 'shop_card_2' },
+            { icon: 'fas fa-gift fa-fade', title: 'shop_card_title_3', index: 2, descriptionKey: 'shop_card_3' },
+            { icon: 'fas fa-cart-shopping fa-fade', title: 'shop_card_title_4', index: 3, descriptionKey: 'shop_card_4' }
+         ];
+
+         // Functions for handling category filters
+         $scope.setCategoryFilter = function (category) {
+            $scope.categoryFilter = category;
+            // Frissítjük a szűrt termékek listáját
+            $scope.updateFilteredProducts();
+         };
+
+         // Törli az összes szűrőt, kivéve a kategóriaszűrőt
+         $scope.clearFilters = function () {
+            $scope.manufacturerFilter = '';
+            $scope.distributorFilter = '';
+            // Frissítjük a szűrt termékek listáját
+            $scope.updateFilteredProducts();
+         };
+
+         // Function to get a list of product categories
+         $scope.getCategoryList = function () {
+            var categories = [];
+            if ($scope.products) {
+               for (var i = 0; i < $scope.products.length; i++) {
+                  var product = $scope.products[i];
+                  if (product.kategoria && categories.indexOf(product.kategoria) === -1) {
+                     categories.push(product.kategoria);
                   }
                }
-               return categories;
-            };
-         }
-      ])
+            }
+            return categories;
+         };
+      }])
+
+
+
+      
       // services Controller
       .controller('servicesController', [
          '$scope',
