@@ -838,9 +838,6 @@
          };
       }])
 
-
-
-      
       // services Controller
       .controller('servicesController', [
          '$scope',
