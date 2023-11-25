@@ -781,74 +781,78 @@
          }
       ])
 
-  // products Controller
-.controller('productsController', ['$scope', 'http', '$filter', function ($scope, http, $filter) {
-   // Http request to retrieve products
-   http.request('./php/products.php').then(response => {
-      if (response && response.products) {
-         $scope.products = response.products;
-         $scope.updateFilteredProducts(); // Frissítjük a szűrt termékek listáját az inicializálás után
-         $scope.$applyAsync();
-      }
-   });
-
-   // Functions for feature descriptions
-   $scope.getDescription = function (feature) {
-      return 'shop_card_' + (feature.index + 1);
-   };
-
-   $scope.getQualityDescription = function (feature) {
-      return 'shop_card_' + (feature.index + 1);
-   };
-
-   // Array of ecogourmetFeatures
-   $scope.ecogourmetFeatures = [
-      { icon: 'fas fa-recycle fa-fade', title: 'shop_card_title_1', index: 0, descriptionKey: 'shop_card_1' },
-      { icon: 'fas fa-truck fa-fade', title: 'shop_card_title_2', index: 1, descriptionKey: 'shop_card_2' },
-      { icon: 'fas fa-gift fa-fade', title: 'shop_card_title_3', index: 2, descriptionKey: 'shop_card_3' },
-      { icon: 'fas fa-cart-shopping fa-fade', title: 'shop_card_title_4', index: 3, descriptionKey: 'shop_card_4' }
-   ];
-
-   // Functions for handling category filters
-   $scope.setCategoryFilter = function (category) {
-      $scope.categoryFilter = category;
-      // Frissítjük a szűrt termékek listáját
-      $scope.updateFilteredProducts();
-   };
-
-   // Törli az összes szűrőt, kivéve a kategóriaszűrőt
-   $scope.clearFilters = function () {
-      $scope.manufacturerFilter = '';
-      $scope.distributorFilter = '';
-      // Frissítjük a szűrt termékek listáját
-      $scope.updateFilteredProducts();
-   };
-
-   // Function to update the list of filtered products
-   $scope.updateFilteredProducts = function () {
-      if ($scope.products && $scope.categoryFilter) {
-         // Filter the products based on the selected category
-         $scope.filteredProducts = $filter('filter')($scope.products, { kategoria: $scope.categoryFilter });
-      } else {
-         // If no category filter is selected, show all products
-         $scope.filteredProducts = $scope.products;
-      }
-   };
-
-   // Function to get a list of product categories
-   $scope.getCategoryList = function () {
-      var categories = [];
-      if ($scope.products) {
-         for (var i = 0; i < $scope.products.length; i++) {
-            var product = $scope.products[i];
-            if (product.kategoria && categories.indexOf(product.kategoria) === -1) {
-               categories.push(product.kategoria);
+      // products Controller
+      .controller('productsController', [
+         '$scope', 
+         'http', 
+         '$filter', 
+         function ($scope, http, $filter) {
+         // Http request to retrieve products
+         http.request('./php/products.php').then(response => {
+            if (response && response.products) {
+               $scope.products = response.products;
+               $scope.updateFilteredProducts(); // Frissítjük a szűrt termékek listáját az inicializálás után
+               $scope.$applyAsync();
             }
-         }
-      }
-      return categories;
-   };
-}])
+         });
+
+         // Functions for feature descriptions
+         $scope.getDescription = function (feature) {
+            return 'shop_card_' + (feature.index + 1);
+         };
+
+         $scope.getQualityDescription = function (feature) {
+            return 'shop_card_' + (feature.index + 1);
+         };
+
+         // Array of ecogourmetFeatures
+         $scope.ecogourmetFeatures = [
+            { icon: 'fas fa-recycle fa-fade', title: 'shop_card_title_1', index: 0, descriptionKey: 'shop_card_1' },
+            { icon: 'fas fa-truck fa-fade', title: 'shop_card_title_2', index: 1, descriptionKey: 'shop_card_2' },
+            { icon: 'fas fa-gift fa-fade', title: 'shop_card_title_3', index: 2, descriptionKey: 'shop_card_3' },
+            { icon: 'fas fa-cart-shopping fa-fade', title: 'shop_card_title_4', index: 3, descriptionKey: 'shop_card_4' }
+         ];
+
+         // Functions for handling category filters
+         $scope.setCategoryFilter = function (category) {
+            $scope.categoryFilter = category;
+            // Frissítjük a szűrt termékek listáját
+            $scope.updateFilteredProducts();
+         };
+
+         // Törli az összes szűrőt, kivéve a kategóriaszűrőt
+         $scope.clearFilters = function () {
+            $scope.manufacturerFilter = '';
+            $scope.distributorFilter = '';
+            // Frissítjük a szűrt termékek listáját
+            $scope.updateFilteredProducts();
+         };
+
+         // Function to update the list of filtered products
+         $scope.updateFilteredProducts = function () {
+            if ($scope.products && $scope.categoryFilter) {
+               // Filter the products based on the selected category
+               $scope.filteredProducts = $filter('filter')($scope.products, { kategoria: $scope.categoryFilter });
+            } else {
+               // If no category filter is selected, show all products
+               $scope.filteredProducts = $scope.products;
+            }
+         };
+
+         // Function to get a list of product categories
+         $scope.getCategoryList = function () {
+            var categories = [];
+            if ($scope.products) {
+               for (var i = 0; i < $scope.products.length; i++) {
+                  var product = $scope.products[i];
+                  if (product.kategoria && categories.indexOf(product.kategoria) === -1) {
+                     categories.push(product.kategoria);
+                  }
+               }
+            }
+            return categories;
+         };
+      }])
 
 
       // services Controller
