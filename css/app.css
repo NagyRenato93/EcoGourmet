@@ -338,22 +338,6 @@ h1 {
     background-size: cover;
 }
 
-/* -------- Page 3 --------*/
-.parallax {
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-.parallax-inner {
-    color: white;
-    display: flex;
-    height: 100%;
-    align-items: center;
-    justify-content: center;
-}
-
 /* -------- ProductCarousel ---------*/
 #ProductCarousel {
     background: rgba(255, 255, 255, 0.5);
@@ -416,19 +400,24 @@ h1 {
     }
   
     .card-footer .btn {
-      border: 2px solid #fff;
-      color: #000000;
-    
-      &:hover {
-        background-color: #fff;
-        color: #000;
-        transform: scale(1.2);
+        border: 2px solid #fff;
+        color: #000000;
+        display: flex;
+        flex-direction: column;
+        @media (max-width: 768px) {
+            min-height: 450px;
+        }
+      
+        &:hover {
+          background-color: #fff;
+          color: #000;
+          transform: scale(1.4);
+        }
       }
-    }
-  
+      
     .card-body {
         min-height: 150px; /* Új rész: Minimális magasság beállítása */
-        margin-top: 40px; /* texthez */
+        margin-top: 30px; /* texthez */
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -471,7 +460,7 @@ h1 {
     }
     .card-text-ar {
         position: absolute; /* Adjuk meg az abszolút pozíciót a .card-text-hez */
-        bottom: 20; /* Pozícionáljuk az elemet a szülő alsó részén */
+        bottom: 50; /* Pozícionáljuk az elemet a szülő alsó részén */
       }
   }
   
