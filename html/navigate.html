@@ -73,6 +73,54 @@
         <!-- Navigate -->
         <ul class="navbar-nav">
 
+        <!-- Right align -->
+        <div class="navbar-right ms-auto">
+           <!-- Navigate -->
+   <ul class="navbar-nav">
+    
+    <!-- Cart Icon and Checkbox -->
+    <li class="nav-item">
+      <label class="fas fa-cart-shopping fa-lg me-1" ng-click="toggleCartVisibility()"></label>
+      <input type="checkbox" ng-model="showCart" class="d-none">
+      <span class="badge" ng-show="cart.length > 0">{{ getTotalQuantity() }}</span>
+    </li>
+
+    <!-- Cart container -->
+    <div class="cart-container" ng-show="showCart">
+
+      <!-- Kosár megjelenítése -->
+      <div ng-show="showCart" class="cart-container">
+        <h3>Kosarad</h3>
+        <hr>
+        <table>
+          <thead>
+            <tr>
+              <th>Termék</th>
+              <th>Ár</th>
+              <th>Mennyiség</th>
+              <th>Törlés</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="item in cart">
+              <td>{{ item.nev }}</td>
+              <td>{{ item.ar_forint }}</td>
+              <td>{{ item.quantity }}</td>
+              <td>{{ item.ar_forint * item.quantity }}</td>
+              <td>
+                <button ng-click="removeFromCart(item)">Törlés</button>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="3">Összesen:</td>
+              <td>{{ getTotalPrice() }}</td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
           <!-- Login -->
           <li class="nav-item" 
               ng-if="!user.id && (state.id !== 'user' || userEvent !== 'login')">

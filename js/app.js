@@ -707,7 +707,7 @@
          }
       ])
 
-      // aboutController
+      // About Controller
       .controller('aboutController', [
          '$scope',
          'http',
@@ -781,13 +781,15 @@
          }
       ])
 
-      // products Controller
+      // Products Controller
       .controller('productsController', [
          '$scope', 
          'http', 
          '$filter', 
-         function ($scope, http, $filter) {
-         // Http request to retrieve products
+      function ($scope, http, $filter) {
+
+         // Http kérés a termékek lekéréséhez
+         $scope.cart = [];
          http.request('./php/products.php').then(response => {
             if (response && response.products) {
                $scope.products = response.products;
@@ -796,7 +798,7 @@
             }
          });
 
-         // Functions for feature descriptions
+         // Funkciók a termékjellemzők leírásához
          $scope.getDescription = function (feature) {
             return 'shop_card_' + (feature.index + 1);
          };
@@ -805,7 +807,7 @@
             return 'shop_card_' + (feature.index + 1);
          };
 
-         // Array of ecogourmetFeatures
+         // Ecogurmet titles tömbje
          $scope.ecogourmetFeatures = [
             { icon: 'fas fa-recycle fa-fade', title: 'shop_card_title_1', index: 0, descriptionKey: 'shop_card_1' },
             { icon: 'fas fa-truck fa-fade', title: 'shop_card_title_2', index: 1, descriptionKey: 'shop_card_2' },
@@ -813,7 +815,7 @@
             { icon: 'fas fa-cart-shopping fa-fade', title: 'shop_card_title_4', index: 3, descriptionKey: 'shop_card_4' }
          ];
 
-         // Functions for handling category filters
+         // Funkciók a kategória szűrők kezeléséhez
          $scope.setCategoryFilter = function (category) {
             $scope.categoryFilter = category;
             // Frissítjük a szűrt termékek listáját
@@ -828,18 +830,19 @@
             $scope.updateFilteredProducts();
          };
 
-         // Function to update the list of filtered products
+         // Funkció a szűrt termékek listájának frissítéséhez
          $scope.updateFilteredProducts = function () {
             if ($scope.products && $scope.categoryFilter) {
-               // Filter the products based on the selected category
+               // Szűrjük a termékeket a kiválasztott kategória alapján
                $scope.filteredProducts = $filter('filter')($scope.products, { kategoria: $scope.categoryFilter });
             } else {
-               // If no category filter is selected, show all products
+               // Ha nincs kategóriaszűrő kiválasztva, mutassuk az összes terméket
                $scope.filteredProducts = $scope.products;
             }
+            // További frissítések, ha szükséges...
          };
 
-         // Function to get a list of product categories
+         // Funkció a termékkategóriák listájának lekéréséhez
          $scope.getCategoryList = function () {
             var categories = [];
             if ($scope.products) {
@@ -853,19 +856,70 @@
             return categories;
          };
 
-         // Sima görgetés a tetejére animáció
-         $scope.smoothScrollToTop = function () {
-            document.body.style.transition = 'scroll-behavior 0.5s'; // CSS Scroll Behavior alkalmazása a görgetési animációhoz
-            document.body.scrollTop = 0; // Az oldal tetejére görgetés
-            document.documentElement.scrollTop = 0; // Az oldal tetejére görgetés (alternatívaként, ha a fenti nem működik minden böngészőben)
-
-            setTimeout(function () {
-               document.body.style.transition = ''; // A transition visszaállítása az eredeti értékre
-            }, 500); // Időzítés, amely egyezik a transition időtartamával
+         // Funkció a kosár összegének frissítéséhez
+         $scope.updateCartTotal = function () {
+            $scope.totalItems = $scope.cart.length;
+            // További frissítések, ha szükséges...
          };
+
+         // Funkció a kosár láthatóságának váltásához
+         $scope.toggleCartVisibility = function () {
+            $scope.showCart = !$scope.showCart;
+         };
+
+         // Funkció a termék hozzáadásához a kosárhoz
+         $scope.addToCart = function (product) {
+            var existingItem = $filter('filter')($scope.cart, { termek_id: product.termek_id }, true)[0];
+
+            if (existingItem) {
+               existingItem.quantity++;
+            } else {
+               var newItem = angular.copy(product);
+               newItem.quantity = 1;
+               $scope.cart.push(newItem);
+            }
+
+            $scope.updateCartTotal(); // Frissítsd a kosár összegét
+         };
+
+         // Funkció a termék eltávolításához a kosárból
+         $scope.removeFromCart = function (product) {
+            var index = $scope.cart.indexOf(product);
+            if (index !== -1) {
+               $scope.cart.splice(index, 1);
+               $scope.updateCartTotal(); // Frissítsd a kosár összegét
+            }
+         };
+
+         // Funkció a kosárban lévő elemek összértékének lekéréséhez
+         $scope.getTotalPrice = function () {
+            if (!$scope.cart || $scope.cart.length === 0) {
+               return 0; // Üres a kosár, tehát az összeg 0
+            }
+
+            var totalPrice = 0;
+            for (var i = 0; i < $scope.cart.length; i++) {
+               var item = $scope.cart[i];
+               if (item && item.ar_forint && !isNaN(item.quantity)) {
+                  totalPrice += item.ar_forint * item.quantity;
+               }
+            }
+
+            return totalPrice;
+         };
+
+         // Funkció a kosárban lévő elemek összmennyiségének lekéréséhez
+         $scope.getTotalQuantity = function () {
+            var totalQuantity = 0;
+            for (var i = 0; i < $scope.cart.length; i++) {
+               totalQuantity += $scope.cart[i].quantity;
+            }
+            return totalQuantity;
+         };
+
       }])
 
-      // services Controller
+      // Services Controller
       .controller('servicesController', [
          '$scope',
          'http',

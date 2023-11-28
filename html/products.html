@@ -24,15 +24,14 @@
         <p class="lead">{{ product.forgalmazo }}</p>
         <div class="d-flex">
           <input class="form-control text-center me-3" id="inputQuantity" type="number" value="1" style="max-width: 3rem;">
-          <button class="btn btn-outline-dark flex-shrink-0" type="button">
-            <i class="bi-cart-fill me-1"></i> Kosárba
+          <button class="btn btn-outline-dark flex-shrink-0" type="button" ng-click="addToCart(product)">
+            <i class="bi-cart-fill me-1" ></i> Kosárba
           </button>
         </div>
       </div>
     </div>
   </div>
 </section>
-
 
 <!-- Ecogourmet features Section (miért érdemes minket választani?)-->
 <section id="features">
@@ -142,7 +141,9 @@
                 <div class="card-footer bg-transparent">
                   <div>
                     <a class="btn btn-outline-dark mt-auto" 
-                       href="#">Kosárba</a>
+                    ng-click="addToCart(product)">
+                              Kosárba
+                            </a>
                   </div>
                 </div>
               </div>
