@@ -4,7 +4,6 @@
 
 .page-container.home header,
 .slider-text {
-	background-color:rgba(0,0,0,.3) !important;	
 }
 .slider {
 	animation-duration: 20s;
@@ -28,22 +27,32 @@
   animation: zoom-out 10s linear infinite;
 }
 .slider-text {
+    backdrop-filter: blur(20px);
 	border-radius: 10px;
-  top: 40%;
+  top: 30%;
   left: 5%;
   width: 600px;
   animation: text-up 5s ease-out infinite;
 	transform: translateY(200px);
+    text-align: left;
+
 }
 .slider-title {
-	font-size: 2.5rem;
+	font-size: 2rem;
   margin-bottom: 16px;
 }
 .slider-content {
-	font-size: 18px;
-  line-height: 28px;
-}
+    font-size: 20px !important; /* Próbáld meg ezt a !important kulcsszóval, ha más stílusok felülírják */
+    line-height: 25px;
+    font-style: italic;
+    text-align: left;
+  }
 
+.btn-lg {
+    font-size: 14px; /* Változtathatod a méretet az igényeid szerint */
+    padding: 10px 15px; /* Változtathatod a padding értékét is */
+  }
+  
 /* Az alábbi animációs kulcsszavak definiálják az animációkat a szöveg és a hátterek mozgatásához. */
 @keyframes text-up {
 	 10% {transform: translateY(0px);}

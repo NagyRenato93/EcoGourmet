@@ -2,18 +2,14 @@
 <div class="page-container d-conditional vh-100">
 
   <!-- Navigate -->
-  <header class="sticky-top" 
-          ng-include="'./html/navigate.html'">
+  <header class="sticky-top" ng-include="'./html/navigate.html'">
   </header>
   
   <!-- Slider -->
-  <div class="slider slider-{{$index+1}} vh-100 vw-100 
-              position-absolute overflow-hidden top-0 start-0"
-       ng-repeat="x in [].constructor(4) track by $index">
+  <div class="slider slider-{{$index+1}} vh-100 vw-100 position-absolute overflow-hidden top-0 start-0" ng-repeat="x in [].constructor(4) track by $index">
 
     <!-- Slider image -->
-    <div class="slider-image slider-image-{{$index+1}} vh-100 bg-img bg-img-cover"
-         style="background-image:url('./media/image/food{{$index+1}}.jpg');">
+    <div class="slider-image slider-image-{{$index+1}} vh-100 bg-img bg-img-cover" style="background-image:url('./media/image/food{{$index+1}}.jpg');">
 
       <!-- Slider content -->
       <div class="slider-text position-absolute text-white p-3">
@@ -23,7 +19,7 @@
         <p class="slider-content">
           {{('slide_content_' + ($index+1)) | translate:lang.data}}
         </p>
+        <a ui-sref="about" class="btn btn-outline-light btn-lg">{{ 'DISCOVER_MORE' | translate:lang.data}}</a>
       </div>
     </div>
   </div>
-</div>
