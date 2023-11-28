@@ -36,7 +36,6 @@
 	transform: translateY(200px);
 }
 .slider-title {
-	font-family: 'Playfair Display', serif;
 	font-size: 2.5rem;
   margin-bottom: 16px;
 }
@@ -87,8 +86,6 @@ body {
     /* Az egész oldal alap stílusa */
     padding: 0%;
     margin: 40;
-    font-family: 'Barlow', sans-serif;
-    font-family: 'Inter', sans-serif;
     font-family: 'Montserrat', sans-serif;
 }
 /* -------------- About us page ------------------- */
@@ -170,12 +167,10 @@ section {
     padding-top: 400px;
     color: #fff;
     text-align: center;
-    font-family: 'Playfair Display', serif;
 }
 
 h1 {
     /* Címsor stílusa */
-    font-family: 'Playfair Display', serif;
     font-size: clamp(45px, 7vw, 130px);
     line-height: 1.1;
 }
@@ -230,7 +225,6 @@ h1 {
     font-size: 18px;
     font-weight: 400;
     margin: 0;
-    font-family: 'Inter', sans-serif;
     /* Például az Inter font itt érvényesül */
 }
 
@@ -354,8 +348,10 @@ h1 {
 
 /* ------- btn to scroll up -------*/
 .arrow-up {
-    font-size: 25px; /* Adjust the arrow size */
-    margin-left: 50px;
+    font-size: 20px; /* Adjust the arrow size */
+    position: fixed; 
+    right: 20px; 
+    cursor: pointer;
  }
  
 /* Az "ecogourmet-cards" osztály alá tartozó kártyák stílusa - shop cards. */
@@ -463,4 +459,5 @@ h1 {
         bottom: 50; /* Pozícionáljuk az elemet a szülő alsó részén */
       }
   }
+  
   

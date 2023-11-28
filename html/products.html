@@ -2,32 +2,40 @@
 <header class="sticky-top" ng-include src="'./html/navigate.html'"></header>
 
 <!-- Product section with a different background color -->
-<section class="py-5" style="background-color: #f8f9fa;">
-  <div class="container px-4 px-lg-5 my-5" ng-repeat="product in filteredProducts | limitTo: 1">
+<section class="py-5" 
+         style="background-color: #f8f9fa;">
+  <div class="container px-4 px-lg-5 my-5" 
+       ng-repeat="product in filteredProducts | limitTo: 1">
+
+    <!-- Termék részletek - Kép és szöveg -->
     <div class="row gx-4 gx-lg-5 align-items-center">
       <div class="col-md-6">
 
-        <!-- Termék képe -->
-        <div class="card-img" ng-style="{'background-image': 'url(\'./media/image/products/protein' + ($index + 1) + '.webp\')'}"></div>
+      <!-- Termék (Csak Minta!!) képe -->
+      <img class="img-fluid rounded border border-dark" 
+          ng-src="{{'./media/image/products/granola' + ($index + 1) + '.jpg'}}" 
+          alt="Product Image">
       </div>
-      <div class="col-md-6">
+      <div class="col-md-6 ">
         <h1 class="display-5 fw-bolder">{{ product.nev }}</h1>
         <div class="fs-5 mb-5">
-          <span>Ár: {{ product.ar_forint }}Ft</span>
+          <span>{{ product.ar_forint }}Ft</span>
         </div>
-        <p class="lead">Forgalmazó: {{ product.forgalmazo }}</p>
+        <p class="lead">{{ product.forgalmazo }}</p>
         <div class="d-flex">
-          <input class="form-control text-center me-3" id="inputQuantity" type="number" value="1" style="max-width: 3rem" />
+          <input class="form-control text-center me-3" id="inputQuantity" type="number" value="1" style="max-width: 3rem;">
           <button class="btn btn-outline-dark flex-shrink-0" type="button">
-            <i class="bi-cart-fill me-1"></i> Add to cart </button>
+            <i class="bi-cart-fill me-1"></i> Kosárba
+          </button>
         </div>
       </div>
     </div>
   </div>
 </section>
 
+
 <!-- Ecogourmet features Section (miért érdemes minket választani?)-->
-<section class="py-5" id="features">
+<section id="features">
   <div class="container px-5 my-5">
     <div class="row gx-5">
       <div class="col-lg-4 mb-5 mb-lg-0">
@@ -65,16 +73,20 @@
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid text-center">
+
     <!-- Brand and toggle get grouped for better mobile display -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav mx-auto">
+
         <!-- Nav with filters -->
         <li ng-repeat="category in getCategoryList()" class="nav-item">
           <a class="nav-link" ng-click="setCategoryFilter(category)">{{ category }}</a>
+          
           <!-- Show items for all categories -->
           <ul class="navbar-nav">
             <li ng-repeat="item in getItemsByCategory(category)" class="nav-item">
@@ -92,43 +104,66 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-3" style="background-image: url('./media/image/asidebg.jpg'); background-size: cover; background-position: center;">
-      <!-- Üres rész vagy más tartalom, ami az aside-ban jelenik meg -->
     </div>
 
     <!-- Termék kártyák -->
     <div class="col-md-9">
-      <section class="py-5" style="background-color: #f8f9fa;">
+      <section class="py-5" 
+               style="background-color: #f8f9fa;">
         <div class="col-md-9 mx-auto">
+
           <!-- "ecogourmet-cards" osztály-->
           <div class="card-container text-center ecogourmet-cards">
-            <div class="card mb-4" ng-repeat="product in filteredProducts = (products | filter: { kategoria: categoryFilter } | limitTo: 6)">
-              <!-- Termék képe -->
-              <div class="card-img" ng-style="{'background-image': 'url(\'./media/image/products/protein' + ($index + 1) + '.webp\')', 'background-size': 'cover', 'background-position': 'center', 'background-repeat': 'no-repeat'}">
+            <div class="card mb-4" 
+                 ng-repeat="product in filteredProducts = (products | filter: { kategoria: categoryFilter } | limitTo: 6)">
+
+              <!-- Termék képe / csak minta!! képei -->
+              <div class="card-img" 
+                   ng-style="{'background-image': 'url(\'./media/image/products/protein' + ($index + 1) + '.webp\')', 'background-size': 'cover', 'background-position': 'center', 'background-repeat': 'no-repeat'}">
+
                 <!-- Termék részletei -->
                 <div class="card-body">
                   <div>
+
                     <!-- Product name-->
                     <h5 class="card-title fw-bolder small">{{product.nev}}</h5>
+
                     <!-- Product gyártó forgalmazo-->
-                    <p class="card-text small" ng-if="product.forgalmazo">{{product.forgalmazo}}</p>
+                    <p class="card-text small" 
+                       ng-if="product.forgalmazo">{{product.forgalmazo}}</p>
+
                     <!-- Product price-->
-                    <p class="card-text text-small-caps" ng-if="product.ar_forint">Ár: {{product.ar_forint}} Ft</p>
+                    <p class="card-text text-small-caps" 
+                       ng-if="product.ar_forint">Ár: {{product.ar_forint}} Ft</p>
                   </div>
                 </div>
+
                 <!-- Product actions-->
                 <div class="card-footer bg-transparent">
                   <div>
-                    <a class="btn btn-outline-dark mt-auto" href="#">Kosárba</a>
+                    <a class="btn btn-outline-dark mt-auto" 
+                       href="#">Kosárba</a>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
+
+        <!-- scroll to top button ---- lesz! -->
+        <!-- <div class="scroll-to-top text-right bg-light" 
+             ng-click="smoothScrollToTop()">
+        <span class="arrow-up small">
+           <i class="fas fa-thin fa-arrow-up"></i>
+        </span>
+        </div> -->
+
       </section>
     </div>
   </div>
 </div>
+
+
 
 
 <footer ng-include src="'./html/footer.html'"></footer>

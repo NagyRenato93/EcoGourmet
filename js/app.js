@@ -852,6 +852,17 @@
             }
             return categories;
          };
+
+         // Sima görgetés a tetejére animáció
+         $scope.smoothScrollToTop = function () {
+            document.body.style.transition = 'scroll-behavior 0.5s'; // CSS Scroll Behavior alkalmazása a görgetési animációhoz
+            document.body.scrollTop = 0; // Az oldal tetejére görgetés
+            document.documentElement.scrollTop = 0; // Az oldal tetejére görgetés (alternatívaként, ha a fenti nem működik minden böngészőben)
+
+            setTimeout(function () {
+               document.body.style.transition = ''; // A transition visszaállítása az eredeti értékre
+            }, 500); // Időzítés, amely egyezik a transition időtartamával
+         };
       }])
 
 
