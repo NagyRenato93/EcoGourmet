@@ -471,22 +471,22 @@ h1 {
   
 /* Kosár stílusok */
 .cart-container {
-    background-color: #f8f9fa; /* Háttérszín */
+    background: #f8f9fa;
     position: fixed;
     top: 50px;
     right: 10px;
     padding: 15px;
-    border: 1px solid #ced4da; /* Szegélyszín */
+    border: 1px solid #ced4da;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Árnyék */
-    max-width: 800px; /* Maximális szélesség */
-    z-index: 1000; /* Z-index érték a más tartalmak felett való elhelyezéshez */
-    transition: box-shadow 0.3s ease; /* Animáció az árnyékra */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    z-index: 1000;
+    transition: box-shadow 0.3s ease;
 }
 
 .cart-container h3 {
     font-size: 18px;
-    color: #007bff; /* Betűszín */
+    color: #007bff;
     margin-bottom: 15px;
 }
 
@@ -494,23 +494,18 @@ h1 {
     width: 100%;
 }
 
-.cart-container th, .cart-container td {
+.cart-container td, .cart-container th {
     padding: 10px;
     text-align: left;
-    border-bottom: 1px solid #ddd; /* Alsó szegélyszín a cellák között */
-}
-
-.cart-container th {
-    background-color: #007bff; /* Fejléc háttérszín */
-    color: white;
+    border-bottom: 1px solid #ddd;
 }
 
 .cart-container tbody tr:hover {
-    background-color: #f2f2f2; /* Sor háttérszín hover állapotban */
+    background: #f2f2f2;
 }
 
 .cart-container button {
-    background-color: #dc3545; /* Gomb háttérszín */
+    background: #dc3545;
     color: white;
     border: none;
     padding: 5px 10px;
@@ -519,16 +514,9 @@ h1 {
 }
 
 .cart-container button:hover {
-    background-color: #c82333; /* Gomb háttérszín hover állapotban */
+    background: #c82333;
 }
+
 .cart-container:hover {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enyhe árnyék hover állapotban */
-}
-/* Számjelző stílusok */
-.badge {
-    background-color: #dc3545; /* Háttérszín */
-    color: white;
-    border-radius: 50%;
-    padding: 5px 8px;
-    font-size: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
