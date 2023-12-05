@@ -819,6 +819,8 @@
             { icon: 'fas fa-cart-shopping fa-fade', title: 'shop_card_title_4', index: 3, descriptionKey: 'shop_card_4' }
          ];
 
+         //Szürő -->
+
          // Funkciók a kategória szűrők kezeléséhez
          $scope.setCategoryFilter = function (category) {
             $scope.categoryFilter = category;
@@ -859,6 +861,8 @@
             }
             return categories;
          };
+
+         //Kosár-->
 
          // Funkció a kosár összegének frissítéséhez
          $scope.updateCartTotal = function () {
