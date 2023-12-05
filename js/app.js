@@ -174,6 +174,10 @@
                   });
                }
             };
+            $rootScope.toggleCartVisibility = function () {
+               let container = document.getElementById('cart-container');
+               container.classList.toggle('d-none');
+            };
          }
    ])
 
@@ -787,10 +791,11 @@
 
    // Products Controller
    .controller('productsController', [
+         '$rootScope',
          '$scope', 
          'http', 
          '$filter', 
-      function ($scope, http, $filter) {
+      function ($rootScope, $scope, http, $filter) {
 
          // Http kérés a termékek lekéréséhez
          $scope.cart = [];
@@ -801,6 +806,11 @@
                $scope.$applyAsync();
             }
          });
+
+         $scope.$watch('cart', (newValue, oldValue) => {
+            console.log(oldValue, ' => ', newValue);
+            localStorage.setItem("shoppingCart", $scope.cart);
+         }, true);
 
          // Funkciók a termékjellemzők leírásához
          $scope.getDescription = function (feature) {
@@ -871,9 +881,12 @@
          };
 
          // Funkció a kosár láthatóságának váltásához
-         $scope.toggleCartVisibility = function () {
-            $scope.showCart = !$scope.showCart;
-         };
+         //$rootScope.toggleCartVisibility = function () {
+            //let container = document.getElementById('cart-container');
+            //container.classList.toggle('d-none');
+            //$scope.showCart = !$scope.showCart;
+            //console.log('toggle visibility');
+         //};
 
          // Funkció a termék hozzáadásához a kosárhoz
          $scope.addToCart = function (product) {
@@ -917,7 +930,7 @@
          };
 
          // Funkció a kosárban lévő elemek összmennyiségének lekéréséhez
-         $scope.getTotalQuantity = function () {
+         $rootScope.getTotalQuantity = function () {
             var totalQuantity = 0;
             for (var i = 0; i < $scope.cart.length; i++) {
                totalQuantity += $scope.cart[i].quantity;
