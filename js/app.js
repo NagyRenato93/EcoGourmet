@@ -9,8 +9,9 @@
       'app.language',
       'app.form'
    ])
-      // Application config
-      .config([
+   
+   // Application config
+   .config([
          '$stateProvider',
          '$urlRouterProvider',
          ($stateProvider, $urlRouterProvider) => {
@@ -45,9 +46,10 @@
                });
             $urlRouterProvider.otherwise('/');
          }
-      ])
-      // User factory
-      .factory('user', [
+   ])
+
+   // User factory
+   .factory('user', [
          '$rootScope',
          '$timeout',
          'util',
@@ -140,9 +142,10 @@
             // Return service
             return service;
          }
-      ])
-      // Application run
-      .run([
+   ])
+
+   // Application run
+   .run([
          '$state',
          '$rootScope',
          '$timeout',
@@ -172,9 +175,10 @@
                }
             };
          }
-      ])
-      // User controller
-      .controller('userController', [
+   ])
+
+   // User controller
+   .controller('userController', [
          '$rootScope',
          '$scope',
          '$state',
@@ -705,10 +709,10 @@
             // Initialize
             $scope.methods.init();
          }
-      ])
+   ])
 
-      // About Controller
-      .controller('aboutController', [
+   // About Controller
+   .controller('aboutController', [
          '$scope',
          'http',
          'util',
@@ -779,10 +783,10 @@
                }, 500); // Időzítés, amely egyezik a transition időtartamával
             };
          }
-      ])
+   ])
 
-      // Products Controller
-      .controller('productsController', [
+   // Products Controller
+   .controller('productsController', [
          '$scope', 
          'http', 
          '$filter', 
@@ -917,10 +921,10 @@
             return totalQuantity;
          };
 
-      }])
+   }])
 
-      // Services Controller
-      .controller('servicesController', [
+   // Services Controller
+   .controller('servicesController', [
          '$scope',
          'http',
          function ($scope, http) {
@@ -934,6 +938,6 @@
                   }
                });
          }
-      ]);
+   ]);
 
 })(window, angular);
