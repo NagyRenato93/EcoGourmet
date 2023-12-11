@@ -174,6 +174,10 @@
                   });
                }
             };
+            $rootScope.toggleCartVisibility = function () {
+               let container = document.getElementById('cart-container');
+               container.classList.toggle('d-none');
+            };
          }
    ])
 
@@ -787,10 +791,11 @@
 
    // Products Controller
    .controller('productsController', [
+         '$rootScope',
          '$scope', 
          'http', 
          '$filter', 
-      function ($scope, http, $filter) {
+      function ($rootScope, $scope, http, $filter) {
 
          // Http kérés a termékek lekéréséhez
          $scope.cart = [];
@@ -801,6 +806,11 @@
                $scope.$applyAsync();
             }
          });
+
+         $scope.$watch('cart', (newValue, oldValue) => {
+            console.log(oldValue, ' => ', newValue);
+            localStorage.setItem("shoppingCart", $scope.cart);
+         }, true);
 
          // Funkciók a termékjellemzők leírásához
          $scope.getDescription = function (feature) {
@@ -818,6 +828,8 @@
             { icon: 'fas fa-gift fa-fade', title: 'shop_card_title_3', index: 2, descriptionKey: 'shop_card_3' },
             { icon: 'fas fa-cart-shopping fa-fade', title: 'shop_card_title_4', index: 3, descriptionKey: 'shop_card_4' }
          ];
+
+         //Szürő -->
 
          // Funkciók a kategória szűrők kezeléséhez
          $scope.setCategoryFilter = function (category) {
@@ -860,6 +872,8 @@
             return categories;
          };
 
+         //Kosár-->
+
          // Funkció a kosár összegének frissítéséhez
          $scope.updateCartTotal = function () {
             $scope.totalItems = $scope.cart.length;
@@ -867,9 +881,12 @@
          };
 
          // Funkció a kosár láthatóságának váltásához
-         $scope.toggleCartVisibility = function () {
-            $scope.showCart = !$scope.showCart;
-         };
+         //$rootScope.toggleCartVisibility = function () {
+            //let container = document.getElementById('cart-container');
+            //container.classList.toggle('d-none');
+            //$scope.showCart = !$scope.showCart;
+            //console.log('toggle visibility');
+         //};
 
          // Funkció a termék hozzáadásához a kosárhoz
          $scope.addToCart = function (product) {
@@ -913,7 +930,7 @@
          };
 
          // Funkció a kosárban lévő elemek összmennyiségének lekéréséhez
-         $scope.getTotalQuantity = function () {
+         $rootScope.getTotalQuantity = function () {
             var totalQuantity = 0;
             for (var i = 0; i < $scope.cart.length; i++) {
                totalQuantity += $scope.cart[i].quantity;

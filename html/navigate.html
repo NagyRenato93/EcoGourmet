@@ -1,5 +1,5 @@
 <!-- Navbar -->
-<nav class="navbar navbar-expand-md navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
   
   <!-- Container -->
   <div class="container-fluid">
@@ -28,6 +28,7 @@
 
       <!-- Center align -->
       <div class="navbar-center mx-auto">
+
           <!-- Navigate -->
           <ul class="navbar-nav">
 
@@ -63,7 +64,6 @@
                 </span>
               </a>
             </li>
-
           </ul>
       </div>
 
@@ -72,54 +72,48 @@
 
         <!-- Navigate -->
         <ul class="navbar-nav">
-
-        <!-- Right align -->
-        <div class="navbar-right ms-auto">
-           <!-- Navigate -->
-   <ul class="navbar-nav">
     
-    <!-- Cart Icon and Checkbox -->
-    <li class="nav-item">
-      <label class="fas fa-cart-shopping fa-lg me-1" ng-click="toggleCartVisibility()"></label>
-      <input type="checkbox" ng-model="showCart" class="d-none">
-      <span class="badge" ng-show="cart.length > 0">{{ getTotalQuantity() }}</span>
-    </li>
+          <!-- Cart Icon -->
+          <li class="nav-item">
+            <a class="nav-link" 
+               href=""
+               ng-click="toggleCartVisibility()">
+              <i class="fas fa-cart-shopping fa-lg me-1"></i>
+              <span class="badge text-primary" ng-show="cart.length > 0">{{ getTotalQuantity() }}</span>
+            </a>
+          </li>
 
-    <!-- Cart container -->
-    <div class="cart-container" ng-show="showCart">
-
-      <!-- Kosár megjelenítése -->
-      <div ng-show="showCart" class="cart-container">
-        <h3>Kosarad</h3>
-        <hr>
-        <table>
-          <thead>
-            <tr>
-              <th>Termék</th>
-              <th>Ár</th>
-              <th>Mennyiség</th>
-              <th>Törlés</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr ng-repeat="item in cart">
-              <td>{{ item.nev }}</td>
-              <td>{{ item.ar_forint }}</td>
-              <td>{{ item.quantity }}</td>
-              <td>{{ item.ar_forint * item.quantity }}</td>
-              <td>
-                <button ng-click="removeFromCart(item)">Törlés</button>
-              </td>
-            </tr>
-            <tr>
-              <td colspan="3">Összesen:</td>
-              <td>{{ getTotalPrice() }}Ft</td>
-              <td></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
+          <!-- Cart container -->
+          <li id="cart-container" class="cart-container d-none">
+            <h3>Kosarad</h3>
+            <hr>
+            <table>
+              <thead>
+                <tr>
+                  <th>Termék</th>
+                  <th>Ár</th>
+                  <th>Mennyiség</th>
+                  <th>Törlés</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="item in cart">
+                  <td>{{ item.nev }}</td>
+                  <td>{{ item.ar_forint }}</td>
+                  <td>{{ item.quantity }}</td>
+                  <td>{{ item.ar_forint * item.quantity }}</td>
+                  <td>
+                    <button ng-click="removeFromCart(item)">Törlés</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="3">Összesen:</td>
+                  <td>{{ getTotalPrice() }}Ft</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
 
           <!-- Login -->
           <li class="nav-item" 
@@ -144,7 +138,7 @@
               </span>
             </a>
           </li>
-<!--  -->
+
           <!-- Account -->
           <li class="nav-item dropdown" 
               ng-if="user.id">
