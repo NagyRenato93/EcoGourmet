@@ -12,12 +12,8 @@ $db = new Database();
 // Set query
 $query 	= "UPDATE `user` 
 							SET `type` 					= :type,
-						 			`prefix_name` 	= :prefix_name,
 						 			`first_name` 		= :first_name,
-						 			`middle_name` 	= :middle_name,
 						 			`last_name` 		= :last_name,
-						 			`suffix_name` 	= :suffix_name,
-						 			`nick_name` 		= :nick_name,
 						 			`gender` 				= :gender,
 						 			`born` 					= :born,
 						 			`country` 			= :country,

@@ -94,6 +94,7 @@
 body {
     /* Az egész oldal alap stílusa */
     padding: 0%;
+    
     font-family: 'Montserrat', sans-serif;
 
 }
@@ -591,6 +592,8 @@ h1 {
     transform: translate(0, -50%);
     font-family: system-ui;
     display: none;
+    backdrop-filter: blur(20px);
+	border-radius: 10px;
 }
 
 .unique-page .slide .item:nth-child(2) .content {

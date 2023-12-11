@@ -59,12 +59,8 @@
                base: {
                   id: null,
                   type: null,
-                  prefix_name: null,
                   first_name: null,
-                  middle_name: null,
                   last_name: null,
-                  suffix_name: null,
-                  nick_name: null,
                   gender: null,
                   email: null
                },
@@ -178,6 +174,7 @@
                let container = document.getElementById('cart-container');
                container.classList.toggle('d-none');
             };
+            
          }
    ])
 
@@ -639,6 +636,16 @@
                      });
                   });
                },
+               subscribe: () => {
+                  // Show a message or perform any specific actions related to subscription
+                  // For example, displaying an alert
+                  alert(util.capitalize($rootScope.lang.data.under_construction) + '!');
+               
+                  // Set the profile type and apply the changes
+                  $scope.helper.profileType = 'subscribe';
+                  $scope.$applyAsync();
+               },
+               
                // Profile
                profile: () => {
                   //alert(util.capitalize($rootScope.lang.data.under_construction) + '!');
@@ -721,8 +728,7 @@
          'http',
          'util',
          function ($scope, http, util) {
-            //let recipes = util.deferredObj();
-            //let plans   = util.deferredObj();
+            
             // Http request to retrieve recipes
             http.request('./php/about_us.php')
                .then(response => {
@@ -739,7 +745,7 @@
                });
             // Smooth animation on scrolling on About Us Page
             function initializeIntersectionObserver() {
-               var observer = new IntersectionObserver(function (entries) {
+               let observer = new IntersectionObserver(function (entries) {
                   entries.forEach(function (entry) {
                      if (entry.isIntersecting) {
                         entry.target.classList.add('show');
@@ -747,7 +753,7 @@
                   });
                });
 
-               var hiddenElements = document.querySelectorAll('.hidden');
+               let hiddenElements = document.querySelectorAll('.hidden');
                hiddenElements.forEach(function (element) {
                   observer.observe(element);
                });
@@ -759,22 +765,6 @@
                document.body.scrollTop = 0;
                document.documentElement.scrollTop = 0;
             };
-
-
-            // // Sima görgetés a tetejére animáció
-            // $scope.smoothScrollToTop = function () {
-            //    const scrollDuration = 5; // Itt változtathatsz az időtartam értékén (ezredmásodpercben)
-            //    const scrollStep = -window.scrollY / (scrollDuration / 2000);
-
-            //    const scrollInterval = setInterval(function () {
-            //       if (window.scrollY !== 0) {
-            //          window.scrollBy(0, scrollStep);
-            //       } else {
-            //          clearInterval(scrollInterval);
-            //       }
-            //    }, 15);
-            // };
-
 
             // Sima görgetés a tetejére animáció
             $scope.smoothScrollToTop = function () {
@@ -807,7 +797,7 @@
             }
          });
 
-         $scope.$watch('cart', (newValue, oldValue) => {
+         $rootScope.$watch('cart', (newValue, oldValue) => {
             console.log(oldValue, ' => ', newValue);
             localStorage.setItem("shoppingCart", $scope.cart);
          }, true);
@@ -860,10 +850,10 @@
 
          // Funkció a termékkategóriák listájának lekéréséhez
          $scope.getCategoryList = function () {
-            var categories = [];
+            let categories = [];
             if ($scope.products) {
-               for (var i = 0; i < $scope.products.length; i++) {
-                  var product = $scope.products[i];
+               for (let i = 0; i < $scope.products.length; i++) {
+                  let product = $scope.products[i];
                   if (product.kategoria && categories.indexOf(product.kategoria) === -1) {
                      categories.push(product.kategoria);
                   }
@@ -880,22 +870,14 @@
             // További frissítések, ha szükséges...
          };
 
-         // Funkció a kosár láthatóságának váltásához
-         //$rootScope.toggleCartVisibility = function () {
-            //let container = document.getElementById('cart-container');
-            //container.classList.toggle('d-none');
-            //$scope.showCart = !$scope.showCart;
-            //console.log('toggle visibility');
-         //};
-
          // Funkció a termék hozzáadásához a kosárhoz
          $scope.addToCart = function (product) {
-            var existingItem = $filter('filter')($scope.cart, { termek_id: product.termek_id }, true)[0];
+            let existingItem = $filter('filter')($scope.cart, { termek_id: product.termek_id }, true)[0];
 
             if (existingItem) {
                existingItem.quantity++;
             } else {
-               var newItem = angular.copy(product);
+               let newItem = angular.copy(product);
                newItem.quantity = 1;
                $scope.cart.push(newItem);
             }
@@ -905,7 +887,7 @@
 
          // Funkció a termék eltávolításához a kosárból
          $scope.removeFromCart = function (product) {
-            var index = $scope.cart.indexOf(product);
+            let index = $scope.cart.indexOf(product);
             if (index !== -1) {
                $scope.cart.splice(index, 1);
                $scope.updateCartTotal(); // Frissítsd a kosár összegét
@@ -918,9 +900,9 @@
                return 0; // Üres a kosár, tehát az összeg 0
             }
 
-            var totalPrice = 0;
-            for (var i = 0; i < $scope.cart.length; i++) {
-               var item = $scope.cart[i];
+            let totalPrice = 0;
+            for (let i = 0; i < $scope.cart.length; i++) {
+               let item = $scope.cart[i];
                if (item && item.ar_forint && !isNaN(item.quantity)) {
                   totalPrice += item.ar_forint * item.quantity;
                }
@@ -929,16 +911,16 @@
             return totalPrice;
          };
 
-         // Funkció a kosárban lévő elemek összmennyiségének lekéréséhez
+         // // Funkció a kosárban lévő elemek összmennyiségének lekéréséhez
          $rootScope.getTotalQuantity = function () {
-            var totalQuantity = 0;
-            for (var i = 0; i < $scope.cart.length; i++) {
+            let totalQuantity = 0;
+            for (let i = 0; i < $scope.cart.length; i++) {
                totalQuantity += $scope.cart[i].quantity;
             }
             return totalQuantity;
          };
-
-   }])
+      }
+   ])
 
    // Services Controller
    .controller('servicesController', [

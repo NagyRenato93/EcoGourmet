@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2023. Dec 05. 14:10
+-- Létrehozás ideje: 2023. Dec 11. 13:45
 -- Kiszolgáló verziója: 10.4.27-MariaDB
 -- PHP verzió: 8.2.0
 
@@ -443,12 +443,8 @@ INSERT INTO `type` (`id`, `type`, `name`) VALUES
 CREATE TABLE `user` (
   `id` int(10) UNSIGNED NOT NULL,
   `type` char(1) NOT NULL DEFAULT 'G',
-  `prefix_name` varchar(20) DEFAULT NULL,
   `first_name` varchar(50) NOT NULL,
-  `middle_name` varchar(50) DEFAULT 'NULL',
   `last_name` varchar(50) NOT NULL,
-  `suffix_name` varchar(20) DEFAULT NULL,
-  `nick_name` varchar(50) DEFAULT NULL,
   `born` date NOT NULL,
   `gender` char(1) NOT NULL,
   `country` varchar(50) NOT NULL,
@@ -471,9 +467,9 @@ CREATE TABLE `user` (
 -- A tábla adatainak kiíratása `user`
 --
 
-INSERT INTO `user` (`id`, `type`, `prefix_name`, `first_name`, `middle_name`, `last_name`, `suffix_name`, `nick_name`, `born`, `gender`, `country`, `country_code`, `city`, `postcode`, `address`, `email`, `password`, `created`, `verification_code`, `verified`, `modified`, `last_login`, `wrong_attempts`, `valid`) VALUES
-(1, 'A', NULL, 'Attila', NULL, 'Ódry', NULL, NULL, '1964-03-08', 'M', 'hungary', '36', 'Szeged', '6725', 'Futrinka utca 66.', 'odry.attila@keri.mako.hu', '$2y$10$2qBCNjBIDp1kw/agy7fV0.sW3sAJz/YKU.oLUL1.2SfcxroBIQLde', '2023-08-29 09:27:01', NULL, '2023-08-29 12:19:00', '2023-08-29 12:19:15', '2023-10-30 13:08:11', 0, 1),
-(2, 'A', NULL, 'Nagy', NULL, 'Renátó', NULL, NULL, '1993-11-01', 'M', 'hungary', '36', 'Tótkomlós', '5940', 'nagy.renato@keri.mako.hu', 'nagy.renato@keri.mako.hu', '$2y$10$ZbYuaGwd4bMwhgD.C2/RT./lcthTxBQQreACH6uAFHSk2GVmI6BJa', '2023-10-30 13:14:48', '66c0b1af9bad395c8531e3550c7927bd', NULL, '2023-10-30 13:17:16', '2023-11-28 20:51:17', 0, 1);
+INSERT INTO `user` (`id`, `type`, `first_name`, `last_name`, `born`, `gender`, `country`, `country_code`, `city`, `postcode`, `address`, `email`, `password`, `created`, `verification_code`, `verified`, `modified`, `last_login`, `wrong_attempts`, `valid`) VALUES
+(1, 'A', 'Attila', 'Ódry', '1964-03-08', 'M', 'hungary', '36', 'Szeged', '6725', 'Futrinka utca 66.', 'odry.attila@keri.mako.hu', '$2y$10$2qBCNjBIDp1kw/agy7fV0.sW3sAJz/YKU.oLUL1.2SfcxroBIQLde', '2023-08-29 09:27:01', NULL, '2023-08-29 12:19:00', '2023-08-29 12:19:15', '2023-10-30 13:08:11', 0, 1),
+(2, 'A', 'Nagy', 'Renátó', '1993-11-01', 'M', 'hungary', '36', 'Tótkomlós', '5940', 'nagy.renato@keri.mako.hu', 'nagy.renato@keri.mako.hu', '$2y$10$ZbYuaGwd4bMwhgD.C2/RT./lcthTxBQQreACH6uAFHSk2GVmI6BJa', '2023-10-30 13:14:48', '66c0b1af9bad395c8531e3550c7927bd', NULL, '2023-10-30 13:17:16', '2023-12-11 13:30:57', 0, 1);
 
 -- --------------------------------------------------------
 

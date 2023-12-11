@@ -29,9 +29,9 @@ if (!is_null($result)) {
 
 // Set query
 $query = "INSERT INTO `user`
-					(`type`, `prefix_name`, `first_name`, `middle_name`, `last_name`, `suffix_name`, `nick_name`, `born`, `gender`, `country`, `country_code`, `city`, `postcode`, `address`, `email`, `password`, `created`, `verification_code`) 
+					(`type`,`first_name`,  `last_name`, `born`, `gender`, `country`, `country_code`, `city`, `postcode`, `address`, `email`, `password`, `created`, `verification_code`) 
 					 VALUES 
-					(:type, :prefix_name, :first_name, :middle_name, :last_name, :suffix_name, :nick_name, :born, :gender, :country, :country_code, :city, :postcode, :address, :email, :password,  :created, :verification_code)";
+					(:type, :first_name, :last_name, :born, :gender, :country, :country_code, :city, :postcode, :address, :email, :password,  :created, :verification_code)";
 
 // Set user default type (not yet authenticated)
 $args['type'] = 'N';
@@ -54,7 +54,7 @@ $db = null;
 // Set response user type
 $result['type'] = $args['type'];
 
-/*
+
 $email = new Email();
 $email->set_subject('Confirm email address');
 $body = <<<EOT
@@ -66,7 +66,7 @@ $body = <<<EOT
 EOT;
 $email->set_body($body);
 $email->set_addressees($args['email']);
-*/
+
 
 // Set response
 Util::setResponse($result);

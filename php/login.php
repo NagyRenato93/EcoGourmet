@@ -12,12 +12,8 @@ $db = new Database();
 // Set query
 $query = "SELECT 	`id`,
 									`type`,
-									`prefix_name`,
 									`first_name`,
-									`middle_name`,
 									`last_name`,
-									`suffix_name`,
-									`nick_name`,
 									`gender`,
 									`password`,
 									`valid`,

@@ -28,6 +28,23 @@
 				<div class="row mt-3 mb-4 justify-content-center" 
 						 ng-if="userEvent==='profile'">
 
+					<!-- Feliratkozás (Subscription) -->
+					<div class="px-1 mx-1 d-inline-block w-auto mb-2">
+						<button id="subscription"
+								type="button"
+								class="btn btn-outline-primary text-capitalize text-small-caps btnClickEffect d-inline-block"
+								style="min-width:160px"
+								ng-click="methods.subscribe()"
+								ng-disabled="helper.profileType === 'subscribe' || 
+											(!helper.profileType && helper.isEdit)">
+							<i class="fa-solid fa-bell"></i>
+							<span class="ms-1"
+								ng-class="{'text-decoration-underline': helper.profileType==='subscribe'}">
+								{{'subscribe' | translate:lang.data}}
+							</span>
+						</button>
+					</div>
+
 					<!-- Profile -->
 					<div class="px-1 mx-1 d-inline-block w-auto mb-2">
 			 			<button id="profile"
@@ -43,20 +60,6 @@
 				 			</span>
 			 			</button>
 		 			</div>
-					 <div class="px-1 mx-1 d-inline-block w-auto mb-2">
-						<button id="subscribe"
-								type="button" 
-								class="btn btn-outline-primary text-capitalize text-small-caps btnClickEffect d-inline-block"
-								style="min-width:160px"
-								ng-click="methods.subscribe()"
-								ng-disabled="!helper.isSubscribed">
-							<i class="fas fa-user-plus"></i>
-							<span class="ms-1"
-								  ng-class="{'text-decoration-underline': !helper.isSubscribed}">
-								{{'subscribe' | translate:lang.data}}
-							</span>
-						</button>
-					</div>
 					
 					<!-- Change password -->
 					<div class="px-1 mx-1 d-inline-block w-auto mb-2">
@@ -154,36 +157,6 @@
 							ng-if="!helper.profileType">
 
 					<!-- NAME -->
-					<!-- Prefix name -->
-					<div class="row input-row mb-2" 
-							 ng-switch-when="register|profile" 
-							 ng-switch-when-separator="|"
-							 ng-if="!helper.profileType">
-						<label for="prefix_name" 
-									class="col-form-label col-form-label-sm col-sm-4 text-sm-end fw-semibold">
-							<i class="fa-solid fa-user fa-xl"></i>
-							<span class="ms-1">
-								{{'prefix_name' | translate:lang.data | capitalize}}:
-							</span>
-						</label>
-						
-						<div class="col-11 col-sm-7 position-relative">
-							<input id="prefix_name" 
-										 type="text"
-										 ng-attr-placeholder="{{helper.isEdit ? ('prefix_name' | translate:lang.data) : ''}}"
-										 class="form-control form-control-sm"
-										 spellcheck="false" 
-										 autocomplete="off"
-										 ng-model="model.prefix_name"
-										 ng-focus="methods.setFocusedElement($event)"
-										 ng-change="methods.changed()"
-										 ng-disabled="!helper.isEdit"
-										 maxlength="20"
-										 ng-clear-icon>
-						</div>
-						<div class="col-1 pt-1"></div>
-					</div>
-
 					<!-- First name -->
 					<div class="row input-row mb-2"
 							 ng-switch-when="register|profile" 
@@ -218,34 +191,6 @@
 						</div>
 					</div>
 
-					<!-- Middle name -->
-					<div class="row input-row mb-2"
-							 ng-switch-when="register|profile" 
-							 ng-switch-when-separator="|"
-							 ng-if="!helper.profileType">
-						<label for="middle_name" 
-									class="col-form-label col-form-label-sm col-sm-4 text-sm-end fw-semibold">
-							<span class="ms-1">
-								{{'middle_name' | translate:lang.data | capitalize}}:
-							</span>
-						</label>
-						<div class="col-11 col-sm-7 position-relative">
-							<input id="middle_name" 
-										 type="text"
-										 ng-attr-placeholder="{{helper.isEdit ? ('middle_name' | translate:lang.data) : ''}}"
-										 class="form-control form-control-sm"
-										 spellcheck="false" 
-										 autocomplete="off"
-										 ng-model="model.middle_name"
-										 ng-focus="methods.setFocusedElement($event)" 
-										 ng-change="methods.changed()"
-										 ng-disabled="!helper.isEdit"
-										 maxlength="50"
-										 ng-clear-icon>
-						</div>
-						<div class="col-1 pt-1"></div>
-					</div>
-
 					<!-- Last name -->
 					<div class="row input-row mb-2" 
 							 ng-switch-when="register|profile" 
@@ -278,62 +223,6 @@
 								&check;
 							</span>
 						</div>
-					</div>
-
-					<!-- Suffix name -->
-					<div class="row input-row mb-2" 
-							 ng-switch-when="register|profile" 
-							 ng-switch-when-separator="|"
-							 ng-if="!helper.profileType">
-						<label for="suffix_name" 
-									class="col-form-label col-form-label-sm col-sm-4 text-sm-end fw-semibold">
-							<span class="ms-1">
-								{{'suffix_name' | translate:lang.data | capitalize}}:
-							</span>
-						</label>
-						<div class="col-11 col-sm-7 position-relative">
-							<input id="suffix_name" 
-										 type="text"
-										 ng-attr-placeholder="{{helper.isEdit ? ('suffix_name' | translate:lang.data) : ''}}"
-										 class="form-control form-control-sm"
-										 spellcheck="false" 
-										 autocomplete="off"
-										 ng-model="model.suffix_name"
-										 ng-focus="methods.setFocusedElement($event)"  
-										 ng-change="methods.changed()"
-										 ng-disabled="!helper.isEdit"  
-										 maxlength="20"
-										 ng-clear-icon>
-						</div>
-						<div class="col-1 pt-1"></div>
-					</div>
-
-					<!-- Nick name -->
-					<div class="row input-row mb-2"
-							 ng-switch-when="register|profile" 
-							 ng-switch-when-separator="|"
-							 ng-if="!helper.profileType">
-						<label for="nick_name" 
-									class="col-form-label col-form-label-sm col-sm-4 text-sm-end fw-semibold">
-							<span class="ms-1">
-								{{'nickname' | translate:lang.data | capitalize}}:
-							</span>
-						</label>
-						<div class="col-11 col-sm-7 position-relative">
-							<input id="nick_name" 
-										 type="text"
-										 ng-attr-placeholder="{{helper.isEdit ? ('nickname' | translate:lang.data) : ''}}"
-										 class="form-control form-control-sm"
-										 spellcheck="false" 
-										 autocomplete="off"
-										 ng-model="model.nick_name"
-										 ng-focus="methods.setFocusedElement($event)" 
-										 ng-change="methods.changed()"
-										 ng-disabled="!helper.isEdit"
-										 maxlength="50"
-										 ng-clear-icon>
-						</div>
-						<div class="col-1 pt-1"></div>
 					</div>
 
 					<!-- Dividing line -->
@@ -1037,8 +926,7 @@
 				</form>
 			</div>
 		</div>
+	
 	</main>
-
-	<!-- Footer -->
-	<footer ng-include src="'./html/footer.html'"></footer>
 </div>
+<footer ng-include src="'./html/footer.html'"></footer>
