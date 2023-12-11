@@ -520,3 +520,139 @@ h1 {
 .cart-container:hover {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
+
+/* styles.css */
+.unique-page body, .unique-page html {
+    height: 100%;
+    margin: 0;
+}
+
+.unique-page .container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 100%; /* Vagy más maximális szélesség, amit szeretnél */
+    height: 100%;
+    background: #f5f5f5;
+    box-shadow: 0 30px 50px #dbdbdb;
+    overflow: hidden; /* Az overflow kezelése a fix elrendezés miatt */
+}
+
+.unique-page .container .slide .item {
+    width: 200px;
+    height: 300px;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    border-radius: 20px;
+    box-shadow: 0 30px 50px #505050;
+    background-position: 50% 50%;
+    background-size: cover;
+    display: inline-block;
+    transition: 0.5s;
+}
+
+.unique-page .slide .item:nth-child(1),
+.unique-page .slide .item:nth-child(2) {
+    top: 0;
+    left: 0;
+    transform: translate(0, 0);
+    border-radius: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.unique-page .slide .item:nth-child(3) {
+    left: 50%;
+}
+
+.unique-page .slide .item:nth-child(4) {
+    left: calc(50% + 220px);
+}
+
+.unique-page .slide .item:nth-child(5) {
+    left: calc(50% + 440px);
+}
+
+.unique-page .slide .item:nth-child(n + 6) {
+    left: calc(50% + 660px);
+    opacity: 0;
+}
+
+.unique-page .item .content {
+    position: absolute;
+    top: 50%;
+    left: 100px;
+    width: 300px;
+    text-align: left;
+    color: #eee;
+    transform: translate(0, -50%);
+    font-family: system-ui;
+    display: none;
+}
+
+.unique-page .slide .item:nth-child(2) .content {
+    display: block;
+}
+
+.unique-page .content .name {
+    font-size: 40px;
+    text-transform: uppercase;
+    font-weight: bold;
+    opacity: 0;
+    animation: animate 1s ease-in-out 1 forwards;
+}
+
+.unique-page .content .des {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: animate 1s ease-in-out 0.3s 1 forwards;
+}
+
+.unique-page .content button {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    opacity: 0;
+    animation: animate 1s ease-in-out 0.6s 1 forwards;
+}
+
+@keyframes animate {
+    from {
+        opacity: 0;
+        transform: translate(0, 100px);
+        filter: blur(33px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(0);
+        filter: blur(0);
+    }
+}
+
+.unique-page .button {
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    bottom: 20px;
+}
+
+.unique-page .button button {
+    width: 40px;
+    height: 35px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    margin: 0 5px;
+    border: 1px solid #000;
+    transition: 0.3s;
+}
+
+.unique-page .button button:hover {
+    background: #ababab;
+    color: #fff;
+}

@@ -934,9 +934,30 @@
                   if (response && response.services) {
                      $scope.services = response.services;
                      $scope.$applyAsync();
-
                   }
-               });
+                     //3rd page slider
+                     let next = document.querySelector('.next')
+                     let prev = document.querySelector('.prev')
+                     
+                     next.addEventListener('click', function(){
+                         let items = document.querySelectorAll('.item')
+                         document.querySelector('.slide').appendChild(items[0])
+                     })
+                     
+                     prev.addEventListener('click', function(){
+                         let items = document.querySelectorAll('.item')
+                         document.querySelector('.slide').prepend(items[items.length - 1]) // here the length of items = 6
+                     })
+                     $scope.locations = [
+                        { name: 'Switzerland', image: 'https://i.ibb.co/qCkd9jS/img1.jpg', description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!' },
+                        { name: 'Finland', image: 'https://i.ibb.co/jrRb11q/img2.jpg', description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!' },
+                        { name: 'Iceland', image: 'https://i.ibb.co/NSwVv8D/img3.jpg', description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!' },
+                        { name: 'Australia', image: 'https://i.ibb.co/Bq4Q0M8/img4.jpg', description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!' },
+                        { name: 'Netherlands', image: 'https://i.ibb.co/jTQfmTq/img5.jpg', description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!' },
+                        { name: 'Ireland', image: 'https://i.ibb.co/RNkk6L0/img6.jpg', description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!' }
+                      ];
+                  
+             });
          }
    ]);
 
