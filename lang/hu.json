@@ -21,6 +21,7 @@
   "name": "név",
   "first_name": "keresztnév",
   "last_name": "vezetéknév",
+  "subscribe": "Feliratkozás",
   "born": "született",
   "gender": "neme",
   "male": "férfi",

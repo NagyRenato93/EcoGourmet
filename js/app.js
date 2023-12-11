@@ -636,16 +636,22 @@
                      });
                   });
                },
-               subscribe: () => {
-                  // Show a message or perform any specific actions related to subscription
-                  // For example, displaying an alert
-                  alert(util.capitalize($rootScope.lang.data.under_construction) + '!');
-               
-                  // Set the profile type and apply the changes
-                  $scope.helper.profileType = 'subscribe';
+            // Subscription
+            subscribe:  () => {
+            // Http request to retrieve recipes
+            http.request('./php/about_us.php')
+               .then(response => {
+                  $scope.breakfastRecipes = response.breakfastRecipes;
+                  $scope.lunchRecipes     = response.lunchRecipes;
+                  $scope.dinnerRecipes    = response.dinnerRecipes;
+
                   $scope.$applyAsync();
-               },
-               
+               });
+
+                // Set the profile type to 'subscribe'
+                $scope.helper.profileType = 'subscribe';
+                $scope.$applyAsync();
+            },
                // Profile
                profile: () => {
                   //alert(util.capitalize($rootScope.lang.data.under_construction) + '!');
@@ -947,6 +953,7 @@
                          let items = document.querySelectorAll('.item')
                          document.querySelector('.slide').prepend(items[items.length - 1]) // here the length of items = 6
                      })
+                     //mostani változni fog
                      $scope.locations = [
                         { name: 'Switzerland', image: 'https://i.ibb.co/qCkd9jS/img1.jpg', description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!' },
                         { name: 'Finland', image: 'https://i.ibb.co/jrRb11q/img2.jpg', description: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab, eum!' },

@@ -21,6 +21,7 @@
   "name": "name",
   "first_name": "first name",
   "last_name": "last name",
+  "subscribe": "subscribe",
   "born": "born",
   "gender": "gender",
   "male": "male",

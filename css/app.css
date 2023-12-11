@@ -365,7 +365,6 @@ h1 {
  }
  
 /* Az "ecogourmet-cards" osztály alá tartozó kártyák stílusa - shop cards. */
-
 .ecogourmet-cards .card {
     border: none;
     transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
@@ -373,104 +372,103 @@ h1 {
     border-radius: 20px;
     min-height: 450px;
     box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.2);
-    display: flex; /* Adjuk hozzá flexboxot a card-hoz */
-    flex-direction: column; /* Oszlopokba rendezzük az elemeit */
-    justify-content: space-between; /* Az elemeket oszlopok közt helyezi el, mindig az alsó részen hagyja a tartalmat */
-    margin-bottom: 10px; /* Adj hozzá egy margin-bottom értéket */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 10px;
 
-  
     @media (max-width: 768px) {
-      min-height: 350px;
+        min-height: 350px;
     }
-  
+
     @media (max-width: 420px) {
-      min-height: 300px;
+        min-height: 300px;
     }
-  
+
     &:hover {
-      transform: scale(0.98);
-      box-shadow: 0 0 10px -2px rgba(0, 0, 0, 0.3);
-      background-size: 130%;
-      transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
-  
-      .card-body {
-        margin-top: 80px;
-        transition: all 800ms cubic-bezier(0.19, 1, 0.22, 1);
-      }
-  
-      .card-img-overlay {
-        transition: all 800ms cubic-bezier(0.19, 1, 0.22, 1);
-        background: rgb(255, 186, 33);
-        background: linear-gradient(0deg, rgba(255, 186, 33, 0.5) 0%, rgba(255, 186, 33, 1) 100%);
-      }
+        transform: scale(0.98);
+        box-shadow: 0 0 10px -2px rgba(0, 0, 0, 0.3);
+        background-size: 130%;
+        transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
+
+        .card-body {
+            margin-top: 80px;
+            transition: all 800ms cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+        .card-img-overlay {
+            transition: all 800ms cubic-bezier(0.19, 1, 0.22, 1);
+            background: rgb(255, 186, 33);
+            background: linear-gradient(0deg, rgba(255, 186, 33, 0.5) 0%, rgba(255, 186, 33, 1) 100%);
+        }
     }
-  
+
     .card-footer .btn {
         border: 2px solid #fff;
         color: #000000;
         display: flex;
         flex-direction: column;
+
         @media (max-width: 768px) {
-            min-height: 450px;
+            min-height: 350px; /* A min. magasság emelése a gomb láthatóságának biztosítása érdekében */
         }
-      
+
         &:hover {
-          background-color: #fff;
-          color: #000;
-          transform: scale(1.4);
+            background-color: #fff;
+            color: #000;
+            transform: scale(1.4);
         }
-      }
-      
+    }
+
     .card-body {
-        min-height: 150px; /* Új rész: Minimális magasság beállítása */
-        margin-top: 30px; /* texthez */
+        min-height: 150px;
+        margin-top: 30px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
-      }
-      
-      .card-title {
+    }
+
+    .card-title {
         font-weight: 800;
         margin-bottom: 10px;
-      }
-      
-      .card-meta {
+    }
+
+    .card-meta {
         color: rgba(0, 0, 0, 0.3);
         text-transform: uppercase;
         font-weight: 500;
         letter-spacing: 2px;
         margin-bottom: 10px;
-      }
-      
-      .card-footer .btn {
+    }
+
+    .card-footer .btn {
         border: 2px solid #fff;
         color: #000000;
         display: flex;
         flex-direction: column;
-      
+
         &:hover {
-          background-color: #fff;
-          color: #000;
-          transform: scale(1.4);
+            background-color: #fff;
+            color: #000;
+            transform: scale(1.4);
         }
-      }
-      
-    /* Általános stílusok */
+    }
+
     .lead {
-      color: #aaa;
+        color: #aaa;
     }
-  
+
     .wrapper {
-      margin: 10vh;
+        margin: 10vh;
     }
+
     .card-text-ar {
-        position: absolute; /* Adjuk meg az abszolút pozíciót a .card-text-hez */
-        bottom: 50; /* Pozícionáljuk az elemet a szülő alsó részén */
-      }
-  }
-  
-/* Kosár stílusok */
+        position: absolute;
+        bottom: 50;
+    }
+}
+
 .cart-container {
     background: #f8f9fa;
     position: fixed;
@@ -522,25 +520,29 @@ h1 {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-/* styles.css */
+
+/* Page 3 Settings rn. */
+/* Alapstílusok */
 .unique-page body, .unique-page html {
     height: 100%;
     margin: 0;
 }
 
+/* Konténer */
 .unique-page .container {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 100%;
-    max-width: 100%; /* Vagy más maximális szélesség, amit szeretnél */
+    max-width: 100%;
     height: 100%;
     background: #f5f5f5;
     box-shadow: 0 30px 50px #dbdbdb;
-    overflow: hidden; /* Az overflow kezelése a fix elrendezés miatt */
+    overflow: hidden;
 }
 
+/* Diavetítés elemek */
 .unique-page .container .slide .item {
     width: 200px;
     height: 300px;
@@ -555,6 +557,7 @@ h1 {
     transition: 0.5s;
 }
 
+/* Első két diavetítés elem */
 .unique-page .slide .item:nth-child(1),
 .unique-page .slide .item:nth-child(2) {
     top: 0;
@@ -565,23 +568,28 @@ h1 {
     height: 100%;
 }
 
+/* Harmadik diavetítés elem */
 .unique-page .slide .item:nth-child(3) {
     left: 50%;
 }
 
+/* Negyedik diavetítés elem */
 .unique-page .slide .item:nth-child(4) {
     left: calc(50% + 220px);
 }
 
+/* Ötödik diavetítés elem */
 .unique-page .slide .item:nth-child(5) {
     left: calc(50% + 440px);
 }
 
+/* Hatodik diavetítés elem és továbbiak */
 .unique-page .slide .item:nth-child(n + 6) {
     left: calc(50% + 660px);
     opacity: 0;
 }
 
+/* Tartalom */
 .unique-page .item .content {
     position: absolute;
     top: 50%;
@@ -593,36 +601,23 @@ h1 {
     font-family: system-ui;
     display: none;
     backdrop-filter: blur(20px);
-	border-radius: 10px;
+    border-radius: 10px;
 }
 
+/* Második diavetítés elem tartalma */
 .unique-page .slide .item:nth-child(2) .content {
     display: block;
 }
 
-.unique-page .content .name {
-    font-size: 40px;
-    text-transform: uppercase;
-    font-weight: bold;
-    opacity: 0;
-    animation: animate 1s ease-in-out 1 forwards;
-}
-
-.unique-page .content .des {
-    margin-top: 10px;
-    margin-bottom: 20px;
-    opacity: 0;
-    animation: animate 1s ease-in-out 0.3s 1 forwards;
-}
-
+/* Tartalom animáció */
+.unique-page .content .name,
+.unique-page .content .des,
 .unique-page .content button {
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
     opacity: 0;
-    animation: animate 1s ease-in-out 0.6s 1 forwards;
+    animation: animate 1s ease-in-out forwards;
 }
 
+/* Kulcsanimáció */
 @keyframes animate {
     from {
         opacity: 0;
@@ -637,6 +632,7 @@ h1 {
     }
 }
 
+/* Gomb stílusok */
 .unique-page .button {
     width: 100%;
     text-align: center;
@@ -655,7 +651,166 @@ h1 {
     transition: 0.3s;
 }
 
+/* Gomb hover állapot */
 .unique-page .button button:hover {
     background: #ababab;
     color: #fff;
+}
+
+
+/* Subscribe part recipe card settings */
+.cols {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+
+
+.col {
+  width: calc(25% - 2rem);
+  margin: 1rem;
+  cursor: pointer;
+}
+
+.container {
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
+}
+
+.front,
+.back {
+  background-size: cover;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  background-position: center;
+  -webkit-transition: -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+  transition: -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+  -o-transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+  transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+  transition: transform .7s cubic-bezier(0.4, 0.2, 0.2, 1), -webkit-transform .7s cubic-bezier(0.4, 0.2, 0.2, 1);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  text-align: center;
+  min-height: 280px;
+  height: auto;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 1rem small;
+}
+
+.back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.inner {
+  -webkit-transform: translateY(-50%) translateZ(60px) scale(0.94);
+  transform: translateY(-50%) translateZ(60px) scale(0.94);
+  top: 50%;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  padding: 2rem;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  outline: 1px solid transparent;
+  -webkit-perspective: inherit;
+  perspective: inherit;
+  z-index: 2;
+}
+
+.recipe-card .container .front {
+    -webkit-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+  }
+  
+  .recipe-card .container .back {
+    -webkit-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+    color: black; /* Vagy a megfelelő szín */
+    background-color: white; /* vagy a háttér színének megfelelő szín */
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .recipe-inner {
+  white-space: pre-line;
+}
+
+
+.recipe-card .container:hover .front {
+    /* A .container:hover .front szabályok továbbra is csak a kártyára alkalmazódnak */
+    -webkit-transform: rotateY(-180deg);
+            transform: rotateY(-180deg);
+    -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+  }
+  
+  .recipe-card .container:hover .back {
+    /* A .container:hover .back szabályok továbbra is csak a kártyára alkalmazódnak */
+    -webkit-transform: rotateY(0deg);
+            transform: rotateY(0deg);
+    -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+  }
+  .recipe-card .container .inner {
+    backdrop-filter: blur(20px);
+	border-radius: 5px;
+  }
+  
+  .recipe-card .container:hover .inner {
+    background-color: rgba(0, 0, 0, 0); /* Amikor megfordul a kártya, az átlátszó háttér jelenik meg */
+  }
+  
+.front .inner p {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.front .inner p:after {
+  content: '';
+  width: 4rem;
+  height: 2px;
+  position: absolute;
+  background: #C6D4DF;
+  display: block;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  bottom: -.75rem;
+}
+
+.front .inner span {
+  color: rgba(255, 255, 255, 0.7);
+  font-family: 'Montserrat';
+  font-weight: 300;
+}
+
+@media screen and (max-width: 64rem) {
+  .col {
+    width: calc(33.333333% - 2rem);
+  }
+}
+
+@media screen and (max-width: 48rem) {
+  .col {
+    width: calc(50% - 2rem);
+  }
+}
+
+@media screen and (max-width: 32rem) {
+  .col {
+    width: 100%;
+    margin: 0 0 2rem 0;
+  }
+}
 }
