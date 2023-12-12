@@ -79,7 +79,9 @@
                href=""
                ng-click="toggleCartVisibility()">
               <i class="fas fa-cart-shopping fa-lg me-1"></i>
-              <span class="badge text-primary" ng-show="cart.length > 0">{{ getTotalQuantity() }}</span>
+              <span class="badge text-primary" ng-show="cart.length > 0">
+                {{ getTotalQuantity() }}
+              </span>
             </a>
           </li>
 
@@ -111,9 +113,11 @@
                   <td>{{ getTotalPrice() }}Ft</td>
                   <td>
                     <li class="nav-item">
-                      <a class="nav-link" ng-click="finalizeOrder()">
-                          <i class="fas fa-shopping-cart fa-lg me-1"></i>
-                          <button type="button" class="btn btn-success">Vásárlás</button>
+                      <a class="nav-link btn btn-success" 
+                         ng-click="finalizeOrder()"
+                         ng-disabled="!user.id">
+                        <i class="fas fa-shopping-cart me-1"></i>
+                        Vásárlás
                       </a>
                   </li>
                   </td>

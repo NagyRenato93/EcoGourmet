@@ -790,8 +790,9 @@
          '$rootScope',
          '$scope', 
          'http', 
-         '$filter', 
-      function ($rootScope, $scope, http, $filter) {
+         '$filter',
+         'util', 
+      function ($rootScope, $scope, http, $filter, util) {
 
          // Http kérés a termékek lekéréséhez
          $scope.cart = [];
@@ -822,16 +823,29 @@
                 console.log("A kosár üres.");
                 return;
             }
-        
+
+            let data = [];
+            for(let i=1; i<$scope.cart.length; i++) {
+               let atika = util.objFilterByKeys(
+                  $scope.cart[i], 'termek_id,quantity,ar_forint');
+               data.push(atika);
+            }
+            
             // Elküldjük a kosár tartalmát a szerverre
-            http.request('./php/vasarlasok.php', { cart: $scope.cart })
-                .then(response => {
-                    // Sikeres válasz esetén kezeld a választ, például visszajelzés a felhasználónak
-                    console.log(response.data);
-                    // Töröld a kosarat
-                    $scope.cart = [];
-                    $scope.updateCartTotal();
-                })
+            http.request({
+               url: './php/vasarlasok.php', 
+               data: { 
+                  cart: data,
+                  userId: $rootScope.user.id
+               }
+               })
+               .then(response => {
+                  // Sikeres válasz esetén kezeld a választ, például visszajelzés a felhasználónak
+                  console.log(response.data);
+                  // Töröld a kosarat
+                  $scope.cart = [];
+                  $scope.updateCartTotal();
+               })
             };
         
          // Ecogurmet titles tömbje
