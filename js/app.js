@@ -817,6 +817,23 @@
             return 'shop_card_' + (feature.index + 1);
          };
 
+         $scope.finalizeOrder = function () {
+            if (!$scope.cart || $scope.cart.length === 0) {
+                console.log("A kosár üres.");
+                return;
+            }
+        
+            // Elküldjük a kosár tartalmát a szerverre
+            http.request('./php/vasarlasok.php', { cart: $scope.cart })
+                .then(response => {
+                    // Sikeres válasz esetén kezeld a választ, például visszajelzés a felhasználónak
+                    console.log(response.data);
+                    // Töröld a kosarat
+                    $scope.cart = [];
+                    $scope.updateCartTotal();
+                })
+            };
+        
          // Ecogurmet titles tömbje
          $scope.ecogourmetFeatures = [
             { icon: 'fas fa-recycle fa-fade', title: 'shop_card_title_1', index: 0, descriptionKey: 'shop_card_1' },
@@ -879,7 +896,7 @@
          // Funkció a termék hozzáadásához a kosárhoz
          $scope.addToCart = function (product) {
             let existingItem = $filter('filter')($scope.cart, { termek_id: product.termek_id }, true)[0];
-
+        
             if (existingItem) {
                existingItem.quantity++;
             } else {
@@ -887,9 +904,11 @@
                newItem.quantity = 1;
                $scope.cart.push(newItem);
             }
-
+        
+            console.log($scope.cart); // Debug kimenet
             $scope.updateCartTotal(); // Frissítsd a kosár összegét
-         };
+        };
+        
 
          // Funkció a termék eltávolításához a kosárból
          $scope.removeFromCart = function (product) {

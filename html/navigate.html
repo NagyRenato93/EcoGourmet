@@ -109,11 +109,19 @@
                 <tr>
                   <td colspan="3">Összesen:</td>
                   <td>{{ getTotalPrice() }}Ft</td>
-                  <td></td>
+                  <td>
+                    <li class="nav-item">
+                      <a class="nav-link" ng-click="finalizeOrder()">
+                          <i class="fas fa-shopping-cart fa-lg me-1"></i>
+                          <button type="button" class="btn btn-success">Vásárlás</button>
+                      </a>
+                  </li>
+                  </td>
                 </tr>
               </tbody>
             </table>
           </li>
+
 
           <!-- Login -->
           <li class="nav-item" 

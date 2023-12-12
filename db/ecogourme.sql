@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2023. Dec 11. 13:45
+-- Létrehozás ideje: 2023. Dec 12. 15:10
 -- Kiszolgáló verziója: 10.4.27-MariaDB
 -- PHP verzió: 8.2.0
 
@@ -62,57 +62,36 @@ CREATE TABLE `breakfast_recipes` (
 --
 
 INSERT INTO `breakfast_recipes` (`id`, `name`, `ingredients`, `instructions`, `cooking_time`) VALUES
-(1, 'Tejberizs', '1 bögre rizs, 2 bögre tej, 1 evőkanál cukor, fahéj, vanília kivonat', '1. Főzd meg a rizst a tejjel és a cukorral, hozzáadva a fahéjat és vaníliát.\r\n2. Keverd össze és hagyd kihűlni.', 20),
-(2, 'Gyümölcsös joghurt', '1 pohár natúr joghurt, 1 banán, 1 maracuja, méz', '1. Pürésítsd a banánt és a maracuját.\r\n2. Keverd össze a joghurttal és mézzel.', 5),
-(3, 'Szilvás palacsinta', '100 g liszt, 1 tojás, 200 ml tej, 2 evőkanál cukor, 1/2 csomag sütőpor, só, szilva', '1. Keverd össze a lisztet, tojást, tejet, cukrot, sütőport és egy csipet sót.\r\n2. Süsd ki a palacsintákat és töltsd meg szilvával.', 25),
-(4, 'Tojásrántotta sonkával', '3 tojás, 50 g sonka, 1 evőkanál vaj, só, bors', '1. Kockázd fel a sonkát.\r\n2. Olvaszd fel a vajat egy serpenyőben, majd add hozzá a sonkát.\r\n3. Add hozzá a felvert tojásokat, és főzd meg őket, sóval és borssal ízesítve.', 15),
-(5, 'Mézes müzli', '2 bögre zabpehely, 1/2 bögre méz, 1/4 bögre dió, 1/4 bögre mazsola', '1. Melegítsd meg a mézet, majd keverd össze a zabpehellyel, dióval és mazsolával.\r\n2. Tedd a sütőbe 15 percre, amíg aranybarnára sül.', 30),
-(6, 'Görög joghurt gyümölcssalátával', '1 pohár görög joghurt, 1 alma, 1 banán, 1 narancs, méz, dió', '1. Vágd fel az almát, banánt és narancsot kockákra.\r\n2. Keverd össze a görög joghurtot mézzel.\r\n3. Szórd meg gyümölcsökkel és dióval.', 10),
-(7, 'Omlett spárgával', '3 tojás, 100 g spárga, 1 evőkanál vaj, só, bors', '1. Pirítsd meg a spárgát vajon.\r\n2. Verj fel a tojásokat, és öntsd a spárgára.\r\n3. Sózd és borsozd meg, majd süsd ki.', 15),
-(8, 'Csokis palacsinta', '100 g liszt, 1 tojás, 200 ml tej, 2 evőkanál cukor, 1/2 csomag sütőpor, só, csokoládéforgácsok', '1. Keverd össze a lisztet, tojást, tejet, cukrot, sütőport, sót és csokoládéforgácsokat.\r\n2. Süsd ki a palacsintákat.', 20),
-(9, 'Bécsi virsli', '2 virsli, 2 tojás, zsemlemorzsa, olaj', '1. Melegítsd fel az olajat.\r\n2. Pörköld meg a virslit, majd hagyd lecsepegni.\r\n3. Mártsd meg a tojásban, majd zsemlemorzsában, és süsd ki.', 20),
-(10, 'Banános palacsinta', '100 g liszt, 1 tojás, 200 ml tej, 2 evőkanál cukor, 1/2 csomag sütőpor, só, 1 banán', '1. Keverd össze a lisztet, tojást, tejet, cukrot, sütőport, sót és a banánt.\r\n2. Süsd ki a palacsintákat.', 20),
-(11, 'Sült sajtos szendvics', '2 szelet kenyér, sajt, vaj', '1. Kenj vajat a kenyérszeletekre.\r\n2. Tegyél sajtot közéjük.\r\n3. Süsd a szendvicset serpenyőben.', 10),
-(12, 'Gyümölcsös turmix', '1 banán, 1/2 bögre eper, 1/2 bögre görög joghurt, méz', '1. Pürésítsd össze a banánt, epret, görög joghurtot és mézet.', 5),
-(13, 'Avokádós pirítós', '2 szelet teljes kiőrlésű pirítós kenyér, avokádó, paradicsom, feta sajt, só, bors', '1. Kenj avokádót a pirítósokra.\r\n2. Tegyél rá paradicsomot és feta sajtot.\r\n3. Sózd és borsozd meg.', 10),
-(14, 'Csirkemell szendvics', 'Csirkemell, jégsaláta, paradicsom, majonéz, mustár, pirítós kenyér', '1. Süsd meg a csirkemellet.\r\n2. Kenj majonézt és mustárt a kenyérre.\r\n3. Tegyél rá csirkemellet, jégsalátát és paradicsomot.', 15),
-(15, 'Túrós palacsinta', '100 g liszt, 1 tojás, 200 ml tej, 200 g túró, 2 evőkanál cukor, 1/2 csomag sütőpor, só, vanília kivonat', '1. Keverd össze a lisztet, tojást, tejet, túrót, cukrot, sütőport, sót és vaníliát.\r\n2. Süsd ki a palacsintákat.', 20),
-(16, 'Zabpelyhes joghurt', '200 g natúr joghurt, 50 g zabpehely, méz, dió', '1. Keverd össze a zabpelyhet a joghurttal.\r\n2. Öntsd meg mézzel és szórd meg dióval.', 10),
-(17, 'Csokoládés banán palacsinta', '100 g liszt, 1 tojás, 200 ml tej, 1 evőkanál kakaópor, 1 banán', '1. Keverd össze a lisztet, tojást, tejet és kakaóport.\r\n2. Adj hozzá szeletekre vágott banánt.\r\n3. Süsd ki a palacsintákat.', 20),
-(18, 'Gyros reggeli wrap', '2 tortillalap, 100 g gyros hús, 1 db paradicsom, 1/4 hagyma, joghurt szósz', '1. Süsd meg a gyros húst.\r\n2. Vágd fel a paradicsomot és hagymát.\r\n3. Töltsd meg a tortillalapot a hússal, zöldségekkel és joghurt szósszal.', 15),
-(19, 'Banános-epres joghurt shake', '1 banán, 1/2 bögre eper, 1 bögre natúr joghurt', '1. Pürésítsd össze a banánt és epret a joghurttal.', 5),
-(20, 'Sonkás és sajtos tekercs', '4 tojás, 4 szelet sonka, 4 szelet sajt, só, bors', '1. Verj fel a tojásokat, majd süsd meg.\r\n2. Tegyél rá sonkát és sajtot, majd tekerd fel.', 15),
-(21, 'Túróval és mézzel töltött croissant', '1 croissant, túró, méz', '1. Válaszd ketté a croissantot.\r\n2. Töltsd meg túróval és mézzel.', 10),
-(22, 'Zöldséges reggeli wrap', '2 tortillalap, 1 paradicsom, 1 uborka, 1 paprika, sajt, joghurt szósz', '1. Vágd fel a zöldségeket.\r\n2. Töltsd meg a tortillalapot zöldségekkel, sajttal és joghurt szósszal.', 15),
-(23, 'Tavaszi omlett', '3 tojás, 1 hagyma, 1 paprika, paradicsom, zöldfűszerek, só, bors', '1. Pirítsd meg a hagymát és paprikát.\r\n2. Verj fel a tojásokat, majd öntsd rájuk a zöldségeket.\r\n3. Fűszerezd sóval, borssal és zöldfűszerekkel.', 15),
-(24, 'Banános-vaníliás palacsinta', '100 g liszt, 1 tojás, 200 ml tej, 1 banán, vanília kivonat', '1. Keverd össze a lisztet, tojást, tejet, banánt és vaníliát.\r\n2. Süsd ki a palacsintákat.', 20),
-(25, 'Kakaós zabkása', '50 g zabpehely, 1 evőkanál kakaópor, 1/2 banán, méz', '1. Keverd össze a zabpelyhet és kakaóport.\r\n2. Öntsd le forrásban lévő vízzel és hagyd állni.\r\n3. Tálald banánnal és mézzel.', 10),
-(26, 'Gyümölcsös zabkása', '50 g zabpehely, 1/2 bögre joghurt, 1/2 bögre gyümölcs (pl. málna, szeder)', '1. Keverd össze a zabpelyhet és a joghurtot.\r\n2. Öntsd hozzá a friss gyümölcsöket.', 10),
-(27, 'Sült tojás muffin', '4 tojás, sonka, sajt, paradicsom, só, bors', '1. Vágd fel a sonkát, sajtot és paradicsomot.\r\n2. Verj fel a tojásokat, majd öntsd muffinformákba.\r\n3. Tegyél bele sonkát, sajtot és paradicsomot.\r\n4. Süsd ki.', 20),
-(28, 'Grillezett banán palacsinta', '100 g liszt, 1 tojás, 200 ml tej, 2 banán', '1. Keverd össze a lisztet, tojást, tejet és egy banánt.\r\n2. Süsd ki a palacsintákat.\r\n3. Grillezd meg a másik banánt és tálald a palacsintákon.', 20),
-(29, 'Epres-joghurtos smoothie', '1 bögre eper, 1 bögre natúr joghurt, méz', '1. Keverd össze az epret és a joghurtot.\r\n2. Öntsd meg mézzel.', 5),
-(30, 'Zöldséges rántotta', '3 tojás, hagyma, paprika, paradicsom, spenót, só, bors', '1. Pirítsd meg a hagymát, paprikát és paradicsomot.\r\n2. Adj hozzá spenótot és keverd össze.\r\n3. Verj fel a tojásokat, majd öntsd a zöldségekre.\r\n4. Fűszerezd sóval és borssal.', 15),
-(31, 'Banános gofri', '100 g liszt, 1 tojás, 1 banán, 1 teáskanál sütőpor', '1. Keverd össze a lisztet, tojást, banánt és sütőport.\r\n2. Süsd ki a gofrikat.', 15),
-(32, 'Mandulás joghurt', '200 g mandulás joghurt, 1 maracuja', '1. Tálald a mandulás joghurtot maracujával.', 5),
-(33, 'Csirke reggeli wrap', '2 tortillalap, csirkemell, paradicsom, hagyma, sajt, joghurt szósz', '1. Süsd meg a csirkemellet.\r\n2. Vágd fel a paradicsomot és hagymát.\r\n3. Töltsd meg a tortillalapot a hússal, zöldségekkel, sajttal és joghurt szósszal.', 15),
-(34, 'Áfonyás joghurt', '200 g natúr joghurt, 50 g áfonya, méz', '1. Keverd össze a joghurtot és áfonyát.\r\n2. Öntsd meg mézzel.', 10),
-(35, 'Túrós palacsinta', '100 g túró, 1 tojás, 1 evőkanál liszt, 1 evőkanál méz', '1. Keverd össze a túrót, tojást, lisztet és mézet.\r\n2. Süsd ki a palacsintákat.', 15),
-(36, 'Avokádós pirítós', '2 szelet teljes kiőrlésű kenyér, 1 avokádó, só, bors, fokhagyma', '1. Pirítsd meg a kenyeret.\r\n2. Zúzd össze egy avokádót és kend rá a pirítósra.\r\n3. Fűszerezd sóval, borssal és zúzott fokhagymával.', 10),
-(37, 'Borzas reggeli muffin', '4 tojás, hagyma, paprika, kolbász, sajt, só, bors', '1. Vágd fel a hagymát, paprikát és kolbászt.\r\n2. Verj fel a tojásokat, majd öntsd muffinformákba.\r\n3. Tegyél bele hagymát, paprikát, kolbászt és sajtot.\r\n4. Süsd ki.', 20),
-(38, 'Tejfölös zabkása', '50 g zabpehely, 1 bögre tej, 1 evőkanál tejföl, méz', '1. Főzd meg a zabpelyhet a tejben.\r\n2. Adj hozzá tejfölt és mézet.', 10),
-(39, 'Gyors tejberizs', '100 g rizs, 1 bögre tej, cukor, vanília kivonat', '1. Főzd meg a rizst a tejben.\r\n2. Fűszerezd cukorral és vanília kivonattal.', 15),
-(40, 'Banános gofri', '100 g liszt, 1 tojás, 1 banán, 1 teáskanál sütőpor', '1. Keverd össze a lisztet, tojást, banánt és sütőport.\r\n2. Süsd ki a gofrikat.', 15),
-(41, 'Mandulás joghurt', '200 g mandulás joghurt, 1 maracuja', '1. Tálald a mandulás joghurtot maracujával.', 5),
-(42, 'Csirke reggeli wrap', '2 tortillalap, csirkemell, paradicsom, hagyma, sajt, joghurt szósz', '1. Süsd meg a csirkemellet.\r\n2. Vágd fel a paradicsomot és hagymát.\r\n3. Töltsd meg a tortillalapot a hússal, zöldségekkel, sajttal és joghurt szósszal.', 15),
-(43, 'Áfonyás joghurt', '200 g natúr joghurt, 50 g áfonya, méz', '1. Keverd össze a joghurtot és áfonyát.\r\n2. Öntsd meg mézzel.', 10),
-(44, 'Túrós palacsinta', '100 g túró, 1 tojás, 1 evőkanál liszt, 1 evőkanál méz', '1. Keverd össze a túrót, tojást, lisztet és mézet.\r\n2. Süsd ki a palacsintákat.', 15),
-(45, 'Paradicsomos avokádó pirítós', '2 szelet pirítós kenyér, 1 avokádó, 1 paradicsom, só, bors', '1. Pirítsd meg a kenyér szeleteket.\r\n2. Zúzd össze az avokádót, majd kenj rá a kenyérszeletekre.\r\n3. Vágd fel a paradicsomot és tegyél rá.\r\n4. Fűszerezd sóval és borssal.', 15),
-(46, 'Spenótos omlett', '3 tojás, 1 marék spenót, sajt, só, bors', '1. Verj fel a tojásokat.\r\n2. Add hozzá a spenótot és sajtot.\r\n3. Fűszerezd sóval és borssal, majd süsd ki.', 15),
-(47, 'Bajor reggeli', '2 kolbász, 2 tojás, mustár', '1. Süsd meg a kolbászokat.\r\n2. Süsd ki a tojásokat.\r\n3. Tálald mustárral.', 15),
-(48, 'Avokádó tojás kosár', '2 avokádó, 2 tojás, só, bors', '1. Vágd ketté az avokádót és távolítsd el a magot.\r\n2. Kanalazd ki egy kis lyukat az avokádók közepéből.\r\n3. Üss egy tojást mindegyik avokádóba.\r\n4. Fűszerezd sóval és borssal, majd süsd ki.', 20),
-(49, 'Banános sült kenyér', '2 szelet kenyér, 1 banán, tojás, tejszín, fahéj, cukor', '1. Vágd fel a banánt.\r\n2. Keverd össze a tojást, tejszínt, cukrot és fahéjat.\r\n3. Áztasd be a kenyérszeleteket a keverékbe, majd süsd ki őket a banánnal.', 20),
-(50, 'Lazacos bagel', '1 bagel, füstölt lazac, krémsajt, uborka, paradicsom, kapor', '1. Vágd félbe a bagelt és pirítsd meg.\r\n2. Kend meg a krémsajttal.\r\n3. Tegyél rá füstölt lazacot, uborkát, paradicsomot és kaprot.', 15),
-(51, 'Málnás chia puding', '3 evőkanál chia mag, 200 ml mandulatej, méz, málna', '1. Keverd össze a chia magokat és mandulatejet.\r\n2. Adj hozzá mézet és málnát.\r\n3. Hagyd állni, amíg besűrűsödik.', 10);
+(1, 'Tejberizs', '1 bögre rizs, 2 bögre tej, 1 evőkanál cukor, fahéj, vanília kivonat', '1. Moss meg 1 bögre rizst és tedd egy lábasba.\r\n2. Adj hozzá 2 bögre tejet a rizshez.\r\n3. Keverd hozzá a cukrot, majd kezd el főzni közepes lángon.\r\n4. Amikor a rizs felfőtt, tedd hozzá a fahéjat és a vanília kivonatot.\r\n5. Keverd jól össze, majd takard le és hagyd főzni, amíg a rizs megpuhul.\r\n6. Ha elkészült, hagyd kihűlni, majd tálald.', 20),
+(2, 'Gyümölcsös joghurt', '1 pohár natúr joghurt, 1 banán, 1 maracuja, méz', '1. Pucolj meg és vágj fel egy banánt.\r\n2. Vágd fel a maracuját és szedd ki a magjait.\r\n3. Pürésítsd össze a banánt és a maracuját egy tálban.\r\n4. Keverd össze a pürét egy pohár natúr joghurttal.\r\n5. Adj hozzá mézet ízlés szerint.\r\n6. Tálald friss gyümölcsökkel.', 5),
+(3, 'Szilvás palacsinta', '100 g liszt, 1 tojás, 200 ml tej, 2 evőkanál cukor, 1/2 csomag sütőpor, só, szilva', '1. Keverd össze a lisztet, a tojást, a tejet, a cukrot, a sütőport és a sót egy tálban.\r\n2. Melegíts fel egy serpenyőt közepes lángon.\r\n3. Öntsd a palacsinta tésztát a serpenyőbe és süsd ki mindkét oldalát.\r\n4. Töltsd meg a palacsintákat friss szilvával.\r\n5. Hajtsd össze és tálald.', 25),
+(4, 'Tojásrántotta sonkával', '3 tojás, 50 g sonka, 1 evőkanál vaj, só, bors', '1. Vágd fel a sonkát kockákra.\r\n2. Olvaszd fel egy evőkanál vajat egy serpenyőben közepes lángon.\r\n3. Add hozzá a felkockázott sonkát a serpenyőhöz.\r\n4. Verj fel 3 tojást egy tálban és öntsd a sonkára.\r\n5. Főzd meg az tojást, közben sózd és borsozd ízlés szerint.\r\n6. Amikor az tojás kész, tálald.', 15),
+(5, 'Mézes müzli', '2 bögre zabpehely, 1/2 bögre méz, 1/4 bögre dió, 1/4 bögre mazsola', '1. Melegítsd meg 1/2 bögre mézet egy serpenyőben.\r\n2. Keverd össze 2 bögre zabpehellyel egy tálban.\r\n3. Öntsd rá a meleg mézet és keverd össze, hogy mindenhova jusson.\r\n4. Szórd el a keveréket egy sütőpapírral bélelt tepsin.\r\n5. Süsd 15 percig 180 fokon, vagy amíg aranybarnára sül.\r\n6. Hűtsd ki, majd keverd hozzá 1/4 bögre diót és 1/4 bögre mazsolát.', 30),
+(6, 'Görög joghurt gyümölcssalátával', '1 pohár görög joghurt, 1 alma, 1 banán, 1 narancs, méz, dió', '1. Vágd fel egy almát, egy banánt és egy narancsot kockákra.\r\n2. Tegyél egy pohár görög joghurtot egy tálba.\r\n3. Keverd össze a görög joghurtot mézzel.\r\n4. Szórd meg a gyümölcsökkel és keverd hozzá a diót.\r\n5. Tálald frissen.', 10),
+(7, 'Omlett spárgával', '3 tojás, 100 g spárga, 1 evőkanál vaj, só, bors', '1. Moss meg és vágj fel 1 csésze spárgát.\r\n2. Melegíts fel egy evőkanál vajat egy serpenyőben közepes lángon.\r\n3. Add hozzá a spárgát a serpenyőhöz és pirítsd meg.\r\n4. Verj fel 3 tojást egy tálban.\r\n5. Öntsd a tojást a spárgára.\r\n6. Sózd és borsozd meg ízlés szerint.\r\n7. Süsd ki az omlettet és tálald.', 15),
+(8, 'Csokis palacsinta', '100 g liszt, 1 tojás, 200 ml tej, 2 evőkanál cukor, 1/2 csomag sütőpor, só, csokoládéforgácsok', '1. Keverd össze a lisztet, a tojást, a tejet, a cukrot, a sütőport, a sót és 1/2 bögre csokoládéforgácsot egy tálban.\r\n2. Melegíts fel egy serpenyőt közepes lángon.\r\n3. Öntsd a palacsinta tésztát a serpenyőbe és süsd ki mindkét oldalát.\r\n4. Szórd meg a csokoládéforgáccsal és tálald.', 20),
+(9, 'Bécsi virsli', '2 virsli, 2 tojás, zsemlemorzsa, olaj', '1. Melegíts fel egy lábast olajjal.\r\n2. Pörköld meg a virslit az olajban, majd hagyd lecsepegni.\r\n3. Mártsd meg a virslit felvert tojásban, majd forgasd meg zsemlemorzsában.\r\n4. Süsd ki a virslit aranybarnára.\r\n5. Tálald ketchuppal és mustárral.', 20),
+(10, 'Banános palacsinta', '100 g liszt, 1 tojás, 200 ml tej, 2 evőkanál cukor, 1/2 csomag sütőpor, só, 1 banán', '1. Keverd össze a lisztet, a tojást, a tejet, a cukrot, a sütőport, a sót és egy törött banánt egy tálban.\r\n2. Melegíts fel egy serpenyőt közepes lángon.\r\n3. Öntsd a palacsinta tésztát a serpenyőbe és süsd ki mindkét oldalát.\r\n4. Tálald friss szeletelt banánnal és egy kevés mézzel.', 20),
+(11, 'Sült sajtos szendvics', '2 szelet kenyér, sajt, vaj', '1. Melegítsd elő a sütőt 180 fokra.\r\n2. Kenj ki muffin formákat vajjal vagy olajjal.\r\n3. Helyezz egy szelet sonkát minden muffin formába.\r\n4. Törj egy tojást mindegyik formába.\r\n5. Szórd meg reszelt sajttal és bacon darabkákkal.\r\n6. Süsd 15-20 percig, vagy amíg a tojások megsülnek.\r\n7. Tálald frissen.', 10),
+(12, 'Gyümölcsös turmix', '1 banán, 1/2 bögre eper, 1/2 bögre görög joghurt, méz', '1. Pirítsd meg a kenyérszeleteket.\r\n2. Pucolj meg egy avokádót és törjd össze egy tálban.\r\n3. Adj hozzá citromlevet, sót és borsot az avokádóhoz.\r\n4. Kenj az avokádókrém a pirítósra.\r\n5. Szórd meg őrölt fekete borssal és snidlinggel.\r\n6. Tálald az avokádós pirítóst.', 5),
+(13, 'Avokádós pirítós', '2 szelet teljes kiőrlésű pirítós kenyér, avokádó, paradicsom, feta sajt, só, bors', '1. Forralj fel 1 bögre vizet.\r\n2. Keverd össze a forró vízzel 1 bögre zabpelyhet.\r\n3. Adj hozzá fagyasztott vagy friss epret.\r\n4. Keverd össze és hagyd pihenni pár percig.\r\n5. Tálald tejjel vagy mandulatejjel és mézzel.', 10),
+(14, 'Csirkemell szendvics', 'Csirkemell, jégsaláta, paradicsom, majonéz, mustár, pirítós kenyér', '1. Melegítsd elő a sütőt 180 fokra.\r\n2. Keverd össze a lisztet, a cukrot, a kakaót, a sütőport és a sót egy tálban.\r\n3. Zúzd össze két érett banánt egy másik tálban.\r\n4. Adj hozzá olvasztott vajat, tojást és vaníliakivonatot a banánhoz.\r\n5. Keverd össze a száraz és nedves hozzávalókat.\r\n6. Öntsd a tésztát kenyérformába és süsd 50-60 percig.\r\n7. Hagyd kihűlni és szeleteld fel.', 15),
+(15, 'Túrós palacsinta', '100 g liszt, 1 tojás, 200 ml tej, 200 g túró, 2 evőkanál cukor, 1/2 csomag sütőpor, só, vanília kivonat', '1. Keverd össze a túrót, tojást, cukrot és vaníliát egy tálban.\r\n2. Melegíts fel egy serpenyőt közepes lángon.\r\n3. Öntsd a palacsinta tésztát a serpenyőbe és süsd ki mindkét oldalát.\r\n4. Töltsd meg a palacsintákat túróval és tejszínnel.\r\n5. Hajtsd össze és tálald.', 20),
+(16, 'Zabpelyhes joghurt', '200 g natúr joghurt, 50 g zabpehely, méz, dió', '1. Vágj fel zöldségeket (paprika, paradicsom, hagyma) egy tányérra.\r\n2. Melegíts fel egy evőkanál olívaolajat egy serpenyőben közepes lángon.\r\n3. Add hozzá a zöldségeket és párold meg őket.\r\n4. Verj fel 3 tojást egy tálban.\r\n5. Öntsd a tojást a serpenyőbe a zöldségekre.\r\n6. Sózd és borsozd meg ízlés szerint.\r\n7. Süsd ki az omlettet és tálald.', 10),
+(17, 'Csokoládés banán palacsinta', '100 g liszt, 1 tojás, 200 ml tej, 1 evőkanál kakaópor, 1 banán', '1. Melegítsd elő a sütőt grill fokozatra.\r\n2. Vágj fel paradicsomokat szeletekre.\r\n3. Helyezd a paradicsomszeleteket sütőpapírral borított tepsire.\r\n4. Szórd meg reszelt sajttal, sóval és borssal.\r\n5. Süsd a sütőben, amíg a sajt aranybarnára pirul.\r\n6. Tálald frissen.', 20),
+(18, 'Gyros reggeli wrap', '2 tortillalap, 100 g gyros hús, 1 db paradicsom, 1/4 hagyma, joghurt szósz', '1. Pucolj meg két érett banánt és vágd szeletekre.\r\n2. Tegyél egy bögrébe görög joghurtot és adj hozzá a banánszeleteket.\r\n3. Keverd össze.\r\n4. Adj hozzá tejet és csokoládéfehérjeporot.\r\n5. Turmixold össze az összetevőket.\r\n6. Tálald egy pohárban vagy tálban.', 15),
+(19, 'Banános-epres joghurt shake', '1 banán, 1/2 bögre eper, 1 bögre natúr joghurt', '1. Melegíts fel egy serpenyőt közepes lángon.\r\n2. Add hozzá a friss spenótot és párold meg, amíg összeesik.\r\n3. Verj fel két tojást egy tálban.\r\n4. Öntsd a tojást a serpenyőbe a spenótra.\r\n5. Sózd és borsozd meg ízlés szerint.\r\n6. Tekerd fel a wrap-et és tálald.', 5),
+(20, 'Sonkás és sajtos tekercs', '4 tojás, 4 szelet sonka, 4 szelet sajt, só, bors', '1. Melegítsd elő a grillezőt közepes lángon.\r\n2. Készítsd elő a csirkemellet, sózd, borsozd és locsold meg olívaolajjal.\r\n3. Grillezd a csirkemellet mindkét oldalon, amíg átsül.\r\n4. Készítsd elő az ananászt szeletekre.\r\n5. Grilleld az ananászt a csirkével együtt.\r\n6. Tálald frissen.', 15),
+(21, 'Túróval és mézzel töltött croissant', '1 croissant, túró, méz', '1. Pirítsd meg a kenyérszeleteket.\r\n2. Pucolj meg egy avokádót és törjd össze egy tálban.\r\n3. Kenj az avokádókrém a pirítósra.\r\n4. Melegíts fel egy serpenyőt közepes lángon.\r\n5. Süsd meg a tojásokat a serpenyőben.\r\n6. Helyezd a sült tojásokat az avokádós pirítósra.\r\n7. Sózd és borsozd meg ízlés szerint.\r\n8. Tálald az avokádó toast tojással.', 10),
+(22, 'Zöldséges reggeli wrap', '2 tortillalap, 1 paradicsom, 1 uborka, 1 paprika, sajt, joghurt szósz', '1. Vágj fel sonkaszeleteket és reszelt sajtot.\r\n2. Melegíts fel egy serpenyőt közepes lángon.\r\n3. Verj fel három tojást egy tálban.\r\n4. Öntsd a tojást a serpenyőbe.\r\n5. Helyezd a sonkát és sajtot a tojás egyik felére.\r\n6. Hajtsd össze az omlettet és süsd ki mindkét oldalát.\r\n7. Tálald a töltött omlettet.', 15),
+(23, 'Tavaszi omlett', '3 tojás, 1 hagyma, 1 paprika, paradicsom, zöldfűszerek, só, bors', '1. Melegítsd elő a sütőt 180 fokra.\r\n2. Keverd össze a zabpelyhet, a banánt, a diót és a mézet egy tálban.\r\n3. Formázz kekszeket a tésztából és helyezd őket sütőpapírral borított tepsire.\r\n4. Süsd a kekszeket 15-20 percig, vagy amíg aranybarnák lesznek.\r\n5. Hagyd hűlni, majd tálald.', 15),
+(24, 'Banános-vaníliás palacsinta', '100 g liszt, 1 tojás, 200 ml tej, 1 banán, vanília kivonat', '1. Keverj össze 2 evőkanál chia magot és 1/2 bögre mandulatejet egy pohárban.\r\n2. Tedd a poharat a hűtőszekrénybe és hagyd állni legalább 2 órán át, vagy akár egész éjszakára.\r\n3. Keverd össze a chia pudingot friss gyümölcsökkel (eper, áfonya, banán).\r\n4. Tálald pohárban.', 20),
+(25, 'Kakaós zabkása', '50 g zabpehely, 1 evőkanál kakaópor, 1/2 banán, méz', '1. Készíts palacsintatésztát (liszt, tojás, tej).\r\n2. Keverd össze a túrót, cukrot és vaníliát egy tálban.\r\n3. Melegíts fel egy serpenyőt közepes lángon.\r\n4. Öntsd a palacsintatésztát a serpenyőbe és süsd ki mindkét oldalát.\r\n5. Töltsd meg a palacsintákat túróval és szeletekre vágott szilvával.\r\n6. Hajtsd össze és tálald.', 10),
+(26, 'Gyümölcsös zabkása', '50 g zabpehely, 1/2 bögre joghurt, 1/2 bögre gyümölcs (pl. málna, szeder)', '1. Tegyél egy bögrébe friss vagy fagyasztott málnát.\r\n2. Adj hozzá egy banánt és egy evőkanál kakaóport.\r\n3. Öntsd fel tejjel vagy mandulatejjel.\r\n4. Turmixold össze az összetevőket.\r\n5. Tálald csokis málna smoothieként.', 10),
+(27, 'Sült tojás muffin', '4 tojás, sonka, sajt, paradicsom, só, bors', '1. Vágj fel gyümölcsöket (eper, szőlő, dinnye) egy tálban.\r\n2. Adj hozzá görög joghurtot és keverd össze.\r\n3. Szórd meg mézzel és dióval.\r\n4. Tálald a görög joghurtos gyümölcssalátát.', 20),
+(28, 'Grillezett banán palacsinta', '100 g liszt, 1 tojás, 200 ml tej, 2 banán', '1. Melegítsd elő a sütőt 200 fokra.\r\n2. Vágj fel datolyát és távolítsd el a magot.\r\n3. Tekerd bacon szeletekbe a datolyát.\r\n4. Helyezd a baconbe tekert datolyákat sütőpapírral borított tepsire.\r\n5. Süsd 15-20 percig, vagy amíg a bacon ropogós lesz.\r\n6. Tálald melegen.', 20),
+(29, 'Epres-joghurtos smoothie', '1 bögre eper, 1 bögre natúr joghurt, méz', '1. Tegyél egy bögrébe friss vagy fagyasztott epret.\r\n2. Adj hozzá görög joghurtot és tejet.\r\n3. Öntsd fel mézzel ízlés szerint.\r\n4. Turmixold össze az összetevőket.\r\n5. Tálald epres joghurt smoothieként.', 5),
+(30, 'Zöldséges rántotta', '3 tojás, hagyma, paprika, paradicsom, spenót, só, bors', '1. Melegítsd elő a sütőt 180 fokra.\r\n2. Kenj ki muffin formákat vajjal vagy olajjal.\r\n3. Vágj fel pulykasonkát és zöldségeket kockákra.\r\n4. Üss egy tojást mindegyik muffin formába.\r\n5. Szórd meg pulykasonkával, zöldségekkel és sajttal.\r\n6. Süsd 15-20 percig, vagy amíg a tojások megszilárdulnak.\r\n7. Tálald pulykasonkás tojás muffinnal.', 15);
 
 -- --------------------------------------------------------
 
@@ -469,7 +448,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `type`, `first_name`, `last_name`, `born`, `gender`, `country`, `country_code`, `city`, `postcode`, `address`, `email`, `password`, `created`, `verification_code`, `verified`, `modified`, `last_login`, `wrong_attempts`, `valid`) VALUES
 (1, 'A', 'Attila', 'Ódry', '1964-03-08', 'M', 'hungary', '36', 'Szeged', '6725', 'Futrinka utca 66.', 'odry.attila@keri.mako.hu', '$2y$10$2qBCNjBIDp1kw/agy7fV0.sW3sAJz/YKU.oLUL1.2SfcxroBIQLde', '2023-08-29 09:27:01', NULL, '2023-08-29 12:19:00', '2023-08-29 12:19:15', '2023-10-30 13:08:11', 0, 1),
-(2, 'A', 'Nagy', 'Renátó', '1993-11-01', 'M', 'hungary', '36', 'Tótkomlós', '5940', 'nagy.renato@keri.mako.hu', 'nagy.renato@keri.mako.hu', '$2y$10$ZbYuaGwd4bMwhgD.C2/RT./lcthTxBQQreACH6uAFHSk2GVmI6BJa', '2023-10-30 13:14:48', '66c0b1af9bad395c8531e3550c7927bd', NULL, '2023-10-30 13:17:16', '2023-12-11 13:30:57', 0, 1);
+(2, 'A', 'Nagy', 'Renátó', '1993-11-01', 'M', 'hungary', '36', 'Tótkomlós', '5940', 'nagy.renato@keri.mako.hu', 'nagy.renato@keri.mako.hu', '$2y$10$ZbYuaGwd4bMwhgD.C2/RT./lcthTxBQQreACH6uAFHSk2GVmI6BJa', '2023-10-30 13:14:48', '66c0b1af9bad395c8531e3550c7927bd', NULL, '2023-10-30 13:17:16', '2023-12-12 15:10:26', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -484,6 +463,22 @@ CREATE TABLE `user_subscription` (
   `email` varchar(255) NOT NULL,
   `subscription_plan_id` int(11) NOT NULL,
   `purchase_date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Tábla szerkezet ehhez a táblához `vasarlasok`
+--
+
+CREATE TABLE `vasarlasok` (
+  `vasarlas_id` int(11) NOT NULL,
+  `user_id` int(10) UNSIGNED NOT NULL,
+  `felhasznalo_nev` varchar(255) NOT NULL,
+  `felhasznalo_cim` varchar(255) NOT NULL,
+  `aru_nev` varchar(255) NOT NULL,
+  `mennyiseg` int(11) NOT NULL,
+  `datum` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -559,6 +554,13 @@ ALTER TABLE `user_subscription`
   ADD KEY `subscription_plan_id` (`subscription_plan_id`);
 
 --
+-- A tábla indexei `vasarlasok`
+--
+ALTER TABLE `vasarlasok`
+  ADD PRIMARY KEY (`vasarlas_id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
 -- A kiírt táblák AUTO_INCREMENT értéke
 --
 
@@ -623,6 +625,12 @@ ALTER TABLE `user_subscription`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT a táblához `vasarlasok`
+--
+ALTER TABLE `vasarlasok`
+  MODIFY `vasarlas_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- Megkötések a kiírt táblákhoz
 --
 
@@ -631,6 +639,12 @@ ALTER TABLE `user_subscription`
 --
 ALTER TABLE `user_subscription`
   ADD CONSTRAINT `user_subscription_ibfk_1` FOREIGN KEY (`subscription_plan_id`) REFERENCES `subscription_plans` (`id`);
+
+--
+-- Megkötések a táblához `vasarlasok`
+--
+ALTER TABLE `vasarlasok`
+  ADD CONSTRAINT `vasarlasok_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
