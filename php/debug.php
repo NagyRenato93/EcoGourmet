@@ -1,7 +1,7 @@
 <?php
 
 // Set arguments
-$_GET['data'] = '{"cart":[{"termek_id":1,"ar_forint":"2000.00","quantity":3},{"termek_id":2,"ar_forint":"1800.00","quantity":22}],"userId":1}';
+$_GET['data'] = '{"cart":[{"termek_id":101,"ar_forint":1800,"quantity":6},{"termek_id":102,"ar_forint":2000,"quantity":2},{"termek_id":122,"ar_forint":2200,"quantity":2},{"termek_id":124,"ar_forint":2400,"quantity":2}],"userId":1}';
 
 // Call php file to debug
 require_once('vasarlasok.php');

@@ -842,10 +842,11 @@
                })
                .then(response => {
                   // Sikeres válasz esetén kezeld a választ, például visszajelzés a felhasználónak
-                  console.log(response.data);
+                  console.log(response);
                   // Töröld a kosarat
                   $scope.cart = [];
                   $scope.updateCartTotal();
+                  $scope.$applyAsync();
                })
             };
         
