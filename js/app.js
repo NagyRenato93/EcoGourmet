@@ -824,12 +824,13 @@
                 return;
             }
 
-            let data = [];
-            for(let i=1; i<$scope.cart.length; i++) {
-               let atika = util.objFilterByKeys(
-                  $scope.cart[i], 'termek_id,quantity,ar_forint');
-               data.push(atika);
-            }
+            // Define filter of keys, and reduce array of object by keys
+            let filter  = ['termek_id','quantity','ar_forint'],
+                data	   = $scope.cart.map((obj) => {
+                           return	Object.keys(obj)
+                                          .filter((key) => filter.includes(key))
+                                          .reduce((o, k) => Object.assign(o, {[k]: obj[k]}), {});
+                           });
             
             // Elküldjük a kosár tartalmát a szerverre
             http.request({
