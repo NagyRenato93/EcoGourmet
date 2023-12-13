@@ -6,29 +6,38 @@ require_once('../../../common/php/environment.php');
 // Get arguments
 $args = Util::getArgs();
 
+// Get current datetime
+$currenDateTime = date('Y-m-d H:i:s');
+
+// Create connection
 $db = new Database();
 
-$currenDate = date('Y-m-d H:i:s');
-$query      = "INSERT INTO `vasarlasok` (`user_id`, `datum`) VALUES";
-$result     = $db->execute($query, array($args['userId'], $currenDate));
-if (!$result["lastInsertId"]) {
+// Set query
+$query = "INSERT INTO `vasarlasok` (`user_id`, `datum`) VALUES";
+
+// Execute query 
+$result = $db->execute($query, array($args['userId'], $currenDateTime));
+
+// Check success
+if (!$result["affectedRows"]) {
 
     // Set error
 	Util::setError('Nem sikerült a rendelést felvenni', $db);
 }
 
-$query = "INSERT INTO `vasarlasok_tetel` (`vasarlas_id`,`termek_id`, `mennyiseg`, `ar_forint`) VALUES";
+// Get last inserted identifier
+$lastId = $result["lastInsertId"];
 
-$params = array();
-foreach($args['cart'] as $item) {
-    $params = array_merge($params, array(
-        $result["lastInsertId"],
-        $item['termek_id'],
-        $item['quantity'],
-        intval($item['ar_forint'])
-    )); 
-}
+// Set params (add to every row identifier)
+$params = array_map(function ($item) use ($lastId) { 
+	return array('vasarlas_id' => $lastId) + $item;
+}, $args['cart']);
 
+
+// Set query
+$query  = "INSERT INTO `vasarlasok_tetel` (`vasarlas_id`,`termek_id`, `ar_forint`,`mennyiseg`) VALUES";
+
+// Execute query
 $result = $db->execute($query, $params);
 
 // Kapcsolat lezárása
