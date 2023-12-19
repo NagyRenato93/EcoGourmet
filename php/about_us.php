@@ -60,16 +60,6 @@ $query = "SELECT id,
 // Execute query
 $result['testimonials'] = $db->execute($query);
 
-// Set query for plans
-$query = "SELECT id, 
-                 name,
-                 description, 
-                 duration, 
-                 price 
-            FROM subscription_plans"; 
-
-// Execute query
-$result['subscription_plans'] = $db->execute($query);
 
 // Set query for about us text part
 $query = "SELECT id, 

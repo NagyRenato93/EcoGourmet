@@ -370,16 +370,12 @@ h1 {
     transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
     overflow: hidden;
     border-radius: 20px;
-    min-height: 450px;
+    min-height: 50vh;
     box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.2);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     margin-bottom: 10px;
-
-    @media (max-width: 768px) {
-        min-height: 350px;
-    }
 
     @media (max-width: 420px) {
         min-height: 300px;
@@ -392,7 +388,7 @@ h1 {
         transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
 
         .card-body {
-            margin-top: 80px;
+            margin-top: 5vh;
             transition: all 800ms cubic-bezier(0.19, 1, 0.22, 1);
         }
 
@@ -409,14 +405,14 @@ h1 {
         display: flex;
         flex-direction: column;
 
-        @media (max-width: 768px) {
+        /* @media (max-width: 768px) {
             min-height: 350px; /* A min. magasság emelése a gomb láthatóságának biztosítása érdekében */
-        }
+        } */
 
         &:hover {
-            background-color: #fff;
+            background-color: black;
             color: #000;
-            transform: scale(1.4);
+            transform: scale(0.5);
         }
     }
 
@@ -425,7 +421,7 @@ h1 {
         margin-top: 30px;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        justify-content: space-between 10000;
         transition: all 500ms cubic-bezier(0.19, 1, 0.22, 1);
     }
 
@@ -465,7 +461,7 @@ h1 {
 
     .card-text-ar {
         position: absolute;
-        bottom: 50;
+        bottom: 50vh;
     }
 }
 

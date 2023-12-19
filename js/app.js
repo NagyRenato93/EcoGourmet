@@ -742,7 +742,6 @@
                   $scope.lunchRecipes = response.lunchRecipes;
                   $scope.dinnerRecipes = response.dinnerRecipes;
                   $scope.testimonials = response.testimonials;
-                  $scope.subscription_plans = response.subscription_plans;
                   $scope.aboutUsTexts = response.aboutUsTexts;
 
 
@@ -799,11 +798,12 @@
          http.request('./php/products.php').then(response => {
             if (response && response.products) {
                $scope.products = response.products;
+               $scope.subscription_plans = response.subscription_plans;
                $scope.updateFilteredProducts(); // Frissítjük a szűrt termékek listáját az inicializálás után
                $scope.$applyAsync();
             }
          });
-
+         
          $rootScope.$watch('cart', (newValue, oldValue) => {
             console.log(oldValue, ' => ', newValue);
             localStorage.setItem("shoppingCart", $scope.cart);
@@ -973,6 +973,7 @@
                .then(response => {
                   if (response && response.services) {
                      $scope.services = response.services;
+                  
                      $scope.$applyAsync();
                   }
                      //3rd page slider
