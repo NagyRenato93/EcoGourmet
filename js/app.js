@@ -742,6 +742,7 @@
                   $scope.lunchRecipes = response.lunchRecipes;
                   $scope.dinnerRecipes = response.dinnerRecipes;
                   $scope.testimonials = response.testimonials;
+                  $scope.subscription_plans = response.subscription_plans;
                   $scope.aboutUsTexts = response.aboutUsTexts;
 
 
@@ -781,6 +782,7 @@
                   document.body.style.transition = ''; // A transition visszaállítása az eredeti értékre
                }, 500); // Időzítés, amely egyezik a transition időtartamával
             };
+            
          }
    ])
 
@@ -925,7 +927,26 @@
             $scope.updateCartTotal(); // Frissítsd a kosár összegét
         };
         
-
+        // Előfizetési terv hozzáadása a kosárhoz
+        $scope.addToCartSubscriptionPlan = function (subscription_plan) {
+         // Ellenőrizd, hogy a subscription_plan objektum létezik
+         console.log(subscription_plan);
+     
+         // Létrehozzuk az existingItem változót
+         let existingItem = $filter('filter')($scope.cart, { termek_id: subscription_plan.termek_id }, true)[0];
+     
+         if (existingItem) {
+             existingItem.quantity++;
+         } else {
+             let newItem = angular.copy(subscription_plan);
+             newItem.quantity = 1;
+             $scope.cart.push(newItem);
+         }
+     
+         console.log($scope.cart); // Debug kimenet
+         $scope.updateCartTotal(); // Frissítsd a kosár összegét
+     };
+     
          // Funkció a termék eltávolításához a kosárból
          $scope.removeFromCart = function (product) {
             let index = $scope.cart.indexOf(product);

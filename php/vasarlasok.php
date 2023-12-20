@@ -1,5 +1,4 @@
 <?php
-//hibás nem müködik törlés alatt
 // Adatbázis kapcsolat
 require_once('../../../common/php/environment.php');
 

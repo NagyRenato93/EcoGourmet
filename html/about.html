@@ -49,6 +49,43 @@
      </div>
    </section>
 
+  <!-- pricing cards -->
+  <section class="bg-light py-5">
+    <div class="container px-5 my-5">
+      <div class="text-center mb-5">
+        <h2 class="fw-bolder">Velünk minden lehetséges!</h2>
+        <p class="lead mb-0">Az árainkat is rátok szabtuk.</p>
+      </div>
+      <div class="row gx-5 justify-content-center">
+        <div class="col-lg-4 mb-5" *ngFor="plan of subscription_plans">
+          <div class="card h-100">
+            <div class="card-body p-5">
+              <div class="small text-uppercase fw-bold text-muted">{{ plan.nev }}</div>
+              <div class="mb-3">
+                <span class="display-4 fw-bold">{{ plan.ar_forint }}Ft</span>
+                <span class="text-muted">/feliratkozás.</span>
+              </div>
+              <ul class="list-unstyled mb-4">
+                <li *ngIf="plan.duration" class="mb-2">
+                  <i class="bi bi-check text-primary"></i>
+                  <strong>Előfizetése {{ plan.duration }} hónapig tart.</strong>
+                </li>
+                <li *ngIf="plan.description" class="mb-2">
+                  <i class="bi bi-check text-primary"></i>
+                  {{ plan.description }}
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a ui-sref="products" class="btn btn-outline-black">
+        {{ 'DISCOVER_MORE' | translate:lang.data }}
+      </a>
+    </div>
+  </section>
+
+
    <!--sub-nav with menu-->
    <section id="menu" 
             class="menu hidden" 
@@ -149,11 +186,10 @@
      </div>
    </section>
 
-
    <!-- Testimonials angularositot-->
    <section class="testimonials text-center bg-light hidden">
      <div class="container-fluid">
-       <h2 class="mb-5">Mit mondanak rólunk...</h2>
+       <h2 class="mb-5" style="margin-top: 50px;">Mit mondanak rólunk...</h2>
        <div class="row">
          <div class="col-lg-4" 
               ng-repeat="testimonial in testimonials.slice(0, 3)">

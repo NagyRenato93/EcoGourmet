@@ -60,6 +60,18 @@ $query = "SELECT id,
 // Execute query
 $result['testimonials'] = $db->execute($query);
 
+// Set query for plans
+$query = "SELECT termek_id, 
+                 nev,
+                 description, 
+                 duration, 
+                 ar_forint 
+            FROM subscription_plans
+            ORDER BY termek_id";
+
+// Execute query
+$result['subscription_plans'] = $db->execute($query);
+
 
 // Set query for about us text part
 $query = "SELECT id, 
