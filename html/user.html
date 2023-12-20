@@ -47,7 +47,7 @@
 
   
 					<!-- Profile -->
-					<div class="px-1 mx-1 d-inline-block w-auto mb-2">
+									<div class="px-1 mx-1 d-inline-block w-auto mb-2">
 			 			<button id="profile"
 							 			type="button" 
 							 			class="btn btn-outline-primary text-capitalize text-small-caps btnClickEffect d-inline-block"
@@ -55,7 +55,7 @@
 							 			ng-click="methods.profile()"
 										ng-disabled="!helper.profileType">
 				 			<i class="fas fa-user"></i>
-				 			<span class="ms-1"
+				 						<span class="ms-1"
 							 			ng-class="{'text-decoration-underline': !helper.profileType}">
 					 			{{'profile' | translate:lang.data}}
 				 			</span>
@@ -96,6 +96,7 @@
 						</button>
 					</div>
 				</div>
+
 				<!-- kártya reggeli -->
 				<div class="cols">
 					<div class="col recipe-card" ng-repeat="recipe in breakfastRecipes | limitTo: 3" ontouchstart="this.classList.toggle('hover');">

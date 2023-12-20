@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2023. Dec 19. 18:49
+-- Létrehozás ideje: 2023. Dec 20. 19:35
 -- Kiszolgáló verziója: 10.4.6-MariaDB
 -- PHP verzió: 7.3.8
 
@@ -448,23 +448,33 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `type`, `first_name`, `last_name`, `born`, `gender`, `country`, `country_code`, `city`, `postcode`, `address`, `email`, `password`, `created`, `verification_code`, `verified`, `modified`, `last_login`, `wrong_attempts`, `valid`) VALUES
-(1, 'A', 'Attila', 'Ódry', '1964-03-08', 'M', 'hungary', '36', 'Szeged', '6725', 'Futrinka utca 66.', 'odry.attila@keri.mako.hu', '$2y$10$2qBCNjBIDp1kw/agy7fV0.sW3sAJz/YKU.oLUL1.2SfcxroBIQLde', '2023-08-29 09:27:01', NULL, '2023-08-29 12:19:00', '2023-08-29 12:19:15', '2023-12-12 19:30:37', 0, 1),
+(1, 'A', 'Attila', 'Ódry', '1964-03-08', 'M', 'hungary', '36', 'Szeged', '6725', 'Futrinka utca 66.', 'odry.attila@keri.mako.hu', '$2y$10$2qBCNjBIDp1kw/agy7fV0.sW3sAJz/YKU.oLUL1.2SfcxroBIQLde', '2023-08-29 09:27:01', NULL, '2023-08-29 12:19:00', '2023-08-29 12:19:15', '2023-12-20 19:29:26', 0, 1),
 (2, 'A', 'Nagy', 'Renátó', '1993-11-01', 'M', 'hungary', '36', 'Tótkomlós', '5940', 'nagy.renato@keri.mako.hu', 'nagy.renato@keri.mako.hu', '$2y$10$ZbYuaGwd4bMwhgD.C2/RT./lcthTxBQQreACH6uAFHSk2GVmI6BJa', '2023-10-30 13:14:48', '66c0b1af9bad395c8531e3550c7927bd', NULL, '2023-10-30 13:17:16', '2023-12-19 17:55:13', 0, 1);
 
 -- --------------------------------------------------------
 
 --
--- Tábla szerkezet ehhez a táblához `user_subscription`
+-- Tábla szerkezet ehhez a táblához `user_plans`
 --
 
-CREATE TABLE `user_subscription` (
+CREATE TABLE `user_plans` (
   `id` int(11) NOT NULL,
-  `first_name` varchar(255) NOT NULL,
-  `last_name` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `subscription_plan_id` int(11) NOT NULL,
-  `purchase_date` date NOT NULL
+  `user_id` int(11) NOT NULL,
+  `termek_id` int(11) NOT NULL,
+  `ar_forint` int(11) NOT NULL,
+  `expire` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- A tábla adatainak kiíratása `user_plans`
+--
+
+INSERT INTO `user_plans` (`id`, `user_id`, `termek_id`, `ar_forint`, `expire`) VALUES
+(1, 1, 3, 18000, '2024-06-20'),
+(2, 1, 1, 5000, '2024-02-20'),
+(3, 1, 2, 9000, '2024-03-20'),
+(4, 1, 3, 18000, '2024-06-20'),
+(5, 1, 1, 5000, '2024-02-20');
 
 -- --------------------------------------------------------
 
@@ -490,7 +500,16 @@ INSERT INTO `vasarlasok` (`vasarlas_id`, `user_id`, `datum`) VALUES
 (5, 2, '2023-12-19 16:54:49'),
 (6, 2, '2023-12-19 17:36:11'),
 (7, 2, '2023-12-19 17:36:42'),
-(8, 2, '2023-12-19 17:47:30');
+(8, 2, '2023-12-19 17:47:30'),
+(9, 1, '2023-12-20 16:50:37'),
+(10, 1, '2023-12-20 19:15:58'),
+(11, 1, '2023-12-20 19:19:17'),
+(12, 1, '2023-12-20 19:23:14'),
+(13, 1, '2023-12-20 19:24:52'),
+(14, 1, '2023-12-20 19:25:58'),
+(15, 1, '2023-12-20 19:27:20'),
+(16, 1, '2023-12-20 19:30:27'),
+(17, 1, '2023-12-20 19:32:38');
 
 -- --------------------------------------------------------
 
@@ -523,7 +542,21 @@ INSERT INTO `vasarlasok_tetel` (`tetel_id`, `vasarlas_id`, `termek_id`, `mennyis
 (10, 6, 2, 7, 1800),
 (11, 7, 2, 1, 1800),
 (12, 8, 2, 3, 1800),
-(13, 8, 1, 5, 2000);
+(13, 8, 1, 5, 2000),
+(14, 9, 3, 1, 18000),
+(15, 12, 3, 4, 2200),
+(16, 12, 2, 4, 1800),
+(17, 13, 3, 4, 2200),
+(18, 13, 2, 4, 1800),
+(19, 14, 3, 4, 2200),
+(20, 14, 2, 4, 1800),
+(21, 15, 3, 4, 2200),
+(22, 15, 2, 4, 1800),
+(23, 16, 1, 1, 2000),
+(24, 16, 2, 3, 1800),
+(25, 16, 6, 1, 2150),
+(26, 16, 4, 3, 2100),
+(27, 17, 5, 1, 1900);
 
 --
 -- Indexek a kiírt táblákhoz
@@ -591,11 +624,10 @@ ALTER TABLE `user`
   ADD UNIQUE KEY `email` (`email`) USING BTREE;
 
 --
--- A tábla indexei `user_subscription`
+-- A tábla indexei `user_plans`
 --
-ALTER TABLE `user_subscription`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `subscription_plan_id` (`subscription_plan_id`);
+ALTER TABLE `user_plans`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- A tábla indexei `vasarlasok`
@@ -669,32 +701,26 @@ ALTER TABLE `user`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT a táblához `user_subscription`
+-- AUTO_INCREMENT a táblához `user_plans`
 --
-ALTER TABLE `user_subscription`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `user_plans`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT a táblához `vasarlasok`
 --
 ALTER TABLE `vasarlasok`
-  MODIFY `vasarlas_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `vasarlas_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT a táblához `vasarlasok_tetel`
 --
 ALTER TABLE `vasarlasok_tetel`
-  MODIFY `tetel_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `tetel_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- Megkötések a kiírt táblákhoz
 --
-
---
--- Megkötések a táblához `user_subscription`
---
-ALTER TABLE `user_subscription`
-  ADD CONSTRAINT `user_subscription_ibfk_1` FOREIGN KEY (`subscription_plan_id`) REFERENCES `subscription_plans` (`termek_id`);
 
 --
 -- Megkötések a táblához `vasarlasok`

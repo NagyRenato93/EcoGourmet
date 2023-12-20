@@ -827,7 +827,7 @@
             }
 
             // Define filter of keys, and reduce array of object by keys
-            let filter  = ['termek_id','quantity','ar_forint'],
+            let filter  = ['termek_id','quantity','ar_forint','duration','type'],
                 data	   = $scope.cart.map((obj) => {
                            return	Object.keys(obj)
                                           .filter((key) => filter.includes(key))
@@ -912,13 +912,17 @@
          };
 
          // Funkció a termék hozzáadásához a kosárhoz
-         $scope.addToCart = function (product) {
-            let existingItem = $filter('filter')($scope.cart, { termek_id: product.termek_id }, true)[0];
+         $scope.addToCart = function (product, type) {
+            console.log(product, type);
+            let existingItem =   $filter('filter')($scope.cart, { 
+                                    termek_id: product.termek_id
+                                 }, true)[0];
         
             if (existingItem) {
                existingItem.quantity++;
             } else {
                let newItem = angular.copy(product);
+               newItem.type = type;
                newItem.quantity = 1;
                $scope.cart.push(newItem);
             }
