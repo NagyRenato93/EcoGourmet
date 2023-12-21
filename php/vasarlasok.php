@@ -6,14 +6,6 @@ require_once('../../../common/php/environment.php');
 // Get arguments
 $args = Util::getArgs();
 
-
-$cart['shop'] = array_filter($args['cart'], function($item) {
-	return $item['type'] === 'shop';
-});
-$cart['plan'] = array_filter($args['cart'], function($item) {
-	return $item['type'] === 'plan';
-});
-
 // Get current datetime
 $currenDate = date('Y-m-d');
 $currenDateTime = date('Y-m-d H:i:s');
@@ -21,11 +13,18 @@ $currenDateTime = date('Y-m-d H:i:s');
 // Create connection
 $db = new Database();
 
-// Kulcsok
+// Each cart data types
 foreach(array('shop', 'plan') as $key) {
 
-	if (!empty($cart[$key])) {
+	// Get cart filtered type
+	$cart = array_filter($args['cart'], function($item) use($key) {
+		return $item['type'] === $key;
+	});
 
+	// Check exist
+	if (!empty($cart)) {
+
+		// Cart shop type
 		if ($key === 'shop') {
 
 			// Set query
@@ -44,36 +43,36 @@ foreach(array('shop', 'plan') as $key) {
 			// Get last inserted identifier
 			$lastId = $result[$key]["lastInsertId"];
 			
+			// Set data for insert
 			$params = array();
-			foreach($cart['shop'] as $item) {
+			foreach($cart as $item) {
 				$params[] = array(
 					"vasarlas_id" => $result[$key]["lastInsertId"],
-					"termek_id" => $item['termek_id'],
-					"ar_forint" => $item['ar_forint'],
-					"mennyiseg" => $item['quantity']
+					"termek_id" 	=> $item['termek_id'],
+					"ar_forint" 	=> $item['ar_forint'],
+					"mennyiseg" 	=> $item['quantity']
 				);
 			}
 
 			// Set query
-			$query  = "INSERT INTO `vasarlasok_tetel` (`vasarlas_id`,`termek_id`, `ar_forint`,`mennyiseg`) VALUES";
+			$query = "INSERT INTO `vasarlasok_tetel` (`vasarlas_id`,`termek_id`, `ar_forint`,`mennyiseg`) VALUES";
 		
 			// Execute query
 			$result[$key] = $db->execute($query, $params);
-
 		}
 
-
+		// Cart plan type
 		if ($key === 'plan') {
 
-			// Set params (add to every row identifier)
+			// Set data for insert
 			$params = array();
-			foreach($cart['plan'] as $item) {
+			foreach($cart as $item) {
 				$expire = date('Y-m-d', strtotime("+{$item['duration']} months", strtotime($currenDate)));
 				$params[] = array(
-					"user_id" => $args['userId'],
+					"user_id" 	=> $args['userId'],
 					"termek_id" => $item['termek_id'],
 					"ar_forint" => $item['ar_forint'],
-					"expire" => $expire
+					"expire" 		=> $expire
 				);
 			}
 			
@@ -82,7 +81,6 @@ foreach(array('shop', 'plan') as $key) {
 		
 			// Execute query
 			$result[$key] = $db->execute($query, $params);
-
 		}
 	}
 }
