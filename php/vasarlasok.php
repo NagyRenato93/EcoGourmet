@@ -17,9 +17,9 @@ $db = new Database();
 foreach(array('shop', 'plan') as $key) {
 
 	// Get cart filtered type
-	$cart = array_filter($args['cart'], function($item) use($key) {
+	$cart = array_values(array_filter($args['cart'], function($item) use($key) {
 		return $item['type'] === $key;
-	});
+	}));
 
 	// Check exist
 	if (!empty($cart)) {
