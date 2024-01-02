@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2023. Dec 20. 19:35
--- Kiszolgáló verziója: 10.4.6-MariaDB
--- PHP verzió: 7.3.8
+-- Létrehozás ideje: 2024. Jan 02. 16:27
+-- Kiszolgáló verziója: 10.4.27-MariaDB
+-- PHP verzió: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -30,19 +29,20 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `aboutus_text` (
   `id` int(11) NOT NULL,
+  `lang` varchar(11) NOT NULL,
   `title` varchar(255) NOT NULL,
   `description` text NOT NULL,
   `image` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- A tábla adatainak kiíratása `aboutus_text`
 --
 
-INSERT INTO `aboutus_text` (`id`, `title`, `description`, `image`) VALUES
-(1, 'Zöld étrendek...', 'Az étrendek nemcsak az egészséget, hanem az ízletes ételek élvezetét is hangsúlyozzák, így az ügyfelek élvezhetik az egészséges táplálkozás előnyeit. Az EcoGourmet hisz abban, hogy az egészséges életmód és a fenntarthatóság kompatibilis célok, amelyeket minden ügyfél számára elérhetővé tesz. Tevékenységük összehangolja a személyes jólétet és a környezeti felelősséget, így hozzájárulnak a fenntartható jövő kialakításához. Az EcoGourmet az eszményi példája a táplálkozási tanácsadásnak, amely egyszerre ötvözi a közösségi és környezeti felelősségvállalást.', './media/image/ffood1.jpg'),
-(2, 'Miért Eco?', 'Mivel minden vásárlásuk után a cég egy fát ültet, hozzájárulva a környezetvédelemhez és a globális klímaváltozás elleni küzdelemhez. A táplálkozási tanácsadás terén az EcoGourmet az egyéni igényeket és célokat szem előtt tartja, és minden étrendet a testsúly ideális szintjéhez optimalizál. A cég munkatársai magas szintű szakértelemmel és elkötelezettséggel dolgoznak az ügyfelekkel, hogy segítsenek nekik az egészséges étkezéshez vezető úton.', './media/image/tree1.jpg'),
-(3, 'Együtt elérjük!', 'Az EcoGourmet egy kivételes vállalkozás, amely elkötelezett az egészséges életmód és a környezetvédelem iránt. Cégfilozófiájuk az ökológia és a gasztronómia harmonikus egyesítése, hogy ügyfeleiknek az optimális testsúlyhoz vezető útmutatást nyújtsák, miközben fenntartható módon gondoskodnak a környezetről.', './media/image/enjoy1.jpg');
+INSERT INTO `aboutus_text` (`id`, `lang`, `title`, `description`, `image`) VALUES
+(1, 'hu', 'Zöld étrendek...', 'Az étrendek nemcsak az egészséget, hanem az ízletes ételek élvezetét is hangsúlyozzák, így az ügyfelek élvezhetik az egészséges táplálkozás előnyeit. Az EcoGourmet hisz abban, hogy az egészséges életmód és a fenntarthatóság kompatibilis célok, amelyeket minden ügyfél számára elérhetővé tesz. Tevékenységük összehangolja a személyes jólétet és a környezeti felelősséget, így hozzájárulnak a fenntartható jövő kialakításához. Az EcoGourmet az eszményi példája a táplálkozási tanácsadásnak, amely egyszerre ötvözi a közösségi és környezeti felelősségvállalást.', './media/image/ffood1.jpg'),
+(2, 'hu', 'Miért Eco?', 'Mivel minden vásárlásuk után a cég egy fát ültet, hozzájárulva a környezetvédelemhez és a globális klímaváltozás elleni küzdelemhez. A táplálkozási tanácsadás terén az EcoGourmet az egyéni igényeket és célokat szem előtt tartja, és minden étrendet a testsúly ideális szintjéhez optimalizál. A cég munkatársai magas szintű szakértelemmel és elkötelezettséggel dolgoznak az ügyfelekkel, hogy segítsenek nekik az egészséges étkezéshez vezető úton.', './media/image/tree1.jpg'),
+(3, 'hu', 'Együtt elérjük!', 'Az EcoGourmet egy kivételes vállalkozás, amely elkötelezett az egészséges életmód és a környezetvédelem iránt. Cégfilozófiájuk az ökológia és a gasztronómia harmonikus egyesítése, hogy ügyfeleiknek az optimális testsúlyhoz vezető útmutatást nyújtsák, miközben fenntartható módon gondoskodnak a környezetről.', './media/image/enjoy1.jpg');
 
 -- --------------------------------------------------------
 
@@ -56,7 +56,7 @@ CREATE TABLE `breakfast_recipes` (
   `ingredients` text NOT NULL,
   `instructions` text NOT NULL,
   `cooking_time` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- A tábla adatainak kiíratása `breakfast_recipes`
@@ -106,7 +106,7 @@ CREATE TABLE `dinner_recipes` (
   `ingredients` text NOT NULL,
   `instructions` text NOT NULL,
   `cooking_time` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- A tábla adatainak kiíratása `dinner_recipes`
@@ -144,7 +144,7 @@ CREATE TABLE `ecogourmet_services` (
   `id` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
   `description` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- A tábla adatainak kiíratása `ecogourmet_services`
@@ -159,6 +159,32 @@ INSERT INTO `ecogourmet_services` (`id`, `title`, `description`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Tábla szerkezet ehhez a táblához `eco_gourmet_awards_achievements`
+--
+
+CREATE TABLE `eco_gourmet_awards_achievements` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `description` text DEFAULT NULL,
+  `date` date DEFAULT NULL,
+  `image_url` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- A tábla adatainak kiíratása `eco_gourmet_awards_achievements`
+--
+
+INSERT INTO `eco_gourmet_awards_achievements` (`id`, `title`, `description`, `date`, `image_url`) VALUES
+(1, 'Fenntartható Éttermiség Díj', 'Az EcoGourmet étterme elnyerte a Fenntartható Éttermiség Díjat környezetbarát gyakorlataiért.', '2022-01-15', 'path/to/image1.jpg'),
+(2, 'Zöld Konyha Elismerés', 'A Zöld Konyha szervezet kitüntette az EcoGourmet konyháját a fenntartható alapanyagok és folyamatok alkalmazásáért.', '2022-03-10', 'path/to/image2.jpg'),
+(3, 'EcoGourmet Környezetvédelmi Hős', 'Az EcoGourmet csapatát a környezetvédelmi erőfeszítéseikért és pozitív hatásukért a környezetre.', '2022-06-20', 'path/to/image3.jpg'),
+(4, 'Bio Étterem Minősítés', 'Az EcoGourmet étterme megkapta a Bio Étterem minősítést a bio alapanyagok használata miatt.', '2022-08-05', 'path/to/image4.jpg'),
+(5, 'Fenntartható Gasztronómiai Innováció Díj', 'Az EcoGourmet új, fenntartható gasztronómiai megoldásaiért elnyerte az Innováció Díjat.', '2022-10-15', 'path/to/image5.jpg'),
+(6, 'Környezetbarát Menü Különdíj', 'Az EcoGourmet által kínált környezetbarát menüért a Gasztronómiai Szövetség Különdíjjal tüntette ki.', '2022-12-01', 'path/to/image6.jpg');
+
+-- --------------------------------------------------------
+
+--
 -- Tábla szerkezet ehhez a táblához `lunch_recipes`
 --
 
@@ -168,7 +194,7 @@ CREATE TABLE `lunch_recipes` (
   `ingredients` text NOT NULL,
   `instructions` text NOT NULL,
   `cooking_time` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- A tábla adatainak kiíratása `lunch_recipes`
@@ -228,7 +254,7 @@ CREATE TABLE `subscription_plans` (
   `description` text DEFAULT NULL,
   `duration` int(11) DEFAULT NULL,
   `ar_forint` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- A tábla adatainak kiíratása `subscription_plans`
@@ -255,7 +281,7 @@ CREATE TABLE `termek` (
   `gyarto` varchar(255) DEFAULT NULL,
   `ar_forint` int(11) NOT NULL,
   `kep_eleresi_ut` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- A tábla adatainak kiíratása `termek`
@@ -376,7 +402,7 @@ CREATE TABLE `testimonials` (
   `name` varchar(255) NOT NULL,
   `description` text NOT NULL,
   `kep_url` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- A tábla adatainak kiíratása `testimonials`
@@ -400,7 +426,7 @@ CREATE TABLE `type` (
   `id` char(1) NOT NULL,
   `type` varchar(10) NOT NULL,
   `name` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- A tábla adatainak kiíratása `type`
@@ -441,7 +467,7 @@ CREATE TABLE `user` (
   `last_login` datetime DEFAULT NULL,
   `wrong_attempts` tinyint(1) UNSIGNED NOT NULL DEFAULT 0,
   `valid` tinyint(1) UNSIGNED NOT NULL DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- A tábla adatainak kiíratása `user`
@@ -449,7 +475,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `type`, `first_name`, `last_name`, `born`, `gender`, `country`, `country_code`, `city`, `postcode`, `address`, `email`, `password`, `created`, `verification_code`, `verified`, `modified`, `last_login`, `wrong_attempts`, `valid`) VALUES
 (1, 'A', 'Attila', 'Ódry', '1964-03-08', 'M', 'hungary', '36', 'Szeged', '6725', 'Futrinka utca 66.', 'odry.attila@keri.mako.hu', '$2y$10$2qBCNjBIDp1kw/agy7fV0.sW3sAJz/YKU.oLUL1.2SfcxroBIQLde', '2023-08-29 09:27:01', NULL, '2023-08-29 12:19:00', '2023-08-29 12:19:15', '2023-12-20 19:29:26', 0, 1),
-(2, 'A', 'Nagy', 'Renátó', '1993-11-01', 'M', 'hungary', '36', 'Tótkomlós', '5940', 'nagy.renato@keri.mako.hu', 'nagy.renato@keri.mako.hu', '$2y$10$ZbYuaGwd4bMwhgD.C2/RT./lcthTxBQQreACH6uAFHSk2GVmI6BJa', '2023-10-30 13:14:48', '66c0b1af9bad395c8531e3550c7927bd', NULL, '2023-10-30 13:17:16', '2023-12-19 17:55:13', 0, 1);
+(2, 'A', 'Nagy', 'Renátó', '1993-11-01', 'M', 'hungary', '36', 'Tótkomlós', '5940', 'nagy.renato@keri.mako.hu', 'nagy.renato@keri.mako.hu', '$2y$10$ZbYuaGwd4bMwhgD.C2/RT./lcthTxBQQreACH6uAFHSk2GVmI6BJa', '2023-10-30 13:14:48', '66c0b1af9bad395c8531e3550c7927bd', NULL, '2023-10-30 13:17:16', '2023-12-31 01:23:47', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -463,7 +489,7 @@ CREATE TABLE `user_plans` (
   `termek_id` int(11) NOT NULL,
   `ar_forint` int(11) NOT NULL,
   `expire` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- A tábla adatainak kiíratása `user_plans`
@@ -474,7 +500,9 @@ INSERT INTO `user_plans` (`id`, `user_id`, `termek_id`, `ar_forint`, `expire`) V
 (2, 1, 1, 5000, '2024-02-20'),
 (3, 1, 2, 9000, '2024-03-20'),
 (4, 1, 3, 18000, '2024-06-20'),
-(5, 1, 1, 5000, '2024-02-20');
+(5, 1, 1, 5000, '2024-02-20'),
+(6, 2, 2, 9000, '2024-03-30'),
+(7, 2, 1, 5000, '2024-03-01');
 
 -- --------------------------------------------------------
 
@@ -486,7 +514,7 @@ CREATE TABLE `vasarlasok` (
   `vasarlas_id` int(11) NOT NULL,
   `user_id` int(10) UNSIGNED NOT NULL,
   `datum` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- A tábla adatainak kiíratása `vasarlasok`
@@ -509,7 +537,8 @@ INSERT INTO `vasarlasok` (`vasarlas_id`, `user_id`, `datum`) VALUES
 (14, 1, '2023-12-20 19:25:58'),
 (15, 1, '2023-12-20 19:27:20'),
 (16, 1, '2023-12-20 19:30:27'),
-(17, 1, '2023-12-20 19:32:38');
+(17, 1, '2023-12-20 19:32:38'),
+(18, 2, '2023-12-30 23:08:27');
 
 -- --------------------------------------------------------
 
@@ -523,7 +552,7 @@ CREATE TABLE `vasarlasok_tetel` (
   `termek_id` int(11) NOT NULL,
   `mennyiseg` int(11) NOT NULL,
   `ar_forint` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- A tábla adatainak kiíratása `vasarlasok_tetel`
@@ -556,7 +585,8 @@ INSERT INTO `vasarlasok_tetel` (`tetel_id`, `vasarlas_id`, `termek_id`, `mennyis
 (24, 16, 2, 3, 1800),
 (25, 16, 6, 1, 2150),
 (26, 16, 4, 3, 2100),
-(27, 17, 5, 1, 1900);
+(27, 17, 5, 1, 1900),
+(28, 18, 3, 11, 2200);
 
 --
 -- Indexek a kiírt táblákhoz
@@ -584,6 +614,12 @@ ALTER TABLE `dinner_recipes`
 -- A tábla indexei `ecogourmet_services`
 --
 ALTER TABLE `ecogourmet_services`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- A tábla indexei `eco_gourmet_awards_achievements`
+--
+ALTER TABLE `eco_gourmet_awards_achievements`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -650,7 +686,7 @@ ALTER TABLE `vasarlasok_tetel`
 -- AUTO_INCREMENT a táblához `aboutus_text`
 --
 ALTER TABLE `aboutus_text`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT a táblához `breakfast_recipes`
@@ -669,6 +705,12 @@ ALTER TABLE `dinner_recipes`
 --
 ALTER TABLE `ecogourmet_services`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT a táblához `eco_gourmet_awards_achievements`
+--
+ALTER TABLE `eco_gourmet_awards_achievements`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT a táblához `lunch_recipes`
@@ -704,19 +746,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT a táblához `user_plans`
 --
 ALTER TABLE `user_plans`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT a táblához `vasarlasok`
 --
 ALTER TABLE `vasarlasok`
-  MODIFY `vasarlas_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `vasarlas_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT a táblához `vasarlasok_tetel`
 --
 ALTER TABLE `vasarlasok_tetel`
-  MODIFY `tetel_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `tetel_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- Megkötések a kiírt táblákhoz
