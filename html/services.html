@@ -1,20 +1,4 @@
+<!-- ./html/community.html -->
+
 <div class="page-container vh-100">
-    <header class="sticky-top" ng-include src="'./html/navigate.html'"></header>
-  
-    <div class="unique-page">
-      <div class="container">
-        <div class="slide">
-          <div class="item" ng-repeat="location in locations" ng-style="{'background-image': 'url(' + location.image + ')'}">
-            <div class="content">
-              <div class="name">{{ location.name }}</div>
-              <div class="des">{{ location.description }}</div>
-              <button>See More</button>
-            </div>
-          </div>
-        </div>
-        <div class="button">
-          <button class="prev"><i class="fa-solid fa-arrow-left"></i></button>
-          <button class="next"><i class="fa-solid fa-arrow-right"></i></button>
-        </div>
-      </div>
-    </div>
+    <header class="sticky-top" ng-include src="'./html/navigate.html'"></header>    

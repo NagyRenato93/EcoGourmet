@@ -39,7 +39,7 @@
            </div>
          </div>
          <div class="col-lg-6" 
-              ng-class="{ 'order-lg-1': $first && $index !== 2 }">
+              ng-class="{ 'order-lg-1': $first && $index !== 2 | limitTo: 3 }">
            <div class="p-5">
              <h2 class="display-4">{{ aboutUsText.title }}</h2>
              <p>{{ aboutUsText.description }}</p>
@@ -48,42 +48,6 @@
        </div>
      </div>
    </section>
-
-  <!-- pricing cards -->
-  <!-- <section class="bg-light py-5">
-    <div class="container px-5 my-5">
-      <div class="text-center mb-5">
-        <h2 class="fw-bolder">Velünk minden lehetséges!</h2>
-        <p class="lead mb-0">Az árainkat is rátok szabtuk.</p>
-      </div>
-      <div class="row gx-5 justify-content-center">
-        <div class="col-lg-4 mb-5" *ngFor="plan of subscription_plans">
-          <div class="card h-100">
-            <div class="card-body p-5">
-              <div class="small text-uppercase fw-bold text-muted">{{ plan.nev }}</div>
-              <div class="mb-3">
-                <span class="display-4 fw-bold">{{ plan.ar_forint }}Ft</span>
-                <span class="text-muted">/feliratkozás.</span>
-              </div>
-              <ul class="list-unstyled mb-4">
-                <li *ngIf="plan.duration" class="mb-2">
-                  <i class="bi bi-check text-primary"></i>
-                  <strong>Előfizetése {{ plan.duration }} hónapig tart.</strong>
-                </li>
-                <li *ngIf="plan.description" class="mb-2">
-                  <i class="bi bi-check text-primary"></i>
-                  {{ plan.description }}
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-      <a ui-sref="products" class="btn btn-outline-black">
-        {{ 'DISCOVER_MORE' | translate:lang.data }}
-      </a>
-    </div>
-  </section> -->
 
 
    <!--sub-nav with menu-->
@@ -186,10 +150,62 @@
      </div>
    </section>
 
+
+  <!-- pricing cards -->
+  <section class="bg-light py-3 ">
+    <div class="container px-5 my-5">
+      <div class="text-center mb-5">
+        <h2 class="fw-bolder">Előre meghatározott opciók a tartalomhoz való hozzáféréshez</h2>
+      </div>
+      <div class="row gx-5 justify-content-center">
+        <div class="col-lg-4 mb-5" 
+             ng-repeat="plan in subscription_plans">
+          <div class=" h-100">
+            <div class="p-5">
+              <div class="small text-uppercase fw-bold text-muted"></div>
+              <ul class="list-unstyled mb-4">
+                <li class="mb-2">
+                  <i class="bi bi-check text-primary"></i>
+                  <strong>{{plan.nev}}</strong>
+                </li>
+                <li class="mb-2">
+                  <i class="bi bi-check text-primary"></i>
+                  {{plan.description}}
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>    
+        <a ui-sref="products" class="btn btn-outline-black">
+          {{ 'DISCOVER_MORE' | translate:lang.data }}
+        </a>
+        <h3 class="small col-lg-7">
+          {{('plans') | translate:lang.data}}
+        </h3>
+      </div>
+    </div>
+  </section>
+
+    <!-- Awards Section -->
+    <section class="showcase">
+      <div class="container-fluid p-0">
+          <div class="row g-0 " 
+                    ng-repeat="award in awards_achievements | limitTo: 5">
+                <div class="col-lg-6 order-lg-{{ $index % 2 === 0 ? 2 : 1 }} text-white showcase-img" 
+                    style="background-image:url('./media/image/awards/award{{$index+1}}.jpeg');"></div>
+                <div class="col-lg-6 order-lg-{{ $index % 2 === 0 ? 1 : 2 }} my-auto showcase-text">
+                    <h2 class="fw-bolder">{{ award.title }}</h2>
+                    <p class="lead mb-0">{{ award.description }}</p>
+                    <p class="lead mb-0">Dátum: {{ award.date }}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
    <!-- Testimonials angularositot-->
-   <section class="testimonials text-center bg-light hidden">
+   <section class="testimonials text-center bg-light hidden py-5">
      <div class="container-fluid">
-       <h2 class="mb-5" style="margin-top: 50px;">Mit mondanak rólunk...</h2>
+       <h2 class="mb-5 fw-bolder">Mit mondanak rólunk...</h2>
        <div class="row">
          <div class="col-lg-4" 
               ng-repeat="testimonial in testimonials.slice(0, 3)">
@@ -214,6 +230,7 @@
        <i class="fas fa-thin fa-arrow-up fa-bounce"></i>
     </span>
     </div>
+    
   </div>
 </section>
 

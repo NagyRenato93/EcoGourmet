@@ -66,8 +66,14 @@
   "shop_card_title_4":"Garantált Frissesség",
   "ecogourmet_features_title":"Miért érdemes minket választani?",
   "DISCOVER_MORE": "További információk",
-  "Cart": "Kosárba"
+  "Cart": "Kosárba",
+  "about_title_1": "Zöld Diéták...",
+  "about_text_1": "Az étrendek nemcsak az egészséget, hanem az ízletes ételek élvezetét is hangsúlyozzák, lehetővé téve az ügyfelek számára az egészséges táplálkozás előnyeinek megtapasztalását. Az EcoGourmet úgy hiszi, hogy az egészséges életmód és a fenntarthatóság összeegyeztethető célok, amelyeket minden ügyfél számára elérhetővé tesz. Tevékenységük összehangolja a személyes jólétet és a környezeti felelősséget, hozzájárulva egy fenntartható jövő kialakításához. Az EcoGourmet az eszményi példája a táplálkozási tanácsadásnak, amely egyszerre ötvözi a közösségi és környezeti felelősségvállalást.",
+  "about_title_2": "Miért Eco?",
+  "about_text_2": "Mivel minden vásárlásuk után a cég egy fát ültet, hozzájárulva a környezetvédelemhez és a globális klímaváltozás elleni küzdelemhez. A táplálkozási tanácsadás terén az EcoGourmet az egyéni igényeket és célokat szem előtt tartja, és minden étrendet a testsúly ideális szintjéhez optimalizál. A cég munkatársai magas szintű szakértelemmel és elkötelezettséggel dolgoznak az ügyfelekkel, hogy segítsenek nekik az egészséges étkezéshez vezető úton.",
+  "about_title_3": "Együtt elérjük!",
+  "about_text_3": "Az EcoGourmet egy kivételes vállalkozás, amely elkötelezett az egészséges életmód és a környezetvédelem iránt. Cégfilozófiájuk az ökológia és a gasztronómia harmonikus egyesítése, hogy ügyfeleiknek az optimális testsúlyhoz vezető útmutatást nyújtsák, miközben fenntartható módon gondoskodnak a környezetről.",
+  "plans":"*Feliratkozás után napi számos egészséges receptet kapsz minden étkezéshez, hogy könnyedén döntést hozhass, és változatosan étkezhess anélkül, hogy az egészséged rovására menne.",
+  "news": "Legfrissebb Híreink"
 
-
-  
 }

@@ -1,37 +1,6 @@
 <!-- Navigate -->
 <header class="sticky-top" ng-include src="'./html/navigate.html'"></header>
 
-
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid text-center">
-
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav mx-auto">
-
-        <!-- Nav with filters -->
-        <li ng-repeat="category in getCategoryList()" class="nav-item">
-          <a class="nav-link" ng-click="setCategoryFilter(category)">{{ category }}</a>
-          
-          <!-- Show items for all categories -->
-          <ul class="navbar-nav">
-            <li ng-repeat="item in getItemsByCategory(category)" class="nav-item">
-              <a class="nav-link" ng-click="setSelectedItem(item)">{{ item.name }}</a>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-
 <!-- Store Rész tartalma / Store Cards -->
 <div class="container-fluid">
   <div class="row">
@@ -81,6 +50,40 @@
             </div>
           </div>
         </div>
+
+        <!-- Tab filters -->
+<div class="container">
+  <ul class="nav nav-pills mb-3 nav-justified" id="pills-tab" role="tablist">
+    <li ng-repeat="category in getCategoryList()" class="nav-item" role="presentation">
+      <a class="nav-link" 
+         ng-class="{ 'active': category === $scope.activeTab }" 
+         ng-click="setCategoryFilter(category)" 
+         id="{{ 'tab-' + category + '-tab' }}" 
+         data-bs-toggle="pill" 
+         href="#{{ 'tab-' + category }}" 
+         role="tab" 
+         aria-controls="{{ 'tab-' + category }}" 
+         aria-selected="{{ category === $scope.activeTab }}">
+         {{ category }}
+      </a>
+    </li>
+  </ul>
+
+  <!-- Tab content -->
+  <div class="tab-content" id="pills-tabContent">
+    <div ng-repeat="category in getCategoryList()" 
+         ng-if="category === $scope.activeTab" 
+         id="{{ 'tab-' + category }}" 
+         class="tab-pane fade show active" 
+         role="tabpanel" 
+         aria-labelledby="{{ 'tab-' + category + '-tab' }}">
+      <!-- Your content for each tab goes here -->
+      <h3>{{ category }}</h3>
+      <p>Content for {{ category }} tab goes here.</p>
+    </div>
+  </div>
+</div>
+
       </section>
     </div>
   </div>
