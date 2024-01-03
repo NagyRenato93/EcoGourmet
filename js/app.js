@@ -738,18 +738,13 @@
             // Http request to retrieve recipes
             http.request('./php/about_us.php')
                .then(response => {
-                  $scope.breakfastRecipes = response.breakfastRecipes;
-                  $scope.lunchRecipes = response.lunchRecipes;
-                  $scope.dinnerRecipes = response.dinnerRecipes;
                   $scope.testimonials = response.testimonials;
                   $scope.subscription_plans = response.subscription_plans;
                   $scope.aboutUsTexts = response.aboutUsTexts;
-                  $scope.awards_achievements = response.awards_achievements;
-
 
                   $scope.$applyAsync();
-                  //recipes.promise.resolve();
                });
+               
             // Smooth animation on scrolling on About Us Page
             function initializeIntersectionObserver() {
                let observer = new IntersectionObserver(function (entries) {
@@ -783,7 +778,8 @@
                   document.body.style.transition = ''; // A transition visszaállítása az eredeti értékre
                }, 500); // Időzítés, amely egyezik a transition időtartamával
             };
-            
+
+
          }
    ])
 
@@ -998,8 +994,30 @@
             http.request('./php/services.php')
                .then(response => {
                   if (response && response.eco_gourmet_news) {
-                     $scope.eco_gourmet_news = response.eco_gourmet_news;
-                  
+                     $scope.breakfastRecipes = response.breakfastRecipes;
+                     $scope.lunchRecipes = response.lunchRecipes;
+                     $scope.dinnerRecipes = response.dinnerRecipes;    
+                     $scope.awards_achievements = response.awards_achievements;
+                     
+
+                     // Alapértelmezett fül beállítása
+                     $scope.activeTab = 'menu-breakfast';
+
+                     $scope.setActiveTab = function(tabId) {
+                        $scope.activeTab = tabId;
+                     };
+
+                     // Menük inicializálása
+                     $scope.menus = [
+                        { tabId: 'menu-breakfast', title: 'Reggeli', recipes: $scope.breakfastRecipes },
+                        { tabId: 'menu-lunch', title: 'Ebéd', recipes: $scope.lunchRecipes },
+                        { tabId: 'menu-dinner', title: 'Vacsora', recipes: $scope.dinnerRecipes }
+                     ];
+
+                     // Aktív fül inicializálása
+                     $scope.activeTab = 'menu-breakfast';
+
+
                      $scope.$applyAsync();
                   }
                  

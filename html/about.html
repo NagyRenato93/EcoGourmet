@@ -1,17 +1,12 @@
-<!-- Page container -->
 <div class="page-container d-conditional vh-100">
-   
-   <!-- Navigate -->
-   <header class="sticky-top" ng-include src="'./html/navigate.html'"></header>
-
-   <!-- Video Container -->
-   <div class="video-container">
-     <video autoplay muted loop class="blurred-video">
-       <source src="./media/video/robin.mp4" 
-               type="video/mp4">
-     </video>
-   </div>
-
+  <!-- Navigate -->
+  <header class="sticky-top" ng-include src="'./html/navigate.html'"></header>
+  <!-- Video Container -->
+  <div class="video-container">
+    <video autoplay muted loop class="blurred-video">
+      <source src="./media/video/robin.mp4" type="video/mp4">
+    </video>
+  </div>
   <!-- Home title -->
   <div class="home">
     <div class="backdrop-filter-element"></div>
@@ -20,146 +15,35 @@
       <i class="fa-solid fa-chevron-down fa-bounce" style="font-size: larger;"></i>
     </div>
   </div>
-
-   <!--Content after video-->
-   <div class="inner-header flex">
-   </div>
-
-   <!-- Section: about us text part angular version -->
-   <section class="hidden" 
-            id="scroll">
-     <div class="container px-5" 
-          ng-repeat="aboutUsText in aboutUsTexts">
-       <div class="row gx-5 align-items-center">
-         <div class="col-lg-6" 
-              ng-class="{ 'order-lg-2': $first || $index === 2 }">
-           <div class="p-5">
-             <img class="img-fluid rounded-circle" 
-                  ng-src="{{ aboutUsText.image }}" alt="..." />
-           </div>
-         </div>
-         <div class="col-lg-6" 
-              ng-class="{ 'order-lg-1': $first && $index !== 2 | limitTo: 3 }">
-           <div class="p-5">
-             <h2 class="display-4">{{ aboutUsText.title }}</h2>
-             <p>{{ aboutUsText.description }}</p>
-           </div>
-         </div>
-       </div>
-     </div>
-   </section>
-
-
-   <!--sub-nav with menu-->
-   <section id="menu" 
-            class="menu hidden" 
-            ng-init="activeTab = 'menu-breakfast'">
-     <div class="container" 
-          data-aos="fade-up">
-       <div class="section-header">
-         <h2>Menü ötletek nektek!</h2>
-         <p>Nagyon Finom! <span> Nagyon jó!</span>
-         </p>
-       </div>
-       <ul class="nav nav-tabs d-flex justify-content-center" 
-           data-aos="fade-up" 
-           data-aos-delay="200">
-         <li class="nav-item">
-           <a class="nav-link active" 
-              data-bs-toggle="tab" 
-              href="#menu-breakfast" 
-              ng-click="activeTab = 'menu-breakfast'">
-             <h4>Reggeli</h4>
-           </a>
-         </li>
-         <li class="nav-item">
-           <a class="nav-link" 
-              data-bs-toggle="tab" 
-              href="#menu-lunch" 
-              ng-click="activeTab = 'menu-lunch'">
-             <h4>Ebéd</h4>
-           </a>
-         </li>
-         <li class="nav-item">
-           <a class="nav-link" 
-              data-bs-toggle="tab" 
-              href="#menu-dinner" 
-              ng-click="activeTab = 'menu-dinner'">
-             <h4>Vacsora</h4>
-           </a>
-         </li>
-       </ul>
-       <div class="tab-content" 
-            data-aos="fade-up" 
-            data-aos-delay="300">
-
-         <!-- Breakfast Menu Content -->
-         <div class="tab-pane fade in active show" 
-              id="menu-breakfast" 
-              ng-show="activeTab === 'menu-breakfast'">
-           <div class="tab-header text-center">
-             <p>Menu</p>
-             <h3>Reggeli</h3>
-           </div>
-           <div class="row gy-5">
-             <div class="col-lg-4 menu-item" 
-                  ng-repeat="recipe in breakfastRecipes">
-               <h4>{{ recipe.name }}</h4>
-               <p class="ingredients">{{ recipe.ingredients }}</p>
-               <p class="time">{{ recipe.cooking_time }} perc </p>
-             </div>
-           </div>
-         </div>
-
-         <!-- Lunch Menu Content -->
-         <div class="tab-pane fade" 
-              id="menu-lunch" 
-              ng-show="activeTab === 'menu-lunch'">
-           <div class="tab-header text-center">
-             <p>Menu</p>
-             <h3>Ebéd</h3>
-           </div>
-           <div class="row gy-5">
-             <div class="col-lg-4 menu-item" 
-                  ng-repeat="recipe in lunchRecipes">
-               <h4>{{ recipe.name }}</h4>
-               <p class="ingredients">{{ recipe.ingredients }}</p>
-               <p class="time">{{ recipe.cooking_time }} perc </p>
-             </div>
-           </div>
-         </div>
-
-         <!-- Dinner Menu Content -->
-         <div class="tab-pane fade" 
-              id="menu-dinner" 
-              ng-show="activeTab === 'menu-dinner'">
-           <div class="tab-header text-center">
-             <p>Menu</p>
-             <h3>Vacsora</h3>
-           </div>
-           <div class="row gy-5">
-             <div class="col-lg-4 menu-item" 
-                  ng-repeat="recipe in dinnerRecipes">
-               <h4>{{ recipe.name }}</h4>
-               <p class="ingredients">{{ recipe.ingredients }}</p>
-               <p class="time">{{ recipe.cooking_time }} perc </p>
-             </div>
-           </div>
-         </div>
-       </div>
-     </div>
-   </section>
-
-
-  <!-- pricing cards -->
-  <section class="bg-light py-3 ">
-    <div class="container px-5 my-5">
+  <!-- Content after video -->
+  <div class="inner-header flex"></div>
+  <!-- Section: about us text part angular version -->
+  <section class="hidden" id="scroll">
+    <div class="container" ng-repeat="aboutUsText in aboutUsTexts">
+      <div class="row gx-5 align-items-center">
+        <div class="col-lg-6" ng-class="{ 'order-lg-2': $first || $index === 2 }">
+          <div class="p-5">
+            <img class="img-fluid rounded-circle" ng-src="{{ aboutUsText.image }}" alt="..." />
+          </div>
+        </div>
+        <div class="col-lg-6" ng-class="{ 'order-lg-1': $first && $index !== 2 }">
+          <div class="p-5">
+            <h2 class="display-4">{{ 'about_title_' + ($index + 1) | translate:lang.data }}</h2>
+            <p>{{ 'about_text_' + ($index + 1) | translate:lang.data }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Pricing cards -->
+  <section class="bg-light py-5 hidden">
+    <div class="container my-5">
       <div class="text-center mb-5">
-        <h2 class="fw-bolder">Előre meghatározott opciók a tartalomhoz való hozzáféréshez</h2>
+        <h2 class="fw-bolder">{{ 'abut_pricing_title' | translate:lang.data }}</h2>
       </div>
       <div class="row gx-5 justify-content-center">
-        <div class="col-lg-4 mb-5" 
-             ng-repeat="plan in subscription_plans">
+        <div class="col-lg-4 mb-5" ng-repeat="plan in subscription_plans">
           <div class=" h-100">
             <div class="p-5">
               <div class="small text-uppercase fw-bold text-muted"></div>
@@ -170,12 +54,12 @@
                 </li>
                 <li class="mb-2">
                   <i class="bi bi-check text-primary"></i>
-                  {{plan.description}}
+                  {{ 'plan_desc_' + ($index + 1) | translate:lang.data }}
                 </li>
               </ul>
             </div>
           </div>
-        </div>    
+        </div>
         <a ui-sref="products" class="btn btn-outline-black">
           {{ 'DISCOVER_MORE' | translate:lang.data }}
         </a>
@@ -186,55 +70,31 @@
     </div>
   </section>
 
-    <!-- Awards Section -->
-    <section class="showcase">
-      <div class="container-fluid p-0">
-          <div class="row g-0 " 
-                    ng-repeat="award in awards_achievements | limitTo: 5">
-                <div class="col-lg-6 order-lg-{{ $index % 2 === 0 ? 2 : 1 }} text-white showcase-img" 
-                    style="background-image:url('./media/image/awards/award{{$index+1}}.jpeg');"></div>
-                <div class="col-lg-6 order-lg-{{ $index % 2 === 0 ? 1 : 2 }} my-auto showcase-text">
-                    <h2 class="fw-bolder">{{ award.title }}</h2>
-                    <p class="lead mb-0">{{ award.description }}</p>
-                    <p class="lead mb-0">Dátum: {{ award.date }}</p>
-                </div>
+  <!-- Tabs content -->
+  <!-- Testimonials angularositot-->
+  <section class="testimonials text-center bg-light hidden py-5">
+    <div class="container-fluid">
+      <h2 class="mb-5 fw-bolder">{{ 'testimonial_title'| translate:lang.data }}</h2>
+      <div class="row">
+        <div class="col-lg-4" ng-repeat="testimonial in testimonials.slice(0, 3)">
+          <div class="testimonial-item mx-auto mb-5 mb-lg-0" style="max-inline-size: 50ch;">
+            <div class="circle overflow-hidden mx-auto" style="width: 150px; height: 150px;">
+              <img class="img-fluid circle mb-3" style="border-radius: 50%;" ng-src="{{ testimonial.kep_url }}" alt="..." />
             </div>
+            <h5 class="mt-6 text-center py-3">{{ testimonial.name }}</h5>
+            <p class="font-weight-light mt-6">{{ 'testimonial_desc_'  + ($index + 1) | translate:lang.data }}</p>
+          </div>
         </div>
-    </section>
-
-   <!-- Testimonials angularositot-->
-   <section class="testimonials text-center bg-light hidden py-5">
-     <div class="container-fluid">
-       <h2 class="mb-5 fw-bolder">Mit mondanak rólunk...</h2>
-       <div class="row">
-         <div class="col-lg-4" 
-              ng-repeat="testimonial in testimonials.slice(0, 3)">
-           <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-             <div class="rounded-circle overflow-hidden mx-auto" 
-                  style="width: 150px; height: 150px;">
-               <img class="img-fluid rounded-circle mb-3" 
-                    style="border-radius: 50%;"
-                    ng-src="{{ testimonial.kep_url }}" 
-                    alt="..." />
-             </div>
-             <h5 class="mt-4">{{ testimonial.name }}</h5>
-             <p class="font-weight-light text-center mb-0">{{ testimonial.description }}</p>
-           </div>
-         </div>
-       </div>
-
+      </div>
       <!-- scroll to top button -->
-     <div class="scroll-to-top text-right bg-light" 
-          ng-click="smoothScrollToTop()">
-    <span class="arrow-up small">
-       <i class="fas fa-thin fa-arrow-up fa-bounce"></i>
-    </span>
+      <div class="scroll-to-top text-right bg-light" ng-click="smoothScrollToTop()">
+        <span class="arrow-up small">
+          <i class="fas fa-thin fa-arrow-up fa-bounce"></i>
+        </span>
+      </div>
     </div>
-    
-  </div>
-</section>
-
-   <!-- Footer -->
-   <footer ng-include src="'./html/footer.html'"></footer>
- </div>
- </div>
+  </section>
+  <!-- Footer -->
+  <footer ng-include src="'./html/footer.html'"></footer>
+</div>
+</div>

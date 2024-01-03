@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2024. Jan 02. 16:27
+-- Létrehozás ideje: 2024. Jan 02. 21:57
 -- Kiszolgáló verziója: 10.4.27-MariaDB
 -- PHP verzió: 8.2.0
 
@@ -29,7 +29,6 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `aboutus_text` (
   `id` int(11) NOT NULL,
-  `lang` varchar(11) NOT NULL,
   `title` varchar(255) NOT NULL,
   `description` text NOT NULL,
   `image` varchar(255) NOT NULL
@@ -39,10 +38,10 @@ CREATE TABLE `aboutus_text` (
 -- A tábla adatainak kiíratása `aboutus_text`
 --
 
-INSERT INTO `aboutus_text` (`id`, `lang`, `title`, `description`, `image`) VALUES
-(1, 'hu', 'Zöld étrendek...', 'Az étrendek nemcsak az egészséget, hanem az ízletes ételek élvezetét is hangsúlyozzák, így az ügyfelek élvezhetik az egészséges táplálkozás előnyeit. Az EcoGourmet hisz abban, hogy az egészséges életmód és a fenntarthatóság kompatibilis célok, amelyeket minden ügyfél számára elérhetővé tesz. Tevékenységük összehangolja a személyes jólétet és a környezeti felelősséget, így hozzájárulnak a fenntartható jövő kialakításához. Az EcoGourmet az eszményi példája a táplálkozási tanácsadásnak, amely egyszerre ötvözi a közösségi és környezeti felelősségvállalást.', './media/image/ffood1.jpg'),
-(2, 'hu', 'Miért Eco?', 'Mivel minden vásárlásuk után a cég egy fát ültet, hozzájárulva a környezetvédelemhez és a globális klímaváltozás elleni küzdelemhez. A táplálkozási tanácsadás terén az EcoGourmet az egyéni igényeket és célokat szem előtt tartja, és minden étrendet a testsúly ideális szintjéhez optimalizál. A cég munkatársai magas szintű szakértelemmel és elkötelezettséggel dolgoznak az ügyfelekkel, hogy segítsenek nekik az egészséges étkezéshez vezető úton.', './media/image/tree1.jpg'),
-(3, 'hu', 'Együtt elérjük!', 'Az EcoGourmet egy kivételes vállalkozás, amely elkötelezett az egészséges életmód és a környezetvédelem iránt. Cégfilozófiájuk az ökológia és a gasztronómia harmonikus egyesítése, hogy ügyfeleiknek az optimális testsúlyhoz vezető útmutatást nyújtsák, miközben fenntartható módon gondoskodnak a környezetről.', './media/image/enjoy1.jpg');
+INSERT INTO `aboutus_text` (`id`, `title`, `description`, `image`) VALUES
+(1, 'about_title_1', 'about_text_1', './media/image/ffood1.jpg'),
+(2, 'about_title_2', 'about_text_2', './media/image/tree1.jpg'),
+(3, 'about_title_3', 'about_text_3', './media/image/enjoy1.jpg');
 
 -- --------------------------------------------------------
 
@@ -166,21 +165,19 @@ CREATE TABLE `eco_gourmet_awards_achievements` (
   `id` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
   `description` text DEFAULT NULL,
-  `date` date DEFAULT NULL,
-  `image_url` varchar(255) DEFAULT NULL
+  `date` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- A tábla adatainak kiíratása `eco_gourmet_awards_achievements`
 --
 
-INSERT INTO `eco_gourmet_awards_achievements` (`id`, `title`, `description`, `date`, `image_url`) VALUES
-(1, 'Fenntartható Éttermiség Díj', 'Az EcoGourmet étterme elnyerte a Fenntartható Éttermiség Díjat környezetbarát gyakorlataiért.', '2022-01-15', 'path/to/image1.jpg'),
-(2, 'Zöld Konyha Elismerés', 'A Zöld Konyha szervezet kitüntette az EcoGourmet konyháját a fenntartható alapanyagok és folyamatok alkalmazásáért.', '2022-03-10', 'path/to/image2.jpg'),
-(3, 'EcoGourmet Környezetvédelmi Hős', 'Az EcoGourmet csapatát a környezetvédelmi erőfeszítéseikért és pozitív hatásukért a környezetre.', '2022-06-20', 'path/to/image3.jpg'),
-(4, 'Bio Étterem Minősítés', 'Az EcoGourmet étterme megkapta a Bio Étterem minősítést a bio alapanyagok használata miatt.', '2022-08-05', 'path/to/image4.jpg'),
-(5, 'Fenntartható Gasztronómiai Innováció Díj', 'Az EcoGourmet új, fenntartható gasztronómiai megoldásaiért elnyerte az Innováció Díjat.', '2022-10-15', 'path/to/image5.jpg'),
-(6, 'Környezetbarát Menü Különdíj', 'Az EcoGourmet által kínált környezetbarát menüért a Gasztronómiai Szövetség Különdíjjal tüntette ki.', '2022-12-01', 'path/to/image6.jpg');
+INSERT INTO `eco_gourmet_awards_achievements` (`id`, `title`, `description`, `date`) VALUES
+(1, 'award_title_1', 'award_text_1', '2022-01-15'),
+(2, 'award_title_2', 'award_text_2', '2022-03-10'),
+(3, 'award_title_3', 'award_text_3', '2022-06-20'),
+(4, 'award_title_4', 'award_text_4', '2022-08-05'),
+(5, 'award_title_5', 'award_text_5', '2022-10-15');
 
 -- --------------------------------------------------------
 
@@ -261,9 +258,9 @@ CREATE TABLE `subscription_plans` (
 --
 
 INSERT INTO `subscription_plans` (`termek_id`, `nev`, `description`, `duration`, `ar_forint`) VALUES
-(1, 'Simple', 'A Simple szintű terv lehetővé teszi a választható reggeli, ebéd vagy vacsora rendelését. Ideális rövidebb idejű, kifinomultabb élményekhez nektek, neked!', 2, 5000),
-(2, 'Pro', 'A Pro terv két választható étkezést kínál reggeli, ebéd vagy vacsora formájában. A hosszabb időtartam miatt ideális az élelmiszer előfizetés kedvelőinek.', 3, 9000),
-(3, 'Enterprise', 'A Enterprise terv a luxus és változatosság jegyében született. Minden nap három étkezés kínál, reggeli, ebéd és vacsora formájában.', 6, 18000);
+(1, 'Simple', 'plan_desc_1', 2, 5000),
+(2, 'Pro', 'plan_desc_2', 3, 9000),
+(3, 'Enterprise', 'plan_desc_3', 6, 18000);
 
 -- --------------------------------------------------------
 
@@ -275,10 +272,7 @@ CREATE TABLE `termek` (
   `termek_id` int(11) NOT NULL,
   `nev` varchar(255) NOT NULL,
   `kategoria` varchar(50) NOT NULL,
-  `szavatossagi_ido` int(11) DEFAULT NULL,
-  `raktaron` tinyint(1) NOT NULL,
-  `forgalmazo` varchar(255) DEFAULT NULL,
-  `gyarto` varchar(255) DEFAULT NULL,
+  `leiras` text NOT NULL,
   `ar_forint` int(11) NOT NULL,
   `kep_eleresi_ut` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -287,109 +281,33 @@ CREATE TABLE `termek` (
 -- A tábla adatainak kiíratása `termek`
 --
 
-INSERT INTO `termek` (`termek_id`, `nev`, `kategoria`, `szavatossagi_ido`, `raktaron`, `forgalmazo`, `gyarto`, `ar_forint`, `kep_eleresi_ut`) VALUES
-(1, 'Protein Szelet Csokoládé ízű', 'Protein', 2026, 50, 'FitPro Distributor', 'HealthyBites Inc.', 2000, './media/image/food42.jpg'),
-(2, 'Protein Szelet Vanília ízű', 'Protein', 2026, 30, 'NutriSupply', 'ProteinPlus Ltd.', 1800, NULL),
-(3, 'Protein Szelet Eper ízű', 'Protein', 2023, 40, 'BioFuel Nutrition', 'OrganicProtein Co.', 2200, NULL),
-(4, 'Protein Szelet Mogyoró ízű', 'Protein', 2024, 35, 'FitLife Retail', 'BodyFuel Enterprises', 2100, NULL),
-(5, 'Protein Szelet Banán ízű', 'Protein', 2024, 48, 'SportNutri', 'ActiveProtein Ltd.', 1900, NULL),
-(6, 'Protein Szelet Vanília-Cseresznye ízű', 'Protein', 2023, 25, 'VitalChoice', 'NutriBlend Corporation', 2150, NULL),
-(7, 'Protein Szelet Kókusz ízű', 'Protein', 2025, 42, 'NutriMax', 'NaturePro Foods', 2300, NULL),
-(8, 'Protein Szelet Meggy ízű', 'Protein', 2023, 38, 'SuperNutrition', 'GreenFit Labs', 1950, NULL),
-(9, 'Protein Szelet Fehér Csokoládé-Málna ízű', 'Protein', 2024, 31, 'HealthWise', 'FitFoods Inc.', 2400, NULL),
-(10, 'Protein Szelet Karamell ízű', 'Protein', 2024, 33, 'ProteinElite', 'NutriCore', 2050, NULL),
-(11, 'Protein Szelet Almás Fűszer ízű', 'Protein', 2023, 28, 'VitaFuel', 'NaturalProtein Co.', 2150, NULL),
-(12, 'Protein Szelet Eper-Mentol ízű', 'Protein', 2024, 45, 'BioGains', 'PureFit Foods', 2100, NULL),
-(13, 'Protein Szelet Dió ízű', 'Protein', 2025, 36, 'WellnessFuel', 'EliteProtein Ltd.', 2250, NULL),
-(14, 'Protein Szelet Őszibarack ízű', 'Protein', 2024, 39, 'ProVitality', 'PowerBites Inc.', 1950, NULL),
-(15, 'Protein Szelet Kókusz-Kávé ízű', 'Protein', 2024, 32, 'NaturalBoost', 'PureEnergy Foods', 2200, NULL),
-(16, 'Protein Szelet Fekete Szeder ízű', 'Protein', 2023, 27, 'ProteinWorld', 'FitFuel Co.', 2350, NULL),
-(17, 'Protein Szelet Narancs-Chia ízű', 'Protein', 2023, 41, 'VivaProtein', 'NaturalHarmony', 2000, NULL),
-(18, 'Protein Szelet Matcha ízű', 'Protein', 2024, 34, 'BioFit Nutrition', 'PurePower Foods', 2300, NULL),
-(19, 'Protein Szelet Szamóca ízű', 'Protein', 2025, 29, 'SuperPro', 'GymFuel Inc.', 2050, NULL),
-(20, 'Protein Szelet Tiramisu ízű', 'Protein', 2025, 37, 'UltimateNutri', 'BodyTech Labs', 2400, NULL),
-(21, 'Protein Szelet Mangó ízű', 'Protein', 2024, 44, 'FreshNutri', 'TropicalBites Ltd.', 2150, NULL),
-(22, 'Protein Szelet Málna-Citrom ízű', 'Protein', 2026, 36, 'SuperGains', 'CitrusProtein Co.', 2000, NULL),
-(23, 'Protein Szelet Keksz-Krém ízű', 'Protein', 2025, 30, 'FitSnack', 'IndulgeFoods', 2250, NULL),
-(24, 'Protein Szelet Körte ízű', 'Protein', 2025, 48, 'EcoFuel', 'GreenHarvest Ltd.', 1900, NULL),
-(25, 'Protein Szelet Tejföl-Vanília ízű', 'Protein', 2026, 33, 'VivaLife', 'DairyProtein Inc.', 2100, NULL),
-(26, 'Protein Szelet Gyömbér-Méz ízű', 'Protein', 2026, 39, 'BioBalance', 'GoldenTaste Foods', 2200, NULL),
-(28, 'Protein Szelet Citrom-Menta ízű', 'Protein', 2025, 35, 'ZestyPro', 'FreshMint Foods', 2350, NULL),
-(30, 'Protein Szelet Tropikus Gyümölcs ízű', 'Protein', 2023, 31, 'ExoNutri', 'IslandBites Ltd.', 2400, NULL),
-(33, 'Protein Szelet Fekete Cseresznye-Banán ízű', 'Protein', 2023, 36, 'CherryBliss', 'BananaFuel Inc.', 2250, NULL),
-(34, 'Protein Szelet Sós Karamell-Mogyoró ízű', 'Protein', 2025, 29, 'SaltedCrunch', 'NuttyTreats Ltd.', 2100, NULL),
-(36, 'Protein Szelet Cukrozott Fehér Csokoládé-Kávé ízű', 'Protein', 2023, 41, 'SweetBean', 'CaffeineDelight Ltd.', 1950, NULL),
-(38, 'Protein Szelet Mandula-Kókusz ízű', 'Protein', 2024, 32, 'NuttyCoconut', 'AlmondJoy Foods', 2300, NULL),
-(41, 'Smoothie Por Eper-Banán ízű', 'Smoothie Por', 2024, 50, 'FreshBlend Distributor', 'FruitFusion Inc.', 1800, NULL),
-(42, 'Smoothie Por Mangó-Ananás ízű', 'Smoothie Por', 2025, 40, 'TropicalMix', 'ExoticDrinks Ltd.', 2000, NULL),
-(43, 'Smoothie Por Zöld Alma-Spenót ízű', 'Smoothie Por', 2023, 35, 'GreenRevive', 'HealthyGreens Co.', 2200, NULL),
-(44, 'Smoothie Por Kivi-Mentha ízű', 'Smoothie Por', 2023, 45, 'CoolFruit', 'MintyFresh Beverages', 1900, NULL),
-(45, 'Smoothie Por Málna-Vanília ízű', 'Smoothie Por', 2024, 48, 'BerryJoy', 'VanillaFusion Ltd.', 2100, NULL),
-(46, 'Smoothie Por Ananász-Kókusz ízű', 'Smoothie Por', 2023, 30, 'TropicalDelight', 'CoconutTreats Inc.', 2400, NULL),
-(47, 'Smoothie Por Banán-Kakaó ízű', 'Smoothie Por', 2025, 42, 'ChocoBanana', 'CocoaBlend Foods', 1950, NULL),
-(48, 'Smoothie Por Sárgabarack-Mandula ízű', 'Smoothie Por', 2023, 38, 'ApricotJoy', 'AlmondHarmony Ltd.', 2150, NULL),
-(49, 'Smoothie Por Avokádó-Málna ízű', 'Smoothie Por', 2023, 33, 'AvocadoMix', 'BerryBlend Inc.', 2300, NULL),
-(50, 'Smoothie Por Cseresznye-Alma ízű', 'Smoothie Por', 2023, 36, 'CherryApple', 'FruitHarvest Ltd.', 2050, NULL),
-(51, 'Smoothie Por Citrom-Gyömbér ízű', 'Smoothie Por', 2024, 29, 'ZestyGinger', 'CitrusSpice Co.', 2150, NULL),
-(52, 'Smoothie Por Eper-Gránátalma ízű', 'Smoothie Por', 2024, 48, 'PomegranateBlend', 'RedFruit Delights', 2250, NULL),
-(53, 'Smoothie Por Mogyoró-Banán ízű', 'Smoothie Por', 2023, 41, 'NuttyBanana', 'BananaNut Foods', 2100, NULL),
-(54, 'Smoothie Por Spenót-Ananás ízű', 'Smoothie Por', 2024, 27, 'GreenPine', 'PineappleVeg Ltd.', 2350, NULL),
-(55, 'Smoothie Por Fekete Szeder-Menta ízű', 'Smoothie Por', 2023, 32, 'BerryMint', 'FreshBreeze Beverages', 2300, NULL),
-(56, 'Smoothie Por Banán-Cseresznye ízű', 'Smoothie Por', 2025, 45, 'BananaCherry', 'CherryBanana Ltd.', 2400, NULL),
-(57, 'Smoothie Por Datolya-Mandula ízű', 'Smoothie Por', 2023, 38, 'DateNutBlend', 'AlmondDate Foods', 2050, NULL),
-(58, 'Smoothie Por Alma-Pókhasz ízű', 'Smoothie Por', 2024, 34, 'SpiderApple', 'WebFruit Ltd.', 2300, NULL),
-(59, 'Smoothie Por Fehér Szőlő-Körte ízű', 'Smoothie Por', 2025, 29, 'WhiteGrapeBlend', 'PearFusion Inc.', 2050, NULL),
-(60, 'Smoothie Por Mogyoró-Karamell ízű', 'Smoothie Por', 2026, 37, 'CaramelNut', 'NuttyCaramel Foods', 2400, NULL),
-(61, 'Fehérje Por Csokoládé ízű', 'Fehérje Por', 2026, 50, 'ChocoProtein Distributor', 'FitChoco Inc.', 2500, NULL),
-(62, 'Fehérje Por Vanília ízű', 'Fehérje Por', 2024, 40, 'VanillaSupplies', 'PureVanilla Ltd.', 2200, NULL),
-(63, 'Fehérje Por Eper ízű', 'Fehérje Por', 2024, 35, 'BerryPro', 'OrganicProtein Co.', 2700, NULL),
-(64, 'Fehérje Por Banán ízű', 'Fehérje Por', 2025, 45, 'BananaFuel', 'PowerFoods Inc.', 2400, NULL),
-(65, 'Fehérje Por Mogyoróvaj ízű', 'Fehérje Por', 2025, 48, 'NuttyBlend', 'ProteinNuts Ltd.', 2600, NULL),
-(66, 'Fehérje Por Kókusz ízű', 'Fehérje Por', 2023, 30, 'CoconutFuel', 'TropicalProteins Inc.', 2800, NULL),
-(67, 'Fehérje Por Meggy ízű', 'Fehérje Por', 2023, 42, 'CherryPro', 'RedFruit Nutrition', 2300, NULL),
-(68, 'Fehérje Por Dió ízű', 'Fehérje Por', 2023, 38, 'WalnutProtein', 'NuttyLife Foods', 2500, NULL),
-(69, 'Fehérje Por Szamóca ízű', 'Fehérje Por', 2026, 33, 'StrawberryFuel', 'BerryBoost Inc.', 2600, NULL),
-(70, 'Fehérje Por Karamell ízű', 'Fehérje Por', 2025, 36, 'CaramelPro', 'SweetFusion Ltd.', 2700, NULL),
-(71, 'Kollagén Por Csokoládé ízű', 'Kollagén Por', 2023, 50, 'ChocoCollagen Distributor', 'HealthyChoco Inc.', 3000, NULL),
-(72, 'Kollagén Por Vanília ízű', 'Kollagén Por', 2024, 40, 'VanillaCollagen', 'PureVanilla Ltd.', 2800, NULL),
-(73, 'Kollagén Por Eper ízű', 'Kollagén Por', 2025, 35, 'BerryCollagen', 'OrganicCollagen Co.', 3200, NULL),
-(74, 'Kollagén Por Banán ízű', 'Kollagén Por', 2026, 45, 'BananaCollagen', 'PowerCollagen Inc.', 2900, NULL),
-(75, 'Kollagén Por Mogyoróvaj ízű', 'Kollagén Por', 2023, 48, 'NuttyCollagen', 'CollagenNuts Ltd.', 3100, NULL),
-(76, 'Kollagén Por Kókusz ízű', 'Kollagén Por', 2023, 30, 'CoconutCollagen', 'TropicalCollagen Inc.', 3300, NULL),
-(77, 'Kollagén Por Meggy ízű', 'Kollagén Por', 2025, 42, 'CherryCollagen', 'RedFruit Collagen', 2700, NULL),
-(78, 'Kollagén Por Dió ízű', 'Kollagén Por', 2023, 38, 'WalnutCollagen', 'CollagenLife Foods', 3000, NULL),
-(79, 'Kollagén Por Szamóca ízű', 'Kollagén Por', 2023, 33, 'StrawberryCollagen', 'BerryCollagen Inc.', 3100, NULL),
-(80, 'Kollagén Por Karamell ízű', 'Kollagén Por', 2023, 36, 'CaramelCollagen', 'SweetCollagen Ltd.', 3200, NULL),
-(91, 'Préselt Gyümölcs-Zöldség Ital Szőlő-Kiwi ízű', 'Préselt Ital', 2024, 38, 'GrapeKiwi', 'FreshSqueeze Inc.', 3300, NULL),
-(92, 'Préselt Gyümölcs-Zöldség Ital Banán-Mangó ízű', 'Préselt Ital', 2026, 41, 'BananaMango', 'TropicalBlend Co.', 3400, NULL),
-(93, 'Préselt Gyümölcs-Zöldség Ital Cseresznye-Spenót ízű', 'Préselt Ital', 2025, 27, 'CherrySpinach', 'RedLeaf Nutrition', 3500, NULL),
-(94, 'Préselt Gyümölcs-Zöldség Ital Mangó-Papaya ízű', 'Préselt Ital', 2024, 32, 'MangoPapaya', 'TropicalHarvest Ltd.', 3600, NULL),
-(95, 'Préselt Gyümölcs-Zöldség Ital Kivi-Brokkoli ízű', 'Préselt Ital', 2025, 45, 'KiwiBroccoli', 'GreenBlend Foods', 3700, NULL),
-(96, 'Préselt Gyümölcs-Zöldség Ital Citrom-Mángold ízű', 'Préselt Ital', 2024, 29, 'LemonChard', 'CitrusHarvest Inc.', 3800, NULL),
-(97, 'Préselt Gyümölcs-Zöldség Ital Banán-Spenót ízű', 'Préselt Ital', 2024, 37, 'BananaSpinach', 'PowerGreens Co.', 3200, NULL),
-(98, 'Préselt Gyümölcs-Zöldség Ital Áfonya-Sárgadinnye ízű', 'Préselt Ital', 2024, 33, 'BlueMelon', 'FreshBerry Ltd.', 3300, NULL),
-(99, 'Préselt Gyümölcs-Zöldség Ital Eper-Mentha ízű', 'Préselt Ital', 2025, 36, 'BerryMint', 'MintyFruit Inc.', 3400, NULL),
-(100, 'Préselt Gyümölcs-Zöldség Ital Sárga Szilva-Brokkoli ízű', 'Préselt Ital', 2026, 42, 'YellowPlumBroccoli', 'FreshHarvest Foods', 3500, NULL),
-(101, 'Immunerősítő Tea C-vitaminnal', 'Tea', 2025, 50, 'HealthTea Distributor', 'NaturalBoost Inc.', 1800, NULL),
-(102, 'Zsírégető Tea Zöld Teával', 'Tea', 2026, 40, 'SlimTea', 'GreenFit Ltd.', 2000, NULL),
-(103, 'Nyugtató Kamilla Tea', 'Tea', 2024, 35, 'CalmBrew', 'HerbalHarmony Co.', 2200, NULL),
-(104, 'Emésztést Segítő Gyömbér Tea', 'Tea', 2024, 45, 'GingerSip', 'DigestiveWellness Inc.', 1900, NULL),
-(105, 'Édesgyökér Gyökér Tea', 'Tea', 2024, 48, 'SweetRoot', 'HerbBlend Ltd.', 2100, NULL),
-(106, 'Vitamin Bomba Teakeverék', 'Tea', 2026, 30, 'VitaTea', 'NutriBlend Co.', 1950, NULL),
-(107, 'Méregtelenítő Zöld Tea Spirulinával', 'Tea', 2026, 42, 'DetoxGreen', 'PureCleanse Foods', 2350, NULL),
-(108, 'Energizáló Ginseng Tea', 'Tea', 2026, 32, 'GinsengBoost', 'EnergyHerb Inc.', 2300, NULL),
-(109, 'Fokhagyma-Tea Antibakteriális Hatással', 'Tea', 2026, 45, 'GarlicGuard', 'HerbalHealth Ltd.', 2400, NULL),
-(110, 'Vidámító Citromfű Tea', 'Tea', 2024, 28, 'LemonJoy', 'HerbalZest Inc.', 2050, NULL),
-(121, 'Liofilizált Eper Szeletek', 'Liofilizált Gyümölcs', 2025, 50, 'FruitFreeze Distributor', 'BerryDelights Inc.', 2500, NULL),
-(122, 'Liofilizált Szeder', 'Liofilizált Gyümölcs', 2024, 40, 'BlackberryFreeze', 'NatureBerries Ltd.', 2200, NULL),
-(123, 'Liofilizált Mangókockák', 'Liofilizált Gyümölcs', 2026, 35, 'MangoCubes', 'TropicalFruits Co.', 2700, NULL),
-(124, 'Liofilizált Banánszeletek', 'Liofilizált Gyümölcs', 2023, 45, 'BananaChips', 'FruitfulBites Inc.', 2400, NULL),
-(125, 'Liofilizált Ananászgyöngyök', 'Liofilizált Gyümölcs', 2025, 48, 'PineapplePearls', 'TropicalBurst Ltd.', 2600, NULL),
-(126, 'Liofilizált Málna', 'Liofilizált Gyümölcs', 2024, 30, 'RaspberryFreeze', 'BerryBlast Inc.', 2800, NULL),
-(127, 'Liofilizált Kivi Szeletek', 'Liofilizált Gyümölcs', 2026, 42, 'KiwiSlices', 'TropicalKiwi Foods', 3100, NULL),
-(128, 'Liofilizált Cseresznye', 'Liofilizált Gyümölcs', 2025, 38, 'CherryBites', 'RedBerry Co.', 3000, NULL),
-(129, 'Liofilizált Alma Szeletek', 'Liofilizált Gyümölcs', 2023, 33, 'AppleSlices', 'FruitHarvest Ltd.', 2900, NULL),
-(130, 'Liofilizált Narancs Csuporok', 'Liofilizált Gyümölcs', 2026, 36, 'OrangeCrystals', 'CitrusBurst Inc.', 3200, NULL);
+INSERT INTO `termek` (`termek_id`, `nev`, `kategoria`, `leiras`, `ar_forint`, `kep_eleresi_ut`) VALUES
+(1, 'Szakácskönyv Kétbalkezes', 'Hus ételek', 'Kétbalkezesek is könnyedén elkészíthetik a finom húsételeket ebben a szakácskönyvben található egyszerű és hatékony receptekkel.', 8000, './media/image/termek/0.jpeg\n'),
+(2, 'A nagy Wok szakácskönyv', 'Hus ételek', 'Fedezd fel a wok kulináris világát ebben a szakácskönyvben, amely izgalmas és ízletes húsételeket kínál.', 10000, './media/image/termek/1.jpeg\n'),
+(3, 'Éhesek Vagyunk', 'Hus ételek', 'Ebben a szakácskönyvben olyan húsételek receptjeit találod, amelyek garantáltan jóllakottá tesznek mindenkit.', 12000, './media/image/termek/2.jpeg\n'),
+(4, 'Horváth Ilona szakácskönyv', 'Hus ételek', 'Horváth Ilona különleges ízlésének és tudásának ötvözete ebben a szakácskönyvben, amelyben különleges húsételek készítésének fortélyait osztja meg.', 15000, './media/image/termek/3.jpeg\n'),
+(5, 'Sziszi Császárné', 'Hus ételek', 'Sziszi Császárné szakácskönyve izgalmas és ízletes húsételekkel lepi meg az olvasókat.', 12000, './media/image/termek/4.jpeg\n'),
+(6, 'Rozen Stein', 'Hus ételek', 'Rozen Stein szakácskönyve kreatív és különleges húsételeket mutat be, amelyek a gasztronómiai kultúra érdekességeit ötvözik.', 18000, './media/image/termek/5.jpeg\n'),
+(7, 'Hemagin Kóstolj Bele', 'Hus ételek', 'Hemagin szakácskönyve arra inspirál, hogy belekóstolj a különböző húsételek világába és kreatív módon alkothass finom fogásokat.', 10000, './media/image/termek/6.jpeg\n'),
+(8, 'A vaják szakácskönyv', 'Hus ételek', 'A vaják különleges húsételek titkait osztja meg ebben a szakácskönyvben, melyek garantáltan elvarázsolják az ízlelőbimbókat.', 13000, './media/image/termek/7.jpeg\n'),
+(9, 'Air fryer szakácskönyv', 'Hus ételek', 'Az air fryer szakácskönyv segítségével könnyedén elkészítheted a húsételeket egészségesebb módon, minimális olajfelhasználással.', 9000, './media/image/termek/8.jpeg\n'),
+(10, 'Echo anyu a konyhába', 'Vegán', 'Az Echo anyu szakácskönyv olyan vegán recepteket kínál, amelyek egészségesek és ízletesek, ráadásul könnyen elkészíthetők.', 12000, './media/image/termek/9.jpeg\n'),
+(11, 'Világjáró vegán', 'Vegán', 'Világjáró vegán szakácskönyve különböző konyhák ízeit mutatja be vegán szemszögből, így az olvasók változatos fogásokat alkothatnak.', 15000, './media/image/termek/10.jpeg\n'),
+(12, 'Fűszeres', 'Vegán', 'A Fűszeres vegán szakácskönyv olyan recepteket kínál, amelyekben a fűszerek és ízesítők az ételek igazi csillagai.', 13000, './media/image/termek/11.jpeg\n'),
+(13, 'Rozen Stein Tibor', 'Fitness ételek', 'Rozen Stein Tibor fitness szakácskönyvében egészséges és ízletes recepteket találsz, amelyek segítenek a tested formában tartásában.', 12000, './media/image/termek/12.jpeg\n'),
+(14, 'Barthmaelous Platina', 'Fitness ételek', 'A Barthmaelous Platina fitness szakácskönyv kreatív és egészséges ételekkel segít abban, hogy energikus és fittek maradjunk.', 15000, './media/image/termek/13.jpeg\n'),
+(15, 'Gonzó Szakácskönyv', 'Fitness ételek', 'A Gonzó Szakácskönyv a fitnesz világába vezet be, izgalmas és tápláló ételek receptjeivel.', 13000, './media/image/termek/14.jpeg\n'),
+(16, 'Hisztamin intolerancia', 'Fitness ételek', 'A Hisztamin intolerancia szakácskönyv olyan recepteket kínál, amelyek segítenek a hisztamin intoleranciával élőknek az étkezésben.', 18000, './media/image/termek/15.jpeg\n'),
+(17, 'Vegán szakácskönyv', 'Fitness ételek', 'A Vegán fitness szakácskönyv kiegyensúlyozott és tápláló ételekkel támogatja az aktív életmódot.', 10000, './media/image/termek/16.jpeg\n'),
+(18, 'Meg úszós Kaják', 'Fitness ételek', 'A Meg úszós Kaják szakácskönyv olyan recepteket kínál, amelyek segítenek az úszóknak a megfelelő táplálkozásban.', 13000, './media/image/termek/17.jpeg\n'),
+(19, 'Étel iskolája', 'Vegán', 'Az Étel iskolája vegán szakácskönyve különböző vegán receptekkel gazdagítja az étrendedet, kiválóan alkalmazható minden étkezésnél.', 16000, './media/image/termek/18.jpeg\n'),
+(20, 'Tiniséf', 'Vegán', 'A Tiniséf vegán szakácskönyv kifejezetten tinédzserek számára készült, izgalmas és könnyen elkészíthető vegán receptekkel.', 14000, './media/image/termek/19.jpeg\n'),
+(21, 'Egészséges Kreatív konyha', 'Vegán', 'Az Egészséges Kreatív konyha vegán szakácskönyv olyan recepteket kínál, amelyek nemcsak finomak, de egészségesek is.', 17000, './media/image/termek/20.jpeg\n'),
+(22, 'HashelBack', 'Fitness ételek', 'A HashelBack fitness szakácskönyv olyan ételek receptjeit tartalmazza, amelyek segítenek a tested formában tartásában.', 14000, './media/image/termek/21.jpeg\n'),
+(23, 'Hal imádók', 'Vegán', 'A Hal imádók vegán szakácskönyv olyan vegán recepteket kínál, amelyekben a tenger gyümölcseinek ízeit élvezheted.', 16000, './media/image/termek/22.jpeg\n'),
+(24, 'Vad világóm', 'Vegán', 'A Vad világóm vegán szakácskönyv különleges és ízletes vadételek receptjeit kínálja.', 14000, './media/image/termek/23.jpeg\n'),
+(25, 'Vadászok Szakácskönyve', 'Vegán', 'A Vadászok Szakácskönyve vegán ételeket kínál, amelyek a hagyományos vadász ételek ízeit idézik meg.', 17000, './media/image/termek/24.jpeg\n'),
+(26, 'Fogyókúrás Ételek', 'Fitness ételek', 'A Fogyókúrás Ételek fitness szakácskönyv olyan recepteket tartalmaz, amelyek segítenek a testsúly kontrollálásában és az egészséges táplálkozásban.', 12000, './media/image/termek/25.jpeg\n');
 
 -- --------------------------------------------------------
 
@@ -409,12 +327,11 @@ CREATE TABLE `testimonials` (
 --
 
 INSERT INTO `testimonials` (`id`, `name`, `description`, `kep_url`) VALUES
-(1, 'Zsófia', 'Az EcoGourmet segítségével sikerült megtalálnom az egészséges életmód és a finom étkezés tökéletes egyensúlyát. Az általuk kínált személyre szabott tanácsok és étrendek segítettek javítani az étkezési szokásaimon, és most jobban érzem magam.', './media/image/zsofia.jpg'),
-(2, 'Péter', 'Nagyon hálás vagyok az EcoGourmet szolgáltatásainak. Kiváló minőségű, étrendeket kaptam tőlük, amelyek a környezetbarát szemléletüket is tükrözik. Számomra ez a cég a tudatos és egészséges táplálkozás szinonimája.', './media/image/peter.jpg'),
-(3, 'Anna', 'Az étrendjük és a környezettudatos szemléletmódjuk valóban különleges. Rendkívül elégedett vagyok a velük töltött idővel, és mindenkinek ajánlom, aki jobban szeretné megérteni az egészséges étkezést.', './media/image/anna.jpg'),
-(4, 'Gábor', 'Az EcoGourmet számomra nemcsak egy szolgáltató, hanem egy életmódváltást segítő partner. Az egészséges és ízletes ételeikkel könnyű volt számomra elérni a kitűzött céljaimat.', './media/image/gabor.jpg'),
-(5, 'Klára', 'Nagyon örülök, hogy rátaláltam az EcoGourmetra. Az étrendjeik változatosak és finomak, ráadásul a környezetvédelem is fontos számukra. Mindenkinek ajánlom, aki szeretne egészségesen és tudatosan táplálkozni.', './media/image/klara.jpg'),
-(6, 'Tamás', 'Az EcoGourmet nemcsak az étrendek terén nyújt segítséget, hanem inspiráló közösségük is van. A közös eseményeiken részt venni igazi élmény, és mindig tanulok valami újat az egészséges életmódról.', './media/image/tamas.jpg');
+(1, 'Zsófia', 'testimonial_desc_1', './media/image/zsofia.jpg'),
+(2, 'Péter', 'testimonial_desc_2', './media/image/peter.jpg'),
+(3, 'Anna', 'testimonial_desc_3', './media/image/anna.jpg'),
+(5, 'Klára', 'testimonial_desc_5', './media/image/klara.jpg'),
+(6, 'Tamás', 'testimonial_desc_6', './media/image/tamas.jpg');
 
 -- --------------------------------------------------------
 
@@ -728,7 +645,7 @@ ALTER TABLE `subscription_plans`
 -- AUTO_INCREMENT a táblához `termek`
 --
 ALTER TABLE `termek`
-  MODIFY `termek_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=131;
+  MODIFY `termek_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT a táblához `testimonials`

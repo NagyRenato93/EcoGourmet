@@ -10,10 +10,7 @@ $db = new Database(); // Assuming this class handles database connections
 $query = "SELECT termek_id, 
                  nev, 
                  kategoria, 
-                 szavatossagi_ido, 
-                 raktaron, 
-                 forgalmazo, 
-                 gyarto, 
+                 leiras,
                  ar_forint,
                  kep_eleresi_ut
             FROM termek
