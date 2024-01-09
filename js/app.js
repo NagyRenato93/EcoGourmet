@@ -636,22 +636,6 @@
                      });
                   });
                },
-            // Subscription
-            subscribe:  () => {
-            // Http request to retrieve recipes
-            http.request('./php/about_us.php')
-               .then(response => {
-                  $scope.breakfastRecipes = response.breakfastRecipes;
-                  $scope.lunchRecipes     = response.lunchRecipes;
-                  $scope.dinnerRecipes    = response.dinnerRecipes;
-
-                  $scope.$applyAsync();
-               });
-
-                // Set the profile type to 'subscribe'
-                $scope.helper.profileType = 'subscribe';
-                $scope.$applyAsync();
-            },
                // Profile
                profile: () => {
                   //alert(util.capitalize($rootScope.lang.data.under_construction) + '!');
@@ -994,9 +978,7 @@
             // Http request to retrieve products
             http.request('./php/services.php')
                .then(response => {
-                     $scope.breakfastRecipes = response.breakfastRecipes;
-                     $scope.lunchRecipes = response.lunchRecipes;
-                     $scope.dinnerRecipes = response.dinnerRecipes;    
+                     $scope.recipes = response.recipes;    
                      $scope.awards_achievements = response.awards_achievements;
                      
 

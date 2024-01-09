@@ -9,7 +9,7 @@
         <div class="order-lg-2 w-100">
           <div class="video-containerTwo mx-auto">
             <video autoplay muted loop class="blurred-video">
-              <source src="./media/video/sky.mp4"
+              <source ng-src="./media/video/sky.mp4"
                       type="video/mp4">
             </video>
           </div>
@@ -37,36 +37,34 @@
           <!-- Nincs Használatban jelenleg -->
 
 
-    
-
           <!-- comapany logos -->
           <div class="row">
-            <div class="small">
+            <div class="small text-muted">
               <p>
                 {{('platforms_1') | translate:lang.data}}
               </p>
           </div>
             <div class="col-2">
               <img class="img-fluid wp-image-975" 
-              src="./media/image/brands/facebook.png"
+              ng-src="./media/image/brands/facebook.png"
               height="50" 
               width="50">
             </div>
             <div class="col-2">
               <img class="img-fluid wp-image-977" 
-              src="./media/image/brands/tiktok.png"  
+              ng-src="./media/image/brands/tiktok.png"  
               height="50" 
               width="50">
             </div>
             <div class="col-2">
               <img class="img-fluid wp-image-974" 
-              src="./media/image/brands/snapchat.png"  
+              ng-src="./media/image/brands/snapchat.png"  
               height="50" 
               width="50">
             </div>
             <div class="col-2">
               <img class="img-fluid wp-image-967" 
-              src="./media/image/brands/instagram.png"
+              ng-src="./media/image/brands/instagram.png"
               height="50" width="50" >
             </div>
 
@@ -98,17 +96,18 @@
                 <li ng-repeat="category in getCategoryList()" 
                 class="nav-item" 
                 role="presentation">
-                  <a class="nav-link" 
-                  ng-class="{ 'active': category === $scope.activeTab }" 
-                  ng-click="setCategoryFilter(category)" 
-                  id="{{ 'tab-' + category + '-tab' }}" 
-                  data-bs-toggle="pill" 
-                  href="#{{ 'tab-' + category }}" 
-                  role="tab" 
-                  aria-controls="{{ 'tab-' + category }}" 
-                  aria-selected="{{ category === $scope.activeTab }}">
-                    {{ category }}
-                  </a>
+                <a class="nav-link" 
+                ng-class="{ 'active': category === $scope.activeTab }" 
+                ng-click="setCategoryFilter(category)" 
+                id="{{ 'tab-' + category + '-tab' }}" 
+                data-bs-toggle="pill" 
+                href="#{{ 'tab-' + category }}" 
+                role="tab" 
+                aria-controls="{{ 'tab-' + category }}" 
+                aria-selected="{{ category === $scope.activeTab }}">
+                {{('prod_kategoria_'  + ($index+1)) | translate:lang.data}}
+             </a>
+
                 </li>
               </ul>
               <div class="card-group position-relative">
@@ -128,13 +127,15 @@
                     <div>
 
 
-                      <!-- Product name-->
-                      <h5 class="card-title fw-bolder ">{{product.nev}}</h5>
-                    
+                    <!-- Product name-->
+                    <h5 class="card-title fw-bolder "> 
+                      {{( product.nev) | translate:lang.data}}
+                    </h5>
 
-                      <!-- Product leírás -->
-                      <p class="card-text small" 
-                      ng-if="product.leiras">{{product.leiras}}</p>
+                    <!-- Product leírás -->
+                    <p class="card-text small" ng-if="product.leiras">
+                      {{( product.leiras) | translate:lang.data}}
+                    </p>
                     </div>
                   </div>
 

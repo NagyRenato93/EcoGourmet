@@ -27,24 +27,6 @@
 				<!-- Buttons -->
 				<div class="row mt-3 mb-4 justify-content-center" 
 						 ng-if="userEvent==='profile'">
-
-					<!-- Feliratkozás (Subscription) -->
-					<div class="px-1 mx-1 d-inline-block w-auto mb-2">
-						<button id="subscription"
-								type="button"
-								class="btn btn-outline-primary text-capitalize text-small-caps btnClickEffect d-inline-block"
-								style="min-width:160px"
-								ng-click="methods.subscribe()"
-								ng-disabled="helper.profileType === 'subscribe' || 
-											(!helper.profileType && helper.isEdit)">
-							<i class="fa-solid fa-bell"></i>
-							<span class="ms-1"
-								ng-class="{'text-decoration-underline': helper.profileType==='subscribe'}">
-								{{'subscribe' | translate:lang.data}}
-							</span>
-						</button>
-					</div>
-
   
 					<!-- Profile -->
 									<div class="px-1 mx-1 d-inline-block w-auto mb-2">
@@ -96,60 +78,6 @@
 						</button>
 					</div>
 				</div>
-
-				<!-- kártya reggeli -->
-				<div class="cols">
-					<div class="col recipe-card" ng-repeat="recipe in breakfastRecipes | limitTo: 3" ontouchstart="this.classList.toggle('hover');">
-					  <div class="container">
-						<div class="front" ng-style="{'background-image': 'url(https://i.pinimg.com/originals/9c/67/e5/9c67e5361286ab8844f526530b5bb17a.gif)'}">
-							<div class="inner">
-							<p>{{ recipe.name }}</p>
-						  </div>
-						</div>
-						<div class="back small">
-							<p>Hozzávalók:<br> {{ recipe.ingredients }}</p>
-							<p>Elkészítési mód:<br> {{ recipe.instructions }}</p>
-							<p>{{ recipe.cooking_time }} perc</p>
-						</div>
-					  </div>
-					</div>
-				  </div>
-				  
-				<!-- kártya ebéd -->
-				<div class="cols">
-					<div class="col recipe-card" ng-repeat="recipe in lunchRecipes | limitTo: 3" ontouchstart="this.classList.toggle('hover');">
-					  <div class="container">
-						<div class="front" ng-style="{'background-image': 'url(https://i.pinimg.com/originals/9c/67/e5/9c67e5361286ab8844f526530b5bb17a.gif)'}">
-							<div class="inner">
-							<p>{{ recipe.name }}</p>
-						  </div>
-						</div>
-						<div class="back small">
-							<p>Hozzávalók:<br> {{ recipe.ingredients }}</p>
-							<p>Elkészítési mód:<br> {{ recipe.instructions }}</p>
-							<p>{{ recipe.cooking_time }} perc</p>
-						</div>
-					  </div>
-					</div>
-				  </div>
-				  
-				<!-- kártya vacsora -->
-				<div class="cols">
-					<div class="col recipe-card" ng-repeat="recipe in dinnerRecipes | limitTo: 3" ontouchstart="this.classList.toggle('hover');">
-					  <div class="container">
-						<div class="front" ng-style="{'background-image': 'url(https://i.pinimg.com/originals/9c/67/e5/9c67e5361286ab8844f526530b5bb17a.gif)'}">
-							<div class="inner">
-							<p>{{ recipe.name }}</p>
-						  </div>
-						</div>
-						<div class="back small">
-							<p>Hozzávalók:<br> {{ recipe.ingredients }}</p>
-							<p>Elkészítési mód:<br> {{ recipe.instructions }}</p>
-							<p>{{ recipe.cooking_time }} perc</p>
-						</div>
-					  </div>
-					</div>
-				  </div>
 
 				<!-- Form -->
 				<form class="mt-2 col-11 col-md-11 col-lg-8 col-xl-7 col-xxl-6"
@@ -983,6 +911,6 @@
 		</div>
 	
 	</main>
-	<footer ng-include src="'./html/footer.html'"></footer>
 
 </div>
+<footer ng-include src="'./html/footer.html'"></footer>
