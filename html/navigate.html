@@ -13,7 +13,7 @@
             data-bs-toggle="collapse" 
             data-bs-target="#navbarNav" 
             aria-controls="navbarNav" 
-            aria-expanded="false" 
+            aria-expanded="true" 
             aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -100,7 +100,8 @@
               </thead>
               <tbody>
                 <tr ng-repeat="item in cart">
-                  <td>{{ item.nev }}</td>
+                  <td>{{( item.nev) | translate:lang.data}}
+                  </td>
                   <td>{{ item.ar_forint }}</td>
                   <td>{{ item.quantity }}</td>
                   <td>{{ item.ar_forint * item.quantity }}</td>
