@@ -2,7 +2,32 @@
 
 <div class="page-container vh-100">
     <header class="sticky-top" ng-include src="'./html/navigate.html'"></header>    
-    
+ 
+    <div class="container py-5">
+        <div class="row mb-4 align-items-center flex-lg-row-reverse">
+          <div class="col-md-6 col-xl-7 mb-4 mb-lg-0">
+            <div class="lc-block position-relative">
+              <!-- Replace the image with the provided iframe -->
+              <iframe width="90%" height="400" src="https://www.youtube.com/embed/ulhRORJpuBM?si=MiysVpmj1Qrmp06o&amp;controls=0&amp;start=10&autoplay=1&mute=1&loop=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen muted autoplay></iframe>
+            </div>
+          </div><!-- /col -->
+          <div class="col-md-6 col-xl-5">
+            <div>
+              <h1 class="fw-bolder display-2">Lorem ipsum dolor sit</h1>
+            </div>
+            <div>
+              <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam velit temporibus impedits maxime repellendus esse tempore odio voluptatum iusto consectetur voluptates.</p>
+            </div>
+            <div>
+              <a class="btn btn-lg btn-primary" href="#" role="button">Get it now</a>
+            </div>
+          </div><!-- /col -->
+        </div>
+      </div>
+      
+      
+      
+      
 <!-- Új szekció a címmel és háttérképpel -->
 <section class="px-5" style="background-image: url('./media/image/about_us/family-dinner.jpeg'); 
 background-size: cover; 
@@ -30,6 +55,7 @@ menu-item" ng-repeat="recipe in menu.recipes">
 </div>
 </div>
 
+
 <!-- Awards Section -->
 <section class="showcase px-2">
 <div class="container-fluid p-0">
@@ -45,3 +71,5 @@ menu-item" ng-repeat="recipe in menu.recipes">
 </div>
 </div>
 </section>
+
+<footer ng-include src="'./html/footer.html'"></footer>

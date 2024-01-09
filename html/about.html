@@ -1,12 +1,16 @@
 <div class="page-container d-conditional vh-100">
   <!-- Navigate -->
   <header class="sticky-top" ng-include src="'./html/navigate.html'"></header>
+
+
   <!-- Video Container -->
   <div class="video-container">
-    <video autoplay muted loop class="blurred-video">
+    <video autoplay muted loop>
       <source src="./media/video/robin.mp4" type="video/mp4">
     </video>
   </div>
+
+
   <!-- Home title -->
   <div class="home">
     <div class="backdrop-filter-element"></div>
@@ -15,8 +19,12 @@
       <i class="fa-solid fa-chevron-down fa-bounce" style="font-size: larger;"></i>
     </div>
   </div>
+
+
   <!-- Content after video -->
   <div class="inner-header flex"></div>
+
+
   <!-- Section: about us text part angular version -->
   <section class="hidden" id="scroll">
     <div class="container" ng-repeat="aboutUsText in aboutUsTexts">
@@ -35,7 +43,8 @@
       </div>
     </div>
   </section>
-  
+
+
   <!-- Pricing cards -->
   <section class="bg-light py-5 hidden">
     <div class="container my-5">
@@ -60,9 +69,9 @@
             </div>
           </div>
         </div>
-        <a ui-sref="products" class="btn btn-outline-black">
-          {{ 'DISCOVER_MORE' | translate:lang.data }}
-        </a>
+        <div class="col-lg-4 mb-5">
+          <button type="button" ui-sref="products" class="btn btn-primary px-4 me-md-2">{{ 'DISCOVER_MORE' | translate:lang.data }}</button>
+        </div>
         <h3 class="small col-lg-7">
           {{('plans') | translate:lang.data}}
         </h3>
@@ -70,7 +79,34 @@
     </div>
   </section>
 
-  <!-- Tabs content -->
+
+  <section class="hidden">
+    <div class="container col-xxl-8 px-4 py-5">
+      <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+        <div class="col-10 col-sm-8 col-lg-6">
+          <img src="./media/image/about_us/hero_cooking.jpeg" 
+          class="d-block mx-lg-auto img-fluid rounded-3" 
+          alt="Bootstrap Themes" 
+          width="700" 
+          height="500" 
+          loading="lazy">
+        </div>
+        <div class="col-lg-6">
+          <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">
+          {{('Menu_title_1') | translate:lang.data}}
+          </h1>
+          <p class="lead">
+          {{('Menu_text_1') | translate:lang.data}}
+          </p>
+          <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+            <button type="button" ui-sref="services" class="btn btn-primary btn-lg px-4 me-md-2">{{ 'DISCOVER_MORE' | translate:lang.data }}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
   <!-- Testimonials angularositot-->
   <section class="testimonials text-center bg-light hidden py-5">
     <div class="container-fluid">
@@ -94,6 +130,8 @@
       </div>
     </div>
   </section>
+
+
   <!-- Footer -->
   <footer ng-include src="'./html/footer.html'"></footer>
 </div>

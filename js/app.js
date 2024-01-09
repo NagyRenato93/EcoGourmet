@@ -982,6 +982,7 @@
             }
             return totalQuantity;
          };
+         
       }
    ])
 
@@ -993,7 +994,6 @@
             // Http request to retrieve products
             http.request('./php/services.php')
                .then(response => {
-                  if (response && response.eco_gourmet_news) {
                      $scope.breakfastRecipes = response.breakfastRecipes;
                      $scope.lunchRecipes = response.lunchRecipes;
                      $scope.dinnerRecipes = response.dinnerRecipes;    
@@ -1023,7 +1023,7 @@
                  
 
 
-             });
+             );
          }
    ]);
 

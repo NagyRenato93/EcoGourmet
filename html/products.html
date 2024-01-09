@@ -1,89 +1,202 @@
 <!-- Navigate -->
 <header class="sticky-top" ng-include src="'./html/navigate.html'"></header>
 
-<!-- Store Rész tartalma / Store Cards -->
-<div class="container-fluid">
-  <div class="row">
 
-    <!-- Termék kártyák -->
-    <div class="col-md-12 ">
-      <section class="py-5"
-               style="background-color: #f8f9fa;">
-        <div class="col-md-9 mx-auto">
-                  
-        <!-- Tab filters -->
-<div class="container">
-  <ul class="nav nav-pills mb-3 nav-justified" id="pills-tab" role="tablist">
-    <li ng-repeat="category in getCategoryList()" class="nav-item" role="presentation">
-      <a class="nav-link" 
-         ng-class="{ 'active': category === $scope.activeTab }" 
-         ng-click="setCategoryFilter(category)" 
-         id="{{ 'tab-' + category + '-tab' }}" 
-         data-bs-toggle="pill" 
-         href="#{{ 'tab-' + category }}" 
-         role="tab" 
-         aria-controls="{{ 'tab-' + category }}" 
-         aria-selected="{{ category === $scope.activeTab }}">
-         {{ category }}
-      </a>
-    </li>
-  </ul>
-
-          <div class="card-group position-relative">
-            <div class="card mb-4" ng-repeat="product in filteredProducts = (products | filter: { kategoria: categoryFilter } | limitTo:4)">
-                <!-- Termék képe -->
-                <img ng-src="{{product.kep_eleresi_ut}}" class="card-img-top img-fluid" style="height: 400px;" alt="{{product.nev}}">
-                <!-- Termék részletei -->
-                <div class="card-body">
-                    <div>
-                        <!-- Product name-->
-                        <h5 class="card-title fw-bolder ">{{product.nev}}</h5>
-                        <!-- Product leírás -->
-                        <p class="card-text small" ng-if="product.leiras">{{product.leiras}}</p>
-                    </div>
-                </div>
-                <!-- Product actions-->
-                <div class="card-footer bg-transparent d-flex justify-content-center align-items-center flex-column">
-                    <div class="mb-auto">
-                        <p class="card-text fw-bolder" ng-if="product.ar_forint">Ár: {{product.ar_forint}} Ft</p>
-                    </div>
-                    <div>
-                        <a class="btn btn-outline-dark" ng-click="addToCart(product, 'shop')">{{ 'Cart' | translate:lang.data}}</a>
-                    </div>
-                </div>
-            </div>
+  <!-- Sky Video -->
+  <div class="overflow-hidden">
+    <div class="container-fluid col-xxl-8">
+      <div class="row flex-lg-nowrap align-items-center g-5">
+        <div class="order-lg-2 w-100">
+          <div class="video-containerTwo mx-auto">
+            <video autoplay muted loop class="blurred-video">
+              <source src="./media/video/sky.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
         </div>
-      </section>
+
+
+        <!-- Sky video Title and Text part -->
+        <div class="col-lg-6 col-xl-5 text-center text-lg-start pt-lg-5 mt-xl-4">
+          <div class="mb-4">
+              <h1 class="fw-bold display-5">
+                {{('Eco_prod_title') | translate:lang.data}}
+              </h1>
+          </div>
+          <div class="mb-5">
+              <p class="rfs-9">
+                {{('Eco_prod_text') | translate:lang.data}}
+              </p>
+          </div>
+
+
+          <!-- Nincs Használatban jelenleg -->
+          <!-- <div class=" mb-6">
+                <a ui-sref="about" class="btn btn-outline-light btn-lg">{{ 'DISCOVER_MORE' | translate:lang.data}}</a>
+          </div> -->
+          <!-- Nincs Használatban jelenleg -->
+
+
+    
+
+          <!-- comapany logos -->
+          <div class="row">
+            <div class="small">
+              <p>
+                {{('platforms_1') | translate:lang.data}}
+              </p>
+          </div>
+            <div class="col-2">
+              <img class="img-fluid wp-image-975" 
+              src="./media/image/brands/facebook.png"
+              height="50" 
+              width="50">
+            </div>
+            <div class="col-2">
+              <img class="img-fluid wp-image-977" 
+              src="./media/image/brands/tiktok.png"  
+              height="50" 
+              width="50">
+            </div>
+            <div class="col-2">
+              <img class="img-fluid wp-image-974" 
+              src="./media/image/brands/snapchat.png"  
+              height="50" 
+              width="50">
+            </div>
+            <div class="col-2">
+              <img class="img-fluid wp-image-967" 
+              src="./media/image/brands/instagram.png"
+              height="50" width="50" >
+            </div>
+
+
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</div>
 
-<!-- Ecogourmet features Section (miért érdemes minket választani?)-->
-<section id="features">
-  <div class="container px-5 my-5">
-    <div class="row gx-5">
-      <div class="col-lg-4 mb-5 mb-lg-0">
-        <h2 class="fw-bolder mb-0">{{'ecogourmet_features_title' | translate:lang.data}}</h2>
-      </div>
-      <div class="col-lg-8">
-        <div class="row gx-5 row-cols-1 row-cols-md-2 align-items-stretch">
-          <div class="col mb-5" ng-repeat="feature in ecogourmetFeatures track by $index">
-            <div class="d-flex flex-column align-items-center mb-3">
 
-              <!-- Ikon és Description -->
-              <div class="d-flex justify-content-between w-100">
+  <!-- Store Rész tartalma / Store Cards -->
+  <div class="container-fluid">
+    <div class="row">
 
-                <!-- Ikon -->
-                <div class="aspect-ratio me-3">
-                  <div class="feature bg-primary bg-gradient text-white rounded-3 p-3">
-                    <i class="{{feature.icon}} fa-3x" style="font-size: 3rem;"></i>
+
+      <!-- Termék kártyák -->
+      <div class="col-md-12 ">
+        <section class="py-5" 
+        style="background-color: #f8f9fa;">
+          <div class="col-md-9 mx-auto">
+
+
+            <!-- Tab filters -->
+            <div class="container">
+              <ul class="nav nav-pills mb-3 nav-justified" 
+              id="pills-tab" 
+              role="tablist">
+                <li ng-repeat="category in getCategoryList()" 
+                class="nav-item" 
+                role="presentation">
+                  <a class="nav-link" 
+                  ng-class="{ 'active': category === $scope.activeTab }" 
+                  ng-click="setCategoryFilter(category)" 
+                  id="{{ 'tab-' + category + '-tab' }}" 
+                  data-bs-toggle="pill" 
+                  href="#{{ 'tab-' + category }}" 
+                  role="tab" 
+                  aria-controls="{{ 'tab-' + category }}" 
+                  aria-selected="{{ category === $scope.activeTab }}">
+                    {{ category }}
+                  </a>
+                </li>
+              </ul>
+              <div class="card-group position-relative">
+                <div class="card mb-4" 
+                ng-repeat="product in filteredProducts = (products | filter: { kategoria: categoryFilter } | limitTo:4)">
+
+
+                  <!-- Termék képe -->
+                  <img ng-src="{{product.kep_eleresi_ut}}" 
+                  class="card-img-top img-fluid" 
+                  style="height: 400px;" 
+                  alt="{{product.nev}}">
+
+
+                  <!-- Termék részletei -->
+                  <div class="card-body">
+                    <div>
+
+
+                      <!-- Product name-->
+                      <h5 class="card-title fw-bolder ">{{product.nev}}</h5>
+                    
+
+                      <!-- Product leírás -->
+                      <p class="card-text small" 
+                      ng-if="product.leiras">{{product.leiras}}</p>
+                    </div>
+                  </div>
+
+
+                  <!-- Product actions-->
+                  <div class="card-footer bg-transparent d-flex justify-content-center align-items-center flex-column">
+                    <div class="mb-auto">
+                      <p class="card-text fw-bolder" 
+                      ng-if="product.ar_forint">
+                      Ár: {{product.ar_forint}} Ft
+                    </p>
+                    </div>
+                    <div>
+                      <a class="btn btn-primary btn-lg px-4 me-md-2" 
+                      ng-click="addToCart(product, 'shop')">
+                      {{ 'Cart' | translate:lang.data}}
+                    </a>
+                    </div>
                   </div>
                 </div>
+              </div>
+        </section>
+      </div>
+    </div>
+  </div>
 
-                <!-- Description -->
-                <div class="flex-grow-1">
-                  <h2 class="h5">{{feature.title | translate:lang.data}}</h2>
-                  <p class="mb-0 small">{{feature.descriptionKey | translate:lang.data}}</p>
+
+  <!-- Ecogourmet features Section (miért érdemes minket választani?)-->
+  <section id="features">
+    <div class="container px-5 my-5">
+      <div class="row gx-5">
+        <div class="col-lg-4 mb-5 mb-lg-0">
+          <h2 class="fw-bolder mb-0">
+            {{'ecogourmet_features_title' | translate:lang.data}}
+          </h2>
+        </div>
+        <div class="col-lg-8">
+          <div class="row gx-5 row-cols-1 row-cols-md-2 align-items-stretch">
+            <div class="col mb-5" 
+            ng-repeat="feature in ecogourmetFeatures track by $index">
+              <div class="d-flex flex-column align-items-center mb-3">
+
+
+                <!-- Ikon és Description -->
+                <div class="d-flex justify-content-between w-100">
+                  <div class="aspect-ratio me-3">
+                    <div class="feature bg-primary bg-gradient text-white rounded-3 p-3">
+                      <i class="{{feature.icon}} fa-3x" 
+                      style="font-size: 3rem;"></i>
+                    </div>
+                  </div>
+
+
+                  <!-- Description -->
+                  <div class="flex-grow-1">
+                    <h2 class="h5">
+                      {{feature.title | translate:lang.data}}
+                    </h2>
+                    <p class="mb-0 small">
+                      {{feature.descriptionKey | translate:lang.data}}
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -91,45 +204,54 @@
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- pricing tabs -->
-<section class=" bg-light py-5 ">
-  <div class="container px-5 my-5">
-    <div class="text-center mb-5">
-      <h2 class="fw-bolder">{{ 'abut_pricing_title' | translate:lang.data }}</h2>
-    </div>
-    <div class="row gx-5 justify-content-center">
-      <div class="col-lg-4 mb-5" 
-           ng-repeat="plan in subscription_plans">
-        <div class=" h-100">
-          <div class="p-5">
-            <div class="small text-uppercase fw-bold text-muted">{{plan.name}}</div>
-            <div class="mb-3">
-              <span class="display-4 fw-bold">{{plan.ar_forint}}Ft</span>
-              <span class="text-muted">{{ 'sub' | translate:lang.data }}</span>
+
+  <!-- Pricing Tabs -->
+  <section class=" bg-light py-5 ">
+    <div class="container px-5 my-5">
+      <div class="text-center mb-5">
+        <h2 class="fw-bolder">
+          {{ 'abut_pricing_title' | translate:lang.data }}
+        </h2>
+      </div>
+      <div class="row gx-5 justify-content-center">
+        <div class="col-lg-4 mb-5" 
+        ng-repeat="plan in subscription_plans">
+          <div class=" h-100">
+            <div class="p-5">
+              <div class="small text-uppercase fw-bold text-muted">
+                {{plan.name}}
+              </div>
+              <div class="mb-3">
+                <span class="display-4 fw-bold">
+                  {{plan.ar_forint}}Ft
+                </span>
+                <span class="text-muted">
+                  {{ 'sub' | translate:lang.data }}
+                </span>
+              </div>
+              <ul class="list-unstyled mb-4">
+                <li class="mb-2">
+                  <i class="bi bi-check text-primary"></i>
+                  {{ 'plan_desc_' + ($index + 1) | translate:lang.data }}
+                </li>
+              </ul>
             </div>
-            <ul class="list-unstyled mb-4">
-              <li class="mb-2">
-                <i class="bi bi-check text-primary"></i>
-                {{ 'plan_desc_' + ($index + 1) | translate:lang.data }}
-              </li>
-            </ul>
-          </div>
-          <div class=" d-flex justify-content-center">
-            <div class="d-grid">
-              <a class="btn btn-outline-primary" 
-              ng-click="addToCart(plan, 'plan')">
-               {{ 'Cart' | translate:lang.data}}</a>
+            <div class=" d-flex justify-content-center">
+              <div class="d-grid">
+                <a class="btn btn-primary btn-lg px-4 me-md-2" 
+                ng-click="addToCart(plan, 'plan')">
+                  {{ 'Cart' | translate:lang.data}}
+                </a>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
 
-
+ <!-- Footer -->
 <footer ng-include src="'./html/footer.html'"></footer>

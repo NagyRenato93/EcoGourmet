@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2024. Jan 02. 21:57
+-- Létrehozás ideje: 2024. Jan 09. 01:50
 -- Kiszolgáló verziója: 10.4.27-MariaDB
 -- PHP verzió: 8.2.0
 
@@ -282,32 +282,18 @@ CREATE TABLE `termek` (
 --
 
 INSERT INTO `termek` (`termek_id`, `nev`, `kategoria`, `leiras`, `ar_forint`, `kep_eleresi_ut`) VALUES
-(1, 'Szakácskönyv Kétbalkezes', 'Hus ételek', 'Kétbalkezesek is könnyedén elkészíthetik a finom húsételeket ebben a szakácskönyvben található egyszerű és hatékony receptekkel.', 8000, './media/image/termek/0.jpeg\n'),
-(2, 'A nagy Wok szakácskönyv', 'Hus ételek', 'Fedezd fel a wok kulináris világát ebben a szakácskönyvben, amely izgalmas és ízletes húsételeket kínál.', 10000, './media/image/termek/1.jpeg\n'),
-(3, 'Éhesek Vagyunk', 'Hus ételek', 'Ebben a szakácskönyvben olyan húsételek receptjeit találod, amelyek garantáltan jóllakottá tesznek mindenkit.', 12000, './media/image/termek/2.jpeg\n'),
-(4, 'Horváth Ilona szakácskönyv', 'Hus ételek', 'Horváth Ilona különleges ízlésének és tudásának ötvözete ebben a szakácskönyvben, amelyben különleges húsételek készítésének fortélyait osztja meg.', 15000, './media/image/termek/3.jpeg\n'),
-(5, 'Sziszi Császárné', 'Hus ételek', 'Sziszi Császárné szakácskönyve izgalmas és ízletes húsételekkel lepi meg az olvasókat.', 12000, './media/image/termek/4.jpeg\n'),
-(6, 'Rozen Stein', 'Hus ételek', 'Rozen Stein szakácskönyve kreatív és különleges húsételeket mutat be, amelyek a gasztronómiai kultúra érdekességeit ötvözik.', 18000, './media/image/termek/5.jpeg\n'),
-(7, 'Hemagin Kóstolj Bele', 'Hus ételek', 'Hemagin szakácskönyve arra inspirál, hogy belekóstolj a különböző húsételek világába és kreatív módon alkothass finom fogásokat.', 10000, './media/image/termek/6.jpeg\n'),
-(8, 'A vaják szakácskönyv', 'Hus ételek', 'A vaják különleges húsételek titkait osztja meg ebben a szakácskönyvben, melyek garantáltan elvarázsolják az ízlelőbimbókat.', 13000, './media/image/termek/7.jpeg\n'),
-(9, 'Air fryer szakácskönyv', 'Hus ételek', 'Az air fryer szakácskönyv segítségével könnyedén elkészítheted a húsételeket egészségesebb módon, minimális olajfelhasználással.', 9000, './media/image/termek/8.jpeg\n'),
-(10, 'Echo anyu a konyhába', 'Vegán', 'Az Echo anyu szakácskönyv olyan vegán recepteket kínál, amelyek egészségesek és ízletesek, ráadásul könnyen elkészíthetők.', 12000, './media/image/termek/9.jpeg\n'),
-(11, 'Világjáró vegán', 'Vegán', 'Világjáró vegán szakácskönyve különböző konyhák ízeit mutatja be vegán szemszögből, így az olvasók változatos fogásokat alkothatnak.', 15000, './media/image/termek/10.jpeg\n'),
-(12, 'Fűszeres', 'Vegán', 'A Fűszeres vegán szakácskönyv olyan recepteket kínál, amelyekben a fűszerek és ízesítők az ételek igazi csillagai.', 13000, './media/image/termek/11.jpeg\n'),
-(13, 'Rozen Stein Tibor', 'Fitness ételek', 'Rozen Stein Tibor fitness szakácskönyvében egészséges és ízletes recepteket találsz, amelyek segítenek a tested formában tartásában.', 12000, './media/image/termek/12.jpeg\n'),
-(14, 'Barthmaelous Platina', 'Fitness ételek', 'A Barthmaelous Platina fitness szakácskönyv kreatív és egészséges ételekkel segít abban, hogy energikus és fittek maradjunk.', 15000, './media/image/termek/13.jpeg\n'),
-(15, 'Gonzó Szakácskönyv', 'Fitness ételek', 'A Gonzó Szakácskönyv a fitnesz világába vezet be, izgalmas és tápláló ételek receptjeivel.', 13000, './media/image/termek/14.jpeg\n'),
-(16, 'Hisztamin intolerancia', 'Fitness ételek', 'A Hisztamin intolerancia szakácskönyv olyan recepteket kínál, amelyek segítenek a hisztamin intoleranciával élőknek az étkezésben.', 18000, './media/image/termek/15.jpeg\n'),
-(17, 'Vegán szakácskönyv', 'Fitness ételek', 'A Vegán fitness szakácskönyv kiegyensúlyozott és tápláló ételekkel támogatja az aktív életmódot.', 10000, './media/image/termek/16.jpeg\n'),
-(18, 'Meg úszós Kaják', 'Fitness ételek', 'A Meg úszós Kaják szakácskönyv olyan recepteket kínál, amelyek segítenek az úszóknak a megfelelő táplálkozásban.', 13000, './media/image/termek/17.jpeg\n'),
-(19, 'Étel iskolája', 'Vegán', 'Az Étel iskolája vegán szakácskönyve különböző vegán receptekkel gazdagítja az étrendedet, kiválóan alkalmazható minden étkezésnél.', 16000, './media/image/termek/18.jpeg\n'),
-(20, 'Tiniséf', 'Vegán', 'A Tiniséf vegán szakácskönyv kifejezetten tinédzserek számára készült, izgalmas és könnyen elkészíthető vegán receptekkel.', 14000, './media/image/termek/19.jpeg\n'),
-(21, 'Egészséges Kreatív konyha', 'Vegán', 'Az Egészséges Kreatív konyha vegán szakácskönyv olyan recepteket kínál, amelyek nemcsak finomak, de egészségesek is.', 17000, './media/image/termek/20.jpeg\n'),
-(22, 'HashelBack', 'Fitness ételek', 'A HashelBack fitness szakácskönyv olyan ételek receptjeit tartalmazza, amelyek segítenek a tested formában tartásában.', 14000, './media/image/termek/21.jpeg\n'),
-(23, 'Hal imádók', 'Vegán', 'A Hal imádók vegán szakácskönyv olyan vegán recepteket kínál, amelyekben a tenger gyümölcseinek ízeit élvezheted.', 16000, './media/image/termek/22.jpeg\n'),
-(24, 'Vad világóm', 'Vegán', 'A Vad világóm vegán szakácskönyv különleges és ízletes vadételek receptjeit kínálja.', 14000, './media/image/termek/23.jpeg\n'),
-(25, 'Vadászok Szakácskönyve', 'Vegán', 'A Vadászok Szakácskönyve vegán ételeket kínál, amelyek a hagyományos vadász ételek ízeit idézik meg.', 17000, './media/image/termek/24.jpeg\n'),
-(26, 'Fogyókúrás Ételek', 'Fitness ételek', 'A Fogyókúrás Ételek fitness szakácskönyv olyan recepteket tartalmaz, amelyek segítenek a testsúly kontrollálásában és az egészséges táplálkozásban.', 12000, './media/image/termek/25.jpeg\n');
+(1, 'prod_nev_1', 'prod_kategoria_1', 'prod_leiras_1', 8000, './media/image/termek/0.jpeg\n'),
+(2, 'prod_nev_2', 'prod_kategoria_1', 'prod_leiras_2', 10000, './media/image/termek/1.jpeg\n'),
+(3, 'prod_nev_3', 'prod_kategoria_1', 'prod_leiras_3', 12000, './media/image/termek/2.jpeg\n'),
+(4, 'prod_nev_4', 'prod_kategoria_1', 'prod_leiras_4', 15000, './media/image/termek/3.jpeg\n'),
+(5, 'prod_nev_5', 'prod_kategoria_5', 'prod_leiras_5', 12000, './media/image/termek/9.jpeg\n'),
+(6, 'prod_nev_6', 'prod_kategoria_5', 'prod_leiras_6', 15000, './media/image/termek/10.jpeg\n'),
+(7, 'prod_nev_7', 'prod_kategoria_5', 'prod_leiras_7', 13000, './media/image/termek/11.jpeg\n'),
+(8, 'prod_nev_8', 'prod_kategoria_5', 'prod_leiras_8', 12000, './media/image/termek/12.jpeg\n'),
+(9, 'prod_nev_9', 'prod_kategoria_8', 'prod_leiras_9', 15000, './media/image/termek/13.jpeg\n'),
+(10, 'prod_nev_10', 'prod_kategoria_8', 'prod_leiras_10', 13000, './media/image/termek/14.jpeg\n'),
+(11, 'prod_nev_11', 'prod_kategoria_8', 'prod_leiras_11', 18000, './media/image/termek/15.jpeg\n'),
+(12, 'prod_nev_12', 'prod_kategoria_8', 'prod_leiras_12', 16000, './media/image/termek/18.jpeg\n');
 
 -- --------------------------------------------------------
 
@@ -392,7 +378,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `type`, `first_name`, `last_name`, `born`, `gender`, `country`, `country_code`, `city`, `postcode`, `address`, `email`, `password`, `created`, `verification_code`, `verified`, `modified`, `last_login`, `wrong_attempts`, `valid`) VALUES
 (1, 'A', 'Attila', 'Ódry', '1964-03-08', 'M', 'hungary', '36', 'Szeged', '6725', 'Futrinka utca 66.', 'odry.attila@keri.mako.hu', '$2y$10$2qBCNjBIDp1kw/agy7fV0.sW3sAJz/YKU.oLUL1.2SfcxroBIQLde', '2023-08-29 09:27:01', NULL, '2023-08-29 12:19:00', '2023-08-29 12:19:15', '2023-12-20 19:29:26', 0, 1),
-(2, 'A', 'Nagy', 'Renátó', '1993-11-01', 'M', 'hungary', '36', 'Tótkomlós', '5940', 'nagy.renato@keri.mako.hu', 'nagy.renato@keri.mako.hu', '$2y$10$ZbYuaGwd4bMwhgD.C2/RT./lcthTxBQQreACH6uAFHSk2GVmI6BJa', '2023-10-30 13:14:48', '66c0b1af9bad395c8531e3550c7927bd', NULL, '2023-10-30 13:17:16', '2023-12-31 01:23:47', 0, 1);
+(2, 'A', 'Nagy', 'Renátó', '1993-11-01', 'M', 'hungary', '36', 'Tótkomlós', '5940', 'nagy.renato@keri.mako.hu', 'nagy.renato@keri.mako.hu', '$2y$10$ZbYuaGwd4bMwhgD.C2/RT./lcthTxBQQreACH6uAFHSk2GVmI6BJa', '2023-10-30 13:14:48', '66c0b1af9bad395c8531e3550c7927bd', NULL, '2023-10-30 13:17:16', '2024-01-09 01:49:13', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -455,7 +441,10 @@ INSERT INTO `vasarlasok` (`vasarlas_id`, `user_id`, `datum`) VALUES
 (15, 1, '2023-12-20 19:27:20'),
 (16, 1, '2023-12-20 19:30:27'),
 (17, 1, '2023-12-20 19:32:38'),
-(18, 2, '2023-12-30 23:08:27');
+(18, 2, '2023-12-30 23:08:27'),
+(19, 2, '2024-01-02 22:32:24'),
+(20, 2, '2024-01-03 01:02:33'),
+(21, 2, '2024-01-09 01:49:29');
 
 -- --------------------------------------------------------
 
@@ -503,7 +492,10 @@ INSERT INTO `vasarlasok_tetel` (`tetel_id`, `vasarlas_id`, `termek_id`, `mennyis
 (25, 16, 6, 1, 2150),
 (26, 16, 4, 3, 2100),
 (27, 17, 5, 1, 1900),
-(28, 18, 3, 11, 2200);
+(28, 18, 3, 11, 2200),
+(29, 19, 4, 5, 15000),
+(30, 20, 4, 1, 15000),
+(31, 21, 3, 3, 12000);
 
 --
 -- Indexek a kiírt táblákhoz
@@ -645,7 +637,7 @@ ALTER TABLE `subscription_plans`
 -- AUTO_INCREMENT a táblához `termek`
 --
 ALTER TABLE `termek`
-  MODIFY `termek_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `termek_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
 
 --
 -- AUTO_INCREMENT a táblához `testimonials`
@@ -669,13 +661,13 @@ ALTER TABLE `user_plans`
 -- AUTO_INCREMENT a táblához `vasarlasok`
 --
 ALTER TABLE `vasarlasok`
-  MODIFY `vasarlas_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `vasarlas_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT a táblához `vasarlasok_tetel`
 --
 ALTER TABLE `vasarlasok_tetel`
-  MODIFY `tetel_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `tetel_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- Megkötések a kiírt táblákhoz

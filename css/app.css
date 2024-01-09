@@ -180,6 +180,24 @@ section {
     /* Itt állíthatod be a kívánt blur értéket (px-ben) */
 }
 
+.video-containerTwo {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  padding-top:70%; /* Adjust this value based on the image's aspect ratio */
+}
+
+.blurred-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  clip-path: polygon(25% 0%, 100% 0%, 100% 99%, 0% 100%);
+}
+
 /* A "home" tartalom rész stílusa */
 .home-content {
     position: relative;
