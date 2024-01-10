@@ -1,7 +1,9 @@
 <?php
+declare(strict_types=1);
 
-// Set environment
-require_once('../../../common/php/environment.php');
+// Using namespaces aliasing
+use \Util\Util as Util;
+use \Database\Database as Database;
 
 // Connect to database
 $db = new Database(); // Assuming this class handles database connections
@@ -34,5 +36,3 @@ $db = null;
 
 // Set response
 Util::setResponse($result);
-
-?>

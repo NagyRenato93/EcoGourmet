@@ -1,10 +1,7 @@
-<div class="page-container d-conditional vh-100">
-  <!-- Navigate -->
-  <header class="sticky-top" ng-include src="'./html/navigate.html'"></header>
-
+<div id="topPage" class="container-fluid p-0">
 
   <!-- Video Container -->
-  <div class="video-container">
+  <div class="video-container vh-100">
     <video autoplay muted loop>
       <source ng-src="./media/video/robin.mp4" type="video/mp4">
     </video>
@@ -16,15 +13,15 @@
     <div class="backdrop-filter-element"></div>
     <div class="home-content">
       <h1 id="abut">EcoGourmet</h1>
-      <i class="fa-solid fa-chevron-down fa-bounce" style="font-size: larger;"></i>
+      <i ng-click="scrollTo('scroll')"
+         class="fa-solid fa-chevron-down fa-bounce cursor-pointer" 
+         style="font-size: larger;"></i>
     </div>
   </div>
 
 
   <!-- Content after video -->
-    <!-- Section: about us text part angular version -->
-  <div class="inner-header flex"></div>
-  <section class="hidden" id="scroll">
+  <section class="hidden" id="scroll" style="scroll-margin-top:50px;">
     <div class="container" ng-repeat="aboutUsText in aboutUsTexts">
       <div class="row gx-5 align-items-center">
         <div class="col-lg-6" ng-class="{ 'order-lg-2': $first || $index === 2 }">
@@ -121,7 +118,8 @@
         </div>
       </div>
       <!-- scroll to top button -->
-      <div class="scroll-to-top text-right bg-light" ng-click="smoothScrollToTop()">
+      <div class="scroll-to-top text-right bg-light" 
+           ng-click="scrollTo('scroll')">
         <span class="arrow-up small">
           <i class="fas fa-thin fa-arrow-up fa-bounce"></i>
         </span>
@@ -129,8 +127,5 @@
     </div>
   </section>
 
-
-  <!-- Footer -->
-  <footer ng-include src="'./html/footer.html'"></footer>
 </div>
 </div>

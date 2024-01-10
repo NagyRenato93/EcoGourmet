@@ -1,0 +1,152 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  
+  <!-- Container -->
+  <div class="container-fluid">
+
+    <!--  Home (landing) -->
+    <a class="navbar-brand" 
+       ui-sref="home" 
+       ui-sref-active="active">
+      Ecogourmet
+    </a>
+
+    <!-- Hamburger icon -->
+    <button class="navbar-toggler" 
+            type="button" 
+            data-bs-toggle="collapse" 
+            data-bs-target="#navbarNav" 
+            aria-controls="navbarNav" 
+            aria-expanded="true" 
+            aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar container -->
+    <div id="navbarNav"
+         class="collapse navbar-collapse mt-2 mt-md-0">
+
+      <!-- Left align -->
+      <div class="navbar-left me-auto"></div>
+
+      <!-- Center align -->
+      <div class="navbar-center mx-auto">
+
+        <!-- Navigate -->
+        <ul class="navbar-nav">
+
+          <!-- About Us -->
+          <li class="nav-item">
+            <a class="nav-link" 
+               ui-sref="about"
+               ui-sref-active="active"
+               data-bs-toggle="collapse" 
+               data-bs-target=".navbar-collapse.show">
+              <i class="fa-solid fa-hand fa-lg me-1"></i>
+              <span class="text-capitalize text-small-caps">
+                {{'about' | translate:lang.data}}
+              </span>
+            </a>
+          </li>
+
+          <!-- Products / Store -->
+          <li class="nav-item">
+            <a class="nav-link" 
+               ui-sref="products"
+               ui-sref-active="active"
+               data-bs-toggle="collapse" 
+               data-bs-target=".navbar-collapse.show">
+              <i class="fa-solid fa-shop fa-lg me-1"></i>
+              <span class="text-capitalize text-small-caps">
+                {{'products' | translate:lang.data}}
+              </span>
+            </a>
+          </li>
+
+          <!-- Services -->
+          <li class="nav-item">
+            <a class="nav-link" 
+               ui-sref="services"
+               ui-sref-active="active"
+               data-bs-toggle="collapse" 
+               data-bs-target=".navbar-collapse.show">
+               <i class="fa-solid fa-utensils fa-lg me-1"></i>
+               <span class="text-capitalize text-small-caps">
+                {{'services' | translate:lang.data}}
+              </span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Right align -->
+      <div class="navbar-right ms-auto">
+
+        <!-- Navigate -->
+        <ul class="navbar-nav">
+    
+          <!-- Cart Icon -->
+          <li class="nav-item">
+            <a class="nav-link" 
+               href=""
+               ng-click="toggleCartVisibility()">
+              <i class="fas fa-cart-shopping fa-lg me-1"></i>
+              <span class="badge text-primary" ng-show="cart.length > 0">
+                {{ getTotalQuantity() }}
+              </span>
+            </a>
+          </li>
+
+          <!-- Cart container -->
+          <li id="cart-container" class="cart-container d-none">
+            <h3>Kosarad</h3>
+            <hr>
+            <table>
+              <thead>
+                <tr>
+                  <th>Termék</th>
+                  <th>Ár</th>
+                  <th>Mennyiség</th>
+                  <th>Törlés</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="item in cart">
+                  <td>{{( item.nev) | translate:lang.data}}
+                  </td>
+                  <td>{{ item.ar_forint }}</td>
+                  <td>{{ item.quantity }}</td>
+                  <td>{{ item.ar_forint * item.quantity }}</td>
+                  <td>
+                    <button ng-click="removeFromCart(item)">Törlés</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="3">Összesen:</td>
+                  <td>{{ getTotalPrice() }}Ft</td>
+                  <td>
+                    <li class="nav-item">
+                      <a class="nav-link btn btn-success" 
+                         ng-click="finalizeOrder()"
+                         ng-class="{'disabled': !user.id}"
+                         ng-disabled="!user.id">
+                        <i class="fas fa-shopping-cart me-1"></i>
+                        Vásárlás
+                      </a>
+                  </li>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+
+					<!-- User -->
+					<ng-navbar-user></ng-navbar-user>
+				
+					<!-- Language -->
+					<ng-navbar-language></ng-navbar-language>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>

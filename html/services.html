@@ -1,96 +1,88 @@
-<!-- ./html/community.html -->
-
-<div class="page-container vh-100">
-  <header class="sticky-top" ng-include src="'./html/navigate.html'"></header>    
-
-  <div class="d-flex justify-content-center align-items-start flex-wrap">
-    <!-- Reggeli receptek -->
-    <div class="recipe-card card" 
-         ng-repeat="recipe in recipes | filter:{kategoria: 'recipe_kategoria_1'}">
-      <div class="row g-0">
-        <div class="col-md-4">
-          <img ng-src="{{recipe.kep}}" 
-               class="img-fluid rounded-start" 
-               alt="{{recipe.nev}}">
-        </div>
-        <div class="col-md-8">
-          <div class="card-body">
-            <h5 class="card-title">
-              {{recipe.nev | translate:lang.data}}
-            </h5>
-            <p class="card-text">
-              {{recipe.leiras | translate:lang.data}}
-            </p>
-            <p class="card-text"><small 
-               class="text-muted">
-              {{recipe.elkeszites | translate:lang.data}}
-            </small></p>
-            <p class="card-text">
-              {{recipe.fozesi_ido}}
-            </p>
-          </div>
-        </div>
+<div class="d-flex justify-content-center align-items-start flex-wrap mt-3">
+  <!-- Reggeli receptek -->
+  <div class="recipe-card card" 
+       ng-repeat="recipe in recipes | filter:{kategoria: 'recipe_kategoria_1'}">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img ng-src="{{recipe.kep}}" 
+             class="img-fluid rounded-start" 
+             alt="{{recipe.nev}}">
       </div>
-    </div>
-    
-    <!-- Ebéd receptek -->
-    <div class="recipe-card card" 
-         ng-repeat="recipe in recipes | filter:{kategoria: 'recipe_kategoria_2'}">
-      <div class="row g-0">
-        <div class="col-md-4">
-          <img ng-src="{{recipe.kep}}" 
-               class="img-fluid rounded-start" 
-               alt="{{recipe.nev}}">
-        </div>
-        <div class="col-md-8">
-          <div class="card-body">
-            <h5 class="card-title">
-              {{recipe.nev | translate:lang.data}}
-            </h5>
-            <p class="card-text">
-              {{recipe.leiras | translate:lang.data}}
-            </p>
-            <p class="card-text"><small 
-               class="text-muted">
-              {{recipe.elkeszites | translate:lang.data}}
-            </small></p>
-            <p class="card-text">
-              {{recipe.fozesi_ido}}
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  
-    <!-- Vacsora receptek -->
-    <div class="recipe-card card" 
-         ng-repeat="recipe in recipes | filter:{kategoria: 'recipe_kategoria_3'}">
-      <div class="row g-0">
-        <div class="col-md-4">
-          <img ng-src="{{recipe.kep}}" 
-               class="img-fluid rounded-start" 
-               alt="{{recipe.nev}}">
-        </div>
-        <div class="col-md-8">
-          <div class="card-body">
-            <h5 class="card-title">
-              {{recipe.nev | translate:lang.data}}
-            </h5>
-            <p class="card-text">
-              {{recipe.leiras | translate:lang.data}}
-            </p>
-            <p class="card-text"><small 
-               class="text-muted">
-              {{recipe.elkeszites | translate:lang.data}}
-            </small></p>
-            <p class="card-text">
-              {{recipe.fozesi_ido}}
-            </p>
-          </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">
+            {{recipe.nev | translate:lang.data}}
+          </h5>
+          <p class="card-text">
+            {{recipe.leiras | translate:lang.data}}
+          </p>
+          <p class="card-text"><small 
+             class="text-muted">
+            {{recipe.elkeszites | translate:lang.data}}
+          </small></p>
+          <p class="card-text">
+            {{recipe.fozesi_ido}}
+          </p>
         </div>
       </div>
     </div>
   </div>
-  <footer ng-include src="'./html/footer.html'"></footer>
+  
+  <!-- Ebéd receptek -->
+  <div class="recipe-card card" 
+       ng-repeat="recipe in recipes | filter:{kategoria: 'recipe_kategoria_2'}">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img ng-src="{{recipe.kep}}" 
+             class="img-fluid rounded-start" 
+             alt="{{recipe.nev}}">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">
+            {{recipe.nev | translate:lang.data}}
+          </h5>
+          <p class="card-text">
+            {{recipe.leiras | translate:lang.data}}
+          </p>
+          <p class="card-text"><small 
+             class="text-muted">
+            {{recipe.elkeszites | translate:lang.data}}
+          </small></p>
+          <p class="card-text">
+            {{recipe.fozesi_ido}}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
 
+  <!-- Vacsora receptek -->
+  <div class="recipe-card card" 
+       ng-repeat="recipe in recipes | filter:{kategoria: 'recipe_kategoria_3'}">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img ng-src="{{recipe.kep}}" 
+             class="img-fluid rounded-start" 
+             alt="{{recipe.nev}}">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">
+            {{recipe.nev | translate:lang.data}}
+          </h5>
+          <p class="card-text">
+            {{recipe.leiras | translate:lang.data}}
+          </p>
+          <p class="card-text"><small 
+             class="text-muted">
+            {{recipe.elkeszites | translate:lang.data}}
+          </small></p>
+          <p class="card-text">
+            {{recipe.fozesi_ido}}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

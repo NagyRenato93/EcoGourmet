@@ -1,0 +1,7 @@
+<div class="page-container position-relative d-conditional
+						d-flex flex-column vh-100 overflow-auto">
+	<header ui-view="header" class="sticky-top"></header>
+	<main 	ui-view="" class="position-relative flex-fill"></main>
+	<footer ui-view="footer" ng-if="state.id!=='home'"></footer>
+	<ng-whait ng-if="['password_frogot','email_change','register'].includes(state.id)"></ng-whait>
+</div>

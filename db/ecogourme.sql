@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2024. Jan 09. 14:53
--- Kiszolgáló verziója: 10.4.27-MariaDB
--- PHP verzió: 8.2.0
+-- Létrehozás ideje: 2024. Jan 10. 21:14
+-- Kiszolgáló verziója: 10.4.6-MariaDB
+-- PHP verzió: 7.3.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -21,6 +22,31 @@ SET time_zone = "+00:00";
 -- Adatbázis: `ecogourme`
 --
 
+DELIMITER $$
+--
+-- Függvények
+--
+CREATE DEFINER=`root`@`localhost` FUNCTION `BASE64_ENCODE` (`textIn` LONGBLOB) RETURNS LONGTEXT CHARSET utf8mb4 NO SQL
+BEGIN
+/*
+	Convert blob to base64 text, remove start, end spaces,
+	newline, carriage return, and tab characters from text 
+*/
+DECLARE textOut LONGTEXT CHARSET utf8mb4 DEFAULT '';
+IF (textIn IS NOT NULL) THEN
+	SET textOut = TO_BASE64(textIn);
+    SET textOut = TRIM(textOut);
+    IF (LENGTH(textOut) > 0) THEN
+    	SET textOut = REPLACE(textOut,"\n","");
+    	SET textOut = REPLACE(textOut,"\r","");
+    	SET textOut = REPLACE(textOut,"\t","");
+    END IF;
+END IF;
+RETURN textOut;
+END$$
+
+DELIMITER ;
+
 -- --------------------------------------------------------
 
 --
@@ -32,7 +58,7 @@ CREATE TABLE `aboutus_text` (
   `title` varchar(255) NOT NULL,
   `description` text NOT NULL,
   `image` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- A tábla adatainak kiíratása `aboutus_text`
@@ -53,7 +79,7 @@ CREATE TABLE `ecogourmet_services` (
   `id` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
   `description` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- A tábla adatainak kiíratása `ecogourmet_services`
@@ -76,7 +102,7 @@ CREATE TABLE `eco_gourmet_awards_achievements` (
   `title` varchar(255) NOT NULL,
   `description` text DEFAULT NULL,
   `date` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- A tábla adatainak kiíratása `eco_gourmet_awards_achievements`
@@ -103,7 +129,7 @@ CREATE TABLE `recipes` (
   `elkeszites` text DEFAULT NULL,
   `fozesi_ido` int(11) DEFAULT NULL,
   `kep` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- A tábla adatainak kiíratása `recipes`
@@ -132,7 +158,7 @@ CREATE TABLE `subscription_plans` (
   `description` text DEFAULT NULL,
   `duration` int(11) DEFAULT NULL,
   `ar_forint` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- A tábla adatainak kiíratása `subscription_plans`
@@ -156,7 +182,7 @@ CREATE TABLE `termek` (
   `leiras` text NOT NULL,
   `ar_forint` int(11) NOT NULL,
   `kep_eleresi_ut` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- A tábla adatainak kiíratása `termek`
@@ -187,7 +213,7 @@ CREATE TABLE `testimonials` (
   `name` varchar(255) NOT NULL,
   `description` text NOT NULL,
   `kep_url` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- A tábla adatainak kiíratása `testimonials`
@@ -210,7 +236,7 @@ CREATE TABLE `type` (
   `id` char(1) NOT NULL,
   `type` varchar(10) NOT NULL,
   `name` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- A tábla adatainak kiíratása `type`
@@ -233,33 +259,41 @@ INSERT INTO `type` (`id`, `type`, `name`) VALUES
 CREATE TABLE `user` (
   `id` int(10) UNSIGNED NOT NULL,
   `type` char(1) NOT NULL DEFAULT 'G',
+  `prefix_name` varchar(20) NOT NULL,
   `first_name` varchar(50) NOT NULL,
+  `middle_name` varchar(50) NOT NULL,
   `last_name` varchar(50) NOT NULL,
+  `suffix_name` varchar(20) NOT NULL,
+  `nick_name` varchar(50) NOT NULL,
   `born` date NOT NULL,
   `gender` char(1) NOT NULL,
+  `img` blob NOT NULL,
+  `img_type` varchar(100) NOT NULL,
   `country` varchar(50) NOT NULL,
   `country_code` varchar(10) NOT NULL,
+  `phone` varchar(20) NOT NULL,
   `city` varchar(50) NOT NULL,
   `postcode` varchar(20) NOT NULL,
   `address` varchar(200) NOT NULL,
   `email` varchar(50) NOT NULL,
   `password` varchar(255) NOT NULL,
   `created` datetime DEFAULT NULL,
-  `verification_code` varchar(32) DEFAULT NULL,
-  `verified` datetime DEFAULT NULL,
+  `email_verification_code` varchar(32) DEFAULT NULL,
+  `email_confirmed` datetime DEFAULT NULL,
   `modified` datetime DEFAULT NULL,
   `last_login` datetime DEFAULT NULL,
   `wrong_attempts` tinyint(1) UNSIGNED NOT NULL DEFAULT 0,
-  `valid` tinyint(1) UNSIGNED NOT NULL DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `valid` tinyint(1) UNSIGNED NOT NULL DEFAULT 1,
+  `type_old` char(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- A tábla adatainak kiíratása `user`
 --
 
-INSERT INTO `user` (`id`, `type`, `first_name`, `last_name`, `born`, `gender`, `country`, `country_code`, `city`, `postcode`, `address`, `email`, `password`, `created`, `verification_code`, `verified`, `modified`, `last_login`, `wrong_attempts`, `valid`) VALUES
-(1, 'A', 'Attila', 'Ódry', '1964-03-08', 'M', 'hungary', '36', 'Szeged', '6725', 'Futrinka utca 66.', 'odry.attila@keri.mako.hu', '$2y$10$2qBCNjBIDp1kw/agy7fV0.sW3sAJz/YKU.oLUL1.2SfcxroBIQLde', '2023-08-29 09:27:01', NULL, '2023-08-29 12:19:00', '2023-08-29 12:19:15', '2023-12-20 19:29:26', 0, 1),
-(2, 'A', 'Nagy', 'Renátó', '1993-11-01', 'M', 'hungary', '36', 'Tótkomlós', '5940', 'nagy.renato@keri.mako.hu', 'nagy.renato@keri.mako.hu', '$2y$10$ZbYuaGwd4bMwhgD.C2/RT./lcthTxBQQreACH6uAFHSk2GVmI6BJa', '2023-10-30 13:14:48', '66c0b1af9bad395c8531e3550c7927bd', NULL, '2023-10-30 13:17:16', '2024-01-09 14:51:55', 0, 1);
+INSERT INTO `user` (`id`, `type`, `prefix_name`, `first_name`, `middle_name`, `last_name`, `suffix_name`, `nick_name`, `born`, `gender`, `img`, `img_type`, `country`, `country_code`, `phone`, `city`, `postcode`, `address`, `email`, `password`, `created`, `email_verification_code`, `email_confirmed`, `modified`, `last_login`, `wrong_attempts`, `valid`, `type_old`) VALUES
+(1, 'A', '', 'Attila', '', 'Ódry', '', '', '1964-03-08', 'M', '', '', 'hungary', '36', '', 'Szeged', '6725', 'Futrinka utca 66.', 'odry.attila@keri.mako.hu', '$2y$10$2qBCNjBIDp1kw/agy7fV0.sW3sAJz/YKU.oLUL1.2SfcxroBIQLde', '2023-08-29 09:27:01', NULL, '2023-08-29 12:19:00', '2023-08-29 12:19:15', '2024-01-10 18:13:55', 0, 1, ''),
+(2, 'A', '', 'Nagy', '', 'Renátó', '', '', '1993-11-01', 'M', '', '', 'hungary', '36', '', 'Tótkomlós', '5940', 'nagy.renato@keri.mako.hu', 'nagy.renato@keri.mako.hu', '$2y$10$ZbYuaGwd4bMwhgD.C2/RT./lcthTxBQQreACH6uAFHSk2GVmI6BJa', '2023-10-30 13:14:48', '66c0b1af9bad395c8531e3550c7927bd', NULL, '2023-10-30 13:17:16', '2024-01-09 14:51:55', 0, 1, '');
 
 -- --------------------------------------------------------
 
@@ -273,7 +307,7 @@ CREATE TABLE `user_plans` (
   `termek_id` int(11) NOT NULL,
   `ar_forint` int(11) NOT NULL,
   `expire` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- A tábla adatainak kiíratása `user_plans`
@@ -298,7 +332,7 @@ CREATE TABLE `vasarlasok` (
   `vasarlas_id` int(11) NOT NULL,
   `user_id` int(10) UNSIGNED NOT NULL,
   `datum` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- A tábla adatainak kiíratása `vasarlasok`
@@ -340,7 +374,7 @@ CREATE TABLE `vasarlasok_tetel` (
   `termek_id` int(11) NOT NULL,
   `mennyiseg` int(11) NOT NULL,
   `ar_forint` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- A tábla adatainak kiíratása `vasarlasok_tetel`

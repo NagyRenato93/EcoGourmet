@@ -1,7 +1,9 @@
 <?php
+declare(strict_types=1);
 
-// Környezet beállításe
-require_once('../../../common/php/environment.php');
+// Using namespaces aliasing
+use \Util\Util as Util;
+use \Database\Database as Database;
 
 // Get arguments
 $args = Util::getArgs();
@@ -90,4 +92,3 @@ $db = null;
 
 // Válasz elküldése
 Util::setResponse($result);
-?>
