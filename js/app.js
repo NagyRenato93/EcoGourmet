@@ -119,13 +119,11 @@
 
    // Application run
    .run([
-      '$state',
       '$rootScope',
-      '$timeout',
       'trans',
       'lang',
       'user',
-      ($state, $rootScope, $timeout, trans, lang, user) => {
+      ($rootScope, trans, lang, user) => {
         
          // Transaction events
 			trans.events({group:'user'});
@@ -136,6 +134,10 @@
          // Initialize user
          user.init();
 
+         // Set cart
+         $rootScope.cart = [];
+
+         // Toggle visibility cart container
          $rootScope.toggleCartVisibility = function () {
             let container = document.getElementById('cart-container');
             container.classList.toggle('d-none');
@@ -201,7 +203,6 @@
       function ($rootScope, $scope, http, $filter, lang) {
 
          // Http kérés a termékek lekéréséhez
-         $scope.cart = [];
          http.request({data:'products.php'})
          .then(response => {
             if (response && response.products) {
@@ -219,7 +220,7 @@
             // Check is changed
             if(!angular.equals(newValue, oldValue)) {
                console.log(oldValue, ' => ', newValue);
-               localStorage.setItem("shoppingCart", $scope.cart);
+               localStorage.setItem("shoppingCart", $rootScope.cart);
             }
          }, true);
 
@@ -236,14 +237,14 @@
          //
          $scope.finalizeOrder = function () {
 
-            if (!$scope.cart || $scope.cart.length === 0) {
+            if (!$rootScope.cart || $rootScope.cart.length === 0) {
                console.log("A kosár üres.");
                return;
             }
 
             // Define filter of keys, and reduce array of object by keys
             let   filter  = ['termek_id','quantity','ar_forint','duration','type'],
-                  data    =  $scope.cart.map((obj) => {
+                  data    =  $rootScope.cart.map((obj) => {
                                  return	Object.keys(obj)
                                                 .filter((key) => filter.includes(key))
                                                 .reduce((o, k) => Object.assign(o, {[k]: obj[k]}), {});
@@ -263,7 +264,7 @@
                // Sikeres válasz esetén kezeld a választ, például visszajelzés a felhasználónak
                console.log(response);
                // Töröld a kosarat
-               $scope.cart = [];
+               $rootScope.cart = [];
                $scope.updateCartTotal();
                $scope.$applyAsync();
             })
@@ -325,14 +326,15 @@
 
          // Funkció a kosár összegének frissítéséhez
          $scope.updateCartTotal = function () {
-            $scope.totalItems = $scope.cart.length;
+            $scope.totalItems = $rootScope.cart.length;
+            $scope.$applyAsync();
             // További frissítések, ha szükséges...
          };
 
          // Funkció a termék hozzáadásához a kosárhoz
          $scope.addToCart = function (product, type) {
             console.log(product, type);
-            let existingItem =   $filter('filter')($scope.cart, { 
+            let existingItem =   $filter('filter')($rootScope.cart, { 
                                     termek_id: product.termek_id
                                  }, true)[0];
                               
@@ -342,10 +344,10 @@
                let newItem = angular.copy(product);
                newItem.type = type;
                newItem.quantity = 1;
-               $scope.cart.push(newItem);
+               $rootScope.cart.push(newItem);
             }
          
-            console.log($scope.cart); // Debug kimenet
+            console.log($rootScope.cart); // Debug kimenet
             $scope.updateCartTotal(); // Frissítsd a kosár összegét
          }
      
@@ -356,38 +358,38 @@
             console.log(subscription_plan);
          
             // Létrehozzuk az existingItem változót
-            let existingItem = $filter('filter')($scope.cart, { termek_id: subscription_plan.termek_id }, true)[0];
+            let existingItem = $filter('filter')($rootScope.cart, { termek_id: subscription_plan.termek_id }, true)[0];
          
             if (existingItem) {
                existingItem.quantity++;
             } else {
                let newItem = angular.copy(subscription_plan);
                newItem.quantity = 1;
-               $scope.cart.push(newItem);
+               $rootScope.cart.push(newItem);
             }
          
-            console.log($scope.cart); // Debug kimenet
+            console.log($rootScope.cart); // Debug kimenet
             $scope.updateCartTotal(); // Frissítsd a kosár összegét
          }
       
          // Funkció a termék eltávolításához a kosárból
          $scope.removeFromCart = function (product) {
-            let index = $scope.cart.indexOf(product);
+            let index = $rootScope.cart.indexOf(product);
             if (index !== -1) {
-               $scope.cart.splice(index, 1);
+               $rootScope.cart.splice(index, 1);
                $scope.updateCartTotal(); // Frissítsd a kosár összegét
             }
          }
 
          // Funkció a kosárban lévő elemek összértékének lekéréséhez
-         $scope.getTotalPrice = function () {
-            if (!$scope.cart || $scope.cart.length === 0) {
+         $rootScope.getTotalPrice = function () {
+            if (!$rootScope.cart || $rootScope.cart.length === 0) {
                return 0; // Üres a kosár, tehát az összeg 0
             }
 
             let totalPrice = 0;
-            for (let i = 0; i < $scope.cart.length; i++) {
-               let item = $scope.cart[i];
+            for (let i = 0; i < $rootScope.cart.length; i++) {
+               let item = $rootScope.cart[i];
                if (item && item.ar_forint && !isNaN(item.quantity)) {
                   totalPrice += item.ar_forint * item.quantity;
                }
@@ -399,8 +401,8 @@
          // // Funkció a kosárban lévő elemek összmennyiségének lekéréséhez
          $rootScope.getTotalQuantity = function () {
             let totalQuantity = 0;
-            for (let i = 0; i < $scope.cart.length; i++) {
-               totalQuantity += $scope.cart[i].quantity;
+            for (let i = 0; i < $rootScope.cart.length; i++) {
+               totalQuantity += $rootScope.cart[i].quantity;
             }
             return totalQuantity;
          }

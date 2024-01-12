@@ -15,8 +15,8 @@
     <button class="navbar-toggler" 
             type="button" 
             data-bs-toggle="collapse" 
-            data-bs-target="#navbarToggleExternalContent" 
-            aria-controls="navbarToggleExternalContent" 
+            data-bs-target="#navbarNav" 
+            aria-controls="navbarNav" 
             aria-expanded="false" 
             aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -98,7 +98,7 @@
           </li>
 
           <!-- Cart container -->
-          <li id="cart-container" class="cart-container d-none">
+          <li id="cart-container" class="cart-container d-none position-absolute top-5">
             <h3>Kosarad</h3>
             <hr>
             <table>
@@ -111,7 +111,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr ng-repeat="item in cart">
+                <tr ng-repeat="item in cart track by $index">
                   <td>{{( item.nev) | translate:lang.data}}
                   </td>
                   <td>{{ item.ar_forint }}</td>
