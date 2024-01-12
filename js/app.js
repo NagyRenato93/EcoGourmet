@@ -419,27 +419,11 @@
 
             $scope.recipes = response.recipes;    
             $scope.awards_achievements = response.awards_achievements;
-            
-            // Alapértelmezett fül beállítása
-            $scope.activeTab = 'menu-breakfast';
-
-            $scope.setActiveTab = function(tabId) {
-               $scope.activeTab = tabId;
-            };
-
-            // Menük inicializálása
-            $scope.menus = [
-               { tabId: 'menu-breakfast', title: 'Reggeli', recipes: $scope.breakfastRecipes },
-               { tabId: 'menu-lunch', title: 'Ebéd', recipes: $scope.lunchRecipes },
-               { tabId: 'menu-dinner', title: 'Vacsora', recipes: $scope.dinnerRecipes }
-            ];
-
-            // Aktív fül inicializálása
-            $scope.activeTab = 'menu-breakfast';
-
+         
             $scope.$applyAsync();
          })
-         .catch(e => alert(lang.translate(e, true)+'!'));
+              // Set video source dynamically
+     $scope.videoSource = "./media/video/sheep.mp4";
       }
    ]);
 
