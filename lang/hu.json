@@ -153,7 +153,8 @@
   "recipe_leiras_8" : "Padlizsán szeletek parmezán és paradicsom szósszal.",
   "recipe_nev_9" : "Marhapörkölt nokedlivel",
   "recipe_leiras_9" : "Hagyományos marhapörkölt nokedlivel.",
-  "recipe_elkeszites_1" : "1. Üss fel 2 tojást egy tálba. \n2. Verd fel a tojásokat. \n3. Sózd és borsozd meg ízlés szerint. \n4. Süsd meg a tojásokat egy serpenyőben.",
+  "recipe_elkeszites_1": "1. Üss fel 2 tojást egy tálba.\n2. Verd fel a tojásokat.\n3. Sózd és borsozd meg ízlés szerint.\n4. Süsd meg a tojásokat egy serpenyőben.",
+
   "recipe_elkeszites_2" : "1. Főzd meg a zabpelyhet vízben. 2. Adjon hozzá friss gyümölcsöket. 3. Keverje össze és tálalja.",
   "recipe_elkeszites_3" : "1. Tegyen görög joghurtot egy tálba. 2. Adjon hozzá választott gyümölcsöket. 3. Keverje össze és élvezze.",
   "recipe_elkeszites_4" : "1. Fűszerezze meg a csirkemellet. 2. Süssük meg a csirkemellet serpenyőben. 3. Készítse el a friss zöldségeket.",
@@ -161,6 +162,22 @@
   "recipe_elkeszites_6" : "1. Süssük meg a lazacot. 2. Készítsünk friss salátát. 3. Tálaljuk a sült lazaccal a salátát.",
   "recipe_elkeszites_7" : "1. Készítsük el a ricotta tölteléket. 2. Töltse meg a cannellonit a töltelékkel. 3. Süsse meg és tálalja.",
   "recipe_elkeszites_8" : "1. Szeletelje fel a padlizsánt. 2. Készítsen paradicsom szósszal. 3. Rétegezze a padlizsánt és a szószt, majd süssük meg.",
-  "recipe_elkeszites_9" : "1. Készítse el a marhapörköltet. 2. Főzzük meg a nokedlit. 3. Tálaljuk együtt és élvezze."
+  "recipe_elkeszites_9" : "1. Készítse el a marhapörköltet. 2. Főzzük meg a nokedlit. 3. Tálaljuk együtt és élvezze.",
+  "recipe_hozza_1": "Friss tojások (2 tojás személyenként), Só (ízlés szerint), Fekete bors (ízlés szerint), Vaj vagy olaj a sütéshez, Friss petrezselyem vagy snidling a díszítéshez",
+  "recipe_hozza_2": "Egészséges zabkása (1 csésze személyenként), Friss gyümölcsök (pl. 1 banán, egy marék eper, egy marék áfonya), Méz vagy juharszirup (opcionális, ízlés szerint), Mandula vagy dió (opcionális, 1 evőkanál személyenként), Tej vagy növényi tej (a zabkása elkészítéséhez)",
+  "recipe_hozza_3": "Friss görög joghurt (1 csésze személyenként), Friss gyümölcsök (pl. 1 maracuja, egy marék málna, egy kivi), Méz vagy agavé szirup (opcionális, ízlés szerint), Dió vagy pisztácia (opcionális, 1 evőkanál személyenként)",
+  "recipe_hozza_4": "Csirkemell filé (körülbelül 150-200g személyenként), Só és bors ízlés szerint, Friss zöldségek (pl. 1 paradicsom, 1/2 cukkini, 1 paprika), Olívaolaj, Friss petrezselyem vagy bazsalikom a díszítéshez",
+  "recipe_hozza_5": "Zöld- vagy barnalencse (körülbelül 1 csésze), Hagyma (1 db), Sárgarépa (1 db), Zeller (1 szár), Paradicsom (1 db), Fokhagyma (2 gerezd), Friss petrezselyem (egy maroknyi), Babérlevél (1 db), Só és bors ízlés szerint, Olívaolaj, Marhahúsleves alaplé (körülbelül 4 csésze)",
+  "recipe_hozza_6": "Lazac filé (körülbelül 150-200g személyenként), Friss saláta (pl. egy marék rukkola, egy marék spenót), Kukorica (opcionális, 1/2 csésze), Cseresznyetomato (opcionális, 1/2 csésze), Citrom (1 db), Olívaolaj, Só és bors ízlés szerint, Friss petrezselyem vagy koriander a díszítéshez",
+  "recipe_hozza_7": "Cannelloni tészta (körülbelül 8-10 db), Friss spenót (200g), Ricotta sajt (1 csésze), Parmezán sajt (1/2 csésze), Fokhagyma (2 gerezd), Olívaolaj, Paradicsomszósz (1 csésze), Só és bors ízlés szerint, Friss bazsalikom vagy petrezselyem a díszítéshez",
+  "recipe_hozza_8": "Padlizsán szeletek (2 db személyenként), Parmezán sajt (1 csésze), Paradicsomszósz (1 csésze), Fokhagyma (2 gerezd), Olívaolaj, Friss bazsalikom, Só és bors ízlés szerint, Liszt (a panírozáshoz), Tojás (a panírozáshoz), Zsemlemorzsa (a panírozáshoz)",
+  "recipe_hozza_9": "Marhahús (pl. comb vagy lapocka) (körülbelül 200g személyenként), Vöröshagyma (1 db), Fokhagyma (2 gerezd), Pirospaprika (1 evőkanál), Paradicsompüré (2 evőkanál), Marhahúsleves alaplé (1 csésze), Só és bors ízlés szerint, Olaj vagy zsír a pároláshoz, Liszt (a nokedlihez, körülbelül 1 csésze), Tojás (a nokedlihez, 2 db), Víz (a nokedlihez, körülbelül 1/2 csésze)",
+  "recipe_tit_1": "Mai recept nektek",
+  "crois_mai": "Croissant Sajtos Szendvics",
+  "crois_elk": "A következő recept egy összetett croissant sajtos szendvics, amely ízletes és laktató. A hozzávalókat és az elkészítés lépéseit lentebb találod.",
+  "crois_hozz": "Hozzávalók:\n- 4 croissant, vízszintesen felezve\n- 4 nagy tojás\n- 40 ml tej\n- 4 szelet vékonyra szeletelt sonka\n- 120 g Cervinus Delicato sajt\n- só, bors ízlés szerint\n- 1 mokkáskanál sózatlan vaj\n- 2 pici teáskanál dijoni mustár",
+  "crois_mod": "Elkészítés:\n1. Verjük fel a tojásokat tálban, majd keverjük össze a tejjel, sóval és borssal.\n2. Olvasszuk fel a vajat serpenyőben, öntsük bele a tojáskeveréket, és süssük lágyan kevergetve.\n3. Kenjük meg a croissantokat mustárral, helyezzünk rájuk sonkát, rántottát és sajtot.\n4. Süssük 175 ° C-on, amíg a sajt megolvad.\n5. Ízletes, gyors reggeli vagy könnyű vacsora elkészítve!",
+  "services_title": "Miért válassza receptjeinket?",
+  "services_text": "Receptjeink a legfinomabb ízeket kínálják, ahol az alapanyagok harmóniája és a fűszerek mesteri keveréke új szintre emeli az ízorgia fogalmát."
 
 }

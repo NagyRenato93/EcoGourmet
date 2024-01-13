@@ -77,7 +77,7 @@
   "news": "Latest News",
   "plan_desc_1": "The Simple level plan allows for optional ordering of breakfast, lunch, or dinner. Ideal for shorter-term, more sophisticated experiences for you!",
   "plan_desc_2": "The Pro plan offers two selectable meals in the form of breakfast, lunch, or dinner. Due to the longer duration, it is ideal for food subscription enthusiasts.",
-  "plan_desc_3": "The Enterprise plan is born in the spirit of luxury and variety. It offers three meals every day in the form of breakfast, lunch, and dinner.",
+  "plan_desc_3": "The Enterprise plan is born in the spirit of luxury and variety. It offers three meals every day in the form of breakfast, lunch, and dinner and much more!",
   "abut_pricing_title": "Predefined Options for Accessing Content",
   "award_title_1": "Sustainable Restaurant Award",
   "award_title_2": "Green Kitchen Recognition",
@@ -161,5 +161,25 @@
   "recipe_elkeszites_6" : "1. Bake the salmon. 2. Prepare a fresh salad. 3. Serve the baked salmon with the salad.",
   "recipe_elkeszites_7" : "1. Prepare the ricotta filling. 2. Fill the cannelloni with the filling. 3. Bake and serve.",
   "recipe_elkeszites_8" : "1. Slice the eggplant. 2. Prepare tomato sauce. 3. Layer the eggplant and sauce, then bake.",
-  "recipe_elkeszites_9" : "1. Prepare the beef stew. 2. Cook the noodles. 3. Serve them together and enjoy."
+  "recipe_elkeszites_9" : "1. Prepare the beef stew. 2. Cook the noodles. 3. Serve them together and enjoy.",
+  "recipe_hozza_1": "Fresh eggs (2 eggs per person), Salt (to taste), Black pepper (to taste), Butter or oil for cooking, Fresh parsley or chives for garnish",
+  "recipe_hozza_2": "Healthy oatmeal (1 cup per person), Fresh fruits (e.g., 1 banana, a handful of strawberries, a handful of blueberries), Honey or maple syrup (optional, to taste), Almonds or walnuts (optional, 1 tablespoon per person), Milk or plant-based milk for preparing oatmeal",
+  "recipe_hozza_3": "Fresh Greek yogurt (1 cup per person), Fresh fruits (e.g., 1 passion fruit, a handful of raspberries, a kiwi), Honey or agave syrup (optional, to taste), Walnuts or pistachios (optional, 1 tablespoon per person)",
+  "recipe_hozza_4": "Chicken breast fillet (approximately 150-200g per person), Salt and pepper to taste, Fresh vegetables (e.g., 1 tomato, 1/2 zucchini, 1 bell pepper), Olive oil, Fresh parsley or basil for garnish",
+  "recipe_hozza_5": "Green or brown lentils (approximately 1 cup), Onion (1 piece), Carrot (1 piece), Celery (1 stalk), Tomato (1 piece), Garlic (2 cloves), Fresh parsley (a handful), Bay leaf (1 piece), Salt and pepper to taste, Olive oil, Beef broth (approximately 4 cups)",
+  "recipe_hozza_6": "Salmon fillet (approximately 150-200g per person), Fresh salad (e.g., a handful of arugula, a handful of spinach), Corn (optional, 1/2 cup), Cherry tomatoes (optional, 1/2 cup), Lemon (1 piece), Olive oil, Salt and pepper to taste, Fresh parsley or cilantro for garnish",
+  "recipe_hozza_7": "Cannelloni pasta (approximately 8-10 pieces), Fresh spinach (200g), Ricotta cheese (1 cup), Parmesan cheese (1/2 cup), Garlic (2 cloves), Olive oil, Tomato sauce (1 cup), Salt and pepper to taste, Fresh basil or parsley for garnish",
+  "recipe_hozza_8": "Eggplant slices (2 pieces per person), Parmesan cheese (1 cup), Tomato sauce (1 cup), Garlic (2 cloves), Olive oil, Fresh basil, Salt and pepper to taste, Flour (for breading), Eggs (for breading), Breadcrumbs (for breading)",
+  "recipe_hozza_9": "Beef (e.g., chuck or shoulder) (approximately 200g per person), Onion (1 piece), Garlic (2 cloves), Paprika (1 tablespoon), Tomato puree (2 tablespoons), Beef broth (1 cup), Salt and pepper to taste, Oil or fat for sautéing, Flour (for dumplings, approximately 1 cup), Eggs (for dumplings, 2 pieces), Water (for dumplings, approximately 1/2 cup)",
+  "recipe_tit_1":"Today's recipe for you",
+  "crois_mai": "Croissant Cheese Sandwich",
+  "crois_elk": "The following recipe is a sophisticated croissant cheese sandwich that is delicious and filling. Find the ingredients and steps for preparation below.",
+  "crois_hozz": "Ingredients:\n- 4 croissants, sliced horizontally\n- 4 large eggs\n- 40 ml milk\n- 4 slices thinly sliced ham\n- 120 g Cervinus Delicato cheese\n- salt, pepper to taste\n- 1 small teaspoon unsalted butter\n- 2 small teaspoons Dijon mustard",
+  "crois_mod": "Instructions:\n1. Beat the eggs in a bowl, then mix them with the milk, salt, and pepper.\n2. Melt the butter in a pan, pour in the egg mixture, and cook gently, stirring.\n3. Spread mustard on the croissants, place ham, scrambled eggs, and cheese on them.\n4. Bake at 175 ° C until the cheese melts.\n5. Delicious, quick breakfast or light dinner ready!",
+  "services_title": "Why Choose Our Recipes?",
+  "services_text": "Our recipes offer the finest flavors, where the harmony of ingredients and the masterful blend of spices take the concept of taste sensation to a new level."
+  
+
+
+
   }

@@ -159,5 +159,23 @@
   "recipe_elkeszites_6" : "1. Backe den Lachs. 2. Bereite einen frischen Salat vor. 3. Serviere den gebackenen Lachs mit dem Salat.",
   "recipe_elkeszites_7" : "1. Bereite die Ricotta-Füllung vor. 2. Fülle die Cannelloni mit der Füllung. 3. Backe und serviere.",
   "recipe_elkeszites_8" : "1. Schneide die Aubergine in Scheiben. 2. Bereite Tomatensauce vor. 3. Schichte die Aubergine und die Sauce und backe sie dann.",
-  "recipe_elkeszites_9" : "1. Bereite den Rindfleischeintopf vor. 2. Koche die Nudeln. 3. Serviere sie zusammen und genieße."
+  "recipe_elkeszites_9" : "1. Bereite den Rindfleischeintopf vor. 2. Koche die Nudeln. 3. Serviere sie zusammen und genieße.",
+  "recipe_hozza_1": "Frische Eier (2 Eier pro Person), Salz (nach Geschmack), Schwarzer Pfeffer (nach Geschmack), Butter oder Öl zum Braten, Frische Petersilie oder Schnittlauch zum Garnieren",
+  "recipe_hozza_2": "Gesundes Haferflocken (1 Tasse pro Person), Frische Früchte (z.B. 1 Banane, eine Handvoll Erdbeeren, eine Handvoll Blaubeeren), Honig oder Ahornsirup (optional, nach Geschmack), Mandeln oder Walnüsse (optional, 1 Esslöffel pro Person), Milch oder pflanzliche Milch zur Zubereitung des Haferbreis",
+  "recipe_hozza_3": "Frischer griechischer Joghurt (1 Tasse pro Person), Frische Früchte (z.B. 1 Passionsfrucht, eine Handvoll Himbeeren, ein Kiwi), Honig oder Agavensirup (optional, nach Geschmack), Walnüsse oder Pistazien (optional, 1 Esslöffel pro Person)",
+  "recipe_hozza_4": "Hähnchenbrustfilet (ca. 150-200 g pro Person), Salz und Pfeffer nach Geschmack, Frisches Gemüse (z.B. 1 Tomate, 1/2 Zucchini, 1 Paprika), Olivenöl, Frische Petersilie oder Basilikum zum Garnieren",
+  "recipe_hozza_5": "Grüne oder braune Linsen (ca. 1 Tasse), Zwiebel (1 Stück), Karotte (1 Stück), Sellerie (1 Stängel), Tomate (1 Stück), Knoblauch (2 Zehen), Frische Petersilie (eine Handvoll), Lorbeerblatt (1 Stück), Salz und Pfeffer nach Geschmack, Olivenöl, Rinderbrühe (ca. 4 Tassen)",
+  "recipe_hozza_6": "Lachsfilet (ca. 150-200 g pro Person), Frischer Salat (z.B. eine Handvoll Rucola, eine Handvoll Spinat), Mais (optional, 1/2 Tasse), Kirschtomaten (optional, 1/2 Tasse), Zitrone (1 Stück), Olivenöl, Salz und Pfeffer nach Geschmack, Frische Petersilie oder Koriander zum Garnieren",
+  "recipe_hozza_7": "Cannelloni-Nudeln (ca. 8-10 Stück), Frischer Spinat (200 g), Ricotta-Käse (1 Tasse), Parmesan-Käse (1/2 Tasse), Knoblauch (2 Zehen), Olivenöl, Tomatensauce (1 Tasse), Salz und Pfeffer nach Geschmack, Frisches Basilikum oder Petersilie zum Garnieren",
+  "recipe_hozza_8": "Auberginenscheiben (2 Stück pro Person), Parmesan-Käse (1 Tasse), Tomatensauce (1 Tasse), Knoblauch (2 Zehen), Olivenöl, Frisches Basilikum, Salz und Pfeffer nach Geschmack, Mehl (zum Panieren), Eier (zum Panieren), Semmelbrösel (zum Panieren)",
+  "recipe_hozza_9": "Rindfleisch (z.B. aus der Keule oder Schulter) (ca. 200 g pro Person), Zwiebel (1 Stück), Knoblauch (2 Zehen), Paprika (1 Esslöffel), Tomatenpüree (2 Esslöffel), Rinderbrühe (1 Tasse), Salz und Pfeffer nach Geschmack, Öl oder Fett zum Anbraten, Mehl (für die Knödel, ca. 1 Tasse), Eier (für die Knödel, 2 Stück), Wasser (für die Knödel, ca. 1/2 Tasse)",
+  "recipe_tit_1": "Das heutige Rezept für euch",
+  "crois_mai": "Croissant-Käsesandwich",
+  "crois_elk": "Das folgende Rezept ist ein raffiniertes Croissant-Käsesandwich, das köstlich und sättigend ist. Die Zutaten und Zubereitungsschritte finden Sie unten.",
+  "crois_hozz": "Zutaten:\n- 4 Croissants, horizontal geschnitten\n- 4 große Eier\n- 40 ml Milch\n- 4 Scheiben dünn geschnittener Schinken\n- 120 g Cervinus Delicato Käse\n- Salz, Pfeffer nach Geschmack\n- 1 kleiner Teelöffel ungesalzene Butter\n- 2 kleine Teelöffel Dijon-Senf",
+  "crois_mod": "Anleitung:\n1. Schlagen Sie die Eier in einer Schüssel, mischen Sie sie dann mit Milch, Salz und Pfeffer.\n2. Schmelzen Sie die Butter in einer Pfanne, gießen Sie die Eimischung ein und kochen Sie sie sanft, dabei ständig rühren.\n3. Bestreichen Sie die Croissants mit Senf, legen Sie Schinken, Rührei und Käse darauf.\n4. Backen Sie bei 175 ° C, bis der Käse schmilzt.\n5. Köstliches, schnelles Frühstück oder leichtes Abendessen fertig!",
+  "services_title": "Warum unsere Rezepte wählen?",
+  "services_text": "Unsere Rezepte bieten die feinsten Aromen, bei denen die Harmonie der Zutaten und die meisterhafte Mischung von Gewürzen den Begriff des Geschmackserlebnisses auf eine neue Ebene heben."
+  
+
 }

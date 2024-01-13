@@ -13,6 +13,7 @@ $query = "SELECT id,
                  nev, 
                  kategoria, 
                  leiras, 
+                 hozzavalok,
                  elkeszites,
                  fozesi_ido,
                  kep
@@ -30,6 +31,7 @@ $query = "SELECT id,
 
 // Execute query
 $result['awards_achievements'] = $db->execute($query);
+
 
 // Close connection
 $db = null;
