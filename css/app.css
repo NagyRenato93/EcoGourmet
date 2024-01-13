@@ -3,10 +3,11 @@
 /* -------------Landing Page Animation------------ */
 header {min-height: 60px;}
 footer {min-height: 90px;}
-.page-container.login,
+
+/* .page-container.login,
 .page-container.password_frogot {
   background: ;
-}
+} */
 
 .slider {
 	animation-duration: 20s;
@@ -94,6 +95,40 @@ footer {min-height: 90px;}
 	100% {}
 }
 /* ------------- Landing Page Animation Ends here ------------ */
+
+/*--------- navbar----------*/
+
+.nav-link {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 5px; /* Adjust as needed to control the space between text and underline */
+  transition: color 0.2s;
+}
+
+.nav-link::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%; /* Center the underline */
+  transform: translateX(-50%);
+  width: 0;
+  height: 1px;
+  background-color: blue;
+  transition: width 0.3s; /* Add a slight animation to the width */
+}
+
+.nav-link:hover::before,
+.nav-link.active::before {
+  width: 100%; /* Set the width to 100% on hover and when the link is active */
+}
+
+.nav-link.active {
+  color: blue;
+  background-color: none; /* or use the same color */
+  border-color: none;
+}
+
+/*--------- navbar----------*/
 
 
 /* ------------- Video Settings start here ------------ */
@@ -315,8 +350,7 @@ h1 {
 }
 
 .cart-container button {
-    background: #dc3545;
-    color: white;
+    color: black;
     border: none;
     padding: 5px 10px;
     cursor: pointer;

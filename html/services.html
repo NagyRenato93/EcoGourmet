@@ -1,10 +1,11 @@
 <!-- Video background -->
 <div class="Topvideo" id="Topvideo">
-  <div class="overlay"></div>
+  <div class="overlay" style="overflow: hidden;"></div>
   <video playsinline="playsinline" 
          autoplay="autoplay" 
          muted="muted" 
-         loop="loop">
+         loop="loop"
+         style="overflow: hidden;">
     <source ng-src="{{videoSource}}" 
             type="video/mp4">
   </video>
