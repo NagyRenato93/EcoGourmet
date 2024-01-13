@@ -235,7 +235,7 @@
          }
 
          //
-         $scope.finalizeOrder = function () {
+         $rootScope.finalizeOrder = function () {
 
             if (!$rootScope.cart || $rootScope.cart.length === 0) {
                console.log("A kosár üres.");
