@@ -98,6 +98,8 @@ footer {min-height: 90px;}
 
 /*--------- navbar----------*/
 
+/* Egyéb szükséges stílusok itt... */
+
 .nav-link {
   position: relative;
   display: inline-block;
@@ -181,10 +183,9 @@ footer {min-height: 90px;}
   clip-path: polygon(25% 0%, 100% 0%, 100% 99%, 0% 100%);
 }
 /* Video 3 - Services oldalon */
-
 .Topvideo {
   position: relative;
-  height: 50vh; /* Adjust this value to change the overall height of the video */
+  height: 60vh; /* Adjust this value to change the overall height of the video */
   min-height: 10rem;
   width: 100%;
   overflow: hidden;
@@ -192,12 +193,15 @@ footer {min-height: 90px;}
 
 .Topvideo video {
   position: absolute;
-  top: 15%;
+  top: 20%;
   left: 50%;
-  width: 100%; /* Adjust this value to change the width of the video */
-  height: auto;
   transform: translate(-50%, -50%);
+  width: 100%;
+  height: auto; /* Set to auto to maintain the video's aspect ratio */
+  object-fit: cover;
   z-index: 0;
+  filter: blur(2px);
+
 }
 
 .Topvideo .container {
@@ -206,15 +210,9 @@ footer {min-height: 90px;}
 }
 
 .Topvideo .overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background-color: black;
-  opacity: 0.5;
-  z-index: 1;
+  display: none; /* Hide the overlay completely */
 }
+
 
 /* ------------- Video Settings ends here ------------ */
 
