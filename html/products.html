@@ -11,7 +11,6 @@
           </div>
         </div>
 
-
         <!-- Sky video Title and Text part -->
         <div class="col-lg-6 col-xl-5 text-center text-lg-start pt-lg-5 mt-xl-4">
           <div class="mb-4">
@@ -24,7 +23,6 @@
                 {{('Eco_prod_text') | translate:lang.data}}
               </p>
           </div>
-
 
           <!-- comapany logos -->
           <div class="row">
@@ -56,8 +54,6 @@
               ng-src="./media/image/brands/instagram.png"
               height="50" width="50" >
             </div>
-
-
           </div>
         </div>
       </div>
@@ -69,13 +65,11 @@
   <div class="container-fluid">
     <div class="row">
 
-
       <!-- Termék kártyák -->
       <div class="col-md-12 ">
         <section class="py-5" 
         style="background-color: #f8f9fa;">
           <div class="col-md-9 mx-auto">
-
 
             <!-- Tab filters -->
             <div class="container">
@@ -96,13 +90,11 @@
                 aria-selected="{{ category === $scope.activeTab }}">
                 {{('prod_kategoria_'  + ($index+1)) | translate:lang.data}}
              </a>
-
                 </li>
               </ul>
               <div class="card-group position-relative">
                 <div class="card mb-4" 
                 ng-repeat="product in filteredProducts = (products | filter: { kategoria: categoryFilter } | limitTo:4)">
-
 
                   <!-- Termék képe -->
                   <img ng-src="{{product.kep_eleresi_ut}}" 
@@ -110,11 +102,9 @@
                   style="height: 400px;" 
                   alt="{{product.nev}}">
 
-
                   <!-- Termék részletei -->
                   <div class="card-body">
                     <div>
-
 
                     <!-- Product name-->
                     <h5 class="card-title fw-bolder "> 
@@ -128,7 +118,6 @@
                     </div>
                   </div>
 
-
                   <!-- Product actions-->
                   <div class="card-footer bg-transparent d-flex justify-content-center align-items-center flex-column">
                     <div class="mb-auto">
@@ -138,11 +127,11 @@
                     </p>
                     </div>
                     <div>
-                      <a class="btn btn-primary btn-lg px-4 me-md-2" 
-                      ng-click="addToCart(product, 'shop')">
-                      {{ 'Cart' | translate:lang.data}}
-                    </a>
-                    </div>
+                      <a class="btn btn-primary btn-lg px-4 me-md-2" ng-click="addToCart(product, 'shop')">
+                         {{ 'Cart' | translate:lang.data}}
+                      </a>
+                   </div>
+                   
                   </div>
                 </div>
               </div>
@@ -167,7 +156,6 @@
             ng-repeat="feature in ecogourmetFeatures track by $index">
               <div class="d-flex flex-column align-items-center mb-3">
 
-
                 <!-- Ikon és Description -->
                 <div class="d-flex justify-content-between w-100">
                   <div class="aspect-ratio me-3">
@@ -176,7 +164,6 @@
                       style="font-size: 3rem;"></i>
                     </div>
                   </div>
-
 
                   <!-- Description -->
                   <div class="flex-grow-1">

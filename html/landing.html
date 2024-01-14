@@ -1,18 +1,24 @@
-<!-- Slider -->
-<div class="slider slider-{{$index+1}} h-100 w-100 position-absolute overflow-hidden top-0 start-0" 
-     ng-repeat="x in [].constructor(4) track by $index">
-  <!-- Slider image -->
-  <div class="slider-image slider-image-{{$index+1}} vh-100 bg-img bg-img-cover" 
-       style="background-image:url('./media/image/food{{$index+1}}.jpg');">
-    <!-- Slider content -->
-    <div class="slider-text position-absolute text-white p-3">
-      <h1 class="slider-title">
-        {{('slide_title_' + ($index+1)) | translate:lang.data}}
-      </h1>
-      <p class="slider-content">
-        {{('slide_content_' + ($index+1)) | translate:lang.data}}
-      </p>
-      <a ui-sref="about" class="btn btn-outline-light btn-lg">{{ 'DISCOVER_MORE' | translate:lang.data}}</a>
+  <!-- Slider -->
+  <div class="slider slider-{{$index+1}} h-100 w-100 position-absolute overflow-hidden top-0 start-0" 
+      ng-repeat="x in [].constructor(4) track by $index">
+
+    <!-- Slider image -->
+    <div class="slider-image slider-image-{{$index+1}} vh-100 bg-img bg-img-cover" 
+        style="background-image:url('./media/image/food{{$index+1}}.jpg');">
+        
+      <!-- Slider content -->
+      <div class="slider-text position-absolute text-white p-3">
+        <h1 class="slider-title">
+          {{('slide_title_' + ($index+1)) | translate:lang.data}}
+        </h1>
+        <p class="slider-content">
+          {{('slide_content_' + ($index+1)) | translate:lang.data}}
+        </p>
+        <button type="button" 
+                ui-sref="about" 
+                class="btn btn-primary px-4 me-md-2">
+        {{ 'DISCOVER_MORE' | translate:lang.data }}
+        </button>
+      </div>
     </div>
   </div>
-</div>

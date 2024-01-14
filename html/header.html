@@ -112,16 +112,14 @@
               </thead>
               <tbody>
                 <tr ng-repeat="item in cart track by $index">
-                  <td>{{( item.nev) | translate:lang.data}}
-                  </td>
+                  <td>{{ (item.nev) | translate:lang.data }}</td>
                   <td>{{ item.ar_forint }}</td>
                   <td>{{ item.quantity }}</td>
                   <td>{{ item.ar_forint * item.quantity }}</td>
                   <td>
-                    <button ng-click="removeFromCart(item)">Törlés</button>
+                    <button ng-click="removeFromCart(item)">Tétel eltávolítása</button>
                   </td>
-                </tr>
-                <tr>
+                </tr>                
                   <td colspan="3">Összesen:</td>
                   <td>{{ getTotalPrice() }}Ft</td>
                   <td>

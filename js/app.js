@@ -214,16 +214,6 @@
          })
          .catch(e => alert(lang.translate(e, true)+'!'));
 
-         //
-         $rootScope.$watch('cart', (newValue, oldValue) => {
-
-            // Check is changed
-            if(!angular.equals(newValue, oldValue)) {
-               console.log(oldValue, ' => ', newValue);
-               localStorage.setItem("shoppingCart", $rootScope.cart);
-            }
-         }, true);
-
          // Funkciók a termékjellemzők leírásához
          $scope.getDescription = function (feature) {
             return 'shop_card_' + (feature.index + 1);
@@ -234,42 +224,6 @@
             return 'shop_card_' + (feature.index + 1);
          }
 
-         //
-         $rootScope.finalizeOrder = function () {
-
-            if (!$rootScope.cart || $rootScope.cart.length === 0) {
-               console.log("A kosár üres.");
-               return;
-            }
-
-            // Define filter of keys, and reduce array of object by keys
-            let   filter  = ['termek_id','quantity','ar_forint','duration','type'],
-                  data    =  $rootScope.cart.map((obj) => {
-                                 return	Object.keys(obj)
-                                                .filter((key) => filter.includes(key))
-                                                .reduce((o, k) => Object.assign(o, {[k]: obj[k]}), {});
-                              });
-                           
-            // Elküldjük a kosár tartalmát a szerverre
-            http.request({
-               data: {
-                  require : 'vasarlasok.php',
-                  params  : { 
-                     cart: data,
-                     userId: $rootScope.user.id
-                  }
-               }
-            })
-            .then(response => {
-               // Sikeres válasz esetén kezeld a választ, például visszajelzés a felhasználónak
-               console.log(response);
-               // Töröld a kosarat
-               $rootScope.cart = [];
-               $scope.updateCartTotal();
-               $scope.$applyAsync();
-            })
-            .catch(e => alert(lang.translate(e, true)+'!'));
-         }
       
          // Ecogurmet titles tömbje
          $scope.ecogourmetFeatures = [
@@ -321,23 +275,63 @@
             }
             return categories;
          };
+         
+         // Kosár kezelése
+         // Megrendelés véglegesítése
+         $rootScope.finalizeOrder = function () {
+            if (!$rootScope.cart || $rootScope.cart.length === 0) {
+               return;
+            }
 
-         //Kosár-->
+            // Szükséges adatok kinyerése a kosárból
+            let filter = ['termek_id', 'quantity', 'ar_forint', 'duration', 'type'],
+               data = $rootScope.cart.map((obj) => {
+                  return Object.keys(obj)
+                     .filter((key) => filter.includes(key))
+                     .reduce((o, k) => Object.assign(o, { [k]: obj[k] }), {});
+               });
 
-         // Funkció a kosár összegének frissítéséhez
+            // Kosár tartalmának elküldése a szerverre
+            http.request({
+               data: {
+                  require: 'vasarlasok.php',
+                  params: {
+                     cart: data,
+                     userId: $rootScope.user.id
+                  }
+               }
+            })
+               .then(response => {
+                  $rootScope.cart = [];
+                  $scope.updateCartTotal();
+                  $scope.$applyAsync();
+                  // Sikeres vásárlás visszajelzése
+                  // Felhasználói visszajelzés hozzáadása, például: alert('Sikeres vásárlás!');
+               })
+               .catch(e => alert(lang.translate(e, true) + '!'));
+         }
+
+         // Figyelő az 'cart' változóra
+         $rootScope.$watch('cart', (newValue, oldValue) => {
+            // Ellenőrzi, hogy változott-e a kosár
+            if (!angular.equals(newValue, oldValue)) {
+               localStorage.setItem("shoppingCart", $rootScope.cart);
+            }
+         }, true);
+
+         // Kosár összegének frissítése
          $scope.updateCartTotal = function () {
             $scope.totalItems = $rootScope.cart.length;
             $scope.$applyAsync();
             // További frissítések, ha szükséges...
          };
 
-         // Funkció a termék hozzáadásához a kosárhoz
+         // Termék hozzáadása a kosárhoz
          $scope.addToCart = function (product, type) {
-            console.log(product, type);
-            let existingItem =   $filter('filter')($rootScope.cart, { 
-                                    termek_id: product.termek_id
-                                 }, true)[0];
-                              
+            let existingItem = $filter('filter')($rootScope.cart, {
+               termek_id: product.termek_id
+            }, true)[0];
+
             if (existingItem) {
                existingItem.quantity++;
             } else {
@@ -346,20 +340,18 @@
                newItem.quantity = 1;
                $rootScope.cart.push(newItem);
             }
-         
-            console.log($rootScope.cart); // Debug kimenet
-            $scope.updateCartTotal(); // Frissítsd a kosár összegét
+            $scope.updateCartTotal(); // Kosár összegének frissítése
          }
-     
+
          // Előfizetési terv hozzáadása a kosárhoz
          $scope.addToCartSubscriptionPlan = function (subscription_plan) {
+            // Ellenőrzés, hogy az előfizetési terv objektum létezik-e
 
-            // Ellenőrizd, hogy a subscription_plan objektum létezik
-            console.log(subscription_plan);
-         
-            // Létrehozzuk az existingItem változót
-            let existingItem = $filter('filter')($rootScope.cart, { termek_id: subscription_plan.termek_id }, true)[0];
-         
+            // Létező elem ellenőrzése
+            let existingItem = $filter('filter')($rootScope.cart, {
+               termek_id: subscription_plan.termek_id
+            }, true)[0];
+
             if (existingItem) {
                existingItem.quantity++;
             } else {
@@ -367,21 +359,19 @@
                newItem.quantity = 1;
                $rootScope.cart.push(newItem);
             }
-         
-            console.log($rootScope.cart); // Debug kimenet
-            $scope.updateCartTotal(); // Frissítsd a kosár összegét
+            $scope.updateCartTotal(); // Kosár összegének frissítése
          }
-      
-         // Funkció a termék eltávolításához a kosárból
-         $scope.removeFromCart = function (product) {
+
+         // Termék eltávolítása a kosárból
+         $rootScope.removeFromCart = function (product) {
             let index = $rootScope.cart.indexOf(product);
             if (index !== -1) {
                $rootScope.cart.splice(index, 1);
-               $scope.updateCartTotal(); // Frissítsd a kosár összegét
+               $scope.updateCartTotal(); // Kosár összegének frissítése
             }
          }
 
-         // Funkció a kosárban lévő elemek összértékének lekéréséhez
+         // Kosárban lévő elemek összértékének lekérése
          $rootScope.getTotalPrice = function () {
             if (!$rootScope.cart || $rootScope.cart.length === 0) {
                return 0; // Üres a kosár, tehát az összeg 0
@@ -398,7 +388,7 @@
             return totalPrice;
          }
 
-         // // Funkció a kosárban lévő elemek összmennyiségének lekéréséhez
+         // Kosárban lévő elemek összmennyiségének lekérése
          $rootScope.getTotalQuantity = function () {
             let totalQuantity = 0;
             for (let i = 0; i < $rootScope.cart.length; i++) {
@@ -406,6 +396,7 @@
             }
             return totalQuantity;
          }
+
       }
    ])
 

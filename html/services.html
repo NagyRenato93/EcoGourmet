@@ -1,200 +1,42 @@
-<div class="Topvideo position-relative d-flex align-items-center justify-content-center">
-  <div class="overlay"></div>
-  <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop" style="width: 100%; height: auto; overflow: hidden;">
-    <source ng-src="{{videoSource}}" type="video/mp4">
-  </video>
+  <!-- Video Section -->
+  <div class="Topvideo position-relative d-flex align-items-center justify-content-center">
 
-  <div class="container p-5 bg-body mt-md-n6 top-60 bottom-60 rounded" style="opacity: 85%;">
-    <div class="row">
-      <div class="col-md-4 align-self-center">
-        <div class="lc-block border-lg border-2">
-          <div>
-            <p class="display-5 text-secondary text-center text-md">
-              {{ 'services_title' | translate:lang.data}}
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-8 mt-md-n6 mt-4">
-        <div class="lc-block">
-          <div>
-            <p class="display-6 text-md">
-              {{ 'services_text' | translate:lang.data}}
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+    <!-- Video Overlay -->
+    <div class="overlay"></div>
 
-<!-- Kategoria-Title -->
-<div class="py-5 p-5 text-center">
-  <h1 class="display-1">
-    {{ 'recipe_kategoria_1' | translate:lang.data}}
-  </h1>
-  <div>
-    <p class="lead">
-      {{ 'recipe_tit_1' | translate:lang.data}}
-    </p>
-  </div>
-</div>
+    <!-- Background Video -->
+    <video playsinline="playsinline" 
+           autoplay="autoplay" 
+           muted="muted" 
+           loop="loop" 
+           style="width: 100%; height: auto; overflow: hidden;">
+      <source ng-src="{{videoSource}}" type="video/mp4">
+    </video>
 
+    
+    <!-- Content Container -->
+    <div class="container p-5 bg-body mt-md-n6 top-60 bottom-60 rounded" style="opacity: 85%;">
 
+      <!-- Content Row -->
+      <div class="row">
 
-<!-- Croissant sajtos szendvics -->
-<div class="container my-5">
-  <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
-    <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
-      <div class="lc-block mb-3">
-        <div>
-          <h2 class="fw-bold display-5">
-            {{ 'crois_mai' | translate:lang.data}}
-          </h2>
-        </div>
-      </div>
-      <div class="lc-block mb-3">
-        <div>
-          <p class="small">
-            {{ 'crois_elk' | translate:lang.data}}
-          </p>
-          <p>
-            {{ 'crois_hozz' | translate:lang.data}}
-          </p>
-          <p class="small">            
-            {{ 'crois_mod' | translate:lang.data}}
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden">
-      <div class="lc-block">
-        <img ng-src="./media/image/card1.jpg" 
-             class="img-fluid" 
-             alt="Croissant Sajtos Szendvics">
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Kategoria-Title -->
-<div class="py-5   text-center w-100"style="margin-top: 3rem; margin-bottom: 3rem;" >
-  <h1 class="display-1">
-    {{ 'recipe_kategoria_2' | translate:lang.data}}
-  </h1>
-  <div>
-    <p class="lead">
-      {{ 'recipe_tit_1' | translate:lang.data}}
-    </p>
-  </div>
-</div>
-
-<!-- Recipe Cards -->
-<section class="text-center">
-  <div class="container-fluid  p-3">
-    <div class="row row-cols-1 row-cols-md-3 g-3 justify-content-center">
-      <div class="col mb-4" ng-repeat="recipe in recipes | filter:{kategoria: 'recipe_kategoria_3'} | limitTo: 3">
-        <div class="card" style="height: 100%;">
-          <div class="bg-image hover-overlay">
-            <img ng-src="{{recipe.kep}}" class="card-img-top img-fluid" alt="{{recipe.nev}}" style="width: 100%; height: 200px; object-fit: cover;">
-            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-          </div>
-          <div class="card-body">
-            <h5 class="card-title fs-6">
-              {{recipe.nev | translate:lang.data}}
-            </h5>
-            <p class="card-text small overflow-hidden" style="max-height: 80px;">
-              Hozzávalok: {{recipe.hozzavalok | translate:lang.data}}
-            </p>
-            <p class="small overflow-hidden" style="max-height: 60px;">
-              Elkészítés: {{recipe.elkeszites | translate:lang.data}}
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Kategoria-Title -->
-<div class="py-5   text-center w-100" style="margin-top: 3rem; margin-bottom: 3rem;" >
-  <h1 class="display-1">
-    {{ 'recipe_kategoria_3' | translate:lang.data}}
-  </h1>
-  <div>
-    <p class="lead">
-      {{ 'recipe_tit_1' | translate:lang.data}}
-    </p>
-  </div>
-</div>
-
-<!-- Featured Recipe 1 -->
-<section>
-  <div class="container py-6" ng-repeat="recipe in recipes | filter:{kategoria: 'recipe_kategoria_1'} | limitTo: 1">
-    <div class="row align-items-center">
-      <div class="col-md-7 mb-5 mb-md-0">
-        <img ng-src="{{recipe.kep}}" class="card-img-top img-fluid aspect-ratio-item" alt="{{recipe.nev}}" sizes="(max-width: 1080px) 100vw, 1080px" height="768">
-      </div>
-      <div class="col-md-5 col-xl-4 offset-xl-1">
-        <div class="lc-block mb-4">
-          <div>
-            <h1 class="fw-bold h2">
-              {{recipe.nev | translate:lang.data}}
-            </h1>
-          </div>
-        </div>
-        <div class="lc-block">
-          <div class="d-inline-flex">
+        <!-- Left Column with Title -->
+        <div class="col-md-4 align-self-center">
+          <div class="lc-block border-lg border-2">
             <div>
-              <i class="fa-solid fa-check"></i>
-            </div>
-            <div class="ms-3 align-self-center">
-              <p>
-                {{recipe.elkeszites | translate:lang.data}}
-              </p>
-              <p>
-                {{recipe.hozzavalok | translate:lang.data}}
-              </p>
-              <p>
-                {{recipe.fozesi_ido | translate:lang.data}} perc
+              <p class="display-5 text-secondary text-center text-md">
+                {{ 'services_title' | translate:lang.data}}
               </p>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- Featured Recipe 2 -->
-<section>
-  <div class="container py-6" ng-repeat="recipe in recipes | filter:{kategoria: 'recipe_kategoria_2'} | limitTo: 1">
-    <div class="row align-items-center">
-      <div class="col-md-7 mb-5 mb-md-0 order-md-2">
-        <img ng-src="{{recipe.kep}}" class="card-img-top img-fluid aspect-ratio-item" alt="{{recipe.nev}}" sizes="(max-width: 1080px) 100vw, 1080px" height="768">
-      </div>
-      <div class="col-md-5 col-xl-4 offset-xl-1">
-        <div class="lc-block mb-4">
-          <div>
-            <h1 class="fw-bold h2">
-              {{recipe.nev | translate:lang.data}}
-            </h1>
-          </div>
-        </div>
-        <div class="lc-block">
-          <div class="d-inline-flex">
+        <!-- Right Column with Text -->
+        <div class="col-md-8 mt-md-n6 mt-4">
+          <div class="lc-block">
             <div>
-              <i class="fa-solid fa-check"></i>
-            </div>
-            <div class="ms-3 align-self-center">
-              <p>
-                {{recipe.elkeszites | translate:lang.data}}
-              </p>
-              <p>
-                {{recipe.hozzavalok | translate:lang.data}}
-              </p>
-              <p>
-                {{recipe.fozesi_ido | translate:lang.data}} perc
+              <p class="display-6 text-md">
+                {{ 'services_text' | translate:lang.data}}
               </p>
             </div>
           </div>
@@ -202,4 +44,219 @@
       </div>
     </div>
   </div>
-</section>
+
+
+  <!-- Category Title Section 1 -->
+  <div class="py-5 p-5 text-center">
+    <h1 class="display-1">
+      {{ 'recipe_kategoria_1' | translate:lang.data}}
+    </h1>
+    <div>
+      <p class="lead">
+        {{ 'recipe_tit_1' | translate:lang.data}}
+      </p>
+    </div>
+  </div>
+
+
+  <!-- Recipe Section 1 (Croissant Sajtos Szendvics) -->
+  <div class="container my-5">
+    <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+
+      <!-- Left Column with Recipe Details -->
+      <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
+        <div class="lc-block mb-3">
+          <div>
+            <h2 class="fw-bold display-5">
+              {{ 'crois_mai' | translate:lang.data}}
+            </h2>
+          </div>
+        </div>
+        <div class="lc-block mb-3">
+          <div>
+            <p class="small">
+              {{ 'crois_elk' | translate:lang.data}}
+            </p>
+            <p>
+              {{ 'crois_hozz' | translate:lang.data}}
+            </p>
+            <p class="small">
+              {{ 'crois_mod' | translate:lang.data}}
+            </p>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Right Column with Image -->
+      <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden">
+        <div class="lc-block">
+          <img ng-src="./media/image/card1.jpg" 
+               class="img-fluid" 
+               alt="Croissant Sajtos Szendvics">
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Category Title Section 2 -->
+  <div class="py-5 text-center w-100" 
+       style="margin-top: 3rem; margin-bottom: 3rem;">
+
+    <h1 class="display-1">
+      {{ 'recipe_kategoria_2' | translate:lang.data}}
+    </h1>
+    <div>
+      <p class="lead">
+        {{ 'recipe_tit_1' | translate:lang.data}}
+      </p>
+    </div>
+  </div>
+
+
+  <!-- Recipe Cards Section -->
+  <section class="text-center">
+    <div class="container-fluid p-3">
+
+      <!-- Recipe Cards Row -->
+      <div class="row row-cols-1 row-cols-md-3 g-3 justify-content-center">
+
+        <!-- Recipe Card for Each Item in Category 3 -->
+        <div class="col mb-4" ng-repeat="recipe in recipes | filter:{kategoria: 'recipe_kategoria_3'} | limitTo: 3">
+          <div class="card" style="height: 100%;">
+
+            <!-- Card Image with Overlay -->
+            <div class="bg-image hover-overlay">
+              <img ng-src="{{recipe.kep}}" class="card-img-top img-fluid" alt="{{recipe.nev}}" style="width: 100%; height: 200px; object-fit: cover;">
+              <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+            </div>
+
+            <!-- Card Body with Title and Text -->
+            <div class="card-body">
+              <h5 class="card-title fs-6">
+                {{recipe.nev | translate:lang.data}}
+              </h5>
+              <p class="card-text small overflow-hidden" style="max-height: 80px;">
+                Hozzávalok: {{recipe.hozzavalok | translate:lang.data}}
+              </p>
+              <p class="small overflow-hidden" style="max-height: 60px;">
+                Elkészítés: {{recipe.elkeszites | translate:lang.data}}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Category Title Section 3 -->
+  <div class="py-5 text-center w-100" style="margin-top: 3rem; margin-bottom: 3rem;">
+    <h1 class="display-1">
+      {{ 'recipe_kategoria_3' | translate:lang.data}}
+    </h1>
+    <div>
+      <p class="lead">
+        {{ 'recipe_tit_1' | translate:lang.data}}
+      </p>
+    </div>
+  </div>
+
+
+  <!-- Featured Recipe 1 -->
+  <section>
+
+    <!-- Container for Featured Recipe 1 -->
+    <div class="container py-6" ng-repeat="recipe in recipes | filter:{kategoria: 'recipe_kategoria_1'} | limitTo: 1">
+
+      <!-- Row for Recipe Details and Image -->
+      <div class="row align-items-center">
+
+        <!-- Left Column with Image -->
+        <div class="col-md-7 mb-5 mb-md-0">
+          <img ng-src="{{recipe.kep}}" class="card-img-top img-fluid aspect-ratio-item" alt="{{recipe.nev}}" sizes="(max-width: 1080px) 100vw, 1080px" height="768">
+        </div>
+
+        <!-- Right Column with Recipe Details -->
+        <div class="col-md-5 col-xl-4 offset-xl-1">
+          <div class="lc-block mb-4">
+            <div>
+              <h1 class="fw-bold h2">
+                {{recipe.nev | translate:lang.data}}
+              </h1>
+            </div>
+          </div>
+          <div class="lc-block">
+
+            <!-- Icon and Recipe Details -->
+            <div class="d-inline-flex">
+              <div>
+                <i class="fa-solid fa-check"></i>
+              </div>
+              <div class="ms-3 align-self-center">
+                <p>
+                  {{recipe.elkeszites | translate:lang.data}}
+                </p>
+                <p>
+                  {{recipe.hozzavalok | translate:lang.data}}
+                </p>
+                <p>
+                  {{recipe.fozesi_ido | translate:lang.data}} perc
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Featured Recipe 2 -->
+  <section>
+
+    <!-- Container for Featured Recipe 2 -->
+    <div class="container py-6" ng-repeat="recipe in recipes | filter:{kategoria: 'recipe_kategoria_2'} | limitTo: 1">
+
+      <!-- Row for Recipe Details and Image -->
+      <div class="row align-items-center">
+
+        <!-- Left Column with Image (Order Changed) -->
+        <div class="col-md-7 mb-5 mb-md-0 order-md-2">
+          <img ng-src="{{recipe.kep}}" class="card-img-top img-fluid aspect-ratio-item" alt="{{recipe.nev}}" sizes="(max-width: 1080px) 100vw, 1080px" height="768">
+        </div>
+
+        <!-- Right Column with Recipe Details -->
+        <div class="col-md-5 col-xl-4 offset-xl-1">
+          <div class="lc-block mb-4">
+            <div>
+              <h1 class="fw-bold h2">
+                {{recipe.nev | translate:lang.data}}
+              </h1>
+            </div>
+          </div>
+          <div class="lc-block">
+
+            <!-- Icon and Recipe Details -->
+            <div class="d-inline-flex">
+              <div>
+                <i class="fa-solid fa-check"></i>
+              </div>
+              <div class="ms-3 align-self-center">
+                <p>
+                  {{recipe.elkeszites | translate:lang.data}}
+                </p>
+                <p>
+                  {{recipe.hozzavalok | translate:lang.data}}
+                </p>
+                <p>
+                  {{recipe.fozesi_ido | translate:lang.data}} perc
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

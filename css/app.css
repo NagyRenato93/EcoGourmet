@@ -98,12 +98,11 @@ footer {min-height: 90px;}
 
 /*--------- navbar----------*/
 
-/* Egyéb szükséges stílusok itt... */
 
 .nav-link {
   position: relative;
   display: inline-block;
-  padding-bottom: 5px; /* Adjust as needed to control the space between text and underline */
+  padding-bottom: 5px; 
   transition: color 0.2s;
 }
 
@@ -111,22 +110,22 @@ footer {min-height: 90px;}
   content: '';
   position: absolute;
   bottom: 0;
-  left: 50%; /* Center the underline */
+  left: 50%;
   transform: translateX(-50%);
   width: 0;
   height: 1px;
   background-color: blue;
-  transition: width 0.3s; /* Add a slight animation to the width */
+  transition: width 0.3s; 
 }
 
 .nav-link:hover::before,
 .nav-link.active::before {
-  width: 100%; /* Set the width to 100% on hover and when the link is active */
+  width: 100%; 
 }
 
 .nav-link.active {
   color: blue;
-  background-color: none; /* or use the same color */
+  background-color: none; 
   border-color: none;
 }
 
@@ -150,6 +149,7 @@ footer {min-height: 90px;}
 .showcase-text {
   text-align: center;
 }
+
 /* Video - About us oldalon*/
 .video-container {
   position: absolute;
@@ -220,7 +220,6 @@ footer {min-height: 90px;}
 
 /* Általános stílusok */
 body {
-    /* Az egész oldal alap stílusa */
     padding: 0%;
     font-family: 'Montserrat', sans-serif;
 
@@ -284,19 +283,16 @@ section {
 }
 
 h1 {
-    /* Címsor stílusa */
     font-size: clamp(45px, 7vw, 130px);
     line-height: 1.1;
 }
 
 .home p {
-    /* Bekezdés stílusa */
     font-size: clamp(25px, 4vw, 40px);
     margin-top: 10px;
 }
 
 .abut {
-    /* Aloldal stílusa */
     text-align: center;
 }
 
