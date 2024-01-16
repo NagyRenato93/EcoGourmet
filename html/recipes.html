@@ -10,12 +10,14 @@
            muted="muted" 
            loop="loop" 
            style="width: 100%; height: auto; overflow: hidden;">
-      <source ng-src="{{videoSource}}" type="video/mp4">
+      <source ng-src="{{videoSource}}" 
+            type="video/mp4">
     </video>
 
     
     <!-- Content Container -->
-    <div class="container p-5 bg-body mt-md-n6 top-60 bottom-60 rounded" style="opacity: 85%;">
+    <div class="container p-5 bg-body mt-md-n6 top-60 bottom-60 rounded" 
+         style="opacity: 85%;">
 
       <!-- Content Row -->
       <div class="row">
@@ -91,7 +93,7 @@
       <!-- Right Column with Image -->
       <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden">
         <div class="lc-block">
-          <img ng-src="./media/image/card1.jpg" 
+          <img ng-src="./media/image/card1.jpeg" 
                class="img-fluid" 
                alt="Croissant Sajtos Szendvics">
         </div>
@@ -123,13 +125,19 @@
       <div class="row row-cols-1 row-cols-md-3 g-3 justify-content-center">
 
         <!-- Recipe Card for Each Item in Category 3 -->
-        <div class="col mb-4" ng-repeat="recipe in recipes | filter:{kategoria: 'recipe_kategoria_3'} | limitTo: 3">
-          <div class="card" style="height: 100%;">
+        <div class="col mb-4" 
+             ng-repeat="recipe in recipes | filter:{kategoria: 'recipe_kategoria_3'} | limitTo: 3">
+          <div class="card" 
+               style="height: 100%;">
 
             <!-- Card Image with Overlay -->
             <div class="bg-image hover-overlay">
-              <img ng-src="{{recipe.kep}}" class="card-img-top img-fluid" alt="{{recipe.nev}}" style="width: 100%; height: 200px; object-fit: cover;">
-              <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+              <img ng-src="{{recipe.kep}}" 
+                   class="card-img-top img-fluid" 
+                   alt="{{recipe.nev}}" 
+                   style="width: 100%; 
+                          height: 200px; 
+                          object-fit: cover;">
             </div>
 
             <!-- Card Body with Title and Text -->
@@ -137,10 +145,12 @@
               <h5 class="card-title fs-6">
                 {{recipe.nev | translate:lang.data}}
               </h5>
-              <p class="card-text small overflow-hidden" style="max-height: 80px;">
+              <p class="card-text small overflow-hidden" 
+                 style="max-height: 80px;">
                 Hozzávalok: {{recipe.hozzavalok | translate:lang.data}}
               </p>
-              <p class="small overflow-hidden" style="max-height: 60px;">
+              <p class="small overflow-hidden" 
+                 style="max-height: 60px;">
                 Elkészítés: {{recipe.elkeszites | translate:lang.data}}
               </p>
             </div>
@@ -152,7 +162,8 @@
 
 
   <!-- Category Title Section 3 -->
-  <div class="py-5 text-center w-100" style="margin-top: 3rem; margin-bottom: 3rem;">
+  <div class="py-5 text-center w-100" 
+       style="margin-top: 3rem; margin-bottom: 3rem;">
     <h1 class="display-1">
       {{ 'recipe_kategoria_3' | translate:lang.data}}
     </h1>
@@ -166,16 +177,20 @@
 
   <!-- Featured Recipe 1 -->
   <section>
-
     <!-- Container for Featured Recipe 1 -->
-    <div class="container py-6" ng-repeat="recipe in recipes | filter:{kategoria: 'recipe_kategoria_1'} | limitTo: 1">
+    <div class="container py-6" 
+         ng-repeat="recipe in recipes | filter:{kategoria: 'recipe_kategoria_1'} | limitTo: 1">
 
       <!-- Row for Recipe Details and Image -->
       <div class="row align-items-center">
 
         <!-- Left Column with Image -->
         <div class="col-md-7 mb-5 mb-md-0">
-          <img ng-src="{{recipe.kep}}" class="card-img-top img-fluid aspect-ratio-item" alt="{{recipe.nev}}" sizes="(max-width: 1080px) 100vw, 1080px" height="768">
+          <img ng-src="{{recipe.kep}}" 
+               class="card-img-top img-fluid aspect-ratio-item" 
+               alt="{{recipe.nev}}" 
+               sizes="(max-width: 1080px) 100vw, 1080px" 
+               height="768">
         </div>
 
         <!-- Right Column with Recipe Details -->
@@ -202,7 +217,8 @@
                   {{recipe.hozzavalok | translate:lang.data}}
                 </p>
                 <p>
-                  {{recipe.fozesi_ido | translate:lang.data}} perc
+                  {{recipe.fozesi_ido | translate:lang.data}} 
+                  {{'perc1' | translate:lang.data}}
                 </p>
               </div>
             </div>
@@ -215,16 +231,20 @@
 
   <!-- Featured Recipe 2 -->
   <section>
-
     <!-- Container for Featured Recipe 2 -->
-    <div class="container py-6" ng-repeat="recipe in recipes | filter:{kategoria: 'recipe_kategoria_2'} | limitTo: 1">
+    <div class="container py-6" 
+         ng-repeat="recipe in recipes | filter:{kategoria: 'recipe_kategoria_2'} | limitTo: 1">
 
       <!-- Row for Recipe Details and Image -->
       <div class="row align-items-center">
 
         <!-- Left Column with Image (Order Changed) -->
         <div class="col-md-7 mb-5 mb-md-0 order-md-2">
-          <img ng-src="{{recipe.kep}}" class="card-img-top img-fluid aspect-ratio-item" alt="{{recipe.nev}}" sizes="(max-width: 1080px) 100vw, 1080px" height="768">
+          <img ng-src="{{recipe.kep}}" 
+               class="card-img-top img-fluid aspect-ratio-item" 
+               alt="{{recipe.nev}}" 
+               sizes="(max-width: 1080px) 100vw, 1080px" 
+               height="768">
         </div>
 
         <!-- Right Column with Recipe Details -->
@@ -251,8 +271,8 @@
                   {{recipe.hozzavalok | translate:lang.data}}
                 </p>
                 <p>
-                  {{recipe.fozesi_ido | translate:lang.data}} perc
-                </p>
+                  {{recipe.fozesi_ido | translate:lang.data}} 
+                  {{'perc1' | translate:lang.data}}
               </div>
             </div>
           </div>

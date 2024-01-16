@@ -63,7 +63,6 @@
              ng-repeat="plan in subscription_plans">
           <div class=" h-100">
             <div class="p-5">
-              <div class="small text-uppercase fw-bold text-muted"></div>
               <ul class="list-unstyled mb-4">
                 <li class="mb-2">
                   <i class="bi bi-check text-primary"></i>
@@ -83,7 +82,7 @@
           <button type="button" 
                   ui-sref="products" 
                   class="btn btn-primary px-4 me-md-2">
-          {{ 'DISCOVER_MORE' | translate:lang.data }}
+          {{ 'nxt_str' | translate:lang.data }}
         </button>
         </div>
         <h3 class="small col-lg-7">
@@ -114,9 +113,9 @@
           </p>
           <div class="d-grid gap-2 d-md-flex justify-content-md-start">
             <button type="button" 
-                    ui-sref="services" 
+                    ui-sref="recipes" 
                     class="btn btn-primary btn-lg px-4 me-md-2">
-              {{ 'DISCOVER_MORE' | translate:lang.data }}
+              {{ 'nxt_rcp' | translate:lang.data }}
             </button>
           </div>
         </div>

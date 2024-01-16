@@ -56,6 +56,7 @@
   "slide_title_4": "No need to think about the kitchen anymore!",
   "slide_content_4": "EcoGourmet presents healthy menus to make your dining decisions easier. Simply choose from up to 3 daily menus!",
   "services":"Recipes",
+  "products": "Store",
   "shop_card_1":"Ecogourmet offers a wide range of sustainable and environmentally friendly food products. Each of our products arrives in eco-friendly packaging, contributing to the support of a sustainable lifestyle.",
   "shop_card_2":"Ecogourmet is committed to customer satisfaction, providing fast and reliable delivery services. We dispatch your orders quickly and precisely, ensuring our customers can enjoy fresh and high-quality products as soon as possible.",
   "shop_card_3":"Ecogourmet regularly presents exclusive promotions and discounts to our customers. These ongoing promotions are designed to make shopping even more appealing and to make choosing Ecogourmet more advantageous.",
@@ -174,11 +175,41 @@
   "recipe_tit_1":"Today's recipe for you",
   "crois_mai": "Croissant Cheese Sandwich",
   "crois_elk": "The following recipe is a sophisticated croissant cheese sandwich that is delicious and filling. Find the ingredients and steps for preparation below.",
-  "crois_hozz": "Ingredients:\n- 4 croissants, sliced horizontally\n- 4 large eggs\n- 40 ml milk\n- 4 slices thinly sliced ham\n- 120 g Cervinus Delicato cheese\n- salt, pepper to taste\n- 1 small teaspoon unsalted butter\n- 2 small teaspoons Dijon mustard",
-  "crois_mod": "Instructions:\n1. Beat the eggs in a bowl, then mix them with the milk, salt, and pepper.\n2. Melt the butter in a pan, pour in the egg mixture, and cook gently, stirring.\n3. Spread mustard on the croissants, place ham, scrambled eggs, and cheese on them.\n4. Bake at 175 ° C until the cheese melts.\n5. Delicious, quick breakfast or light dinner ready!",
+  "crois_hozz": "Ingredients:- 4 croissants, sliced horizontally- 4 large eggs- 40 ml milk- 4 slices thinly sliced ham- 120 g Cervinus Delicato cheese- salt, pepper to taste- 1 small teaspoon unsalted butter- 2 small teaspoons Dijon mustard",
+  "crois_mod": "Instructions:1. Beat the eggs in a bowl, then mix them with the milk, salt, and pepper.2. Melt the butter in a pan, pour in the egg mixture, and cook gently, stirring.3. Spread mustard on the croissants, place ham, scrambled eggs, and cheese on them.4. Bake at 175 ° C until the cheese melts.5. Delicious, quick breakfast or light dinner ready!",
   "services_title": "Why Choose Our Recipes?",
-  "services_text": "Our recipes offer the finest flavors, where the harmony of ingredients and the masterful blend of spices take the concept of taste sensation to a new level."
-  
+  "services_text": "Our recipes offer the finest flavors, where the harmony of ingredients and the masterful blend of spices take the concept of taste sensation to a new level.",
+  "contact": "Contact",
+  "keress_m": "Contact us with confidence during the following hours.",
+  "day_1": "Monday-Friday:",
+  "day_2": "Saturday:",
+  "day_3": "Sunday:",
+  "C_Sz": "Registered office of our company",
+  "w_t_c" : "Contact Information",
+  "zárva" : "Closed",
+  "faq_q2": "How does EcoGourmet support sustainability in its recipes and products?",
+  "faq_a2": "The EcoGourmet website offers recipes that are easily sourced from sustainable ingredients, and the cookbooks sold in the webshop detail the practices of sustainable shopping and cooking.",
+  "faq_q3": "How can I get personalized recipes from EcoGourmet?",
+  "faq_a3": "Through the EcoGourmet website, you can order personalized recipes tailored to your dietary preferences and food intolerances. Simply select your needs, and we'll deliver the unique recipes to you.",
+  "faq_q4": "Are there vegan and vegetarian recipes available on EcoGourmet?",
+  "faq_a4": "Yes, EcoGourmet offers a wide variety of vegan and vegetarian recipes. Explore the range of healthy and sustainable dishes on our website!",
+  "faq_q5": "What kind of eco-friendly packaging does EcoGourmet use in its webshop?",
+  "faq_a5": "The EcoGourmet webshop offers sustainable packaging options, such as recyclable, compostable, or packaging made from recycled materials.",
+  "faq_q6": "How does EcoGourmet ensure that the recipes are easy to follow on the website?",
+  "faq_a6": "The EcoGourmet website features easily-followed, step-by-step guided recipes with videos and detailed instructions to make it easy for even home cooks to prepare delicious meals.",
+  "gy_i_k" : "Frequently asked questions",
+  "awards": "Awards",
+  "awards_text": "We owe it to you!",
+  "perc1": "Minute",
+  "nxt_str": "Continue to the Store",
+  "nxt_rcp" : "Continue to Recipes"
+
+
+
+
+
+
+
 
 
 

@@ -63,16 +63,30 @@
             </a>
           </li>
 
-          <!-- Services -->
+          <!-- Recipes -->
           <li class="nav-item">
             <a class="nav-link" 
-               ui-sref="services"
+               ui-sref="recipes"
                ui-sref-active="active"
                data-bs-toggle="collapse" 
                data-bs-target=".navbar-collapse.show">
                <i class="fa-solid fa-utensils fa-lg me-1"></i>
                <span class="text-capitalize text-small-caps">
                 {{'services' | translate:lang.data}}
+              </span>
+            </a>
+          </li>
+
+          <!-- contact -->
+          <li class="nav-item">
+            <a class="nav-link" 
+               ui-sref="contact"
+               ui-sref-active="active"
+               data-bs-toggle="collapse" 
+               data-bs-target=".navbar-collapse.show">
+               <i class="fa-solid fa-phone"></i>
+               <span class="text-capitalize text-small-caps">
+                {{'contact' | translate:lang.data}}
               </span>
             </a>
           </li>

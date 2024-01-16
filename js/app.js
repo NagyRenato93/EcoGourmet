@@ -57,11 +57,18 @@
                templateUrl: './html/products.html',
                controller: 'productsController'
             })
-            .state('services', {
-               url: '/services',
+            .state('recipes', {
+               url: '/recipes',
                parent: 'root',
-               templateUrl: './html/services.html',
-               controller: 'servicesController'
+               templateUrl: './html/recipes.html',
+               controller: 'recipesController'
+
+            })            
+            .state('contact', {
+               url: '/contact',
+               parent: 'root',
+               templateUrl: './html/contact.html',
+               controller: 'contactController'
 
             })
             .state('login', {
@@ -275,7 +282,7 @@
             }
             return categories;
          };
-         
+
          // Kosár kezelése
          // Megrendelés véglegesítése
          $rootScope.finalizeOrder = function () {
@@ -305,8 +312,8 @@
                   $rootScope.cart = [];
                   $scope.updateCartTotal();
                   $scope.$applyAsync();
+                  alert('Sikeres vásárlás!');
                   // Sikeres vásárlás visszajelzése
-                  // Felhasználói visszajelzés hozzáadása, például: alert('Sikeres vásárlás!');
                })
                .catch(e => alert(lang.translate(e, true) + '!'));
          }
@@ -400,8 +407,8 @@
       }
    ])
 
-   // Services Controller
-   .controller('servicesController', [
+   // Recipes Controller
+   .controller('recipesController', [
       '$scope',
       'http',
       'lang',
@@ -417,6 +424,53 @@
          })
               // Set video source dynamically
      $scope.videoSource = "./media/video/sheep.mp4";
+      }
+   ])
+
+   // Kontakt Controller
+   .controller('contactController', [
+      '$scope',
+      'http',
+      'lang',
+      function ($scope, http, lang) {
+
+         http.request({ data: 'contact.php' })
+            .then(response => {
+
+               $scope.faqs = response.faqs;
+               $scope.awards_achievements = response.awards_achievements;
+
+               $scope.$applyAsync();
+            });
+
+         $scope.contactItems = [
+            {
+               title: 'keress_m',
+            },
+            {
+               content: [
+                  { icon: 'fa-solid fa-clock fa-fade', texta: 'day_1', textb: '8:00 - 16:00' },
+                  { icon: 'fa-solid fa-clock fa-fade', texta: 'day_2', textb: '10:00 - 16:00' },
+                  { icon: 'fa-solid fa-clock fa-fade', texta: 'day_3', textb: 'zárva' },
+               ],
+            },
+            {
+               title: 'w_t_c',
+               content: [
+                  { icon: 'fa-solid fa-phone', href: "tel:06-20-199-1999", texta: '06-20-199-1999' },
+                  { icon: 'fa-solid fa-envelope', href: "mailto:ecogourmet@gmail.com", texta: 'ecogourmet@gmail.com' },
+               ],
+            },
+            {
+               title: 'C_Sz',
+            },
+            {
+              icon: 'fa-solid fa-location-dot', title: '5940 Tótkomlós, EcoGourmet u. 1',
+            },
+         ];
+
+         $scope.contactImageSrc = "./media/image/contact/contact1.jpeg";
+
       }
    ]);
 

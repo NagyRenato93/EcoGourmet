@@ -4,11 +4,6 @@
 header {min-height: 60px;}
 footer {min-height: 90px;}
 
-/* .page-container.login,
-.page-container.password_frogot {
-  background: ;
-} */
-
 .slider {
 	animation-duration: 20s;
 	animation-timing-function: linear;
@@ -110,8 +105,7 @@ footer {min-height: 90px;}
   content: '';
   position: absolute;
   bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
   width: 0;
   height: 1px;
   background-color: blue;
@@ -128,8 +122,6 @@ footer {min-height: 90px;}
   background-color: none; 
   border-color: none;
 }
-
-/*--------- navbar----------*/
 
 
 /* ------------- Video Settings start here ------------ */
@@ -162,7 +154,7 @@ footer {min-height: 90px;}
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: blur(4px);
+  filter: blur(2px);
 }
 /* Video 2 - Products oldalon */
 .video-containerTwo {
@@ -200,7 +192,7 @@ footer {min-height: 90px;}
   height: auto; /* Set to auto to maintain the video's aspect ratio */
   object-fit: cover;
   z-index: 0;
-  filter: blur(2px);
+  filter: blur(4px);
 
 }
 
@@ -211,6 +203,18 @@ footer {min-height: 90px;}
 
 .Topvideo .overlay {
   display: none; /* Hide the overlay completely */
+}
+
+/* Video 4 - Contact oldalon */ 
+.blurred-videoTwo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(4px);
+  clip-path: polygon(25% 0%, 100% 0%, 100% 99%, 0% 100%);
 }
 
 
@@ -360,4 +364,27 @@ h1 {
 }
 /* ------------- cart settings ends here ------------ */
 
+/* ------------- login bg page ---------------- */
+.page-container.login,
+.page-container.password_frogot,
+.page-container.profile {
+  background: url('./media/image/bg_user/fak.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+.page-container.register {
+  background: url('media/image/bg_user/register.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+.page-container.password_change {
+  background: url('/media/image/bg_user/password_change.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+.page-container.email_change,
+.page-container.email_confirm {
+  background: url('/media/image/bg_user/email_change.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
 
