@@ -368,7 +368,7 @@ h1 {
 .page-container.login,
 .page-container.password_frogot,
 .page-container.profile {
-  background: url('./media/image/bg_user/fak.jpg') no-repeat center center fixed;
+  background: url('../media/image/bg_user/fak.jpg') no-repeat center center fixed;
   background-size: cover;
 }
 

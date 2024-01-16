@@ -69,7 +69,6 @@
                parent: 'root',
                templateUrl: './html/contact.html',
                controller: 'contactController'
-
             })
             .state('login', {
                url: '/login',
@@ -139,7 +138,7 @@
          lang.init();
   
          // Initialize user
-         user.init();
+         user.init({isSendEmail: false});
 
          // Set cart
          $rootScope.cart = [];

@@ -13,10 +13,11 @@
 		  </div>
 
 		  <!-- call video Title and Text part -->
-		  <div class="col-lg-6 col-xl-5 text-center text-lg-start pt-lg-5 mt-xl-4">
+		  <div class="col-lg-6 col-xl-5 text-center 
+									text-lg-start pt-lg-5 mt-xl-4">
 			<div class="mb-4">
 			  <h1 class="display-2">
-				{{'contact' | translate:lang.data}}
+					{{'contact' | translate:lang.data}}
 			  </h1>
 			  <hr>
 
@@ -29,9 +30,9 @@
 					<i class="{{line.icon}}"></i>
 				  </strong>
 				  <a ng-if="line.texta" 
-					 ng-href="{{line.href}}" 
-					 class="text-decoration-none">
-					{{line.texta | translate:lang.data}}
+					 	 ng-href="{{line.href}}" 
+					 	 class="text-decoration-none">
+						{{line.texta | translate:lang.data}}
 				  </a>
 				  <a ng-if="line.textb" 
 					 ng-href="{{line.href}}" 
