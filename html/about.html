@@ -13,7 +13,9 @@
   <div class="home">
     <div class="backdrop-filter-element"></div>
     <div class="home-content">
-      <h1 id="abut">EcoGourmet</h1>
+      <h1 id="abut">
+        EcoGourmet
+      </h1>
       <i ng-click="scrollTo('scroll')"
          class="fa-solid fa-chevron-down fa-bounce cursor-pointer" 
          style="font-size: larger;"></i>
@@ -22,7 +24,8 @@
 
 
   <!-- Content after video -->
-  <section class="hidden" id="scroll" 
+  <section class="hidden" 
+           id="scroll" 
            style="scroll-margin-top:50px;">
     <div class="container" 
          ng-repeat="aboutUsText in aboutUsTexts">
@@ -149,14 +152,16 @@
               </p>
             </div>
           </div>
-        </div>
-
-        <!-- scroll to top button -->
-        <div class="scroll-to-top text-right bg-light" 
-             ng-click="scrollTo('scroll')">
-          <span class="arrow-up small">
-            <i class="fas fa-thin fa-arrow-up fa-bounce"></i>
-          </span>
+          <!-- scroll to top button -->
+          <div class="scroll-to-top text-center bg-light py-1" 
+               ng-click="scrollTo('scroll')">
+            <span class="arrow-up small">
+              <i class="fas fa-thin fa-arrow-up fa-bounce"></i>
+              <p style="font-size: 0.8rem">
+                {{ 'click' | translate:lang.data}}
+              </p>
+            </span>
+          </div>
         </div>
       </div>
     </section>

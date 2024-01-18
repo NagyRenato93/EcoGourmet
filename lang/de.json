@@ -200,7 +200,10 @@
   "awards_text": "Wir verdanken es euch!",
   "perc1": "Minute",
   "nxt_str": "Weiter zum Geschäft",
-  "nxt_rcp" : "Weiter zu den Rezepten"
+  "nxt_rcp" : "Weiter zu den Rezepten",
+  "click" : "Klick mich"
+
+
 
 
 }

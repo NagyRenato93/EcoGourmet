@@ -202,7 +202,9 @@
   "awards_text": "We owe it to you!",
   "perc1": "Minute",
   "nxt_str": "Continue to the Store",
-  "nxt_rcp" : "Continue to Recipes"
+  "nxt_rcp" : "Continue to Recipes",
+  "click" : "Click me"
+
 
 
 

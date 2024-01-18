@@ -91,9 +91,7 @@ footer {min-height: 90px;}
 }
 /* ------------- Landing Page Animation Ends here ------------ */
 
-/*--------- navbar----------*/
-
-
+/*--------- navbar animation starts here  ----------*/
 .nav-link {
   position: relative;
   display: inline-block;
@@ -122,21 +120,19 @@ footer {min-height: 90px;}
   background-color: none; 
   border-color: none;
 }
+/*--------- navbar animation ends here  ----------*/
 
 
 /* ------------- Video Settings start here ------------ */
-
-
-/* Video rész */
+  /* A "home" text rész stílusa a videohoz */
 .home {
-  /* A "home" rész stílusa */
   height: 100vh;
   position: relative;
 }
 .showcase-img {
   background-size: cover;
   background-position: center;
-  height: 350px; /* Változtasd meg a megfelelő magasságra */
+  height: 350px;
 }
 .showcase-text {
   text-align: center;
@@ -149,13 +145,13 @@ footer {min-height: 90px;}
   height: 100%;
   overflow: hidden;
 }
-
 .video-container video {
   width: 100%;
   height: 100%;
   object-fit: cover;
   filter: blur(2px);
 }
+
 /* Video 2 - Products oldalon */
 .video-containerTwo {
   position: relative;
@@ -164,7 +160,6 @@ footer {min-height: 90px;}
   height: 100%;
   padding-top:70%; 
 }
-
 .blurred-video {
   position: absolute;
   top: 0;
@@ -174,35 +169,33 @@ footer {min-height: 90px;}
   object-fit: cover;
   clip-path: polygon(25% 0%, 100% 0%, 100% 99%, 0% 100%);
 }
+
 /* Video 3 - Services oldalon */
 .Topvideo {
   position: relative;
-  height: 60vh; /* Adjust this value to change the overall height of the video */
+  height: 60vh;
   min-height: 10rem;
   width: 100%;
   overflow: hidden;
 }
-
 .Topvideo video {
   position: absolute;
   top: 20%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
-  height: auto; /* Set to auto to maintain the video's aspect ratio */
+  height: auto;
   object-fit: cover;
   z-index: 0;
   filter: blur(4px);
 
 }
-
 .Topvideo .container {
   position: relative;
   z-index: 1;
 }
-
 .Topvideo .overlay {
-  display: none; /* Hide the overlay completely */
+  display: none;
 }
 
 /* Video 4 - Contact oldalon */ 
@@ -216,8 +209,6 @@ footer {min-height: 90px;}
   filter: blur(4px);
   clip-path: polygon(25% 0%, 100% 0%, 100% 99%, 0% 100%);
 }
-
-
 /* ------------- Video Settings ends here ------------ */
 
 
@@ -228,11 +219,9 @@ body {
     font-family: 'Montserrat', sans-serif;
 
 }
-/* -------------- About us page ------------------- */
+/* -------------- About us page Stagger animation for scrolling ------------------- */
 
-/* Stagger animáció görgetésre */
 section {
-    /* A szakaszok elrendezése és középre igazítása */
     place-items: center;
     align-content: center;
     min-height: 40vh;
@@ -300,14 +289,6 @@ h1 {
     text-align: center;
 }
 
-/* ------- btn to scroll up -------*/
-.arrow-up {
-    font-size: 20px; /* Adjust the arrow size */
-    position: fixed; 
-    right: 20px; 
-    cursor: pointer;
- }
- 
 /* ------------- Cart Settings start here ------------ */
 
 .cart-container {

@@ -168,7 +168,7 @@
          })
          .catch(e => alert(lang.translate(e, true)+'!'));
             
-         // Smooth animation on scrolling on About Us Page
+         // Smooth animation on scrolling on About Us Page, its a staggering effect.
          function initializeIntersectionObserver() {
             let observer = new IntersectionObserver(function (entries) {
                entries.forEach(function (entry) {
@@ -177,7 +177,7 @@
                   }
                });
             });
-
+            //The Sections with hidden use this animation
             let hiddenElements = document.querySelectorAll('.hidden');
             hiddenElements.forEach(function (element) {
                observer.observe(element);
@@ -220,27 +220,46 @@
          })
          .catch(e => alert(lang.translate(e, true)+'!'));
 
-         // Funkciók a termékjellemzők leírásához
+         // EcoGourme Shop Title+Desc+icons kezelése itt kezdődik---->
+         // Functions for the shop description 4 icon with text
          $scope.getDescription = function (feature) {
             return 'shop_card_' + (feature.index + 1);
          }
 
-         //
          $scope.getQualityDescription = function (feature) {
             return 'shop_card_' + (feature.index + 1);
          }
 
       
-         // Ecogurmet titles tömbje
+         // Ecogurmet shop titles with desc 4 icon
          $scope.ecogourmetFeatures = [
-            { icon: 'fas fa-recycle fa-fade', title: 'shop_card_title_1', index: 0, descriptionKey: 'shop_card_1' },
-            { icon: 'fas fa-truck fa-fade', title: 'shop_card_title_2', index: 1, descriptionKey: 'shop_card_2' },
-            { icon: 'fas fa-gift fa-fade', title: 'shop_card_title_3', index: 2, descriptionKey: 'shop_card_3' },
-            { icon: 'fas fa-cart-shopping fa-fade', title: 'shop_card_title_4', index: 3, descriptionKey:   'shop_card_4' }
+            { 
+            icon: 'fas fa-recycle fa-fade', 
+            title: 'shop_card_title_1', 
+            index: 0, 
+            descriptionKey: 'shop_card_1' 
+            },
+            { 
+            icon: 'fas fa-truck fa-fade', 
+            title: 'shop_card_title_2', 
+            index: 1,
+            descriptionKey: 'shop_card_2' 
+            },
+            { 
+            icon: 'fas fa-gift fa-fade', 
+            title: 'shop_card_title_3', 
+            index: 2, 
+            descriptionKey: 'shop_card_3' 
+            },
+            { 
+            icon: 'fas fa-cart-shopping fa-fade', 
+            title: 'shop_card_title_4', 
+            index: 3, 
+            descriptionKey:'shop_card_4' 
+            }
          ];
 
-         //Szürő -->
-
+         // Szürő kezelése itt kezdődik---->
          // Funkciók a kategória szűrők kezeléséhez
          $scope.setCategoryFilter = function (category) {
             $scope.categoryFilter = category;
@@ -250,8 +269,6 @@
 
          // Törli az összes szűrőt, kivéve a kategóriaszűrőt
          $scope.clearFilters = function () {
-            $scope.manufacturerFilter = '';
-            $scope.distributorFilter = '';
             // Frissítjük a szűrt termékek listáját
             $scope.updateFilteredProducts();
          }
@@ -260,12 +277,12 @@
          $scope.updateFilteredProducts = function () {
             if ($scope.products && $scope.categoryFilter) {
                // Szűrjük a termékeket a kiválasztott kategória alapján
-               $scope.filteredProducts = $filter('filter')($scope.products, { kategoria: $scope.categoryFilter });
+               $scope.filteredProducts = $filter('filter')
+               ($scope.products, { kategoria: $scope.categoryFilter });
             } else {
                // Ha nincs kategóriaszűrő kiválasztva, mutassuk az összes terméket
                $scope.filteredProducts = $scope.products;
             }
-            // További frissítések, ha szükséges...
          }
 
          // Funkció a termékkategóriák listájának lekéréséhez
@@ -274,7 +291,8 @@
             if ($scope.products) {
                for (let i = 0; i < $scope.products.length; i++) {
                   let product = $scope.products[i];
-                  if (product.kategoria && categories.indexOf(product.kategoria) === -1) {
+                  if (product.kategoria && categories.indexOf
+                     (product.kategoria) === -1) {
                      categories.push(product.kategoria);
                   }
                }
@@ -282,7 +300,7 @@
             return categories;
          };
 
-         // Kosár kezelése
+         // Kosár kezelése itt kezdődik---->
          // Megrendelés véglegesítése
          $rootScope.finalizeOrder = function () {
             if (!$rootScope.cart || $rootScope.cart.length === 0) {
@@ -311,14 +329,16 @@
                   $rootScope.cart = [];
                   $scope.updateCartTotal();
                   $scope.$applyAsync();
-                  alert('Sikeres vásárlás!');
+
                   // Sikeres vásárlás visszajelzése
+                  alert('Sikeres vásárlás!');
                })
                .catch(e => alert(lang.translate(e, true) + '!'));
          }
 
          // Figyelő az 'cart' változóra
          $rootScope.$watch('cart', (newValue, oldValue) => {
+
             // Ellenőrzi, hogy változott-e a kosár
             if (!angular.equals(newValue, oldValue)) {
                localStorage.setItem("shoppingCart", $rootScope.cart);
@@ -329,15 +349,14 @@
          $scope.updateCartTotal = function () {
             $scope.totalItems = $rootScope.cart.length;
             $scope.$applyAsync();
-            // További frissítések, ha szükséges...
          };
 
          // Termék hozzáadása a kosárhoz
          $scope.addToCart = function (product, type) {
-            let existingItem = $filter('filter')($rootScope.cart, {
+            let existingItem = $filter('filter')
+            ($rootScope.cart, {
                termek_id: product.termek_id
             }, true)[0];
-
             if (existingItem) {
                existingItem.quantity++;
             } else {
@@ -346,14 +365,14 @@
                newItem.quantity = 1;
                $rootScope.cart.push(newItem);
             }
-            $scope.updateCartTotal(); // Kosár összegének frissítése
+            // Kosár összegének frissítése
+            $scope.updateCartTotal(); 
          }
 
          // Előfizetési terv hozzáadása a kosárhoz
          $scope.addToCartSubscriptionPlan = function (subscription_plan) {
-            // Ellenőrzés, hogy az előfizetési terv objektum létezik-e
 
-            // Létező elem ellenőrzése
+            // Ellenőrzés, hogy az előfizetési terv objektum létezik-e
             let existingItem = $filter('filter')($rootScope.cart, {
                termek_id: subscription_plan.termek_id
             }, true)[0];
@@ -365,7 +384,8 @@
                newItem.quantity = 1;
                $rootScope.cart.push(newItem);
             }
-            $scope.updateCartTotal(); // Kosár összegének frissítése
+            // Kosár összegének frissítése
+            $scope.updateCartTotal(); 
          }
 
          // Termék eltávolítása a kosárból
@@ -373,16 +393,17 @@
             let index = $rootScope.cart.indexOf(product);
             if (index !== -1) {
                $rootScope.cart.splice(index, 1);
-               $scope.updateCartTotal(); // Kosár összegének frissítése
+               // Kosár összegének frissítése
+               $scope.updateCartTotal(); 
             }
          }
 
          // Kosárban lévő elemek összértékének lekérése
          $rootScope.getTotalPrice = function () {
             if (!$rootScope.cart || $rootScope.cart.length === 0) {
-               return 0; // Üres a kosár, tehát az összeg 0
+                // Üres a kosár, tehát az összeg 0
+               return 0;
             }
-
             let totalPrice = 0;
             for (let i = 0; i < $rootScope.cart.length; i++) {
                let item = $rootScope.cart[i];
@@ -390,7 +411,6 @@
                   totalPrice += item.ar_forint * item.quantity;
                }
             }
-
             return totalPrice;
          }
 
@@ -402,7 +422,6 @@
             }
             return totalQuantity;
          }
-
       }
    ])
 
@@ -421,7 +440,7 @@
          
             $scope.$applyAsync();
          })
-              // Set video source dynamically
+      // Set video source dynamically
      $scope.videoSource = "./media/video/sheep.mp4";
       }
    ])
@@ -441,30 +460,51 @@
 
                $scope.$applyAsync();
             });
-
+         // Contact Title+Text kezelése itt kezdődik---->
          $scope.contactItems = [
             {
                title: 'keress_m',
             },
             {
                content: [
-                  { icon: 'fa-solid fa-clock fa-fade', texta: 'day_1', textb: '8:00 - 16:00' },
-                  { icon: 'fa-solid fa-clock fa-fade', texta: 'day_2', textb: '10:00 - 16:00' },
-                  { icon: 'fa-solid fa-clock fa-fade', texta: 'day_3', textb: 'zárva' },
+                  { 
+                  icon: 'fa-solid fa-clock fa-fade', 
+                  texta: 'day_1', 
+                  textb: '8:00 - 16:00' 
+                  },
+                  { 
+                  icon: 'fa-solid fa-clock fa-fade', 
+                  texta: 'day_2', 
+                  textb: '10:00 - 16:00' 
+                  },
+                  { 
+                  icon: 'fa-solid fa-clock fa-fade',
+                  texta: 'day_3',
+                  textb: 'zárva' 
+                  },
                ],
             },
             {
                title: 'w_t_c',
                content: [
-                  { icon: 'fa-solid fa-phone', href: "tel:06-20-199-1999", texta: '06-20-199-1999' },
-                  { icon: 'fa-solid fa-envelope', href: "mailto:ecogourmet@gmail.com", texta: 'ecogourmet@gmail.com' },
+                  { 
+                  icon: 'fa-solid fa-phone', 
+                  href: "tel:06-20-199-1999", 
+                  texta: '06-20-199-1999' 
+                  },
+                  { 
+                  icon: 'fa-solid fa-envelope', 
+                  href: "mailto:ecogourmet@gmail.com", 
+                  texta: 'ecogourmet@gmail.com' 
+                  },
                ],
             },
             {
                title: 'C_Sz',
             },
             {
-              icon: 'fa-solid fa-location-dot', title: '5940 Tótkomlós, EcoGourmet u. 1',
+              icon: 'fa-solid fa-location-dot',
+              title: '5940 Tótkomlós, EcoGourmet u. 1',
             },
          ];
 

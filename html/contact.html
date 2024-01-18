@@ -14,9 +14,10 @@
 
 		  <!-- call video Title and Text part -->
 		  <div class="col-lg-6 col-xl-5 text-center 
-									text-lg-start pt-lg-5 mt-xl-4">
+					  text-lg-start pt-lg-5 mt-xl-4">
 			<div class="mb-4">
-			  <h1 class="display-2">
+			  <h1 class="display-2" 
+			  	  id="scroll">
 					{{'contact' | translate:lang.data}}
 			  </h1>
 			  <hr>
@@ -24,15 +25,17 @@
 			  <!-- Contact Items -->
 			  <div ng-repeat="contactItem in contactItems" 
 			  	   class="lc-block mb-4">
-				<h4>{{contactItem.title | translate:lang.data}}</h4>
+				<h4>
+				{{contactItem.title | translate:lang.data}}
+				</h4>
 				<div ng-repeat="line in contactItem.content">
 				  <strong ng-if="line.icon">
 					<i class="{{line.icon}}"></i>
 				  </strong>
 				  <a ng-if="line.texta" 
-					 	 ng-href="{{line.href}}" 
-					 	 class="text-decoration-none">
-						{{line.texta | translate:lang.data}}
+					 ng-href="{{line.href}}" 
+					 class="text-decoration-none">
+					{{line.texta | translate:lang.data}}
 				  </a>
 				  <a ng-if="line.textb" 
 					 ng-href="{{line.href}}" 
@@ -97,15 +100,14 @@
   <!-- Gyik Section -->
   <section>
 	<div class="container text-center py-4 py-md-6">
-	  <div class="lc-block card border-0 text-center rounded p-4 p-lg-6" 
-	  	   style="background:url('./media/image/contact/stars.gif')  center / cover no-repeat;">
+	  <div class="lc-block card border-0 text-center rounded p-4 p-lg-6">
 		<div class="row card-body mb-3 mb-lg-4">
 		  <div class="col-xl-11 col-xxl-9 mx-auto">
-			<div class="lc-block text-white">
+			<div class="lc-block">
 			  <div class="container py-5">
 				<div class="row">
 				  <div class="col-md-6">
-					<img src="./media/image/contact/peter_g.jpeg" 
+					<img ng-src="./media/image/contact/peter_g.jpeg" 
 						 class="d-block mx-lg-auto img-fluid rounded-3" 
 						 alt="Péter filozik keményen">
 				  </div>
@@ -119,13 +121,15 @@
 							  data-bs-target="#faqCollapse{{$index}}" 
 							  aria-expanded="false" 
 							  aria-controls="faqCollapse{{$index}}">
-						<p class="text-dark h5 collapsed faq-question text-white">
+						<p class="text-dark h5 collapsed faq-question">
 							{{('faq_q' + ($index+1)) | translate:lang.data}}
 						</p>
 					  </button>
+					  <i class="fa-regular fa-hand-point-up fa-bounce"></i>
+					  <p>{{ 'click' | translate:lang.data}}</p>
 					  <div class="collapse" 
 					  	   id="faqCollapse{{$index}}">
-						<p class="text-center text-white">
+						<p class="text-center">
 							{{('faq_a' + ($index+1)) | translate:lang.data}}
 						</p>
 					  </div>
