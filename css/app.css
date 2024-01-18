@@ -373,18 +373,18 @@ h1 {
 }
 
 .page-container.register {
-  background: url('media/image/bg_user/register.jpg') no-repeat center center fixed;
+  background: url('../media/image/bg_user/register.jpg') no-repeat center center fixed;
   background-size: cover;
 }
 
 .page-container.password_change {
-  background: url('/media/image/bg_user/password_change.jpg') no-repeat center center fixed;
+  background: url('../media/image/bg_user/password_change.jpg') no-repeat center center fixed;
   background-size: cover;
 }
 
 .page-container.email_change,
 .page-container.email_confirm {
-  background: url('/media/image/bg_user/email_change.jpg') no-repeat center center fixed;
+  background: url('../media/image/bg_user/email_change.jpg') no-repeat center center fixed;
   background-size: cover;
 }
 
