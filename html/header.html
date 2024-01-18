@@ -112,7 +112,8 @@
           </li>
 
           <!-- Cart container -->
-          <li id="cart-container" class="cart-container d-none position-absolute top-5">
+          <li id="cart-container" 
+              class="cart-container d-none position-absolute top-5">
             <h3>Kosarad</h3>
             <hr>
             <table>
@@ -131,7 +132,9 @@
                   <td>{{ item.quantity }}</td>
                   <td>{{ item.ar_forint * item.quantity }}</td>
                   <td>
-                    <button ng-click="removeFromCart(item)">Tétel eltávolítása</button>
+                    <button ng-click="removeFromCart(item)">
+                      Tétel eltávolítása
+                    </button>
                   </td>
                 </tr>                
                   <td colspan="3">Összesen:</td>

@@ -347,25 +347,19 @@ h1 {
 
 /* ------------- login bg page ---------------- */
 .page-container.login,
-.page-container.password_frogot,
-.page-container.profile {
+.page-container.register {
   background: url('../media/image/bg_user/fak.jpg') no-repeat center center fixed;
   background-size: cover;
 }
 
-.page-container.register {
-  background: url('../media/image/bg_user/register.jpg') no-repeat center center fixed;
-  background-size: cover;
-}
 
-.page-container.password_change {
-  background: url('../media/image/bg_user/password_change.jpg') no-repeat center center fixed;
-  background-size: cover;
-}
 
-.page-container.email_change,
-.page-container.email_confirm {
-  background: url('../media/image/bg_user/email_change.jpg') no-repeat center center fixed;
-  background-size: cover;
+.name-detail-container.show {
+  height: 230px;
+}
+@media (min-width: 768px) {
+  .name-detail-container.show {
+    height: 160px;
+  }
 }
 

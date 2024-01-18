@@ -126,7 +126,9 @@
 
         <!-- Recipe Card for Each Item in Category 3 -->
         <div class="col mb-4" 
-             ng-repeat="recipe in recipes | filter:{kategoria: 'recipe_kategoria_3'} | limitTo: 3">
+             ng-repeat="recipe in recipes | 
+                        filter:{kategoria: 'recipe_kategoria_3'} | 
+                        limitTo: 3">
           <div class="card" 
                style="height: 100%;">
 
