@@ -201,9 +201,14 @@
   "perc1": "Minute",
   "nxt_str": "Weiter zum Geschäft",
   "nxt_rcp" : "Weiter zu den Rezepten",
-  "click" : "Klick mich"
-
-
+  "click" : "Klick mich",
+  "Termék": "Product",
+  "Ár": "Preis",
+  "Mennyiség" : "Menge",
+  "Törlés" : "Löschen",
+  "Összesen" : "Gesamt",
+  "Shopping": "Einkaufen",
+  "Log_In": "Einloggen"
 
 
 }

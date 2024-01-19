@@ -203,7 +203,14 @@
   "perc1" : "Perc",
   "nxt_str": "Tovább az Áruházra",
   "nxt_rcp" : "Tovább a Receptekre",
-  "click" : "Kattintson ide"
+  "click" : "Kattintson ide",
+  "Termék": "Termék",
+  "Ár": "Ár",
+  "Mennyiség": "Mennyiség",
+  "Törlés": "Törlés",
+  "Összesen": "Összesen",
+  "Shopping": "Vásárlás",
+  "Log_In": "Jelentkezzen be"
 
 
 }

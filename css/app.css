@@ -2,7 +2,7 @@
 
 /* -------------Landing Page Animation------------ */
 header {min-height: 60px;}
-footer {min-height: 90px;}
+footer {min-height: 60px;}
 
 .slider {
 	animation-duration: 20s;
@@ -89,7 +89,7 @@ footer {min-height: 90px;}
 	 75% {visibility: hidden;}
 	100% {}
 }
-/* ------------- Landing Page Animation Ends here ------------ */
+/* -------- Landing Page Animation Ends here ------ */
 
 /*--------- navbar animation starts here  ----------*/
 .nav-link {
@@ -123,7 +123,7 @@ footer {min-height: 90px;}
 /*--------- navbar animation ends here  ----------*/
 
 
-/* ------------- Video Settings start here ------------ */
+/* ------------- Video Settings start here ------ */
   /* A "home" text rész stílusa a videohoz */
 .home {
   height: 100vh;
@@ -209,9 +209,7 @@ footer {min-height: 90px;}
   filter: blur(4px);
   clip-path: polygon(25% 0%, 100% 0%, 100% 99%, 0% 100%);
 }
-/* ------------- Video Settings ends here ------------ */
-
-
+/* ------------- Video Settings ends here ----------- */
 
 /* Általános stílusok */
 body {
@@ -219,7 +217,9 @@ body {
     font-family: 'Montserrat', sans-serif;
 
 }
-/* -------------- About us page Stagger animation for scrolling ------------------- */
+
+
+/* -------------- About us page | starts here -------- */
 
 section {
     place-items: center;
@@ -288,6 +288,8 @@ h1 {
 .abut {
     text-align: center;
 }
+/* -------------- About us page | ends here ---------- */
+
 
 /* ------------- Cart Settings start here ------------ */
 
@@ -345,21 +347,43 @@ h1 {
 }
 /* ------------- cart settings ends here ------------ */
 
-/* ------------- login bg page ---------------- */
+
+/* ------------- login page |user page  ------------- */
 .page-container.login,
-.page-container.register {
-  background: url('../media/image/bg_user/fak.jpg') no-repeat center center fixed;
-  background-size: cover;
+.page-container.register,
+.page-container.profile,
+.page-container.password_frogot,
+.page-container.password_change,
+.page-container.email_change {
+  background: url('../media/image/bg_user/0.jpeg') center/cover;
+  animation: changeBackground 20s infinite;
+  /* Animáció a háttérképek közötti átmenethez */
+  transition: 7s ease-in-out; 
+  animation-timing-function: linear;
 }
 
-
+@keyframes changeBackground {
+  0% {
+    background: url('../media/image/bg_user/1.jpeg') center/cover;
+  }
+  33.33% {
+    background: url('../media/image/bg_user/2.jpeg') center/cover;
+  }
+  66.66% {
+    background: url('../media/image/bg_user/0.jpeg') center/cover;
+  }
+  100% {
+    background: url('../media/image/bg_user/1.jpeg') center/cover;
+  }
+}
 
 .name-detail-container.show {
-  height: 230px;
+  height: 270px;
 }
 @media (min-width: 768px) {
   .name-detail-container.show {
     height: 160px;
   }
 }
-
+/* ------------- login page |user page  ------------- */
+ 

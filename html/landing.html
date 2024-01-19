@@ -1,9 +1,13 @@
   <!-- Slider -->
-  <div class="slider slider-{{$index+1}} h-100 w-100 position-absolute overflow-hidden top-0 start-0" 
-      ng-repeat="x in [].constructor(4) track by $index">
+  <!-- négy alkalommal ismételten létrehoz egy x változót, 
+       amely az ismétlés sorszámát jelenti. -->
+  <div class="slider slider-{{$index+1}} h-100 w-100 
+              position-absolute overflow-hidden top-0 start-0" 
+       ng-repeat="x in [].constructor(4) track by $index">
 
     <!-- Slider image -->
-    <div class="slider-image slider-image-{{$index+1}} vh-100 bg-img bg-img-cover" 
+    <div class="slider-image slider-image-{{$index+1}} 
+                vh-100 bg-img bg-img-cover" 
          style="background-image:url('./media/image/food{{$index+1}}.jpeg');">
         
       <!-- Slider content -->
@@ -14,6 +18,8 @@
         <p class="slider-content">
           {{('slide_content_' + ($index+1)) | translate:lang.data}}
         </p>
+
+        <!-- button so u can go to About us -->
         <button type="button" 
                 ui-sref="about" 
                 class="btn btn-primary px-4 me-md-2">

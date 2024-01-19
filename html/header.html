@@ -105,7 +105,8 @@
                href=""
                ng-click="toggleCartVisibility()">
               <i class="fas fa-cart-shopping fa-lg me-1"></i>
-              <span class="badge text-primary" ng-show="cart.length > 0">
+              <span class="badge text-primary" 
+                    ng-show="cart.length > 0">
                 {{ getTotalQuantity() }}
               </span>
             </a>
@@ -114,15 +115,15 @@
           <!-- Cart container -->
           <li id="cart-container" 
               class="cart-container d-none position-absolute top-5">
-            <h3>Kosarad</h3>
+            <h3>{{ 'Cart' | translate:lang.data }}</h3>
             <hr>
             <table>
               <thead>
                 <tr>
-                  <th>Termék</th>
-                  <th>Ár</th>
-                  <th>Mennyiség</th>
-                  <th>Törlés</th>
+                  <th>{{ 'Termék' | translate:lang.data }}</th>
+                  <th>{{ 'Ár' | translate:lang.data }}</th>
+                  <th>{{ 'Mennyiség' | translate:lang.data }}</th>
+                  <th>{{ 'Törlés' | translate:lang.data }}</th>
                 </tr>
               </thead>
               <tbody>
@@ -133,12 +134,16 @@
                   <td>{{ item.ar_forint * item.quantity }}</td>
                   <td>
                     <button ng-click="removeFromCart(item)">
-                      Tétel eltávolítása
+                      {{ 'Törlés' | translate:lang.data }}
                     </button>
                   </td>
-                </tr>                
-                  <td colspan="3">Összesen:</td>
-                  <td>{{ getTotalPrice() }}Ft</td>
+                </tr>                 
+                  <td colspan="3">
+                    {{ 'Összesen' | translate:lang.data }}
+                  </td>
+                  <td>
+                    {{ getTotalPrice() }}Ft
+                  </td>
                   <td>
                     <li class="nav-item">
                       <a class="nav-link btn" 
@@ -146,7 +151,7 @@
                          ng-class="{'disabled': !user.id}"
                          ng-disabled="!user.id">
                         <i class="fas fa-shopping-cart me-1"></i>
-                        Vásárlás
+                        {{ 'Shopping' | translate:lang.data }}
                       </a>
                   </li>
                   </td>
