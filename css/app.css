@@ -2,12 +2,7 @@
 
 /* -------------Landing Page Animation------------ */
 header {min-height: 60px;}
-footer {min-height: 90px;}
-
-/* .page-container.login,
-.page-container.password_frogot {
-  background: ;
-} */
+footer {min-height: 60px;}
 
 .slider {
 	animation-duration: 20s;
@@ -94,14 +89,13 @@ footer {min-height: 90px;}
 	 75% {visibility: hidden;}
 	100% {}
 }
-/* ------------- Landing Page Animation Ends here ------------ */
+/* -------- Landing Page Animation Ends here ------ */
 
-/*--------- navbar----------*/
-
+/*--------- navbar animation starts here  ----------*/
 .nav-link {
   position: relative;
   display: inline-block;
-  padding-bottom: 5px; /* Adjust as needed to control the space between text and underline */
+  padding-bottom: 5px; 
   transition: color 0.2s;
 }
 
@@ -109,45 +103,41 @@ footer {min-height: 90px;}
   content: '';
   position: absolute;
   bottom: 0;
-  left: 50%; /* Center the underline */
-  transform: translateX(-50%);
+  left: 0;
   width: 0;
   height: 1px;
   background-color: blue;
-  transition: width 0.3s; /* Add a slight animation to the width */
+  transition: width 0.3s; 
 }
 
 .nav-link:hover::before,
 .nav-link.active::before {
-  width: 100%; /* Set the width to 100% on hover and when the link is active */
+  width: 100%; 
 }
 
 .nav-link.active {
   color: blue;
-  background-color: none; /* or use the same color */
+  background-color: none; 
   border-color: none;
 }
-
-/*--------- navbar----------*/
-
-
-/* ------------- Video Settings start here ------------ */
+/*--------- navbar animation ends here  ----------*/
 
 
-/* Video rész */
+/* ------------- Video Settings start here ------ */
+  /* A "home" text rész stílusa a videohoz */
 .home {
-  /* A "home" rész stílusa */
   height: 100vh;
   position: relative;
 }
 .showcase-img {
   background-size: cover;
   background-position: center;
-  height: 350px; /* Változtasd meg a megfelelő magasságra */
+  height: 350px;
 }
 .showcase-text {
   text-align: center;
 }
+
 /* Video - About us oldalon*/
 .video-container {
   position: absolute;
@@ -155,13 +145,13 @@ footer {min-height: 90px;}
   height: 100%;
   overflow: hidden;
 }
-
 .video-container video {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: blur(4px);
+  filter: blur(2px);
 }
+
 /* Video 2 - Products oldalon */
 .video-containerTwo {
   position: relative;
@@ -170,7 +160,6 @@ footer {min-height: 90px;}
   height: 100%;
   padding-top:70%; 
 }
-
 .blurred-video {
   position: absolute;
   top: 0;
@@ -180,58 +169,59 @@ footer {min-height: 90px;}
   object-fit: cover;
   clip-path: polygon(25% 0%, 100% 0%, 100% 99%, 0% 100%);
 }
-/* Video 3 - Services oldalon */
 
+/* Video 3 - Services oldalon */
 .Topvideo {
   position: relative;
-  height: 50vh; /* Adjust this value to change the overall height of the video */
+  height: 60vh;
   min-height: 10rem;
   width: 100%;
   overflow: hidden;
 }
-
 .Topvideo video {
   position: absolute;
-  top: 15%;
+  top: 20%;
   left: 50%;
-  width: 100%; /* Adjust this value to change the width of the video */
-  height: auto;
   transform: translate(-50%, -50%);
+  width: 100%;
+  height: auto;
+  object-fit: cover;
   z-index: 0;
-}
+  filter: blur(4px);
 
+}
 .Topvideo .container {
   position: relative;
   z-index: 1;
 }
-
 .Topvideo .overlay {
+  display: none;
+}
+
+/* Video 4 - Contact oldalon */ 
+.blurred-videoTwo {
   position: absolute;
   top: 0;
   left: 0;
-  height: 100%;
   width: 100%;
-  background-color: black;
-  opacity: 0.5;
-  z-index: 1;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(4px);
+  clip-path: polygon(25% 0%, 100% 0%, 100% 99%, 0% 100%);
 }
-
-/* ------------- Video Settings ends here ------------ */
-
-
+/* ------------- Video Settings ends here ----------- */
 
 /* Általános stílusok */
 body {
-    /* Az egész oldal alap stílusa */
     padding: 0%;
     font-family: 'Montserrat', sans-serif;
 
 }
-/* -------------- About us page ------------------- */
 
-/* Stagger animáció görgetésre */
+
+/* -------------- About us page | starts here -------- */
+
 section {
-    /* A szakaszok elrendezése és középre igazítása */
     place-items: center;
     align-content: center;
     min-height: 40vh;
@@ -286,30 +276,21 @@ section {
 }
 
 h1 {
-    /* Címsor stílusa */
     font-size: clamp(45px, 7vw, 130px);
     line-height: 1.1;
 }
 
 .home p {
-    /* Bekezdés stílusa */
     font-size: clamp(25px, 4vw, 40px);
     margin-top: 10px;
 }
 
 .abut {
-    /* Aloldal stílusa */
     text-align: center;
 }
+/* -------------- About us page | ends here ---------- */
 
-/* ------- btn to scroll up -------*/
-.arrow-up {
-    font-size: 20px; /* Adjust the arrow size */
-    position: fixed; 
-    right: 20px; 
-    cursor: pointer;
- }
- 
+
 /* ------------- Cart Settings start here ------------ */
 
 .cart-container {
@@ -367,3 +348,42 @@ h1 {
 /* ------------- cart settings ends here ------------ */
 
 
+/* ------------- login page |user page  ------------- */
+.page-container.login,
+.page-container.register,
+.page-container.profile,
+.page-container.password_frogot,
+.page-container.password_change,
+.page-container.email_change {
+  background: url('../media/image/bg_user/0.jpeg') center/cover;
+  animation: changeBackground 20s infinite;
+  /* Animáció a háttérképek közötti átmenethez */
+  transition: 7s ease-in-out; 
+  animation-timing-function: linear;
+}
+
+@keyframes changeBackground {
+  0% {
+    background: url('../media/image/bg_user/1.jpeg') center/cover;
+  }
+  33.33% {
+    background: url('../media/image/bg_user/2.jpeg') center/cover;
+  }
+  66.66% {
+    background: url('../media/image/bg_user/0.jpeg') center/cover;
+  }
+  100% {
+    background: url('../media/image/bg_user/1.jpeg') center/cover;
+  }
+}
+
+.name-detail-container.show {
+  height: 270px;
+}
+@media (min-width: 768px) {
+  .name-detail-container.show {
+    height: 160px;
+  }
+}
+/* ------------- login page |user page  ------------- */
+ 

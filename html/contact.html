@@ -1,0 +1,187 @@
+<!-- Contact Section -->
+<section>
+	<div class="overflow-hidden">
+	  <div class="container-fluid col-xxl-8">
+		<div class="row flex-lg-nowrap 
+					align-items-center g-5">
+
+		  <!-- Video Container -->
+		  <div class="order-lg-2 w-100">
+			<div class="video-containerTwo mx-auto">
+			  <video autoplay 
+			  		 muted 
+					 loop 
+					 class="blurred-videoTwo">
+				<source ng-src="./media/video/call.mp4" 
+						type="video/mp4">
+			  </video>
+			</div>
+		  </div>
+
+		  <!-- Contact Information -->
+		  <div class="col-lg-6 col-xl-5 text-center 
+		  			  text-lg-start pt-lg-5 mt-xl-4">
+			<div class="mb-4">
+			  <h1 class="display-2" 
+			  	  id="scroll">
+				  {{'contact' | translate:lang.data}}
+				</h1>
+			  <hr>
+
+			  <!-- Contact Items Loop -->
+			  <div ng-repeat="contactItem in contactItems" 
+			  	   class="lc-block mb-4">
+				<!-- Az alábbi részek az adatokat jelenítik meg. -->
+				<h4>
+				{{contactItem.title | translate:lang.data}}
+				</h4>
+
+				<!-- Contact Lines Loop -->
+				<div ng-repeat="line in contactItem.content">
+				<!-- Erős kiemelés, ha van ikon -->
+				  <strong ng-if="line.icon">
+					<i class="{{line.icon}}"></i>
+				  </strong>
+				  <!-- Ha van 'texta/b', akkor megjelenítjük 
+					   ha van link hozzá azt is  -->
+				  <a ng-if="line.texta" 
+					 ng-href="{{line.href}}" 
+					 class="text-decoration-none">
+				   {{line.texta | translate:lang.data}}
+				 </a>
+				  <a ng-if="line.textb" 
+					 ng-href="{{line.href}}" 
+					 class="text-decoration-none">
+				  {{line.textb | translate:lang.data}}
+				 </a>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	</div>
+  </section>
+  
+
+  <!-- Awards Title -->
+  <div class="py-5 text-center w-100" 
+  	   style="margin-top:3rem;margin-bottom:3rem">
+	<h1 class="display-1">
+	 {{'awards' | translate:lang.data}}
+	 </h1>
+	 <div>
+	  <p class="lead">
+	   {{ 'awards_text' | translate:lang.data}}
+	 </p>
+	</div>
+  </div>
+  
+
+<!-- Awards Section -->
+<!-- Az alábbi szakasz bemutatja az elért díjakat. -->
+  <section class="container text-center py-4 py-md-6">
+	<div class="container-fluid p-0">
+
+	  <!-- Awards Loop -->
+	  <div class="row g-3" 
+	  	   ng-repeat="award in awards_achievements | 
+		   			  limitTo: 5">
+
+		<!-- Award Image -->
+		  <!-- Az order-lg-2 vagy order-lg-1 class 
+			   alapján határozza meg megjelenési sorrendjüket. -->
+		<div class="col-lg-6 order-lg-{{ $index % 2 === 0 ? 2 : 1 }} 
+				    text-white showcase-img d-block 
+					mx-lg-auto img-fluid rounded-3" 
+			 style="background-image:url('media/image/awards/award{{$index+1}}.jpeg')">
+	   </div>
+
+		<!-- Award Text -->
+       	<!-- Az order-lg-2 vagy order-lg-1 class 
+             alapján határozza meg megjelenési sorrendjüket. -->
+		<div class="col-lg-6 order-lg-{{ $index % 2 === 0 ? 1 : 2 }}
+				    my-auto showcase-text">
+		  <h2 class="fw-bolder py-3">
+			{{ 'award_title_' + ($index + 1) | translate:lang.data }}
+		 </h2>
+		  <p class="lead mb-0 text-center py-3" 
+		  	 style="max-inline-size:100ch">
+		  	{{ 'award_text_' + ($index + 1) | translate:lang.data }}
+		 </p>
+		  <p class="lead mb-0 text-muted small">
+		  {{ award.date }}
+		 </p>
+		</div>
+	  </div>
+	</div>
+  </section>
+  
+
+  <!-- FAQ Title -->
+  <div class="py-5 text-center w-100" 
+  	   style="margin-top:3rem;margin-bottom:3rem">
+	<h1 class="display-1">
+	{{'gy_i_k' | translate:lang.data}}
+   </h1>
+  </div>
+  
+
+  <!-- FAQ Section -->
+  <section>
+	<div class="container text-center py-4 py-md-6">
+	  <div class="lc-block card border-0 
+	  			  text-center rounded p-4 p-lg-6">
+		<div class="row card-body mb-3 mb-lg-4">
+		  <div class="col-xl-11 col-xxl-9 mx-auto">
+			<div class="lc-block">
+			  <div class="container py-5">
+				<div class="row">
+
+				  <!-- Image Column -->
+				  <div class="col-md-6">
+					<img ng-src="./media/image/contact/peter_g.jpeg" 
+						 class="d-block mx-lg-auto img-fluid rounded-3" 
+						 alt="Péter filozik keményen">
+				  </div>
+
+				  <!-- FAQ Loop -->
+				  <div class="col-md-6">
+					<div ng-repeat="faq in faqs" 
+						 ng-if="$index > 0" 
+						 class="lc-block mb-5">
+
+					  <!-- FAQ Button with bounceing icons -->
+					  <button class="btn" 
+							  type="button" 
+							  data-bs-toggle="collapse" 
+							  data-bs-target="#faqCollapse{{$index}}" 
+							  aria-expanded="false" 
+							  aria-controls="faqCollapse{{$index}}">
+						<p class="text-dark h5 collapsed faq-question">
+						{{('faq_q' + ($index+1)) | translate:lang.data}}
+						</p>
+					  </button>
+					  <i class="fa-regular fa-hand-point-up fa-bounce"></i>
+					  <p>
+					   {{ 'click' | translate:lang.data}}
+					 </p>
+
+					  <!-- FAQ Answer Collapse -->
+					  <div class="collapse" 
+					  	   id="faqCollapse{{$index}}">
+						<p class="text-center">
+						{{('faq_a' + ($index+1)) | translate:lang.data}}
+						</p>
+					  </div>
+					</div>
+				  </div>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	</div>
+  </section>
+  

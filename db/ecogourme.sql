@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2024. Jan 13. 18:37
+-- Létrehozás ideje: 2024. Jan 19. 12:55
 -- Kiszolgáló verziója: 10.4.27-MariaDB
 -- PHP verzió: 8.2.0
 
@@ -63,9 +63,9 @@ CREATE TABLE `aboutus_text` (
 --
 
 INSERT INTO `aboutus_text` (`id`, `title`, `description`, `image`) VALUES
-(1, 'about_title_1', 'about_text_1', './media/image/ffood1.jpg'),
-(2, 'about_title_2', 'about_text_2', './media/image/tree1.jpg'),
-(3, 'about_title_3', 'about_text_3', './media/image/enjoy1.jpg');
+(1, 'about_title_1', 'about_text_1', './media/image/ffood1.jpeg'),
+(2, 'about_title_2', 'about_text_2', './media/image/tree1.jpeg'),
+(3, 'about_title_3', 'about_text_3', './media/image/enjoy1.jpeg');
 
 -- --------------------------------------------------------
 
@@ -112,6 +112,29 @@ INSERT INTO `eco_gourmet_awards_achievements` (`id`, `title`, `description`, `da
 (3, 'award_title_3', 'award_text_3', '2022-06-20'),
 (4, 'award_title_4', 'award_text_4', '2022-08-05'),
 (5, 'award_title_5', 'award_text_5', '2022-10-15');
+
+-- --------------------------------------------------------
+
+--
+-- Tábla szerkezet ehhez a táblához `faqs`
+--
+
+CREATE TABLE `faqs` (
+  `id` int(11) NOT NULL,
+  `question` varchar(255) NOT NULL,
+  `answer` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- A tábla adatainak kiíratása `faqs`
+--
+
+INSERT INTO `faqs` (`id`, `question`, `answer`) VALUES
+(2, 'faq_q2', 'faq_a2'),
+(3, 'faq_q3', 'faq_a3'),
+(4, 'faq_q4', 'faq_a4'),
+(5, 'faq_q5', 'faq_a5'),
+(6, 'faq_q6', 'faq_a6');
 
 -- --------------------------------------------------------
 
@@ -219,11 +242,11 @@ CREATE TABLE `testimonials` (
 --
 
 INSERT INTO `testimonials` (`id`, `name`, `description`, `kep_url`) VALUES
-(1, 'Zsófia', 'testimonial_desc_1', './media/image/zsofia.jpg'),
-(2, 'Péter', 'testimonial_desc_2', './media/image/peter.jpg'),
-(3, 'Anna', 'testimonial_desc_3', './media/image/anna.jpg'),
-(5, 'Klára', 'testimonial_desc_5', './media/image/klara.jpg'),
-(6, 'Tamás', 'testimonial_desc_6', './media/image/tamas.jpg');
+(1, 'Zsófia', 'testimonial_desc_1', './media/image/zsofia.jpeg'),
+(2, 'Péter', 'testimonial_desc_2', './media/image/peter.jpeg'),
+(3, 'Anna', 'testimonial_desc_3', './media/image/anna.jpeg'),
+(5, 'Klára', 'testimonial_desc_5', './media/image/klara.jpeg'),
+(6, 'Tamás', 'testimonial_desc_6', './media/image/tamas.jpeg');
 
 -- --------------------------------------------------------
 
@@ -445,6 +468,12 @@ ALTER TABLE `eco_gourmet_awards_achievements`
   ADD PRIMARY KEY (`id`);
 
 --
+-- A tábla indexei `faqs`
+--
+ALTER TABLE `faqs`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- A tábla indexei `recipes`
 --
 ALTER TABLE `recipes`
@@ -523,6 +552,12 @@ ALTER TABLE `eco_gourmet_awards_achievements`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
+-- AUTO_INCREMENT a táblához `faqs`
+--
+ALTER TABLE `faqs`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT a táblához `recipes`
 --
 ALTER TABLE `recipes`
@@ -541,44 +576,10 @@ ALTER TABLE `termek`
   MODIFY `termek_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
 
 --
--- AUTO_INCREMENT a táblához `testimonials`
---
-ALTER TABLE `testimonials`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
 -- AUTO_INCREMENT a táblához `user`
 --
 ALTER TABLE `user`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT a táblához `user_plans`
---
-ALTER TABLE `user_plans`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
--- AUTO_INCREMENT a táblához `vasarlasok`
---
-ALTER TABLE `vasarlasok`
-  MODIFY `vasarlas_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
-
---
--- AUTO_INCREMENT a táblához `vasarlasok_tetel`
---
-ALTER TABLE `vasarlasok_tetel`
-  MODIFY `tetel_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
-
---
--- Megkötések a kiírt táblákhoz
---
-
---
--- Megkötések a táblához `vasarlasok`
---
-ALTER TABLE `vasarlasok`
-  ADD CONSTRAINT `vasarlasok_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

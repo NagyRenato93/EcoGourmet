@@ -57,12 +57,18 @@
                templateUrl: './html/products.html',
                controller: 'productsController'
             })
-            .state('services', {
-               url: '/services',
+            .state('recipes', {
+               url: '/recipes',
                parent: 'root',
-               templateUrl: './html/services.html',
-               controller: 'servicesController'
+               templateUrl: './html/recipes.html',
+               controller: 'recipesController'
 
+            })            
+            .state('contact', {
+               url: '/contact',
+               parent: 'root',
+               templateUrl: './html/contact.html',
+               controller: 'contactController'
             })
             .state('login', {
                url: '/login',
@@ -132,7 +138,7 @@
          lang.init();
   
          // Initialize user
-         user.init();
+         user.init({isSendEmail: false});
 
          // Set cart
          $rootScope.cart = [];
@@ -162,23 +168,26 @@
          })
          .catch(e => alert(lang.translate(e, true)+'!'));
             
-         // Smooth animation on scrolling on About Us Page
+         // Sima görgetési animáció az About Us oldalon, egy szakadozó hatásról van szó.
          function initializeIntersectionObserver() {
+            // Intersection Observer létrehozása
             let observer = new IntersectionObserver(function (entries) {
                entries.forEach(function (entry) {
                   if (entry.isIntersecting) {
-                     entry.target.classList.add('show');
+                     // Az elem láthatóvá tétele, ha metszi a látható területet
+                        entry.target.classList.add('show'); 
                   }
                });
             });
 
+            // A rejtett elemek kiválasztása, és azok figyelése az Intersection Observerral
             let hiddenElements = document.querySelectorAll('.hidden');
             hiddenElements.forEach(function (element) {
                observer.observe(element);
             });
          }
 
-         // Intersection Observer function call
+         // Intersection Observer függvény hívása
          initializeIntersectionObserver();
 
          // Scroll to element
@@ -208,78 +217,85 @@
             if (response && response.products) {
                $scope.products = response.products;
                $scope.subscription_plans = response.subscription_plans;
-               $scope.updateFilteredProducts(); // Frissítjük a szűrt termékek listáját az inicializálás után
+               // Frissítjük a szűrt termékek listáját az inicializálás után
+               $scope.updateFilteredProducts(); 
                $scope.$applyAsync();
             }
          })
          .catch(e => alert(lang.translate(e, true)+'!'));
 
-         //
-         $rootScope.$watch('cart', (newValue, oldValue) => {
-
-            // Check is changed
-            if(!angular.equals(newValue, oldValue)) {
-               console.log(oldValue, ' => ', newValue);
-               localStorage.setItem("shoppingCart", $rootScope.cart);
+         // Top Companys Logos with link
+         $scope.logos = [
+            { 
+            src: './media/image/brands/facebook.png', 
+            alt: 'Facebook', 
+            link: 'https://www.facebook.com/' 
+            },
+            { 
+            src: './media/image/brands/tiktok.png', 
+            alt: 'TikTok', 
+            link: 'https://www.tiktok.com/' 
+            },
+            { 
+            src: './media/image/brands/snapchat.png', 
+            alt: 'Snapchat', 
+            link: 'https://www.snapchat.com/' 
+            },
+            { 
+            src: './media/image/brands/instagram.png', 
+            alt: 'Instagram', 
+            link: 'https://www.instagram.com/' 
+            },
+            { 
+            src: './media/image/brands/gmail.png', 
+            alt: 'gmail', 
+            link: 'https://www.gmail.com/' 
             }
-         }, true);
+         ];
+ 
 
-         // Funkciók a termékjellemzők leírásához
+         // EcoGourme Shop Title+Desc+icons kezelése itt kezdődik---->
+         
+         // Functions for the shop description 4 icon with text
          $scope.getDescription = function (feature) {
             return 'shop_card_' + (feature.index + 1);
          }
 
-         //
          $scope.getQualityDescription = function (feature) {
             return 'shop_card_' + (feature.index + 1);
          }
 
-         //
-         $rootScope.finalizeOrder = function () {
-
-            if (!$rootScope.cart || $rootScope.cart.length === 0) {
-               console.log("A kosár üres.");
-               return;
-            }
-
-            // Define filter of keys, and reduce array of object by keys
-            let   filter  = ['termek_id','quantity','ar_forint','duration','type'],
-                  data    =  $rootScope.cart.map((obj) => {
-                                 return	Object.keys(obj)
-                                                .filter((key) => filter.includes(key))
-                                                .reduce((o, k) => Object.assign(o, {[k]: obj[k]}), {});
-                              });
-                           
-            // Elküldjük a kosár tartalmát a szerverre
-            http.request({
-               data: {
-                  require : 'vasarlasok.php',
-                  params  : { 
-                     cart: data,
-                     userId: $rootScope.user.id
-                  }
-               }
-            })
-            .then(response => {
-               // Sikeres válasz esetén kezeld a választ, például visszajelzés a felhasználónak
-               console.log(response);
-               // Töröld a kosarat
-               $rootScope.cart = [];
-               $scope.updateCartTotal();
-               $scope.$applyAsync();
-            })
-            .catch(e => alert(lang.translate(e, true)+'!'));
-         }
-      
-         // Ecogurmet titles tömbje
+         
+         // Ecogurmet shop titles with desc 4 icon
          $scope.ecogourmetFeatures = [
-            { icon: 'fas fa-recycle fa-fade', title: 'shop_card_title_1', index: 0, descriptionKey: 'shop_card_1' },
-            { icon: 'fas fa-truck fa-fade', title: 'shop_card_title_2', index: 1, descriptionKey: 'shop_card_2' },
-            { icon: 'fas fa-gift fa-fade', title: 'shop_card_title_3', index: 2, descriptionKey: 'shop_card_3' },
-            { icon: 'fas fa-cart-shopping fa-fade', title: 'shop_card_title_4', index: 3, descriptionKey:   'shop_card_4' }
+            { 
+            icon: 'fas fa-recycle fa-fade', 
+            title: 'shop_card_title_1', 
+            index: 0, 
+            descriptionKey: 'shop_card_1' 
+            },
+            { 
+            icon: 'fas fa-truck fa-fade', 
+            title: 'shop_card_title_2', 
+            index: 1,
+            descriptionKey: 'shop_card_2' 
+            },
+            { 
+            icon: 'fas fa-gift fa-fade', 
+            title: 'shop_card_title_3', 
+            index: 2, 
+            descriptionKey: 'shop_card_3' 
+            },
+            { 
+            icon: 'fas fa-cart-shopping fa-fade', 
+            title: 'shop_card_title_4', 
+            index: 3, 
+            descriptionKey:'shop_card_4' 
+            }
          ];
 
-         //Szürő -->
+
+         // Szürő kezelése itt kezdődik---->
 
          // Funkciók a kategória szűrők kezeléséhez
          $scope.setCategoryFilter = function (category) {
@@ -288,129 +304,192 @@
             $scope.updateFilteredProducts();
          }
 
-         // Törli az összes szűrőt, kivéve a kategóriaszűrőt
-         $scope.clearFilters = function () {
-            $scope.manufacturerFilter = '';
-            $scope.distributorFilter = '';
-            // Frissítjük a szűrt termékek listáját
-            $scope.updateFilteredProducts();
-         }
-
          // Funkció a szűrt termékek listájának frissítéséhez
          $scope.updateFilteredProducts = function () {
             if ($scope.products && $scope.categoryFilter) {
                // Szűrjük a termékeket a kiválasztott kategória alapján
-               $scope.filteredProducts = $filter('filter')($scope.products, { kategoria: $scope.categoryFilter });
+               $scope.filteredProducts = $filter('filter')
+               ($scope.products, { kategoria: $scope.categoryFilter });
             } else {
                // Ha nincs kategóriaszűrő kiválasztva, mutassuk az összes terméket
                $scope.filteredProducts = $scope.products;
             }
-            // További frissítések, ha szükséges...
          }
-
          // Funkció a termékkategóriák listájának lekéréséhez
          $scope.getCategoryList = function () {
+            // Üres tömb létrehozása a kategóriák tárolásához
             let categories = [];
+
+            // Ellenőrzi, hogy a $scope objektumon belül létezik-e a products tulajdonság
             if ($scope.products) {
-               for (let i = 0; i < $scope.products.length; i++) {
-                  let product = $scope.products[i];
-                  if (product.kategoria && categories.indexOf(product.kategoria) === -1) {
-                     categories.push(product.kategoria);
+               // Ciklus a termékek tömbjén történő átvizsgáláshoz
+               for (let productIndex = 0; productIndex < $scope.products.length; productIndex++) {
+                  // Az aktuális termék kiválasztása a ciklusindex segítségével
+                  let currentProduct = $scope.products[productIndex];
+                  if (currentProduct.kategoria && categories.indexOf(currentProduct.kategoria) === -1) {
+                        // Ha a kategória még nincs a listában, hozzáadja azt a categories tömbhöz
+                        categories.push(currentProduct.kategoria);
                   }
                }
             }
+
+            // A létrehozott kategórialistát visszaadja
             return categories;
          };
 
-         //Kosár-->
 
-         // Funkció a kosár összegének frissítéséhez
+            // Kosár kezelése itt kezdődik---->
+
+            // Megrendelés véglegesítése
+            $rootScope.finalizeOrder = function () {
+               if (!$rootScope.cart || $rootScope.cart.length === 0) {
+                  return;
+               }
+
+            // Szükséges adatok kinyerése a kosárból
+            let filter = ['termek_id', 'quantity', 'ar_forint', 'duration', 'type'];
+
+            // Adatok kinyerése a kosárból és szűrésük a filter tömb segítségével
+            let data = $rootScope.cart.map((obj) => {
+               // Az objektum kulcsainak szűrése a filter tömb alapján
+               return Object.keys(obj)
+                  .filter((key) => filter.includes(key))
+                  // A szűrt kulcsokból új objektum létrehozása
+                  .reduce((filteredObject, currentKey) => Object.assign(filteredObject, { [currentKey]: obj[currentKey] }), {});
+            });
+
+
+            // Kosár tartalmának elküldése a szerverre
+            http.request({
+               data: {
+                  require: 'vasarlasok.php',
+                  params: {
+                     // A kosár tartalmának küldése a szervernek
+                     cart: data,
+                     // A felhasználó azonosítójának küldése
+                     userId: $rootScope.user.id
+                  }
+               }
+            })
+               .then(response => {
+                  // Sikeres válasz esetén a következő lépéseket végrehajtja
+                  $rootScope.cart = [];
+                  // A kosár teljes összegének frissítése
+                  $scope.updateCartTotal();
+                  $scope.$applyAsync();
+                  // Sikeres vásárlás visszajelzése
+                  alert('Sikeres vásárlás!');
+               })
+               .catch(e => alert(lang.translate(e, true) + '!'));
+         }
+
+         // Figyelő az 'cart' változóra
+         $rootScope.$watch('cart', (newValue, oldValue) => {
+
+            // Ellenőrzi, hogy változott-e a kosár
+            if (!angular.equals(newValue, oldValue)) {
+            // A kosár változás esetén az új érték mentése a helyi tárolóba
+               localStorage.setItem("shoppingCart", $rootScope.cart);
+            }
+         }, true);
+
+         // Kosár összegének frissítése
          $scope.updateCartTotal = function () {
             $scope.totalItems = $rootScope.cart.length;
             $scope.$applyAsync();
-            // További frissítések, ha szükséges...
          };
 
-         // Funkció a termék hozzáadásához a kosárhoz
+         // Termék hozzáadása a kosárhoz
          $scope.addToCart = function (product, type) {
-            console.log(product, type);
-            let existingItem =   $filter('filter')($rootScope.cart, { 
-                                    termek_id: product.termek_id
-                                 }, true)[0];
-                              
+            let existingItem = $filter('filter')
+            ($rootScope.cart, {
+               termek_id: product.termek_id
+            }, true)[0];
             if (existingItem) {
+               // Ha az adott termék már a kosárban van, növeli a mennyiségét
                existingItem.quantity++;
             } else {
+               // Az aktuális termék másolása
                let newItem = angular.copy(product);
+               // Az termék típusának beállítása
                newItem.type = type;
+               // Az termék mennyiségének beállítása
                newItem.quantity = 1;
+               // Az termék hozzáadása a kosárhoz
                $rootScope.cart.push(newItem);
             }
-         
-            console.log($rootScope.cart); // Debug kimenet
-            $scope.updateCartTotal(); // Frissítsd a kosár összegét
+            // Kosár összegének frissítése
+            $scope.updateCartTotal(); 
          }
-     
+
          // Előfizetési terv hozzáadása a kosárhoz
          $scope.addToCartSubscriptionPlan = function (subscription_plan) {
 
-            // Ellenőrizd, hogy a subscription_plan objektum létezik
-            console.log(subscription_plan);
-         
-            // Létrehozzuk az existingItem változót
-            let existingItem = $filter('filter')($rootScope.cart, { termek_id: subscription_plan.termek_id }, true)[0];
-         
+            // Ellenőrzés, hogy az előfizetési terv objektum létezik-e
+            let existingItem = $filter('filter')($rootScope.cart, {
+               termek_id: subscription_plan.termek_id
+            }, true)[0];
+
             if (existingItem) {
+               // Ha az előfizetési terv már a kosárban van, növeli a mennyiségét
                existingItem.quantity++;
             } else {
                let newItem = angular.copy(subscription_plan);
+               // Az előfizetési terv mennyiségének beállítása
                newItem.quantity = 1;
                $rootScope.cart.push(newItem);
             }
-         
-            console.log($rootScope.cart); // Debug kimenet
-            $scope.updateCartTotal(); // Frissítsd a kosár összegét
+            // Kosár összegének frissítése
+            $scope.updateCartTotal(); 
          }
-      
-         // Funkció a termék eltávolításához a kosárból
-         $scope.removeFromCart = function (product) {
+
+         // Termék eltávolítása a kosárból
+         $rootScope.removeFromCart = function (product) {
+            // Megkeresi az indexet, ahol az adott termék található a kosárban
             let index = $rootScope.cart.indexOf(product);
             if (index !== -1) {
+               // Ha az index érvényes, eltávolítja az adott terméket a kosárból
                $rootScope.cart.splice(index, 1);
-               $scope.updateCartTotal(); // Frissítsd a kosár összegét
+               // Kosár összegének frissítése
+               $scope.updateCartTotal(); 
             }
          }
 
-         // Funkció a kosárban lévő elemek összértékének lekéréséhez
+         // Kosárban lévő elemek összértékének lekérése
          $rootScope.getTotalPrice = function () {
+            // Ellenőrzi, hogy a kosár üres-e 
             if (!$rootScope.cart || $rootScope.cart.length === 0) {
-               return 0; // Üres a kosár, tehát az összeg 0
+                // Üres kosár esetén, az összeg 0
+               return 0;
             }
-
             let totalPrice = 0;
+            // Végigszalad a kosárban lévő elemeken
             for (let i = 0; i < $rootScope.cart.length; i++) {
                let item = $rootScope.cart[i];
+               // Ellenőrzi, az elemnek a árát és mennyiségét
                if (item && item.ar_forint && !isNaN(item.quantity)) {
+                  // Az elem összértékét hozzáadja a teljes összeghez
                   totalPrice += item.ar_forint * item.quantity;
                }
             }
-
             return totalPrice;
          }
 
-         // // Funkció a kosárban lévő elemek összmennyiségének lekéréséhez
+         // Kosárban lévő elemek összmennyiségének lekérése
          $rootScope.getTotalQuantity = function () {
             let totalQuantity = 0;
+            // Végigszalad a kosárban lévő elemeken és összegzi a mennyiségeket
             for (let i = 0; i < $rootScope.cart.length; i++) {
                totalQuantity += $rootScope.cart[i].quantity;
             }
+            // A kosárban lévő elemek összmennyiségének visszaadása
             return totalQuantity;
          }
       }
    ])
 
-   // Services Controller
-   .controller('servicesController', [
+   // Recipes Controller
+   .controller('recipesController', [
       '$scope',
       'http',
       'lang',
@@ -424,8 +503,76 @@
          
             $scope.$applyAsync();
          })
-              // Set video source dynamically
+      // Set video source dynamically
      $scope.videoSource = "./media/video/sheep.mp4";
+      }
+   ])
+
+   // Kontakt Controller
+   .controller('contactController', [
+      '$scope',
+      'http',
+      'lang',
+      function ($scope, http, lang) {
+
+         http.request({ data: 'contact.php' })
+            .then(response => {
+
+               $scope.faqs = response.faqs;
+               $scope.awards_achievements = response.awards_achievements;
+
+               $scope.$applyAsync();
+            });
+         // Contact Title+Text kezelése itt kezdődik---->
+         $scope.contactItems = [
+            {
+               title: 'keress_m',
+            },
+            {
+               content: [
+                  { 
+                  icon: 'fa-solid fa-clock fa-fade', 
+                  texta: 'day_1', 
+                  textb: '8:00 - 16:00' 
+                  },
+                  { 
+                  icon: 'fa-solid fa-clock fa-fade', 
+                  texta: 'day_2', 
+                  textb: '10:00 - 16:00' 
+                  },
+                  { 
+                  icon: 'fa-solid fa-clock fa-fade',
+                  texta: 'day_3',
+                  textb: 'zárva' 
+                  },
+               ],
+            },
+            {
+               title: 'w_t_c',
+               content: [
+                  { 
+                  icon: 'fa-solid fa-phone', 
+                  href: "tel:06-20-199-1999", 
+                  texta: '06-20-199-1999' 
+                  },
+                  { 
+                  icon: 'fa-solid fa-envelope', 
+                  href: "mailto:ecogourmet@gmail.com", 
+                  texta: 'ecogourmet@gmail.com' 
+                  },
+               ],
+            },
+            {
+               title: 'C_Sz',
+            },
+            {
+              icon: 'fa-solid fa-location-dot',
+              title: '5940 Tótkomlós, EcoGourmet u. 1',
+            },
+         ];
+
+         $scope.contactImageSrc = "./media/image/contact/contact1.jpeg";
+
       }
    ]);
 

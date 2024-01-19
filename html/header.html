@@ -1,5 +1,5 @@
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light opacity-85">
   
   <!-- Container -->
   <div class="container-fluid">
@@ -63,16 +63,30 @@
             </a>
           </li>
 
-          <!-- Services -->
+          <!-- Recipes -->
           <li class="nav-item">
             <a class="nav-link" 
-               ui-sref="services"
+               ui-sref="recipes"
                ui-sref-active="active"
                data-bs-toggle="collapse" 
                data-bs-target=".navbar-collapse.show">
                <i class="fa-solid fa-utensils fa-lg me-1"></i>
                <span class="text-capitalize text-small-caps">
                 {{'services' | translate:lang.data}}
+              </span>
+            </a>
+          </li>
+
+          <!-- contact -->
+          <li class="nav-item">
+            <a class="nav-link" 
+               ui-sref="contact"
+               ui-sref-active="active"
+               data-bs-toggle="collapse" 
+               data-bs-target=".navbar-collapse.show">
+               <i class="fa-solid fa-phone"></i>
+               <span class="text-capitalize text-small-caps">
+                {{'contact' | translate:lang.data}}
               </span>
             </a>
           </li>
@@ -91,39 +105,45 @@
                href=""
                ng-click="toggleCartVisibility()">
               <i class="fas fa-cart-shopping fa-lg me-1"></i>
-              <span class="badge text-primary" ng-show="cart.length > 0">
+              <span class="badge text-primary" 
+                    ng-show="cart.length > 0">
                 {{ getTotalQuantity() }}
               </span>
             </a>
           </li>
 
           <!-- Cart container -->
-          <li id="cart-container" class="cart-container d-none position-absolute top-5">
-            <h3>Kosarad</h3>
+          <li id="cart-container" 
+              class="cart-container d-none position-absolute top-5">
+            <h3>{{ 'Cart' | translate:lang.data }}</h3>
             <hr>
             <table>
               <thead>
                 <tr>
-                  <th>Termék</th>
-                  <th>Ár</th>
-                  <th>Mennyiség</th>
-                  <th>Törlés</th>
+                  <th>{{ 'Termék' | translate:lang.data }}</th>
+                  <th>{{ 'Ár' | translate:lang.data }}</th>
+                  <th>{{ 'Mennyiség' | translate:lang.data }}</th>
+                  <th>{{ 'Törlés' | translate:lang.data }}</th>
                 </tr>
               </thead>
               <tbody>
                 <tr ng-repeat="item in cart track by $index">
-                  <td>{{( item.nev) | translate:lang.data}}
-                  </td>
+                  <td>{{ (item.nev) | translate:lang.data }}</td>
                   <td>{{ item.ar_forint }}</td>
                   <td>{{ item.quantity }}</td>
                   <td>{{ item.ar_forint * item.quantity }}</td>
                   <td>
-                    <button ng-click="removeFromCart(item)">Törlés</button>
+                    <button ng-click="removeFromCart(item)">
+                      {{ 'Törlés' | translate:lang.data }}
+                    </button>
                   </td>
-                </tr>
-                <tr>
-                  <td colspan="3">Összesen:</td>
-                  <td>{{ getTotalPrice() }}Ft</td>
+                </tr>                 
+                  <td colspan="3">
+                    {{ 'Összesen' | translate:lang.data }}
+                  </td>
+                  <td>
+                    {{ getTotalPrice() }}Ft
+                  </td>
                   <td>
                     <li class="nav-item">
                       <a class="nav-link btn" 
@@ -131,7 +151,7 @@
                          ng-class="{'disabled': !user.id}"
                          ng-disabled="!user.id">
                         <i class="fas fa-shopping-cart me-1"></i>
-                        Vásárlás
+                        {{ 'Shopping' | translate:lang.data }}
                       </a>
                   </li>
                   </td>

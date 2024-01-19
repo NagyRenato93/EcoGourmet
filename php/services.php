@@ -22,16 +22,6 @@ $query = "SELECT id,
 // Execute query
 $result['recipes'] = $db->execute($query);
 
- // Set query for awards and achievements
-$query = "SELECT id, 
-                 title,
-                 description,
-                 date
-                 FROM eco_gourmet_awards_achievements"; 
-
-// Execute query
-$result['awards_achievements'] = $db->execute($query);
-
 
 // Close connection
 $db = null;
